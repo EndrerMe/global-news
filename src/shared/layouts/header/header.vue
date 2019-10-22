@@ -1,5 +1,7 @@
+
 <template>
   <div class="header-wrap">
+    <!-- Header -->
     <div class="header">
       <div class="header-content">
         <div class="top-menu-wrap">
@@ -80,18 +82,393 @@
         </div>
       </div>
     </div>
+
+    <!-- Slider -->
+    <div class="container">
+      <div class="slider-wrap">
+        <b-carousel
+          id="carousel-1"
+          :interval="4000"
+          controls
+          indicators
+          background="#ababab"
+          img-width="1024"
+          img-height="480"
+          style="text-shadow: 1px 1px 2px #333;"
+        >
+          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=52">
+            <div class="slide-title">
+              <span>White House vows to boycott impeachment</span>
+            </div>
+          </b-carousel-slide>
+          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+            <div class="slide-title">
+              <span>Second Slide</span>
+            </div>
+          </b-carousel-slide>
+          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
+            <div class="slide-title">
+              <span>Third Slide</span>
+            </div>
+          </b-carousel-slide>
+        </b-carousel>
+      </div>
+
+      <!-- Business -->
+      <div class="business-wrap">
+        <div class="title-wrap">
+          <span class="title-text">Business</span>
+        </div>
+        <div class="content-wrap">
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-1.png" />
+            </div>
+            <div class="description-wrap">
+              <span>A mobile version of video game Call of Duty has been downloaded more than 100 million times in its first week...</span>
+            </div>
+            <div class="creator-info">
+              <span>6 min ago</span>
+              <span>bbc.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-2.png" />
+            </div>
+            <div class="description-wrap">
+              <span>All 555 Thomas Cook shops are to be bought by rival Hays Travel in a move that could save up to 2,500 jobs. The independent...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestesday</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-3.png" />
+            </div>
+            <div class="description-wrap">
+              <span>Goldman Sachs will review its involvement in the planned stock market listing of Chinese artificial intelligence firm Megvii...</span>
+            </div>
+            <div class="creator-info">
+              <span>October 10, 2019</span>
+              <span>sourcelink</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entertainment -->
+      <div class="entertainment-wrap">
+        <div class="title-wrap">
+          <span class="title-text">Entertainment</span>
+        </div>
+        <div class="content-wrap">
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-4.png" />
+            </div>
+            <div class="description-wrap">
+              <span>On World Mental Health Day, a disabled presenter shares her simple secrets of happiness. Jessica Kellgren-Fozard gets a...</span>
+            </div>
+            <div class="creator-info">
+              <span>6 min ago</span>
+              <span>bbc.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-5.png" />
+            </div>
+            <div class="description-wrap">
+              <span>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestesday</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-6.png" />
+            </div>
+            <div class="description-wrap">
+              <span>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</span>
+            </div>
+            <div class="creator-info">
+              <span>October 10, 2019</span>
+              <span>sourcelink</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Science -->
+      <div class="science-wrap">
+        <div class="title-wrap">
+          <span class="title-text">Science</span>
+        </div>
+        <div class="content-wrap">
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-7.png" />
+            </div>
+            <div class="description-wrap">
+              <span>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</span>
+            </div>
+            <div class="creator-info">
+              <span>6 min ago</span>
+              <span>bbc.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-8.png" />
+            </div>
+            <div class="description-wrap">
+              <span>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestesday</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-9.png" />
+            </div>
+            <div class="description-wrap">
+              <span>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</span>
+            </div>
+            <div class="creator-info">
+              <span>October 10, 2019</span>
+              <span>sourcelink</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
+// Slider
+<style>
+.carousel-caption {
+  position: absolute;
+  right: unset !important;
+  bottom: 140px !important;
+  left: 30px !important;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+.carousel-caption .slide-title {
+  max-width: 400px;
+}
+.carousel-caption .slide-title span {
+  font-size: 40px;
+}
+.carousel-indicators {
+  display: flex;
+  align-items: center;
+}
+.carousel-indicators li {
+  width: 7px !important;
+  height: 7px !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+  opacity: 0.7 !important;
+  cursor: pointer;
+  background-color: #f8c61a !important;
+  background-clip: unset !important;
+  border-radius: 10px;
+  border-top: unset !important;
+  border-bottom: unset !important;
+}
+.carousel-indicators .active {
+  width: 12px !important;
+  height: 12px !important;
+}
+.carousel-control-prev span,
+.carousel-control-next span {
+  display: none;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  background: #453333;
+  width: 50px !important;
+  height: 50px !important;
+  bottom: unset !important;
+  top: 35px !important;
+}
+.carousel .carousel-control-prev {
+  right: 100px !important;
+  left: unset !important;
+}
+.carousel .carousel-control-next {
+  right: 35px !important;
+}
+.carousel .carousel-control-prev::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-left: 2px solod red;
+  border-top: 2px solod red;
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  transform: rotate(45deg);
+  left: 19px;
+}
+.carousel .carousel-control-next::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-left: 2px solod red;
+  border-top: 2px solod red;
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  transform: rotate(223deg);
+  left: 12px;
+}
+</style>
+
+//Business
 <style scoped>
+.business-wrap {
+  margin-top: 94px;
+  text-align: start;
+}
+.business-wrap .title-wrap {
+  border-left: 5px solid #10c7ba;
+}
+.business-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
+}
+.content-wrap {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.elem-wrap {
+  width: 526px;
+}
+.description-wrap {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
+}
+.creator-info {
+  display: flex;
+  justify-content: space-between;
+}
+.description-wrap span {
+  font-size: 16px;
+  font-weight: bold;
+}
+</style>
+
+//Science
+<style scoped>
+.science-wrap {
+  margin-top: 94px;
+  text-align: start;
+}
+.science-wrap .title-wrap {
+  border-left: 5px solid #c710a2;
+}
+.science-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
+}
+.content-wrap {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.elem-wrap {
+  width: 526px;
+}
+.description-wrap {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
+}
+.creator-info {
+  display: flex;
+  justify-content: space-between;
+}
+.description-wrap span {
+  font-size: 16px;
+  font-weight: bold;
+}
+</style>
+
+//Entertainment
+<style scoped>
+.entertainment-wrap {
+  margin-top: 94px;
+  text-align: start;
+}
+.entertainment-wrap .title-wrap {
+  border-left: 5px solid #ff995e;
+}
+.entertainment-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
+}
+.content-wrap {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.elem-wrap {
+  width: 526px;
+}
+.description-wrap {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
+}
+.creator-info {
+  display: flex;
+  justify-content: space-between;
+}
+.description-wrap span {
+  font-size: 16px;
+  font-weight: bold;
+}
+</style>
+
+// Header
+<style scoped>
+.container {
+  max-width: 1638px !important;
+  padding-right: unset !important;
+  padding-left: unset !important;
+}
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
 }
 .top-menu-wrap {
   background-color: #052962;
-}
-.top-menu-wrap .container {
-  max-width: 1638px;
 }
 .bottom-menu {
   background-color: unset !important;
@@ -167,9 +544,6 @@ nav.bottom-menu {
   font-size: 20px;
   position: absolute;
 }
-</style>
-
-<style scoped>
 @media (max-width: 1199px) {
   .bottom-menu ul li a span {
     font-size: 23px;
@@ -180,4 +554,7 @@ nav.bottom-menu {
     font-size: 17px;
   }
 }
+</style>
+
+<style scoped>
 </style>
