@@ -70,7 +70,7 @@
                   </b-nav-item>
 
                   <b-nav-item href="#" class="weather-wrap">
-                    <span>Spotr</span>
+                    <span>Sport</span>
                   </b-nav-item>
                   <b-nav-item href="#" class="weather-wrap">
                     <span>Technology</span>

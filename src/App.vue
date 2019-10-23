@@ -19,7 +19,7 @@
 <script>
 // import Header from "./shared/layouts/header/header";
 
-import Home from "./shared/layouts/header/home";
+import Home from "./shared/layouts/home/home";
 
 export default {
   name: "app",
