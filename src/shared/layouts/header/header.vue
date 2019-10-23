@@ -1,8 +1,8 @@
 
 <template>
-  <div class="header-wrap">
+  <div>
     <!-- Header -->
-    <div class="header">
+    <div class="header-wrap">
       <div class="header-content">
         <div class="top-menu-wrap">
           <div class="container">
@@ -84,7 +84,7 @@
     </div>
 
     <!-- Slider -->
-    <div class="container">
+    <div class="container content">
       <div class="slider-wrap">
         <b-carousel
           id="carousel-1"
@@ -252,8 +252,12 @@
   </div>
 </template>
 
-// Slider
 <style>
+.container.content {
+  max-width: 1638px;
+}
+
+/* Slider */
 .carousel-caption {
   position: absolute;
   right: unset !important;
@@ -335,16 +339,15 @@
   transform: rotate(223deg);
   left: 12px;
 }
-</style>
 
-//Business
-<style scoped>
+/* Business */
 .business-wrap {
-  margin-top: 94px;
+  margin-top: 60px;
   text-align: start;
 }
 .business-wrap .title-wrap {
-  border-left: 5px solid #10c7ba;
+    border-left: 5px solid #c710a2;
+
 }
 .business-wrap .title-wrap .title-text {
   display: block;
@@ -375,52 +378,10 @@
   font-size: 16px;
   font-weight: bold;
 }
-</style>
 
-//Science
-<style scoped>
-.science-wrap {
-  margin-top: 94px;
-  text-align: start;
-}
-.science-wrap .title-wrap {
-  border-left: 5px solid #c710a2;
-}
-.science-wrap .title-wrap .title-text {
-  display: block;
-  font-size: 32px;
-  font-family: "Poppins";
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding: 6px 30px;
-}
-.content-wrap {
-  display: flex;
-  margin-top: 30px;
-  justify-content: space-between;
-}
-.elem-wrap {
-  width: 526px;
-}
-.description-wrap {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
-}
-.creator-info {
-  display: flex;
-  justify-content: space-between;
-}
-.description-wrap span {
-  font-size: 16px;
-  font-weight: bold;
-}
-</style>
-
-//Entertainment
-<style scoped>
+/* Entertainment */
 .entertainment-wrap {
-  margin-top: 94px;
+  margin-top: 60px;
   text-align: start;
 }
 .entertainment-wrap .title-wrap {
@@ -455,11 +416,47 @@
   font-size: 16px;
   font-weight: bold;
 }
-</style>
 
-// Header
-<style scoped>
-.container {
+/* Science */
+.science-wrap {
+  margin-top: 60px;
+  text-align: start;
+}
+.science-wrap .title-wrap {
+  border-left: 5px solid #10c7ba;
+}
+.science-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
+}
+.content-wrap {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.elem-wrap {
+  width: 526px;
+}
+.description-wrap {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
+}
+.creator-info {
+  display: flex;
+  justify-content: space-between;
+}
+.description-wrap span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Header */
+.header-wrap .top-menu-wrap .container {
   max-width: 1638px !important;
   padding-right: unset !important;
   padding-left: unset !important;
@@ -470,8 +467,9 @@
 .top-menu-wrap {
   background-color: #052962;
 }
-.bottom-menu {
+nav.bottom-menu {
   background-color: unset !important;
+  margin: 0 auto;
   padding: 41px !important;
 }
 .bottom-menu button {
@@ -481,9 +479,6 @@
   color: #3f3f3f;
   font-size: 26px;
   font-weight: bold;
-}
-nav.bottom-menu {
-  margin: 0 auto;
 }
 .bottom-menu-wrap .navbar-nav {
   width: 100%;
@@ -556,5 +551,3 @@ nav.bottom-menu {
 }
 </style>
 
-<style scoped>
-</style>
