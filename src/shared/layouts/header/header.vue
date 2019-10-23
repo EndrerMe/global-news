@@ -249,14 +249,129 @@
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container content">
+        <div class="content">
+          <div class="left-item">
+            <img src="../../../assets/images/logo.svg" alt="logo" />
+          </div>
+          <div class="center-item">
+            <span class="text">Copyright © 2019 Global New. All rights reserved</span>
+          </div>
+          <div class="right-item">
+            <button>Subscribe Us</button>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <style>
-.container.content {
-  max-width: 1638px;
+/* Header */
+.header-wrap .top-menu-wrap .container {
+  max-width: 1638px !important;
+  padding-right: unset !important;
+  padding-left: unset !important;
+}
+.top-menu-wrap .navbar {
+  background-color: #052962 !important;
+}
+.top-menu-wrap {
+  background-color: #052962;
+}
+nav.bottom-menu {
+  background-color: unset !important;
+  margin: 0 auto;
+  padding: 41px !important;
+}
+.bottom-menu button {
+  background: black;
+}
+.bottom-menu ul li a span {
+  color: #3f3f3f;
+  font-size: 26px;
+  font-weight: bold;
+}
+.bottom-menu-wrap .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-menu-wrap .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-menu-wrap .navbar-nav li a svg {
+  margin: 0 20px;
+  color: rgb(248, 198, 26);
+}
+.top-menu-wrap .navbar-nav li.weather-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.top-menu-wrap .navbar-nav li.weather-wrap .weather-dropdown-arrow {
+  position: absolute;
+  top: 25px;
+  right: -46px;
+}
+.top-menu-wrap .navbar-nav li.weather-wrap p {
+  margin-bottom: 0;
+}
+.top-menu-wrap .navbar-nav li .nav-link {
+  padding: 0 !important;
+}
+.top-menu-wrap .navbar-nav li a span {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar-nav li a {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar-nav li .nav-item {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar {
+  padding: 17px;
+}
+.top-menu-wrap .navbar-brand {
+  padding: 0;
+}
+.top-menu-wrap .current-date a {
+  display: flex;
+  flex-direction: column;
+}
+.top-menu-wrap .weather-value {
+  font-family: "Semibold";
+  font-size: 28px;
+}
+.top-menu-wrap .weather-value .celsius-value {
+  font-size: 20px;
+  position: absolute;
+}
+@media (max-width: 1199px) {
+  .bottom-menu ul li a span {
+    font-size: 23px;
+  }
+}
+@media (max-width: 991px) {
+  .bottom-menu ul li a span {
+    font-size: 17px;
+  }
 }
 
+/* Content */
+.container.content {
+  max-width: 1638px;
+  padding-bottom: 80px;
+}
+
+/* Content */
 /* Slider */
 .carousel-caption {
   position: absolute;
@@ -340,24 +455,7 @@
   left: 12px;
 }
 
-/* Business */
-.business-wrap {
-  margin-top: 60px;
-  text-align: start;
-}
-.business-wrap .title-wrap {
-    border-left: 5px solid #c710a2;
-
-}
-.business-wrap .title-wrap .title-text {
-  display: block;
-  font-size: 32px;
-  font-family: "Poppins";
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding: 6px 30px;
-}
+/* Common for Business, Entertainment, Science */
 .content-wrap {
   display: flex;
   margin-top: 30px;
@@ -373,12 +471,33 @@
 .creator-info {
   display: flex;
   justify-content: space-between;
+  padding-top: 15px;
 }
 .description-wrap span {
   font-size: 16px;
   font-weight: bold;
 }
 
+/* Content */
+/* Business */
+.business-wrap {
+  margin-top: 60px;
+  text-align: start;
+}
+.business-wrap .title-wrap {
+  border-left: 5px solid #c710a2;
+}
+.business-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
+}
+
+/* Content */
 /* Entertainment */
 .entertainment-wrap {
   margin-top: 60px;
@@ -396,27 +515,8 @@
   letter-spacing: 10px;
   padding: 6px 30px;
 }
-.content-wrap {
-  display: flex;
-  margin-top: 30px;
-  justify-content: space-between;
-}
-.elem-wrap {
-  width: 526px;
-}
-.description-wrap {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
-}
-.creator-info {
-  display: flex;
-  justify-content: space-between;
-}
-.description-wrap span {
-  font-size: 16px;
-  font-weight: bold;
-}
 
+/* Content */
 /* Science */
 .science-wrap {
   margin-top: 60px;
@@ -434,120 +534,46 @@
   letter-spacing: 10px;
   padding: 6px 30px;
 }
-.content-wrap {
-  display: flex;
-  margin-top: 30px;
-  justify-content: space-between;
-}
-.elem-wrap {
-  width: 526px;
-}
-.description-wrap {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
-}
-.creator-info {
-  display: flex;
-  justify-content: space-between;
-}
-.description-wrap span {
-  font-size: 16px;
-  font-weight: bold;
-}
 
-/* Header */
-.header-wrap .top-menu-wrap .container {
-  max-width: 1638px !important;
-  padding-right: unset !important;
-  padding-left: unset !important;
-}
-.top-menu-wrap .navbar {
-  background-color: #052962 !important;
-}
-.top-menu-wrap {
+/* Footer */
+footer {
+  /* height: 100px; */
   background-color: #052962;
 }
-nav.bottom-menu {
-  background-color: unset !important;
-  margin: 0 auto;
-  padding: 41px !important;
-}
-.bottom-menu button {
-  background: black;
-}
-.bottom-menu ul li a span {
-  color: #3f3f3f;
-  font-size: 26px;
-  font-weight: bold;
-}
-.bottom-menu-wrap .navbar-nav {
+footer .content {
   width: 100%;
+  height: 100px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
-.top-menu-wrap .navbar-nav {
-  width: 100%;
+
+footer .left-item,
+footer .right-item {
+  margin: auto 0;
+}
+
+footer .center-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-.top-menu-wrap .navbar-nav li a svg {
-  margin: 0 15px;
-  color: rgb(248, 198, 26);
-}
-.top-menu-wrap .navbar-nav li.weather-wrap {
-  position: relative;
+footer .center-item .text {
+  color: white;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 5px;
+  font-size: 10px;
 }
-.top-menu-wrap .navbar-nav li.weather-wrap .weather-dropdown-arrow {
-  position: absolute;
-  top: 25px;
-  right: -46px;
+
+footer .right-item button {
+  width: 242px;
+  height: 48px;
+  background-color: #f8c61a;
+  color: #052962;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+  border: none;
+  letter-spacing: 1px;
 }
-.top-menu-wrap .navbar-nav li.weather-wrap p {
-  margin-bottom: 0;
-}
-.top-menu-wrap .navbar-nav li .nav-link {
-  padding: 0 !important;
-}
-.top-menu-wrap .navbar-nav li a span {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar-nav li a {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar-nav li .nav-item {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar {
-  padding: 17px;
-}
-.top-menu-wrap .navbar-brand {
-  padding: 0;
-}
-.top-menu-wrap .current-date a {
-  display: flex;
-  flex-direction: column;
-}
-.top-menu-wrap .weather-value {
-  font-family: "Semibold";
-  font-size: 28px;
-}
-.top-menu-wrap .weather-value .celsius-value {
-  font-size: 20px;
-  position: absolute;
-}
-@media (max-width: 1199px) {
-  .bottom-menu ul li a span {
-    font-size: 23px;
-  }
-}
-@media (max-width: 991px) {
-  .bottom-menu ul li a span {
-    font-size: 17px;
-  }
-}
+
 </style>
 
