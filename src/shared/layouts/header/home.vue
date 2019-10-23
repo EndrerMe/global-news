@@ -5,7 +5,7 @@
     <div class="header-wrap">
       <div class="header-content">
         <div class="top-menu-wrap">
-          <div class="container content">
+          <div class="container">
             <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
@@ -82,284 +82,174 @@
         </div>
       </div>
     </div>
+
+    <!-- Slider -->
     <div class="container content">
-      <!-- Top title -->
-      <div class="main-title-wrap">
-        <span class="text">Entertainment</span>
+      <div class="slider-wrap">
+        <b-carousel
+          id="carousel-1"
+          :interval="4000"
+          controls
+          indicators
+          background="#ababab"
+          img-width="1024"
+          img-height="480"
+          style="text-shadow: 1px 1px 2px #333;"
+        >
+          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=52">
+            <div class="slide-title">
+              <span>White House vows to boycott impeachment</span>
+            </div>
+          </b-carousel-slide>
+          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+            <div class="slide-title">
+              <span>Second Slide</span>
+            </div>
+          </b-carousel-slide>
+          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
+            <div class="slide-title">
+              <span>Third Slide</span>
+            </div>
+          </b-carousel-slide>
+        </b-carousel>
       </div>
 
-      <!-- Top-box with 4 images -->
-      <div class="top-box-preview">
-        <div class="left-side">
-          <div class="gradient"></div>
-          <img src="../../../assets/images/entertainment/img-1.png" />
-          <div class="title-wrap">
-            <span class="title">
-              <p>YouTuber Jessica Kellgren-Fozard:</p>
-              <p>"It's OK not to be OK"</p>
-            </span>
-          </div>
+      <!-- Business -->
+      <div class="business-wrap">
+        <div class="title-wrap">
+          <span class="title-text">Business</span>
         </div>
-        <div class="right-side">
-          <div class="image-wrap">
-            <div class="gradient"></div>
-            <img src="../../../assets/images/entertainment/img-2.png" />
-          </div>
-          <div class="right-side-bottom">
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-3.png" />
-            </div>
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-4.png" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Posts -->
-      <div class="posts-wrap">
-        <div class="row">
+        <div class="content-wrap">
           <div class="elem-wrap">
             <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-5.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>How tech changed the way</p>
-                  <p>DreamWorks animates</p>
-                </span>
-              </div>
+              <img src="../../../assets/images/business/img-1.png" />
             </div>
             <div class="description-wrap">
-              <span>DreamWorks Animation has made blockbusters ranging from Shrek to Kung Fu Panda and How to Train Your Dragon. As...</span>
+              <span>A mobile version of video game Call of Duty has been downloaded more than 100 million times in its first week...</span>
             </div>
             <div class="creator-info">
               <span>6 min ago</span>
+              <span>bbc.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-2.png" />
+            </div>
+            <div class="description-wrap">
+              <span>All 555 Thomas Cook shops are to be bought by rival Hays Travel in a move that could save up to 2,500 jobs. The independent...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestesday</span>
               <span>sourcelink.com</span>
             </div>
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-6.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Five Star: Making Rain or Shine was "an ordeal",</p>
-                  <p>says</p>
-                </span>
-              </div>
+              <img src="../../../assets/images/business/img-3.png" />
+            </div>
+            <div class="description-wrap">
+              <span>Goldman Sachs will review its involvement in the planned stock market listing of Chinese artificial intelligence firm Megvii...</span>
+            </div>
+            <div class="creator-info">
+              <span>October 10, 2019</span>
+              <span>sourcelink</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entertainment -->
+      <div class="entertainment-wrap">
+        <div class="title-wrap">
+          <span class="title-text">Entertainment</span>
+        </div>
+        <div class="content-wrap">
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-4.png" />
+            </div>
+            <div class="description-wrap">
+              <span>On World Mental Health Day, a disabled presenter shares her simple secrets of happiness. Jessica Kellgren-Fozard gets a...</span>
+            </div>
+            <div class="creator-info">
+              <span>6 min ago</span>
+              <span>bbc.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-5.png" />
             </div>
             <div class="description-wrap">
               <span>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</span>
             </div>
             <div class="creator-info">
-              <span>2 hours ago</span>
+              <span>Yestesday</span>
               <span>sourcelink.com</span>
             </div>
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-7.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Rapper Jack Grange says music</p>
-                  <p>releases ADHD "anger"</p>
-                </span>
-              </div>
+              <img src="../../../assets/images/business/img-6.png" />
             </div>
             <div class="description-wrap">
               <span>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</span>
             </div>
             <div class="creator-info">
-              <span>Yestrday</span>
-              <span>sourcelink.com</span>
+              <span>October 10, 2019</span>
+              <span>sourcelink</span>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-8.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>His Dark Materials: Behind the scenes of the TV</p>
-                  <p>adaptation</p>
-                </span>
-              </div>
-            </div>
-            <div class="description-wrap">
-              <span>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-9.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Elton John:</p>
-                  <p>"I still want my dad's approval"</p>
-                </span>
-              </div>
-            </div>
-            <div class="description-wrap">
-              <span>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</span>
-            </div>
-            <div class="creator-info">
-              <span>2 hours ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-10.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Brit winner Finley Quaye sentenced for bar</p>
-                  <p>manager attack</p>
-                </span>
-              </div>
-            </div>
-            <div class="description-wrap">
-              <span>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestrday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-        </div>
+      </div>
 
-        <div class="row">
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-11.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Booker Prize: Margaret Atwood and Bernardine</p>
-                  <p>Evaristo share award</p>
-                </span>
-              </div>
-            </div>
-            <div class="description-wrap">
-              <span>Margaret Atwood and Bernardine Evaristo have been named the joint winners of the 2019 Booker Prize after the judges broke...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-12.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Pharrell says he's "embarrassed" by</p>
-                  <p>Blurred Lines lyrics</p>
-                </span>
-              </div>
-            </div>
-            <div class="description-wrap">
-              <span>Pharrell Williams says the controversy surrounding Blurred Lines made him realise some of his songs "catered" to a sexist...</span>
-            </div>
-            <div class="creator-info">
-              <span>2 hours ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-13.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>John le Carré:</p>
-                  <p>"Politicians love chaos - it gives them authority"</p>
-                </span>
-              </div>
-            </div>
-            <div class="description-wrap">
-              <span>Ahead of the release of his latest novel, novelist and former MI6 spy John le Carré talks to the BBC about our world leaders...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestrday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
+      <!-- Science -->
+      <div class="science-wrap">
+        <div class="title-wrap">
+          <span class="title-text">Science</span>
         </div>
-
-        <div class="row">
+        <div class="content-wrap">
           <div class="elem-wrap">
             <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-14.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Russian rappers battle police</p>
-                  <p>over protests</p>
-                </span>
-              </div>
+              <img src="../../../assets/images/business/img-7.png" />
             </div>
             <div class="description-wrap">
-              <span>Several Russian musicians with a youth following, have released songs to denounce police action, during recent protests in...</span>
+              <span>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</span>
             </div>
             <div class="creator-info">
               <span>6 min ago</span>
+              <span>bbc.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <img src="../../../assets/images/business/img-8.png" />
+            </div>
+            <div class="description-wrap">
+              <span>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestesday</span>
               <span>sourcelink.com</span>
             </div>
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-15.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Bill Turnbull backs cannabis for medicinal use</p>
-                  <p>ahead of cancer doc</p>
-                </span>
-              </div>
+              <img src="../../../assets/images/business/img-9.png" />
             </div>
             <div class="description-wrap">
-              <span>Broadcaster Bill Turnbull says there should be a "proper conversation" in the UK about the use of cannabis for...</span>
+              <span>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</span>
             </div>
             <div class="creator-info">
-              <span>2 hours ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-16.png" />
-              <div class="title-wrap">
-                <span class="title">
-                  <p>Billy Connolly: 'Nothing else will keep you going</p>
-                  <p>like laughter'</p>
-                </span>
-              </div>
-            </div>
-            <div class="description-wrap">
-              <span>Billy Connolly retired from stand-up in 2018, six years after being diagnosed with Parkinson's Disease. In a new book, he shares...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestrday</span>
-              <span>sourcelink.com</span>
+              <span>October 10, 2019</span>
+              <span>sourcelink</span>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Footer -->
     <footer>
       <div class="container content">
@@ -379,141 +269,7 @@
   </div>
 </template>
 
-<style scoped>
-/* Top-box-preview */
-.content .main-title-wrap .text {
-  position: relative;
-  font-size: 36px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding-left: 86px;
-}
-
-.content .main-title-wrap .text::before {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  width: 102px;
-  height: 37px;
-  background-color: #FF995E;
-  left: 0;
-  top: 0;
-}
-
-.content .top-box-preview {
-  margin-top: 42px;
-  margin-bottom: 60px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.left-side {
-  position: relative;
-}
-
-.right-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.right-side .image-wrap {
-  position: relative;
-}
-.right-side-bottom {
-  display: flex;
-  justify-content: space-between;
-}
-
-.posts-wrap .row {
-  margin-right: 0;
-  margin-left: 0;
-  flex-wrap: unset;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 60px;
-}
-
-.description-wrap,
-.creator-info {
-  max-width: 526px;
-  text-align: start;
-}
-
-.description-wrap {
-  margin-top: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #d5d3d3;
-}
-
-.elem-wrap .image-wrap {
-  position: relative;
-}
-
-.gradient {
-  position: absolute;
-  top: 0bott;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.9416141456582633) 0%,
-    rgba(255, 255, 255, 0) 30%
-  );
-}
-
-.top-box-preview .left-side {
-  position: relative;
-}
-.top-box-preview .left-side .title-wrap {
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-}
-
-.top-box-preview .left-side .title-wrap span {
-  color: white;
-  text-align: start;
-  font-weight: bold;
-  font-size: 32px;
-}
-
-.top-box-preview .left-side .title-wrap span p {
-  margin-bottom: 5px;
-}
-
-
-.elem-wrap .image-wrap .title-wrap {
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-}
-
-.elem-wrap .image-wrap .title-wrap span {
-  color: white;
-  text-align: start;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.elem-wrap .image-wrap .title-wrap span p {
-  margin-bottom: 5px;
-}
-
-.creator-info {
-  margin-top: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.creator-info span {
-  color: #9e9e9e;
-}
-
+<style>
 /* Header */
 .header-wrap .top-menu-wrap .container {
   max-width: 1638px !important;
@@ -522,8 +278,6 @@
 }
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
-  padding-left: unset !important;
-  padding-right: unset !important;
 }
 .top-menu-wrap {
   background-color: #052962;
@@ -614,13 +368,177 @@ nav.bottom-menu {
 /* Content */
 .container.content {
   max-width: 1638px;
-  padding: 0;
+  /* padding-bottom: 80px; */
+}
+
+/* Content */
+/* Slider */
+.carousel-caption {
+  position: absolute;
+  right: unset !important;
+  bottom: 140px !important;
+  left: 30px !important;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+.carousel-caption .slide-title {
+  max-width: 400px;
+}
+.carousel-caption .slide-title span {
+  font-size: 40px;
+}
+.carousel-indicators {
+  display: flex;
+  align-items: center;
+}
+.carousel-indicators li {
+  width: 7px !important;
+  height: 7px !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+  opacity: 0.7 !important;
+  cursor: pointer;
+  background-color: #f8c61a !important;
+  background-clip: unset !important;
+  border-radius: 10px;
+  border-top: unset !important;
+  border-bottom: unset !important;
+}
+.carousel-indicators .active {
+  width: 12px !important;
+  height: 12px !important;
+}
+.carousel-control-prev span,
+.carousel-control-next span {
+  display: none;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  background: #453333;
+  width: 50px !important;
+  height: 50px !important;
+  bottom: unset !important;
+  top: 35px !important;
+}
+.carousel .carousel-control-prev {
+  right: 100px !important;
+  left: unset !important;
+}
+.carousel .carousel-control-next {
+  right: 35px !important;
+}
+.carousel .carousel-control-prev::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-left: 2px solod red;
+  border-top: 2px solod red;
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  transform: rotate(45deg);
+  left: 19px;
+}
+.carousel .carousel-control-next::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-left: 2px solod red;
+  border-top: 2px solod red;
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  transform: rotate(223deg);
+  left: 12px;
+}
+
+/* Common for Business, Entertainment, Science */
+.content-wrap {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.elem-wrap {
+  width: 526px;
+}
+.description-wrap {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
+}
+.creator-info {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+.description-wrap span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Content */
+/* Business */
+.business-wrap {
+  margin-top: 60px;
+  text-align: start;
+}
+.business-wrap .title-wrap {
+  border-left: 5px solid #c710a2;
+}
+.business-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
+}
+
+/* Content */
+/* Entertainment */
+.entertainment-wrap {
+  margin-top: 60px;
+  text-align: start;
+}
+.entertainment-wrap .title-wrap {
+  border-left: 5px solid #ff995e;
+}
+.entertainment-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
+}
+
+/* Content */
+/* Science */
+.science-wrap {
+  margin-top: 60px;
+  text-align: start;
+}
+.science-wrap .title-wrap {
+  border-left: 5px solid #10c7ba;
+}
+.science-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
 }
 
 /* Footer */
 footer {
-  margin-top: 72px;
   background-color: #052962;
+  margin-top: 72px;
 }
 footer .content {
   width: 100%;
@@ -656,5 +574,6 @@ footer .right-item button {
   border: none;
   letter-spacing: 1px;
 }
+
 </style>
 

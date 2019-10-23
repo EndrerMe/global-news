@@ -537,8 +537,8 @@ nav.bottom-menu {
 
 /* Footer */
 footer {
-  /* height: 100px; */
   background-color: #052962;
+  margin-top: 72px;
 }
 footer .content {
   width: 100%;
