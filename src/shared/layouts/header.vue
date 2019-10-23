@@ -368,7 +368,7 @@ nav.bottom-menu {
 /* Content */
 .container.content {
   max-width: 1638px;
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
 }
 
 /* Content */

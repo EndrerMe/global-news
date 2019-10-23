@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <!-- <Header></Header> -->
+    <Home></Home>
+
   </div>
 </template>
 
@@ -15,12 +17,14 @@
 </style>
 
 <script>
-import Header from "./shared/layouts/header/header";
+// import Header from "./shared/layouts/header/header";
+
+import Home from "./shared/layouts/header/home";
 
 export default {
   name: "app",
   components: {
-    Header
+    Home
   }
 };
 </script>
