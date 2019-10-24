@@ -89,8 +89,8 @@
       </div>
 
       <!-- Top-box with 4 images -->
-      <div class="top-box-preview">
-        <div class="left-side">
+      <div class="top-box-preview row">
+        <div class="left-side col-md-6">
           <div class="gradient"></div>
           <img src="../../../../assets/images/entertainment/img-1.png" />
           <div class="title-wrap">
@@ -100,31 +100,50 @@
             </span>
           </div>
         </div>
-        <div class="right-side">
-          <div class="image-wrap">
+        <div class="right-side col-md-6">
+          <div class="image-wrap right-side-top">
             <div class="gradient"></div>
             <img src="../../../../assets/images/entertainment/img-2.png" />
+
+            <div class="title-wrap">
+              <span class="title">
+                <p>Nobel Prize for Literature to name</p>
+                <p>two winners after scandal-hit year</p>
+              </span>
+            </div>
           </div>
-          <div class="right-side-bottom">
-            <div class="image-wrap">
+          <div class="right-side-bottom row">
+            <div class="image-wrap col-md-6">
               <div class="gradient"></div>
               <img src="../../../../assets/images/entertainment/img-3.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Rihanna wouldn't "sell out" for</p>
+                  <p>halftime Superbowl show</p>
+                </span>
+              </div>
             </div>
-            <div class="image-wrap">
+            <div class="image-wrap col-md-6">
               <div class="gradient"></div>
               <img src="../../../../assets/images/entertainment/img-4.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Sesame Street to cover opioid</p>
+                  <p>addiction with new muppet Karli</p>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Posts -->
-      <div class="posts-wrap">
-        <div class="row">
-          <div class="elem-wrap">
+      <b-card-group deck row>
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-5.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-5.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>How tech changed the way</p>
@@ -132,37 +151,40 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>DreamWorks Animation has made blockbusters ranging from Shrek to Kung Fu Panda and How to Train Your Dragon. As...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
+            <b-card-text>DreamWorks Animation has made blockbusters ranging from Shrek to Kung Fu Panda and How to Train Your Dragon. As...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">6 min ago</small>
+              <small class="text-muted">bbc.com</small>
+            </template>
+          </b-card>
+        </div>
+
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-6.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-6.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Five Star: Making Rain or Shine was "an ordeal",</p>
-                  <p>says</p>
+                  <p>says Doris Pearson</p>
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</span>
-            </div>
-            <div class="creator-info">
-              <span>2 hours ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
+
+            <b-card-text>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">Yestesday</small>
+              <small class="text-muted">sourcelink.com</small>
+            </template>
+          </b-card>
+        </div>
+
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-7.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-7.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Rapper Jack Grange says music</p>
@@ -170,20 +192,22 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestrday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
+
+            <b-card-text>A teenage rap artist says performing music has helped him come to terms with his ADHD and release his "inside anger". Eighteen...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">October 10, 2019</small>
+              <small class="text-muted">sourcelink.com</small>
+            </template>
+          </b-card>
         </div>
-        <div class="row">
-          <div class="elem-wrap">
+      </b-card-group>
+
+      <b-card-group deck row>
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-8.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-8.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>His Dark Materials: Behind the scenes of the TV</p>
@@ -191,18 +215,20 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
+
+            <b-card-text>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">6 min ago</small>
+              <small class="text-muted">bbc.com</small>
+            </template>
+          </b-card>
+        </div>
+
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-9.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-9.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Elton John:</p>
@@ -210,18 +236,20 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</span>
-            </div>
-            <div class="creator-info">
-              <span>2 hours ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
+
+            <b-card-text>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">Yestesday</small>
+              <small class="text-muted">sourcelink.com</small>
+            </template>
+          </b-card>
+        </div>
+
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-10.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-10.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Brit winner Finley Quaye sentenced for bar</p>
@@ -229,21 +257,22 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestrday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="elem-wrap">
+            <b-card-text>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">October 10, 2019</small>
+              <small class="text-muted">sourcelink.com</small>
+            </template>
+          </b-card>
+        </div>
+      </b-card-group>
+
+      <b-card-group deck row>
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-11.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-11.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Booker Prize: Margaret Atwood and Bernardine</p>
@@ -251,18 +280,20 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>Margaret Atwood and Bernardine Evaristo have been named the joint winners of the 2019 Booker Prize after the judges broke...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
+
+            <b-card-text>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">6 min ago</small>
+              <small class="text-muted">bbc.com</small>
+            </template>
+          </b-card>
+        </div>
+
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-12.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-12.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Pharrell says he's "embarrassed" by</p>
@@ -270,18 +301,20 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>Pharrell Williams says the controversy surrounding Blurred Lines made him realise some of his songs "catered" to a sexist...</span>
-            </div>
-            <div class="creator-info">
-              <span>2 hours ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
+
+            <b-card-text>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">Yestesday</small>
+              <small class="text-muted">sourcelink.com</small>
+            </template>
+          </b-card>
+        </div>
+
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-13.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-13.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>John le Carré:</p>
@@ -289,21 +322,22 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>Ahead of the release of his latest novel, novelist and former MI6 spy John le Carré talks to the BBC about our world leaders...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestrday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="elem-wrap">
+            <b-card-text>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">October 10, 2019</small>
+              <small class="text-muted">sourcelink.com</small>
+            </template>
+          </b-card>
+        </div>
+      </b-card-group>
+
+      <b-card-group deck row>
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-14.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-14.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Russian rappers battle police</p>
@@ -311,37 +345,41 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>Several Russian musicians with a youth following, have released songs to denounce police action, during recent protests in...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
+
+            <b-card-text>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">6 min ago</small>
+              <small class="text-muted">bbc.com</small>
+            </template>
+          </b-card>
+        </div>
+
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-15.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-15.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
-                  <p>Bill Turnbull backs cannabis for medicinal use</p>
-                  <p>ahead of cancer doc</p>
+                  <p>Bill Turnbull backs cannabis for medicinal</p>
+                  <p>use ahead of cancer doc</p>
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>Broadcaster Bill Turnbull says there should be a "proper conversation" in the UK about the use of cannabis for...</span>
-            </div>
-            <div class="creator-info">
-              <span>2 hours ago</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
+
+            <b-card-text>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">Yestesday</small>
+              <small class="text-muted">sourcelink.com</small>
+            </template>
+          </b-card>
+        </div>
+
+        <div class="col-md-4">
+          <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../../assets/images/entertainment/img-16.png" />
+              <b-card-img :src="require('../../../../assets/images/entertainment/img-13.png')"></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Billy Connolly: 'Nothing else will keep you going</p>
@@ -349,35 +387,39 @@
                 </span>
               </div>
             </div>
-            <div class="description-wrap">
-              <span>Billy Connolly retired from stand-up in 2018, six years after being diagnosed with Parkinson's Disease. In a new book, he shares...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestrday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
+
+            <b-card-text>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">October 10, 2019</small>
+              <small class="text-muted">sourcelink.com</small>
+            </template>
+          </b-card>
         </div>
-      </div>
+      </b-card-group>
+
       <div class="pagination-wrap">
         <button class="double-arrow-left"></button>
         <button class="arrow-left"></button>
 
-        <button href="#" class="page-number">
-          <span class="value">1</span>
-        </button>
-        <button href="#" class="page-number">
-          <span class="value">2</span>
-        </button>
-        <button href="#" class="page-number">
-          <span class="value">3</span>
-        </button>
+        <div class="numbers-wrap">
+          <button href="#" class="page-number">
+            <span class="value">1</span>
+          </button>
+          <button href="#" class="page-number active">
+            <span class="value">2</span>
+          </button>
+          <button href="#" class="page-number">
+            <span class="value">3</span>
+          </button>
 
-        <span class="separator">...</span>
+          <div class="separator-wrap">
+            <span class="separator">...</span>
+          </div>
 
-        <button href="#" class="page-number">
-          <span class="value">16</span>
-        </button>
+          <button href="#" class="page-number">
+            <span class="value">16</span>
+          </button>
+        </div>
 
         <button href="#" class="arrow-right"></button>
         <button href="#" class="double-arrow-right"></button>
@@ -402,22 +444,41 @@
   </div>
 </template>
 
+
+
 <style>
 /* Pagination */
+
+.pagination-wrap .separator-wrap{
+  display: inline-flex;
+  vertical-align: top;
+}
+
+.pagination-wrap .separator-wrap .separator{
+margin-top: 5px;  
+}
+
+.pagination-wrap .numbers-wrap .separator {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.pagination-wrap .numbers-wrap button {
+  margin-top: 11px;
+  margin-left: 5px;
+  margin-right: 8px;
+}
 
 .pagination-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.pagination-wrap button{
+.pagination-wrap button {
   background-color: unset;
-
 }
 
-
-
-.pagination-wrap .page-number{
+.pagination-wrap .page-number {
   position: relative;
   padding: 0;
   font-size: 20px;
@@ -426,20 +487,26 @@
   width: 32px;
   height: 32px;
   border-radius: 25px;
-  /* border: 1px solid transparent; */
-    border:1px solid #052962 ;
-
+  border: 1px solid transparent;
 }
 
-.pagination-wrap .page-number span{
-  /* position: absolute;
-  top: 0; */
+.pagination-wrap .page-number.active {
+  background-color: #052962;
+}
+.pagination-wrap .page-number.active span {
+  color: #f8c61a;
 }
 
-.pagination-wrap .page-number:hover{
-  border:1px solid #052962 ;
+.pagination-wrap .page-number span {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+.pagination-wrap .page-number:hover {
+  border: 1px solid #052962;
+}
 
 .pagination-wrap .double-arrow-right {
   position: relative;
@@ -448,7 +515,6 @@
   border: none;
   width: 30px;
   height: 30px;
-  border: 1px solid;
 }
 
 .pagination-wrap .double-arrow-right::before {
@@ -481,8 +547,6 @@
   top: 10px;
 }
 
-
-
 .pagination-wrap .double-arrow-left {
   position: relative;
   padding: 0;
@@ -490,7 +554,6 @@
   border: none;
   width: 30px;
   height: 30px;
-  border: 1px solid;
 }
 
 .pagination-wrap .double-arrow-left::before {
@@ -523,8 +586,6 @@
   top: 10px;
 }
 
-
-
 .pagination-wrap .arrow-left {
   position: relative;
   padding: 0;
@@ -532,7 +593,6 @@
   border: none;
   width: 30px;
   height: 30px;
-  border: 1px solid;
 }
 
 .pagination-wrap .arrow-left::before {
@@ -559,7 +619,6 @@
   border: none;
   width: 30px;
   height: 30px;
-  border: 1px solid;
 }
 
 .pagination-wrap .arrow-right::before {
@@ -578,6 +637,56 @@
 }
 </style>
 
+<style>
+.new-card {
+  margin: 0 !important;
+  border: none !important;
+}
+
+.new-card .card-body {
+  padding: 0 !important;
+}
+
+.new-card .image-wrap {
+  position: relative;
+}
+
+.card-deck {
+  margin-bottom: 35px;
+}
+
+.card-deck .card-body .image-wrap .gradient {
+  margin: 0;
+}
+
+.new-card .title-wrap {
+  position: absolute;
+  bottom: 10px;
+  font-size: 20px;
+  color: white;
+  font-size: bold;
+  text-align: start;
+  left: 25px;
+  bottom: 25px;
+}
+.new-card .title-wrap p {
+  margin-bottom: 0;
+}
+
+.new-card .card-footer {
+  background: transparent;
+  text-align: start;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-card .card-text {
+  padding: 18px 0 13px 0;
+  text-align: start;
+}
+</style>
 
 <style scoped>
 /* Top-box-preview */
@@ -608,6 +717,10 @@
   justify-content: space-between;
 }
 
+.content .top-box-preview img {
+  width: 100%;
+}
+
 .left-side {
   position: relative;
 }
@@ -626,20 +739,19 @@
   justify-content: space-between;
 }
 
-.posts-wrap .row {
+.right-side .right-side-top .title-wrap span,
+.right-side .right-side-bottom .title-wrap span {
+  font-size: 20px;
+}
+
+/* .posts-wrap .row {
   margin-right: 0;
   margin-left: 0;
   flex-wrap: unset;
   display: flex;
   justify-content: space-between;
   margin-bottom: 60px;
-}
-
-.description-wrap,
-.creator-info {
-  max-width: 526px;
-  text-align: start;
-}
+} */
 
 .description-wrap {
   margin-top: 20px;
@@ -664,25 +776,26 @@
     rgba(0, 0, 0, 0.9416141456582633) 0%,
     rgba(255, 255, 255, 0) 30%
   );
+  margin: 0 15px;
 }
 
 .top-box-preview .left-side {
   position: relative;
 }
-.top-box-preview .left-side .title-wrap {
+.top-box-preview .title-wrap {
   position: absolute;
   bottom: 25px;
   left: 25px;
 }
 
-.top-box-preview .left-side .title-wrap span {
+.top-box-preview .title-wrap span {
   color: white;
   text-align: start;
   font-weight: bold;
   font-size: 32px;
 }
 
-.top-box-preview .left-side .title-wrap span p {
+.top-box-preview .title-wrap span p {
   margin-bottom: 5px;
 }
 
@@ -701,16 +814,6 @@
 
 .elem-wrap .image-wrap .title-wrap span p {
   margin-bottom: 5px;
-}
-
-.creator-info {
-  margin-top: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.creator-info span {
-  color: #9e9e9e;
 }
 
 /* Header */
@@ -813,7 +916,6 @@ nav.bottom-menu {
 /* Content */
 .container.content {
   max-width: 1638px;
-  padding: 0;
 }
 
 /* Footer */

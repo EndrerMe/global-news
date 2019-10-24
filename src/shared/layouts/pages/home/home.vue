@@ -244,7 +244,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .card-text {
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
