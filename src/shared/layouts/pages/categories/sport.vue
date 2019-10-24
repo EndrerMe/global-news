@@ -649,7 +649,7 @@ margin-top: 5px;
 
 .new-card .image-wrap {
   position: relative;
-}
+}  
 
 .card-deck {
   margin-bottom: 35px;
@@ -688,7 +688,7 @@ margin-top: 5px;
 }
 </style>
 
-<style scoped>
+<style scoped> 
 /* Top-box-preview */
 .content .main-title-wrap .text {
   position: relative;
