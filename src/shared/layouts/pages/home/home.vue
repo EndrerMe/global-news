@@ -11,7 +11,7 @@
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
                   <b-nav-item href="#">
-                    <img src="../../../assets/images/logo.svg" alt="logo" />
+                    <img src="../../../../assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
                   <b-nav-item href="#" class="current-date">
                     <span>October 8, 2019</span>
@@ -26,7 +26,7 @@
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content">
                       <span>
-                        <img src="../../../assets/images/cloud.svg" alt="cloud" />
+                        <img src="../../../../assets/images/cloud.svg" alt="cloud" />
                       </span>
                       <span class="weather-value">
                         + 9
@@ -122,7 +122,7 @@
         <div class="content-wrap">
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-1.png" />
+              <img src="../../../../assets/images/business/img-1.png" />
             </div>
             <div class="description-wrap">
               <span>A mobile version of video game Call of Duty has been downloaded more than 100 million times in its first week...</span>
@@ -134,7 +134,7 @@
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-2.png" />
+              <img src="../../../../assets/images/business/img-2.png" />
             </div>
             <div class="description-wrap">
               <span>All 555 Thomas Cook shops are to be bought by rival Hays Travel in a move that could save up to 2,500 jobs. The independent...</span>
@@ -146,7 +146,7 @@
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-3.png" />
+              <img src="../../../../assets/images/business/img-3.png" />
             </div>
             <div class="description-wrap">
               <span>Goldman Sachs will review its involvement in the planned stock market listing of Chinese artificial intelligence firm Megvii...</span>
@@ -167,7 +167,7 @@
         <div class="content-wrap">
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-4.png" />
+              <img src="../../../../assets/images/business/img-4.png" />
             </div>
             <div class="description-wrap">
               <span>On World Mental Health Day, a disabled presenter shares her simple secrets of happiness. Jessica Kellgren-Fozard gets a...</span>
@@ -179,7 +179,7 @@
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-5.png" />
+              <img src="../../../../assets/images/business/img-5.png" />
             </div>
             <div class="description-wrap">
               <span>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</span>
@@ -191,7 +191,7 @@
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-6.png" />
+              <img src="../../../../assets/images/business/img-6.png" />
             </div>
             <div class="description-wrap">
               <span>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</span>
@@ -212,7 +212,7 @@
         <div class="content-wrap">
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-7.png" />
+              <img src="../../../../assets/images/business/img-7.png" />
             </div>
             <div class="description-wrap">
               <span>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</span>
@@ -224,7 +224,7 @@
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-8.png" />
+              <img src="../../../../assets/images/business/img-8.png" />
             </div>
             <div class="description-wrap">
               <span>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</span>
@@ -236,7 +236,7 @@
           </div>
           <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/business/img-9.png" />
+              <img src="../../../../assets/images/business/img-9.png" />
             </div>
             <div class="description-wrap">
               <span>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</span>
@@ -255,7 +255,7 @@
       <div class="container content">
         <div class="content">
           <div class="left-item">
-            <img src="../../../assets/images/logo.svg" alt="logo" />
+            <img src="../../../../assets/images/logo.svg" alt="logo" />
           </div>
           <div class="center-item">
             <span class="text">Copyright © 2019 Global New. All rights reserved</span>

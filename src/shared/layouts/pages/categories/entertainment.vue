@@ -11,7 +11,7 @@
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
                   <b-nav-item href="#">
-                    <img src="../../../assets/images/logo.svg" alt="logo" />
+                    <img src="../../../../assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
                   <b-nav-item href="#" class="current-date">
                     <span>October 8, 2019</span>
@@ -26,7 +26,7 @@
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content">
                       <span>
-                        <img src="../../../assets/images/cloud.svg" alt="cloud" />
+                        <img src="../../../../assets/images/cloud.svg" alt="cloud" />
                       </span>
                       <span class="weather-value">
                         + 9
@@ -92,7 +92,7 @@
       <div class="top-box-preview">
         <div class="left-side">
           <div class="gradient"></div>
-          <img src="../../../assets/images/entertainment/img-1.png" />
+          <img src="../../../../assets/images/entertainment/img-1.png" />
           <div class="title-wrap">
             <span class="title">
               <p>YouTuber Jessica Kellgren-Fozard:</p>
@@ -103,16 +103,16 @@
         <div class="right-side">
           <div class="image-wrap">
             <div class="gradient"></div>
-            <img src="../../../assets/images/entertainment/img-2.png" />
+            <img src="../../../../assets/images/entertainment/img-2.png" />
           </div>
           <div class="right-side-bottom">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-3.png" />
+              <img src="../../../../assets/images/entertainment/img-3.png" />
             </div>
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-4.png" />
+              <img src="../../../../assets/images/entertainment/img-4.png" />
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-5.png" />
+              <img src="../../../../assets/images/entertainment/img-5.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>How tech changed the way</p>
@@ -143,7 +143,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-6.png" />
+              <img src="../../../../assets/images/entertainment/img-6.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Five Star: Making Rain or Shine was "an ordeal",</p>
@@ -162,7 +162,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-7.png" />
+              <img src="../../../../assets/images/entertainment/img-7.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Rapper Jack Grange says music</p>
@@ -183,7 +183,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-8.png" />
+              <img src="../../../../assets/images/entertainment/img-8.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>His Dark Materials: Behind the scenes of the TV</p>
@@ -202,7 +202,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-9.png" />
+              <img src="../../../../assets/images/entertainment/img-9.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Elton John:</p>
@@ -221,7 +221,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-10.png" />
+              <img src="../../../../assets/images/entertainment/img-10.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Brit winner Finley Quaye sentenced for bar</p>
@@ -243,7 +243,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-11.png" />
+              <img src="../../../../assets/images/entertainment/img-11.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Booker Prize: Margaret Atwood and Bernardine</p>
@@ -262,7 +262,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-12.png" />
+              <img src="../../../../assets/images/entertainment/img-12.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Pharrell says he's "embarrassed" by</p>
@@ -281,7 +281,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-13.png" />
+              <img src="../../../../assets/images/entertainment/img-13.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>John le Carré:</p>
@@ -303,7 +303,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-14.png" />
+              <img src="../../../../assets/images/entertainment/img-14.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Russian rappers battle police</p>
@@ -322,7 +322,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-15.png" />
+              <img src="../../../../assets/images/entertainment/img-15.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Bill Turnbull backs cannabis for medicinal use</p>
@@ -341,7 +341,7 @@
           <div class="elem-wrap">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <img src="../../../assets/images/entertainment/img-16.png" />
+              <img src="../../../../assets/images/entertainment/img-16.png" />
               <div class="title-wrap">
                 <span class="title">
                   <p>Billy Connolly: 'Nothing else will keep you going</p>
@@ -365,7 +365,7 @@
       <div class="container content">
         <div class="content">
           <div class="left-item">
-            <img src="../../../assets/images/logo.svg" alt="logo" />
+            <img src="../../../../assets/images/logo.svg" alt="logo" />
           </div>
           <div class="center-item">
             <span class="text">Copyright © 2019 Global New. All rights reserved</span>

@@ -2,7 +2,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
+import VueRouter from 'vue-router'
 
+// Router
+import routes from './routes';
 // Styles
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -22,7 +25,11 @@ library.add(
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(BootstrapVue);
+Vue.use(VueRouter);
+
+const router = new VueRouter({routes})
 
 new Vue({
   render: h => h(App),
+  router
 }).$mount('#app')

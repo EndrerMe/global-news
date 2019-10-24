@@ -11,7 +11,7 @@
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
                   <b-nav-item href="#">
-                    <img src="../../../assets/images/logo.svg" alt="logo" />
+                    <img src="../../../../assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
                   <b-nav-item href="#" class="current-date">
                     <span>October 8, 2019</span>
@@ -26,7 +26,7 @@
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content">
                       <span>
-                        <img src="../../../assets/images/cloud.svg" alt="cloud" />
+                        <img src="../../../../assets/images/cloud.svg" alt="cloud" />
                       </span>
                       <span class="weather-value">
                         + 9
@@ -90,7 +90,7 @@
             <span class="text">Rihanna wouldn't "sell out" For halftime show</span>
           </div>
           <div class="image-wrap">
-            <img src="../../../assets/images/new-info/img-1.png" />
+            <img src="../../../../assets/images/new-info/img-1.png" />
           </div>
           <div class="creator-info">
             <span>6 min ago</span>
@@ -255,7 +255,7 @@
           </div>
           <div class="item-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/new-info/img-2.png" />
+              <img src="../../../../assets/images/new-info/img-2.png" />
             </div>
             <div class="description-wrap">
               <span>Nobel Prize for Literature to name two winners after scandal-hit year</span>
@@ -263,7 +263,7 @@
           </div>
           <div class="item-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/new-info/img-3.png" />
+              <img src="../../../../assets/images/new-info/img-3.png" />
             </div>
             <div class="description-wrap">
               <span>Goldman Sachs reviews role in Chinese tech firm Megvii</span>
@@ -271,7 +271,7 @@
           </div>
           <div class="item-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/new-info/img-4.png" />
+              <img src="../../../../assets/images/new-info/img-4.png" />
             </div>
             <div class="description-wrap">
               <span>Badger culls risk increased spread of TB to cattle, study finds</span>
@@ -285,7 +285,7 @@
       <div class="container content">
         <div class="content">
           <div class="left-item">
-            <img src="../../../assets/images/logo.svg" alt="logo" />
+            <img src="../../../../assets/images/logo.svg" alt="logo" />
           </div>
           <div class="center-item">
             <span class="text">Copyright © 2019 Global New. All rights reserved</span>

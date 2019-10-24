@@ -5,7 +5,7 @@
     <div class="header-wrap">
       <div class="header-content">
         <div class="top-menu-wrap">
-          <div class="container">
+          <div class="container content">
             <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
@@ -68,6 +68,7 @@
                   <b-nav-item href="#" class="weather-wrap">
                     <span>Science</span>
                   </b-nav-item>
+
                   <b-nav-item href="#" class="weather-wrap">
                     <span>Sport</span>
                   </b-nav-item>
@@ -81,203 +82,298 @@
         </div>
       </div>
     </div>
-
     <div class="container content">
-      <div class="main-wrap">
-        <!-- New Info -->
-        <div class="info-wrapper">
+      <!-- Top title -->
+      <div class="main-title-wrap">
+        <span class="text">Entertainment</span>
+      </div>
+
+      <!-- Top-box with 4 images -->
+      <div class="top-box-preview">
+        <div class="left-side">
+          <div class="gradient"></div>
+          <img src="../../../assets/images/entertainment/img-1.png" />
           <div class="title-wrap">
-            <span class="text">Rihanna wouldn't "sell out" For halftime show</span>
+            <span class="title">
+              <p>YouTuber Jessica Kellgren-Fozard:</p>
+              <p>"It's OK not to be OK"</p>
+            </span>
           </div>
+        </div>
+        <div class="right-side">
           <div class="image-wrap">
-            <img src="../../../assets/images/new-info/img-1.png" />
+            <div class="gradient"></div>
+            <img src="../../../assets/images/entertainment/img-2.png" />
           </div>
-          <div class="creator-info">
-            <span>6 min ago</span>
-            <span>sourcelink.com</span>
+          <div class="right-side-bottom">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-3.png" />
+            </div>
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-4.png" />
+            </div>
           </div>
-          <div class="description-wrap">
-            <p>
-              Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick.
-              The former San Francisco 49ers quarterback was dropped from the NFL for protesting social
-              injustice
-              <span
-                class="blue-text"
-              >by kneeling during the national anthem</span>. In this month's cover story with Vogue magazine,
-              Rihanna said she did it to take a stand.
-            </p>
-            <p>
-              <span
-                class="bold-text"
-              >"I couldn't dare do that. Who gains from that? Not my people. I just couldn't be a sellout."</span>
-            </p>
-            <p>
-              <span
-                class="bold-text"
-              >"I couldn't be an enabler. There's things within that organization that I do not agree with at all, and</span>
-            </p>
-            <p>
-              <span class="bold-text">I was not about to go and be of service to them in any way."</span>
-            </p>
-            <p>
-              It was widely rumoured she was offered the controversial February 2019 halftime show, which
-              draws in audiences of up to 100m, but this is the first time Rihanna's talked about why she
-              <span
-                class="blue-text"
-              >
-                refused
-                to appear.
-              </span>
-            </p>
-            <p>
-              Cardi B and Pink, also reportedly rejected the NFL's offer to perform at the Atlanta event - in a show
-              of solidarity with Kaepernick - and it was eventually headlined by Maroon 5, Travis Scott and Big
-              Boi. It's not the only politics Rihanna gets into during the interview. She also opens up about gun
-              violence in America.
-            </p>
-            <p>
-              <span class="bold-text">"It is devastating," she says.</span>
-            </p>
-            <p>
-              "People are being murdered by war weapons that they legally purchase. This is just not normal.
-              That should never, ever be normal."
-            </p>
-            <p>
-              On her personal life, which she generally avoids discussing, Rihanna confirms she's in a
-              relationship. Her rumoured boyfriend is the the Saudi businessman Hassan Jameel.
-            </p>
-            <p>
-              <span class="bold-text">
-                "Yeah, I'm dating," she says. "I'm actually in an exclusive relationship for quite some time, and it's
-                going really well, so I'm happy."
-              </span>
-            </p>
-            <p>
-              She is, of course, keen to talk about her fashion brand, Fenty - named after her real name Robyn
-              Rihanna Fenty. The 31-year-old says she made it a rule that she had to love and wear all of Fenty
-              Maison herself - the high-end fashion line she founded with Louis Vuitton earlier this year. She also
-              reveals that she inspires herself - she is her own muse.
-            </p>
-            <p>
-              <span
-                class="bold-text"
-              >"I'm not the face of my brand, but I am the muse, and my DNA has to run all the way through it,"</span>
-              she says.
-            </p>
-          </div>
+        </div>
+      </div>
 
-          <div class="social-networks-wrap">
-            <div class="icons-wrap">
-              <a href="#">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9.212"
-                  height="18.424"
-                  viewBox="0 0 9.212 18.424"
-                >
-                  <path
-                    id="Path_22"
-                    data-name="Path 22"
-                    d="M133.758,6.333V4.03a1.152,1.152,0,0,1,1.152-1.152h1.152V0h-2.3A3.454,3.454,0,0,0,130.3,3.455V6.333H128V9.212h2.3v9.212h3.455V9.212h2.3l1.152-2.879Z"
-                    transform="translate(-128)"
-                    fill
-                  />
-                </svg>
-              </a>
-              <a href="#">
-                <svg
-                  id="linkedin"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18.424"
-                  height="17.838"
-                  viewBox="0 0 18.424 17.838"
-                >
-                  <g id="Group_38" data-name="Group 38" transform="translate(0 5.171)">
-                    <g id="Group_37" data-name="Group 37">
-                      <rect
-                        id="Rectangle_26"
-                        data-name="Rectangle 26"
-                        width="4.12"
-                        height="12.667"
-                        fill
-                      />
-                    </g>
-                  </g>
-                  <g id="Group_40" data-name="Group 40" transform="translate(5.758 5.171)">
-                    <g id="Group_39" data-name="Group 39">
-                      <path
-                        id="Path_23"
-                        data-name="Path 23"
-                        d="M169.585,160.149c-.044-.014-.085-.029-.131-.041s-.111-.023-.167-.032a3.692,3.692,0,0,0-.739-.075,5.725,5.725,0,0,0-4.428,2.422V160H160v12.667h4.12v-6.909s3.114-4.337,4.428-1.152v8.061h4.119v-8.548A4.108,4.108,0,0,0,169.585,160.149Z"
-                        transform="translate(-160 -160)"
-                        fill
-                      />
-                    </g>
-                  </g>
-                  <g id="Group_42" data-name="Group 42" transform="translate(0.223 0)">
-                    <g id="Group_41" data-name="Group 41">
-                      <circle
-                        id="Ellipse_12"
-                        data-name="Ellipse 12"
-                        cx="1.94"
-                        cy="1.94"
-                        r="1.94"
-                        fill
-                      />
-                    </g>
-                  </g>
-                </svg>
-              </a>
-              <a href="#">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="19.209"
-                  height="15.607"
-                  viewBox="0 0 19.209 15.607"
-                >
-                  <path
-                    id="Path_24"
-                    data-name="Path 24"
-                    d="M19.209,49.848a8.21,8.21,0,0,1-2.269.622,3.916,3.916,0,0,0,1.732-2.177,7.87,7.87,0,0,1-2.5.953,3.938,3.938,0,0,0-6.812,2.693,4.055,4.055,0,0,0,.091.9,11.146,11.146,0,0,1-8.117-4.119,3.939,3.939,0,0,0,1.21,5.263A3.889,3.889,0,0,1,.768,53.5v.043a3.956,3.956,0,0,0,3.155,3.869,3.931,3.931,0,0,1-1.032.13,3.482,3.482,0,0,1-.746-.067,3.975,3.975,0,0,0,3.68,2.743,7.913,7.913,0,0,1-4.883,1.68A7.376,7.376,0,0,1,0,61.84a11.086,11.086,0,0,0,6.041,1.767A11.131,11.131,0,0,0,17.249,52.4c0-.174-.006-.342-.014-.509A7.856,7.856,0,0,0,19.209,49.848Z"
-                    transform="translate(0 -48)"
-                    fill
-                  />
-                </svg>
-              </a>
+      <!-- Posts -->
+      <div class="posts-wrap">
+        <div class="row">
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-5.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>How tech changed the way</p>
+                  <p>DreamWorks animates</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>DreamWorks Animation has made blockbusters ranging from Shrek to Kung Fu Panda and How to Train Your Dragon. As...</span>
+            </div>
+            <div class="creator-info">
+              <span>6 min ago</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-6.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Five Star: Making Rain or Shine was "an ordeal",</p>
+                  <p>says</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</span>
+            </div>
+            <div class="creator-info">
+              <span>2 hours ago</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-7.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Rapper Jack Grange says music</p>
+                  <p>releases ADHD "anger"</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestrday</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-8.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>His Dark Materials: Behind the scenes of the TV</p>
+                  <p>adaptation</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</span>
+            </div>
+            <div class="creator-info">
+              <span>6 min ago</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-9.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Elton John:</p>
+                  <p>"I still want my dad's approval"</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</span>
+            </div>
+            <div class="creator-info">
+              <span>2 hours ago</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-10.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Brit winner Finley Quaye sentenced for bar</p>
+                  <p>manager attack</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestrday</span>
+              <span>sourcelink.com</span>
             </div>
           </div>
         </div>
 
-        <!-- Latest News -->
-        <div class="latest-news-wrapper">
-          <div class="title-wrap">
-            <span class="text">Latest News</span>
-          </div>
-          <div class="item-wrap">
+        <div class="row">
+          <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/new-info/img-2.png" />
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-11.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Booker Prize: Margaret Atwood and Bernardine</p>
+                  <p>Evaristo share award</p>
+                </span>
+              </div>
             </div>
             <div class="description-wrap">
-              <span>Nobel Prize for Literature to name two winners after scandal-hit year</span>
+              <span>Margaret Atwood and Bernardine Evaristo have been named the joint winners of the 2019 Booker Prize after the judges broke...</span>
+            </div>
+            <div class="creator-info">
+              <span>6 min ago</span>
+              <span>sourcelink.com</span>
             </div>
           </div>
-          <div class="item-wrap">
+          <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/new-info/img-3.png" />
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-12.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Pharrell says he's "embarrassed" by</p>
+                  <p>Blurred Lines lyrics</p>
+                </span>
+              </div>
             </div>
             <div class="description-wrap">
-              <span>Goldman Sachs reviews role in Chinese tech firm Megvii</span>
+              <span>Pharrell Williams says the controversy surrounding Blurred Lines made him realise some of his songs "catered" to a sexist...</span>
+            </div>
+            <div class="creator-info">
+              <span>2 hours ago</span>
+              <span>sourcelink.com</span>
             </div>
           </div>
-          <div class="item-wrap">
+          <div class="elem-wrap">
             <div class="image-wrap">
-              <img src="../../../assets/images/new-info/img-4.png" />
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-13.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>John le Carré:</p>
+                  <p>"Politicians love chaos - it gives them authority"</p>
+                </span>
+              </div>
             </div>
             <div class="description-wrap">
-              <span>Badger culls risk increased spread of TB to cattle, study finds</span>
+              <span>Ahead of the release of his latest novel, novelist and former MI6 spy John le Carré talks to the BBC about our world leaders...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestrday</span>
+              <span>sourcelink.com</span>
             </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-14.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Russian rappers battle police</p>
+                  <p>over protests</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>Several Russian musicians with a youth following, have released songs to denounce police action, during recent protests in...</span>
+            </div>
+            <div class="creator-info">
+              <span>6 min ago</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-15.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Bill Turnbull backs cannabis for medicinal use</p>
+                  <p>ahead of cancer doc</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>Broadcaster Bill Turnbull says there should be a "proper conversation" in the UK about the use of cannabis for...</span>
+            </div>
+            <div class="creator-info">
+              <span>2 hours ago</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+          <div class="elem-wrap">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <img src="../../../assets/images/entertainment/img-16.png" />
+              <div class="title-wrap">
+                <span class="title">
+                  <p>Billy Connolly: 'Nothing else will keep you going</p>
+                  <p>like laughter'</p>
+                </span>
+              </div>
+            </div>
+            <div class="description-wrap">
+              <span>Billy Connolly retired from stand-up in 2018, six years after being diagnosed with Parkinson's Disease. In a new book, he shares...</span>
+            </div>
+            <div class="creator-info">
+              <span>Yestrday</span>
+              <span>sourcelink.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Pagination -->
+      <div class="pagination-wrap">
+        <button class="double-arrow-left"></button>
+        <button class="arrow-left"></button>
+
+        <button href="#" class="page-number"><span class="value">1</span></button>
+        <button href="#" class="page-number"><span class="value">2</span></button>
+        <button href="#" class="page-number"><span class="value">3</span></button>
+
+        <span class="separator">...</span>
+
+        <button href="#" class="page-number"><span class="value">16</span></button>
+
+        <button href="#" class="arrow-right"></button>
+        <button href="#" class="double-arrow-right"></button>
       </div>
     </div>
     <!-- Footer -->
@@ -300,6 +396,315 @@
 </template>
 
 <style>
+/* Pagination */
+
+.pagination-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination-wrap button{
+  background-color: unset;
+
+}
+
+
+
+.pagination-wrap .page-number{
+  position: relative;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #052962;
+  width: 32px;
+  height: 32px;
+  border-radius: 25px;
+  /* border: 1px solid transparent; */
+    border:1px solid #052962 ;
+
+}
+
+.pagination-wrap .page-number span{
+  /* position: absolute;
+  top: 0; */
+}
+
+.pagination-wrap .page-number:hover{
+  border:1px solid #052962 ;
+}
+
+
+.pagination-wrap .double-arrow-right {
+  position: relative;
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+}
+
+.pagination-wrap .double-arrow-right::before {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(-45deg);
+  position: absolute;
+  right: 7px;
+  top: 10px;
+}
+
+.pagination-wrap .double-arrow-right::after {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(-45deg);
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+
+
+.pagination-wrap .double-arrow-left {
+  position: relative;
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+}
+
+.pagination-wrap .double-arrow-left::before {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 7px;
+  top: 10px;
+}
+
+.pagination-wrap .double-arrow-left::after {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 15px;
+  top: 10px;
+}
+
+
+
+.pagination-wrap .arrow-left {
+  position: relative;
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+}
+
+.pagination-wrap .arrow-left::before {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 8px;
+  top: 10px;
+}
+
+.pagination-wrap .arrow-right {
+  position: relative;
+  padding: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+}
+
+.pagination-wrap .arrow-right::before {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: 8px;
+  top: 10px;
+}
+</style>
+
+<style scoped>
+/* Top-box-preview */
+.content .main-title-wrap .text {
+  position: relative;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding-left: 86px;
+}
+
+.content .main-title-wrap .text::before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  width: 102px;
+  height: 37px;
+  background-color: #ff995e;
+  left: 0;
+  top: 0;
+}
+
+.content .top-box-preview {
+  margin-top: 42px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-side {
+  position: relative;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-side .image-wrap {
+  position: relative;
+}
+.right-side-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts-wrap .row {
+  margin-right: 0;
+  margin-left: 0;
+  flex-wrap: unset;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.description-wrap,
+.creator-info {
+  max-width: 526px;
+  text-align: start;
+}
+
+.description-wrap {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d5d3d3;
+}
+
+.elem-wrap .image-wrap {
+  position: relative;
+}
+
+.gradient {
+  position: absolute;
+  top: 0bott;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9416141456582633) 0%,
+    rgba(255, 255, 255, 0) 30%
+  );
+}
+
+.top-box-preview .left-side {
+  position: relative;
+}
+.top-box-preview .left-side .title-wrap {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
+
+.top-box-preview .left-side .title-wrap span {
+  color: white;
+  text-align: start;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.top-box-preview .left-side .title-wrap span p {
+  margin-bottom: 5px;
+}
+
+.elem-wrap .image-wrap .title-wrap {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
+
+.elem-wrap .image-wrap .title-wrap span {
+  color: white;
+  text-align: start;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.elem-wrap .image-wrap .title-wrap span p {
+  margin-bottom: 5px;
+}
+
+.creator-info {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.creator-info span {
+  color: #9e9e9e;
+}
+
 /* Header */
 .header-wrap .top-menu-wrap .container {
   max-width: 1638px !important;
@@ -308,6 +713,8 @@
 }
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
+  padding-left: unset !important;
+  padding-right: unset !important;
 }
 .top-menu-wrap {
   background-color: #052962;
@@ -400,112 +807,11 @@ nav.bottom-menu {
   max-width: 1638px;
   padding: 0;
 }
-.main-wrap {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* New Info */
-.blue-text {
-  color: blue;
-}
-.bold-text {
-  font-weight: bold;
-}
-.info-wrapper .title-wrap {
-  text-align: start;
-  padding: 37px 0;
-}
-.info-wrapper .title-wrap .text {
-  font-size: 32px;
-  color: #3f3f3f;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.info-wrapper .creator-info {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 25px;
-  max-width: 1082px;
-}
-.info-wrapper .creator-info span {
-  color: #c3c3c3;
-  font-size: 18px;
-}
-.info-wrapper .description-wrap {
-  text-align: start;
-  margin-top: 34px;
-  max-width: 1082px;
-}
-.info-wrapper .description-wrap p {
-  font-size: 22px;
-}
-.info-wrapper .social-networks-wrap {
-  position: relative;
-  margin-top: 110px;
-}
-.info-wrapper .social-networks-wrap .icons-wrap {
-  display: flex;
-  justify-content: flex-end;
-}
-.info-wrapper .social-networks-wrap a {
-  width: 46px;
-  height: 46px;
-  display: block;
-  border: 2px solid #052962;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 25px;
-}
-.info-wrapper .social-networks-wrap a svg {
-  fill: #052962;
-}
-.info-wrapper .social-networks-wrap a:hover {
-  background-color: #052962;
-}
-.info-wrapper .social-networks-wrap a:hover svg {
-  fill: #f8c61a;
-}
-
-/* Latest News */
-.latest-news-wrapper .title-wrap {
-  position: relative;
-  text-align: start;
-  padding: 37px 0;
-}
-.latest-news-wrapper .title-wrap::before {
-  content: "";
-  width: 278px;
-  height: 2px;
-  background-color: #052962;
-  position: absolute;
-  top: 56px;
-  right: 0px;
-}
-.latest-news-wrapper .title-wrap .text {
-  font-size: 32px;
-  color: #052962;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.latest-news-wrapper .description-wrap {
-  text-align: start;
-  max-width: 526px;
-  padding-top: 15px;
-  color: black;
-  padding-bottom: 27px;
-}
-.latest-news-wrapper .description-wrap span {
-  font-size: 20px;
-  font-weight: bold;
-}
-
 
 /* Footer */
 footer {
-  background-color: #052962;
   margin-top: 72px;
+  background-color: #052962;
 }
 footer .content {
   width: 100%;
