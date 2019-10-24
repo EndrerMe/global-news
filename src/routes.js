@@ -1,4 +1,4 @@
-import home from './shared/layouts/home/home';
+import home from './shared/layouts/pages/home/home';
 import business from './shared/layouts/pages/categories/business';
 import entertainment from './shared/layouts/pages/categories/entertainment';
 import general from './shared/layouts/pages/categories/general';

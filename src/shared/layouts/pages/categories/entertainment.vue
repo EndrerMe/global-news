@@ -359,6 +359,29 @@
           </div>
         </div>
       </div>
+      <div class="pagination-wrap">
+        <button class="double-arrow-left"></button>
+        <button class="arrow-left"></button>
+
+        <button href="#" class="page-number">
+          <span class="value">1</span>
+        </button>
+        <button href="#" class="page-number">
+          <span class="value">2</span>
+        </button>
+        <button href="#" class="page-number">
+          <span class="value">3</span>
+        </button>
+
+        <span class="separator">...</span>
+
+        <button href="#" class="page-number">
+          <span class="value">16</span>
+        </button>
+
+        <button href="#" class="arrow-right"></button>
+        <button href="#" class="double-arrow-right"></button>
+      </div>
     </div>
     <!-- Footer -->
     <footer>
@@ -379,6 +402,183 @@
   </div>
 </template>
 
+<style>
+/* Pagination */
+
+.pagination-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination-wrap button{
+  background-color: unset;
+
+}
+
+
+
+.pagination-wrap .page-number{
+  position: relative;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #052962;
+  width: 32px;
+  height: 32px;
+  border-radius: 25px;
+  /* border: 1px solid transparent; */
+    border:1px solid #052962 ;
+
+}
+
+.pagination-wrap .page-number span{
+  /* position: absolute;
+  top: 0; */
+}
+
+.pagination-wrap .page-number:hover{
+  border:1px solid #052962 ;
+}
+
+
+.pagination-wrap .double-arrow-right {
+  position: relative;
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+}
+
+.pagination-wrap .double-arrow-right::before {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(-45deg);
+  position: absolute;
+  right: 7px;
+  top: 10px;
+}
+
+.pagination-wrap .double-arrow-right::after {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(-45deg);
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+
+
+.pagination-wrap .double-arrow-left {
+  position: relative;
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+}
+
+.pagination-wrap .double-arrow-left::before {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 7px;
+  top: 10px;
+}
+
+.pagination-wrap .double-arrow-left::after {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 15px;
+  top: 10px;
+}
+
+
+
+.pagination-wrap .arrow-left {
+  position: relative;
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+}
+
+.pagination-wrap .arrow-left::before {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 8px;
+  top: 10px;
+}
+
+.pagination-wrap .arrow-right {
+  position: relative;
+  padding: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+}
+
+.pagination-wrap .arrow-right::before {
+  padding: 0;
+  display: inline-flex;
+  border: none;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #052962;
+  border-bottom: 2px solid #052962;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: 8px;
+  top: 10px;
+}
+</style>
+
+
 <style scoped>
 /* Top-box-preview */
 .content .main-title-wrap .text {
@@ -396,7 +596,7 @@
   content: "";
   width: 102px;
   height: 37px;
-  background-color: #FF995E;
+  background-color: #ff995e;
   left: 0;
   top: 0;
 }
@@ -485,7 +685,6 @@
 .top-box-preview .left-side .title-wrap span p {
   margin-bottom: 5px;
 }
-
 
 .elem-wrap .image-wrap .title-wrap {
   position: absolute;

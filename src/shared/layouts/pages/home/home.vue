@@ -120,132 +120,107 @@
           <span class="title-text">Business</span>
         </div>
         <div class="content-wrap">
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-1.png" />
-            </div>
-            <div class="description-wrap">
-              <span>A mobile version of video game Call of Duty has been downloaded more than 100 million times in its first week...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>bbc.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-2.png" />
-            </div>
-            <div class="description-wrap">
-              <span>All 555 Thomas Cook shops are to be bought by rival Hays Travel in a move that could save up to 2,500 jobs. The independent...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestesday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-3.png" />
-            </div>
-            <div class="description-wrap">
-              <span>Goldman Sachs will review its involvement in the planned stock market listing of Chinese artificial intelligence firm Megvii...</span>
-            </div>
-            <div class="creator-info">
-              <span>October 10, 2019</span>
-              <span>sourcelink</span>
-            </div>
-          </div>
+          <b-card-group deck>
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-1.png')"></b-card-img>
+              <b-card-text>A mobile version of video game Call of Duty has been downloaded more than 100 million times in its first week...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">6 min ago</small>
+                <small class="text-muted">bbc.com</small>
+              </template>
+            </b-card>
+
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-2.png')"></b-card-img>
+              <b-card-text>All 555 Thomas Cook shops are to be bought by rival Hays Travel in a move that could save up to 2,500 jobs. The independent...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">Yestesday</small>
+                <small class="text-muted">sourcelink.com</small>
+              </template>
+            </b-card>
+
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-3.png')"></b-card-img>
+              <b-card-text>Goldman Sachs will review its involvement in the planned stock market listing of Chinese artificial intelligence firm Megvii...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">October 10, 2019</small>
+                <small class="text-muted">sourcelink.com</small>
+              </template>
+            </b-card>
+          </b-card-group>
         </div>
       </div>
 
-      <!-- Entertainment -->
+      <!-- Entertainmenet -->
       <div class="entertainment-wrap">
         <div class="title-wrap">
           <span class="title-text">Entertainment</span>
         </div>
         <div class="content-wrap">
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-4.png" />
-            </div>
-            <div class="description-wrap">
-              <span>On World Mental Health Day, a disabled presenter shares her simple secrets of happiness. Jessica Kellgren-Fozard gets a...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>bbc.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-5.png" />
-            </div>
-            <div class="description-wrap">
-              <span>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestesday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-6.png" />
-            </div>
-            <div class="description-wrap">
-              <span>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</span>
-            </div>
-            <div class="creator-info">
-              <span>October 10, 2019</span>
-              <span>sourcelink</span>
-            </div>
-          </div>
+          <b-card-group deck>
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-4.png')"></b-card-img>
+              <b-card-text>On World Mental Health Day, a disabled presenter shares her simple secrets of happiness. Jessica Kellgren-Fozard gets a...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">6 min ago</small>
+                <small class="text-muted">bbc.com</small>
+              </template>
+            </b-card>
+
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-5.png')"></b-card-img>
+              <b-card-text>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">Yestesday</small>
+                <small class="text-muted">sourcelink.com</small>
+              </template>
+            </b-card>
+
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-6.png')"></b-card-img>
+              <b-card-text>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">October 10, 2019</small>
+                <small class="text-muted">sourcelink.com</small>
+              </template>
+            </b-card>
+          </b-card-group>
         </div>
       </div>
-
       <!-- Science -->
       <div class="science-wrap">
         <div class="title-wrap">
           <span class="title-text">Science</span>
         </div>
         <div class="content-wrap">
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-7.png" />
-            </div>
-            <div class="description-wrap">
-              <span>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</span>
-            </div>
-            <div class="creator-info">
-              <span>6 min ago</span>
-              <span>bbc.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-8.png" />
-            </div>
-            <div class="description-wrap">
-              <span>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</span>
-            </div>
-            <div class="creator-info">
-              <span>Yestesday</span>
-              <span>sourcelink.com</span>
-            </div>
-          </div>
-          <div class="elem-wrap">
-            <div class="image-wrap">
-              <img src="../../../../assets/images/business/img-9.png" />
-            </div>
-            <div class="description-wrap">
-              <span>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</span>
-            </div>
-            <div class="creator-info">
-              <span>October 10, 2019</span>
-              <span>sourcelink</span>
-            </div>
-          </div>
+          <b-card-group deck>
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
+              <b-card-text>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">6 min ago</small>
+                <small class="text-muted">bbc.com</small>
+              </template>
+            </b-card>
+
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
+              <b-card-text>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">Yestesday</small>
+                <small class="text-muted">sourcelink.com</small>
+              </template>
+            </b-card>
+
+            <b-card class="mb-2 col-md-6 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
+              <b-card-text>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">October 10, 2019</small>
+                <small class="text-muted">sourcelink.com</small>
+              </template>
+            </b-card>
+          </b-card-group>
         </div>
       </div>
     </div>
@@ -270,105 +245,44 @@
 </template>
 
 <style>
-/* Header */
-.header-wrap .top-menu-wrap .container {
-  max-width: 1638px !important;
-  padding-right: unset !important;
-  padding-left: unset !important;
+.card-text {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
 }
-.top-menu-wrap .navbar {
-  background-color: #052962 !important;
-}
-.top-menu-wrap {
-  background-color: #052962;
-}
-nav.bottom-menu {
+.card-footer {
+  padding: 15px 0 0 0 !important;
   background-color: unset !important;
-  margin: 0 auto;
-  padding: 41px !important;
-}
-.bottom-menu button {
-  background: black;
-}
-.bottom-menu ul li a span {
-  color: #3f3f3f;
-  font-size: 26px;
-  font-weight: bold;
-}
-.bottom-menu-wrap .navbar-nav {
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-.top-menu-wrap .navbar-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.top-menu-wrap .navbar-nav li a svg {
-  margin: 0 20px;
-  color: rgb(248, 198, 26);
-}
-.top-menu-wrap .navbar-nav li.weather-wrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.top-menu-wrap .navbar-nav li.weather-wrap .weather-dropdown-arrow {
-  position: absolute;
-  top: 25px;
-  right: -46px;
-}
-.top-menu-wrap .navbar-nav li.weather-wrap p {
-  margin-bottom: 0;
-}
-.top-menu-wrap .navbar-nav li .nav-link {
-  padding: 0 !important;
-}
-.top-menu-wrap .navbar-nav li a span {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar-nav li a {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar-nav li .nav-item {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar {
-  padding: 17px;
-}
-.top-menu-wrap .navbar-brand {
-  padding: 0;
-}
-.top-menu-wrap .current-date a {
-  display: flex;
-  flex-direction: column;
-}
-.top-menu-wrap .weather-value {
-  font-family: "Semibold";
-  font-size: 28px;
-}
-.top-menu-wrap .weather-value .celsius-value {
-  font-size: 20px;
-  position: absolute;
-}
-@media (max-width: 1199px) {
-  .bottom-menu ul li a span {
-    font-size: 23px;
-  }
-}
-@media (max-width: 991px) {
-  .bottom-menu ul li a span {
-    font-size: 17px;
-  }
 }
 
+.card-deck {
+  /* width: 100%; */
+  /* display: flex;
+  flex-direction: row; */
+  /* flex-flow: unset !important; */
+  /* justify-content: space-between !important; */
+  /* margin-right: 0 !important;
+  margin-left: 0 !important; */
+}
+.new-card {
+  padding: 0 !important;
+  margin: 0 4px !important;
+  max-width: 526px !important;
+  border: none !important;
+}
+
+.new-card .card-body {
+  padding: 0 !important;
+}
+</style>
+
+
+
+<style>
 /* Content */
 .container.content {
   max-width: 1638px;
-  /* padding-bottom: 80px; */
 }
 
 /* Content */
@@ -460,10 +374,18 @@ nav.bottom-menu {
   display: flex;
   margin-top: 30px;
   justify-content: space-between;
+
+  padding-left: 13px;
+  padding-right: 13px;
 }
 .elem-wrap {
-  width: 526px;
+  max-width: 526px;
 }
+
+.elem-wrap img {
+  width: 100%;
+}
+
 .description-wrap {
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
@@ -575,5 +497,99 @@ footer .right-item button {
   letter-spacing: 1px;
 }
 
+/* Header */
+.header-wrap .top-menu-wrap .container {
+  max-width: 1638px !important;
+  padding-right: unset !important;
+  padding-left: unset !important;
+}
+.top-menu-wrap .navbar {
+  background-color: #052962 !important;
+}
+.top-menu-wrap {
+  background-color: #052962;
+}
+nav.bottom-menu {
+  background-color: unset !important;
+  margin: 0 auto;
+  padding: 41px !important;
+}
+.bottom-menu button {
+  background: black;
+}
+.bottom-menu ul li a span {
+  color: #3f3f3f;
+  font-size: 26px;
+  font-weight: bold;
+}
+.bottom-menu-wrap .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-menu-wrap .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-menu-wrap .navbar-nav li a svg {
+  margin: 0 20px;
+  color: rgb(248, 198, 26);
+}
+.top-menu-wrap .navbar-nav li.weather-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.top-menu-wrap .navbar-nav li.weather-wrap .weather-dropdown-arrow {
+  position: absolute;
+  top: 25px;
+  right: -46px;
+}
+.top-menu-wrap .navbar-nav li.weather-wrap p {
+  margin-bottom: 0;
+}
+.top-menu-wrap .navbar-nav li .nav-link {
+  padding: 0 !important;
+}
+.top-menu-wrap .navbar-nav li a span {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar-nav li a {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar-nav li .nav-item {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar {
+  padding: 17px;
+}
+.top-menu-wrap .navbar-brand {
+  padding: 0;
+}
+.top-menu-wrap .current-date a {
+  display: flex;
+  flex-direction: column;
+}
+.top-menu-wrap .weather-value {
+  font-family: "Semibold";
+  font-size: 28px;
+}
+.top-menu-wrap .weather-value .celsius-value {
+  font-size: 20px;
+  position: absolute;
+}
+@media (max-width: 1199px) {
+  .bottom-menu ul li a span {
+    font-size: 23px;
+  }
+}
+@media (max-width: 991px) {
+  .bottom-menu ul li a span {
+    font-size: 17px;
+  }
+}
 </style>
 
