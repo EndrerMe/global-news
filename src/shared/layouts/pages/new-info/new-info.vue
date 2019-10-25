@@ -284,7 +284,7 @@
     </div>
 
     <!-- Footer -->
-    <footer>
+    <!-- <footer>
       <div class="container content">
         <div class="content">
           <div class="left-item">
@@ -298,7 +298,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div> 
 </template>
 
@@ -436,47 +436,6 @@
   justify-content: space-between;
 }
 
-/* Footer */
-footer {
-  background-color: #052962;
-  margin-top: 72px;
-}
-footer .content {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: space-between;
-}
-
-footer .left-item,
-footer .right-item {
-  margin: auto 0;
-}
-
-footer .center-item {
-  display: flex;
-}
-footer .center-item .text {
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 5px;
-  font-size: 10px;
-}
-
-footer .right-item button {
-  width: 242px;
-  height: 48px;
-  background-color: #f8c61a;
-  color: #052962;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 900;
-  border: none;
-  letter-spacing: 1px;
-}
-
-
 /* Header */
 .header-wrap .top-menu-wrap .container {
   max-width: 1638px !important;
@@ -571,6 +530,46 @@ nav.bottom-menu {
     font-size: 17px;
   }
 }
+
+/* Footer */
+/* footer {
+  background-color: #052962;
+  margin-top: 72px;
+}
+footer .content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .left-item,
+footer .right-item {
+  margin: auto 0;
+}
+
+footer .center-item {
+  display: flex;
+}
+footer .center-item .text {
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5px;
+  font-size: 10px;
+}
+
+footer .right-item button {
+  width: 242px;
+  height: 48px;
+  background-color: #f8c61a;
+  color: #052962;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+  border: none;
+  letter-spacing: 1px;
+} */
+
 
 
 </style>

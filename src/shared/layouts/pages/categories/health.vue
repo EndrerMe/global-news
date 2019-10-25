@@ -426,7 +426,7 @@
       </div>
     </div>
     <!-- Footer -->
-    <footer>
+    <!-- <footer>
       <div class="container content">
         <div class="content">
           <div class="left-item">
@@ -440,7 +440,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
@@ -639,7 +639,6 @@ margin-top: 5px;
 
 <style>
 .new-card {
-  margin: 0 !important;
   border: none !important;
 }
 
@@ -915,13 +914,12 @@ nav.bottom-menu {
 }
 
 /* Footer */
-footer {
+/* footer {
   margin-top: 72px;
   background-color: #052962;
 }
 footer .content {
   width: 100%;
-  height: 100px;
   display: flex;
   justify-content: space-between;
 }
@@ -952,6 +950,6 @@ footer .right-item button {
   font-weight: 900;
   border: none;
   letter-spacing: 1px;
-}
+} */
 </style>
 

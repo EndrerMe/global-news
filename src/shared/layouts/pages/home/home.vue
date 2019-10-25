@@ -38,7 +38,7 @@
                       <p>Glasgow</p>
                     </span>
                   </b-nav-item>
-                  <b-nav-item href="#">
+                  <b-nav-item href="#" class="search-wrap">
                     <font-awesome-icon icon="search" class="fa-lg" />
                     <font-awesome-icon icon="bell" class="fa-lg" />
                   </b-nav-item>
@@ -49,34 +49,31 @@
         </div>
         <div class="bottom-menu-wrap">
           <div class="container">
-            <b-navbar class="bottom-menu" toggleable="md" type="dark" variant="info">
-              <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-              <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav>
-                  <b-nav-item href="#">
-                    <router-link class="link" :to="{name: `business`}">Business</router-link>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <router-link class="link" :to="{name: `entertainment`}">Entertainment</router-link>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <router-link class="link" :to="{name: `general`}">General</router-link>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <router-link class="link" :to="{name: `health`}">Health</router-link>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <router-link class="link" :to="{name: `science`}">Science</router-link>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <router-link class="link" :to="{name: `sport`}">Sport</router-link>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <router-link class="link" :to="{name: `technology`}">Technology</router-link>
-                  </b-nav-item>
-                </b-navbar-nav>
-              </b-collapse>
-            </b-navbar>
+            <div>
+              <b-nav class="bottom-menu">
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `business`}">Business</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `entertainment`}">Entertainment</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `general`}">General</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `health`}">Health</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `science`}">Science</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `sport`}">Sport</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `technology`}">Technology</router-link>
+                </b-nav-item>
+              </b-nav>
+            </div>
           </div>
         </div>
       </div>
@@ -236,7 +233,7 @@
     <!-- Footer -->
     <footer>
       <div class="container content">
-        <div class="content">
+        <div class="content-wrap">
           <div class="left-item">
             <img src="../../../../assets/images/logo.svg" alt="logo" />
           </div>
@@ -252,39 +249,84 @@
   </div>
 </template>
 
-<script>
-</script>
-
-
 <style scoped>
-/* Common  for (Business, Entertainmenet, Science)*/
-/* .card-text {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
+/* Slider */
+@media (max-width: 1199px) {
+  .carousel-caption .slide-title span {
+    font-size: 34px;
+  }
 }
-.card-footer {
-  padding: 15px 0 0 0 !important;
-  background-color: unset !important;
-  display: flex;
-  justify-content: space-between;
+@media (max-width: 767px) {
+  .carousel-caption .slide-title span {
+    font-size: 24px !important;
+  }
 }
-
-.new-card {
-  margin: 0 !important;
-  max-width: 526px !important;
-  border: none !important;
-}
-
-.new-card img {
-  width: 100%;
+@media (max-width: 575px) {
+  .carousel-caption .slide-title span {
+    font-size: 20px !important;
+  }
 }
 
-.new-card .card-body {
-  padding: 0 !important;
-} */
+/* Header */
+@media (max-width: 1199px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 991px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 15px !important;
+  }
+  .carousel-caption .slide-title span {
+    font-size: 28px;
+  }
+
+  .top-menu-wrap .navbar-collapse .search-wrap a svg {
+    margin: 0 10px;
+  }
+
+  .top-menu-wrap .navbar-collapse .search-wrap {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bottom-menu-wrap .bottom-menu {
+    flex-wrap: unset;
+    overflow: scroll !important;
+  }
+}
+
+/* Content */
+@media (max-width: 1199px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 28px;
+  }
+}
+@media (max-width: 991px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 16px;
+  }
+  .business-wrap,
+  .entertainment-wrap,
+  .science-wrap {
+    margin-top: 30px;
+  }
+}
 </style>
-
-
 
 <style>
 /* Content */
@@ -292,12 +334,11 @@
   max-width: 1638px;
 }
 
-/* Content */
 /* Slider */
 .carousel-caption {
   position: absolute;
   right: unset !important;
-  bottom: 140px !important;
+  bottom: 22% !important;
   left: 30px !important;
   z-index: 10;
   padding-top: 20px;
@@ -398,6 +439,9 @@
   font-size: 16px;
   font-weight: bold;
 }
+.card-deck {
+  margin-top: 30px;
+}
 
 .card-text {
   padding: 19px 0 10px 0;
@@ -411,7 +455,7 @@
 }
 
 .new-card {
-  margin: 0 !important;
+  margin: 0 auto !important;
   max-width: 526px !important;
   border: none !important;
 }
@@ -481,46 +525,6 @@
   padding: 6px 30px;
 }
 
-/* Footer */
-footer {
-  background-color: #052962;
-  margin-top: 72px;
-}
-footer .content {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: space-between;
-}
-
-footer .left-item,
-footer .right-item {
-  margin: auto 0;
-}
-
-footer .center-item {
-  display: flex;
-}
-footer .center-item .text {
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 5px;
-  font-size: 10px;
-}
-
-footer .right-item button {
-  width: 242px;
-  height: 48px;
-  background-color: #f8c61a;
-  color: #052962;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 900;
-  border: none;
-  letter-spacing: 1px;
-}
-
 /* Header */
 .header-wrap .top-menu-wrap .container {
   max-width: 1638px !important;
@@ -531,16 +535,12 @@ footer .right-item button {
 .top-menu-wrap {
   background-color: #052962;
 }
-nav.bottom-menu {
+.bottom-menu {
   background-color: unset !important;
-  margin: 0 auto;
-  padding: 41px !important;
-}
-.bottom-menu button {
-  background: black;
+  justify-content: center !important;
 }
 
-.bottom-menu ul li a a {
+.bottom-menu li a a {
   color: #3f3f3f;
   font-size: 26px;
   font-weight: bold;
@@ -549,13 +549,6 @@ nav.bottom-menu {
 
 .bottom-menu ul li a :hover {
   color: #f8c61a;
-}
-
-.bottom-menu-wrap .navbar-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .top-menu-wrap .navbar-nav {
@@ -621,5 +614,96 @@ nav.bottom-menu {
     font-size: 17px;
   }
 }
+
 </style>
 
+<style>
+/* Footer */
+footer {
+  background-color: #052962;
+  margin-top: 72px;
+}
+footer .content-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .left-item,
+footer .right-item {
+  margin: auto 0;
+}
+
+footer .center-item {
+  display: flex;
+}
+footer .center-item .text {
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5px;
+  font-size: 10px;
+}
+
+footer .right-item button {
+  width: 242px;
+  height: 48px;
+  background-color: #f8c61a;
+  color: #052962;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+  border: none;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1199px) {
+  footer .right-item button {
+    width: 232px !important;
+    height: 44px;
+  }
+}
+
+@media (max-width: 991px) {
+  footer .right-item button {
+    width: 222px !important;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  footer .container.content {
+    height: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  footer .right-item button {
+    width: 185px !important;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  footer .content-wrap {
+    flex-direction: column;
+    height: unset !important;
+  }
+  footer .content-wrap .center-item {
+    margin: 0 auto;
+  }
+  footer .content-wrap :nth-child(2) {
+    order: 3;
+  }
+  footer .right-item button {
+    width: 98% !important;
+  }
+  footer .content-wrap .left-item {
+    padding: 20px 0;
+  }
+  footer .content-wrap .center-item {
+    padding: 20px 0;
+  }
+}
+
+</style>
