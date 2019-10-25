@@ -1,48 +1,70 @@
 
 <template>
   <div>
+    <div class="dark-screen"></div>
     <!-- Header -->
     <div class="header-wrap">
       <div class="header-content">
         <div class="top-menu-wrap">
           <div class="container">
             <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
-              <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+              <b-nav class="mobile-top-menu">
+                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+                <b-nav-item class="mobile-logo-wrap">
+                  <img src="../../../../assets/images/logo.svg" alt="logo" />
+                </b-nav-item>
+                <b-nav-item class="mobnile-search-wrap">
+                  <font-awesome-icon icon="search" class="fa-lg" />
+                </b-nav-item>
+              </b-nav>
+
               <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav>
-                  <b-nav-item href="#">
-                    <img src="../../../../assets/images/logo.svg" alt="logo" />
-                  </b-nav-item>
-                  <b-nav-item href="#" class="current-date">
-                    <span>October 8, 2019</span>
-                    <span>Tuesday</span>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <span>
-                      Currency Converter
-                      <font-awesome-icon icon="caret-down" />
-                    </span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span class="weather-content">
+                <div class="sub-wrap">
+                  <b-navbar-nav>
+                    <b-nav-item class="close-link-wrap">
+                      <div class="close-wrap">
+                        <a href="#"></a>
+                      </div>
+                    </b-nav-item>
+
+                    <b-nav-item href="#" class="logo-wrap">
+                      <img src="../../../../assets/images/logo.svg" alt="logo" />
+                    </b-nav-item>
+
+                    <b-nav-item href="#" class="current-date">
+                      <span>October 8, 2019</span>
+                      <span>Tuesday</span>
+                    </b-nav-item>
+
+                    <b-nav-item href="#" class="converter-wrap">
                       <span>
-                        <img src="../../../../assets/images/cloud.svg" alt="cloud" />
-                      </span>
-                      <span class="weather-value">
-                        + 9
-                        <span class="celsius-value">&#8451;</span>
-                      </span>
-                      <span class="weather-dropdown-arrow">
+                        <span>Currency Converter</span>
+
                         <font-awesome-icon icon="caret-down" />
                       </span>
-                      <p>Glasgow</p>
-                    </span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="search-wrap">
-                    <font-awesome-icon icon="search" class="fa-lg" />
-                    <font-awesome-icon icon="bell" class="fa-lg" />
-                  </b-nav-item>
-                </b-navbar-nav>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="weather-wrap">
+                      <span class="weather-content">
+                        <span>
+                          <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                        </span>
+                        <span class="weather-value">
+                          + 9
+                          <span class="celsius-value">&#8451;</span>
+                        </span>
+                        <span class="weather-dropdown-arrow">
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+                        <p>Glasgow</p>
+                      </span>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="search-wrap">
+                      <font-awesome-icon icon="search" class="fa-lg" />
+                      <font-awesome-icon icon="bell" class="fa-lg" />
+                    </b-nav-item>
+                  </b-navbar-nav>
+                </div>
               </b-collapse>
             </b-navbar>
           </div>
@@ -78,7 +100,6 @@
         </div>
       </div>
     </div>
-
     <!-- Slider -->
     <div class="container content">
       <div class="slider-wrap">
@@ -150,7 +171,6 @@
           </div>
         </b-card-group>
       </div>
-
       <!-- Entertainmenet -->
       <div class="entertainment-wrap">
         <div class="title-wrap">
@@ -229,7 +249,6 @@
         </b-card-group>
       </div>
     </div>
-
     <!-- Footer -->
     <footer>
       <div class="container content">
@@ -250,24 +269,115 @@
 </template>
 
 <style scoped>
-/* Slider */
-@media (max-width: 1199px) {
-  .carousel-caption .slide-title span {
-    font-size: 34px;
-  }
+/* Header */
+.top-menu-wrap #nav-collapse .close-link-wrap {
+  display: none;
 }
+.top-menu-wrap #nav-collapse .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+.top-menu-wrap #nav-collapse .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: rgb(248, 198, 26);
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.top-menu-wrap #nav-collapse .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: rgb(248, 198, 26);
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
+}
+
+.top-menu-wrap .mobile-top-menu {
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-menu-wrap .mobile-top-menu .navbar-toggler {
+  border: none;
+}
+
+.top-menu-wrap .mobile-top-menu .mobnile-search-wrap svg {
+  color: rgb(248, 198, 26);
+}
+
+.top-menu-wrap .mobile-top-menu .mobile-logo-wrap a {
+  padding: 0;
+}
+
+.top-menu-wrap .mobile-top-menu .mobile-logo-wrap img {
+  width: 90px;
+}
+
+#nav-collapse .sub-wrap {
+  width: 100%;
+}
+
 @media (max-width: 767px) {
-  .carousel-caption .slide-title span {
-    font-size: 24px !important;
+  .top-menu-wrap .mobile-top-menu {
+    display: flex;
   }
-}
-@media (max-width: 575px) {
-  .carousel-caption .slide-title span {
-    font-size: 20px !important;
+
+  #nav-collapse {
+    width: 60%;
+    position: absolute;
+    background: #052962;
+    z-index: 9999;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+  }
+
+  #nav-collapse .sub-wrap {
+    margin-top: 74px;
+    border-top: 1px solid #585858;
+  }
+
+  .top-menu-wrap #nav-collapse .close-link-wrap {
+    display: block;
+  }
+
+  #nav-collapse .navbar-nav :nth-child(3) {
+    order: 7;
+  }
+
+  #nav-collapse .navbar-nav svg.fa-caret-down {
+    transform: rotate(-90deg);
+  }
+
+  #nav-collapse .weather-dropdown-arrow {
+    position: unset;
+  }
+
+  .top-menu-wrap .top-menu {
+    position: unset;
+  }
+
+  #nav-collapse .weather-content {
+    display: flex;
+  }
+  #nav-collapse .navbar-nav {
+    align-items: flex-start;
   }
 }
 
-/* Header */
 @media (max-width: 1199px) {
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 22px;
@@ -295,6 +405,23 @@
   .bottom-menu-wrap .bottom-menu {
     flex-wrap: unset;
     overflow: scroll !important;
+  }
+}
+
+/* Slider */
+@media (max-width: 1199px) {
+  .carousel-caption .slide-title span {
+    font-size: 34px;
+  }
+}
+@media (max-width: 767px) {
+  .carousel-caption .slide-title span {
+    font-size: 24px !important;
+  }
+}
+@media (max-width: 575px) {
+  .carousel-caption .slide-title span {
+    font-size: 20px !important;
   }
 }
 
@@ -329,6 +456,20 @@
 </style>
 
 <style>
+/* Common */
+.dark-screen {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  display: none;
+}
+
 /* Content */
 .container.content {
   max-width: 1638px;
@@ -614,7 +755,6 @@
     font-size: 17px;
   }
 }
-
 </style>
 
 <style>
@@ -625,6 +765,7 @@ footer {
 }
 footer .content-wrap {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -705,5 +846,4 @@ footer .right-item button {
     padding: 20px 0;
   }
 }
-
 </style>
