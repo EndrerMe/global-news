@@ -1,5 +1,6 @@
 import home from './shared/layouts/pages/home/home';
 import newinfo from './shared/layouts/pages/new-info/new-info';
+import testhover from './shared/layouts/pages/home/test-hover';
 
 import business from './shared/layouts/pages/categories/business';
 import entertainment from './shared/layouts/pages/categories/entertainment';
@@ -18,6 +19,10 @@ const routes = [
     {
         path: '/new-info',
         component: newinfo,
+    },
+    {
+        path: '/test-hover',
+        component: testhover,
     },
     {
         path: '/business',

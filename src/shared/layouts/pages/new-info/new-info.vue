@@ -299,7 +299,7 @@
         </div>
       </div>
     </footer>
-  </div>
+  </div> 
 </template>
 
 <style scoped>

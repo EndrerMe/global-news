@@ -53,26 +53,28 @@
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                  <b-nav-item href="#" class="current-date">
-                    <span>Business</span>
+                  <b-nav-item href="#">
+                    <li class="category">
+                      <router-link class="link" :to="{name: `business`}">Business</router-link>
+                    </li>
                   </b-nav-item>
                   <b-nav-item href="#">
                     <span>Entertainment</span>
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
+                  <b-nav-item href="#">
                     <span>General</span>
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
+                  <b-nav-item href="#">
                     <span>Health</span>
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
+                  <b-nav-item href="#">
                     <span>Science</span>
                   </b-nav-item>
 
-                  <b-nav-item href="#" class="weather-wrap">
+                  <b-nav-item href="#">
                     <span>Sport</span>
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
+                  <b-nav-item href="#">
                     <span>Technology</span>
                   </b-nav-item>
                 </b-navbar-nav>
@@ -119,9 +121,10 @@
         <div class="title-wrap">
           <span class="title-text">Business</span>
         </div>
-        <div class="content-wrap">
-          <b-card-group deck>
-            <b-card class="mb-2 col-md-6 new-card">
+        <!-- <div class="content-wrap"> -->
+        <b-card-group deck row>
+          <div class="col-md-4">
+            <b-card class="card mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-1.png')"></b-card-img>
               <b-card-text>A mobile version of video game Call of Duty has been downloaded more than 100 million times in its first week...</b-card-text>
               <template v-slot:footer>
@@ -129,8 +132,10 @@
                 <small class="text-muted">bbc.com</small>
               </template>
             </b-card>
+          </div>
 
-            <b-card class="mb-2 col-md-6 new-card">
+          <div class="col-md-4">
+            <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-2.png')"></b-card-img>
               <b-card-text>All 555 Thomas Cook shops are to be bought by rival Hays Travel in a move that could save up to 2,500 jobs. The independent...</b-card-text>
               <template v-slot:footer>
@@ -138,8 +143,10 @@
                 <small class="text-muted">sourcelink.com</small>
               </template>
             </b-card>
+          </div>
 
-            <b-card class="mb-2 col-md-6 new-card">
+          <div class="col-md-4">
+            <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-3.png')"></b-card-img>
               <b-card-text>Goldman Sachs will review its involvement in the planned stock market listing of Chinese artificial intelligence firm Megvii...</b-card-text>
               <template v-slot:footer>
@@ -147,8 +154,8 @@
                 <small class="text-muted">sourcelink.com</small>
               </template>
             </b-card>
-          </b-card-group>
-        </div>
+          </div>
+        </b-card-group>
       </div>
 
       <!-- Entertainmenet -->
@@ -156,9 +163,10 @@
         <div class="title-wrap">
           <span class="title-text">Entertainment</span>
         </div>
-        <div class="content-wrap">
-          <b-card-group deck>
-            <b-card class="mb-2 col-md-6 new-card">
+        <!-- <div class="content-wrap"> -->
+        <b-card-group deck>
+          <div class="col-md-4">
+            <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-4.png')"></b-card-img>
               <b-card-text>On World Mental Health Day, a disabled presenter shares her simple secrets of happiness. Jessica Kellgren-Fozard gets a...</b-card-text>
               <template v-slot:footer>
@@ -166,8 +174,10 @@
                 <small class="text-muted">bbc.com</small>
               </template>
             </b-card>
+          </div>
 
-            <b-card class="mb-2 col-md-6 new-card">
+          <div class="col-md-4">
+            <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-5.png')"></b-card-img>
               <b-card-text>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</b-card-text>
               <template v-slot:footer>
@@ -175,8 +185,9 @@
                 <small class="text-muted">sourcelink.com</small>
               </template>
             </b-card>
-
-            <b-card class="mb-2 col-md-6 new-card">
+          </div>
+          <div class="col-md-4">
+            <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-6.png')"></b-card-img>
               <b-card-text>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</b-card-text>
               <template v-slot:footer>
@@ -184,8 +195,8 @@
                 <small class="text-muted">sourcelink.com</small>
               </template>
             </b-card>
-          </b-card-group>
-        </div>
+          </div>
+        </b-card-group>
       </div>
       <!-- Science -->
       <div class="science-wrap">
@@ -194,32 +205,36 @@
         </div>
         <div class="content-wrap">
           <b-card-group deck>
-            <b-card class="mb-2 col-md-6 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
-              <b-card-text>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">6 min ago</small>
-                <small class="text-muted">bbc.com</small>
-              </template>
-            </b-card>
-
-            <b-card class="mb-2 col-md-6 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
-              <b-card-text>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">Yestesday</small>
-                <small class="text-muted">sourcelink.com</small>
-              </template>
-            </b-card>
-
-            <b-card class="mb-2 col-md-6 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
-              <b-card-text>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">October 10, 2019</small>
-                <small class="text-muted">sourcelink.com</small>
-              </template>
-            </b-card>
+            <div class="col-md-4">
+              <b-card class="mb-2 new-card">
+                <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
+                <b-card-text>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</b-card-text>
+                <template v-slot:footer>
+                  <small class="text-muted">6 min ago</small>
+                  <small class="text-muted">bbc.com</small>
+                </template>
+              </b-card>
+            </div>
+            <div class="col-md-4">
+              <b-card class="mb-2 new-card">
+                <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
+                <b-card-text>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</b-card-text>
+                <template v-slot:footer>
+                  <small class="text-muted">Yestesday</small>
+                  <small class="text-muted">sourcelink.com</small>
+                </template>
+              </b-card>
+            </div>
+            <div class="col-md-4">
+              <b-card class="mb-2 new-card">
+                <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
+                <b-card-text>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</b-card-text>
+                <template v-slot:footer>
+                  <small class="text-muted">October 10, 2019</small>
+                  <small class="text-muted">sourcelink.com</small>
+                </template>
+              </b-card>
+            </div>
           </b-card-group>
         </div>
       </div>
@@ -244,7 +259,12 @@
   </div>
 </template>
 
+<script>
+</script>
+
+
 <style scoped>
+/* Common  for (Business, Entertainmenet, Science)*/
 .card-text {
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
@@ -256,20 +276,14 @@
   justify-content: space-between;
 }
 
-.card-deck {
-  /* width: 100%; */
-  /* display: flex;
-  flex-direction: row; */
-  /* flex-flow: unset !important; */
-  /* justify-content: space-between !important; */
-  /* margin-right: 0 !important;
-  margin-left: 0 !important; */
-}
 .new-card {
-  padding: 0 !important;
-  margin: 0 4px !important;
+  margin: 0 !important;
   max-width: 526px !important;
   border: none !important;
+}
+
+.new-card img {
+  width: 100%;
 }
 
 .new-card .card-body {
