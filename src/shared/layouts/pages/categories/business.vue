@@ -818,13 +818,9 @@ margin-top: 5px;
 /* Header */
 .header-wrap .top-menu-wrap .container {
   max-width: 1638px !important;
-  padding-right: unset !important;
-  padding-left: unset !important;
 }
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
-  padding-left: unset !important;
-  padding-right: unset !important;
 }
 .top-menu-wrap {
   background-color: #052962;

@@ -524,8 +524,6 @@ footer .right-item button {
 /* Header */
 .header-wrap .top-menu-wrap .container {
   max-width: 1638px !important;
-  padding-right: unset !important;
-  padding-left: unset !important;
 }
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
