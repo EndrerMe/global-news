@@ -14,42 +14,57 @@ const routes = [
     {
         path: '/',
         component: home,
+        name:'Home',
         alias: '/Home'
     },
     {
         path: '/new-info',
+        name:'newInfo',
         component: newinfo,
     },
     {
         path: '/test-hover',
+        name:'testHover',
         component: testhover,
     },
     {
         path: '/business',
+        name:'business',
         component: business,
     },
     {
         path: '/entertainment',
+        name:'entertainment',
+
         component: entertainment,
     },
     {
         path: '/general',
+        name:'general',
+
         component: general,
     },
     {
         path: '/health',
+        name:'health',
+
         component: health,
     },
     {
         path: '/science',
+        name:'science',
+
         component: science,
     },
     {
         path: '/sport',
+        name:'sport',
+
         component: sport,
     },
     {
         path: '/technology',
+        name:'technology',
         component: technology,
     },
 ]

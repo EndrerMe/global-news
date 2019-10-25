@@ -156,12 +156,78 @@
 
                   <div class="temp-value-wrap">
                     <span>+12</span>
-                    <span class="temp-symbol">&#8451; F</span>
+
+                    <span class="temp-symbol">
+                      <span>&#8451;</span>
+                      <span>F</span>
+                    </span>
                   </div>
                 </div>
                 <div class="links-wrap">
                   <a href="#">Weather Map</a>
                   <a href="#">More</a>
+                </div>
+              </div>
+
+              <!-- Weather Details -->
+              <div class="weather-details-wrap">
+                <div class="close-wrap">
+                  <a href="#"></a>
+                </div>
+                <div class="left-side">
+                  <div class="temp-info-wrap">
+                    <div class="temp-value-wrap info-elem">
+                      <p>
+                        <span class="cwitch">Show weather in :</span>
+                        <span class="temp-symbol">
+                          <span>F</span>
+                          <span>&#8451;</span>
+                        </span>
+                      </p>
+                      <p>Place : London</p>
+                    </div>
+                    <div class="show-info-wrap info-elem">
+                      <p>
+                        Min Temperature :
+                        <span class="temp-value">
+                          14
+                          <span class="temp-val-symbol"></span>
+                        </span>
+                      </p>
+                      <p>
+                        Max Temperature :
+                        <span class="temp-value">
+                          14
+                          <span class="temp-val-symbol"></span>
+                        </span>
+                      </p>
+                      <p>
+                        Temperature :
+                        <span class="temp-value">
+                          14
+                          <span class="temp-val-symbol"></span>
+                        </span>
+                      </p>
+                    </div>
+                    <div class="additional-info info-elem">
+                      <p class>
+                        Humidity :
+                        <span class="value">28</span>
+                      </p>
+                      <p class>
+                        Wind Speed :
+                        <span class="value">3</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="right-side">
+                  <div class="wrap">
+                    <span class="icon-wrap">
+                      <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                    </span>
+                    <span>Broken Clouds</span>
+                  </div>
                 </div>
               </div>
             </b-navbar>
@@ -206,6 +272,115 @@
 </template>
 
 <style scoped>
+/* Weather Details */
+
+.weather-details-wrap .right-side {
+  position: absolute;
+  right: 11%;
+  top: 35%;
+  font-size: 24px;
+  font-weight: bold;
+}
+.weather-details-wrap .right-side .wrap span {
+  margin: 20px 0;
+}
+.weather-details-wrap .right-side .wrap {
+  display: flex;
+  flex-direction: column;
+}
+.weather-details-wrap .right-side {
+  color: #f9f9f9;
+}
+.weather-details-wrap .right-side .icon-wrap img {
+  width: 130px;
+}
+.temp-info-wrap .additional-info {
+  text-align: start;
+}
+.temp-info-wrap .info-elem {
+  margin-top: 40px;
+  font-weight: bold;
+}
+.weather-details-wrap .show-info-wrap {
+  text-align: start;
+}
+.weather-details-wrap .show-info-wrap .temp-val-symbol {
+  position: relative;
+  margin-left: 5px;
+}
+.weather-details-wrap .show-info-wrap .temp-val-symbol::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  border: 1px solid #a09f9f;
+  border-radius: 10px;
+}
+.weather-details-wrap .temp-symbol span {
+  margin: 0 7px;
+}
+.weather-details-wrap .temp-symbol {
+  position: relative;
+}
+.weather-details-wrap .temp-symbol::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  background-color: white;
+  left: 27px;
+  top: 2px;
+}
+.weather-details-wrap .temp-value-wrap {
+  text-align: start;
+}
+.weather-details-wrap .temp-info-wrap {
+  color: #f9f9f9;
+  font-size: 24px;
+  margin-top: 90px;
+  margin-bottom: 60px;
+}
+.weather-details-wrap {
+  display: flex;
+  width: 602px;
+  position: absolute;
+  top: 660px;
+  background-color: #052962;
+  border: 1px solid;
+  z-index: 999;
+  padding: 0 50px;
+}
+
+.weather-details-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+.weather-details-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.weather-details-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
+}
+
 /* Weather */
 .weather-main-wrap .links-wrap {
   display: flex;
@@ -232,6 +407,19 @@
   margin-top: 50px;
 }
 
+.weather-search-wrap .temp-value-wrap .temp-symbol span {
+  margin: 0 5px;
+}
+.weather-search-wrap .temp-value-wrap .temp-symbol::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background-color: white;
+  left: 37px;
+  top: 7px;
+}
+
 .weather-search-wrap .clouds {
   margin-top: 55px;
   color: #eaeaea;
@@ -250,10 +438,10 @@
   right: 571px;
   top: 660px;
   background-color: #052962;
-  height: 530px;
+  padding-bottom: 20px;
   border: 1px solid;
   z-index: 999;
-  padding: 0 20px;
+  padding: 0 20px 10px 20px;
 }
 .weather-search-wrap {
   padding: 0 40px;
@@ -480,13 +668,13 @@
 
 .currency-converter-wrap {
   width: 380px;
-  height: 530px;
   border: 1px solid;
   position: absolute;
   right: 570px;
   top: 102px;
   background-color: #052962;
   z-index: 999;
+  padding-bottom: 45px;
 }
 .currency-converter-wrap .close-wrap a {
   width: 18px;
@@ -564,7 +752,7 @@
 
 .notify-prompt-wrap {
   width: 380px;
-  height: 330px;
+padding-bottom: 40px;
   border: 1px solid;
   position: absolute;
   right: 0;
@@ -607,7 +795,7 @@
   padding: 0px 90px;
 }
 
-.notify-prompt-wrap  .wropdown-arrow{
+.notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
   font-size: 20px;
 }
@@ -710,7 +898,7 @@
 }
 .subscribe-prompt-wrap {
   width: 380px;
-  height: 264px;
+  padding-bottom: 40px;
   border: 1px solid;
   position: absolute;
   right: 0;

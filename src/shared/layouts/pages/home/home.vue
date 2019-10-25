@@ -54,28 +54,25 @@
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
                   <b-nav-item href="#">
-                    <li class="category">
-                      <router-link class="link" :to="{name: `business`}">Business</router-link>
-                    </li>
+                    <router-link class="link" :to="{name: `business`}">Business</router-link>
                   </b-nav-item>
                   <b-nav-item href="#">
-                    <span>Entertainment</span>
+                    <router-link class="link" :to="{name: `entertainment`}">Entertainment</router-link>
                   </b-nav-item>
                   <b-nav-item href="#">
-                    <span>General</span>
+                    <router-link class="link" :to="{name: `general`}">General</router-link>
                   </b-nav-item>
                   <b-nav-item href="#">
-                    <span>Health</span>
+                    <router-link class="link" :to="{name: `health`}">Health</router-link>
                   </b-nav-item>
                   <b-nav-item href="#">
-                    <span>Science</span>
-                  </b-nav-item>
-
-                  <b-nav-item href="#">
-                    <span>Sport</span>
+                    <router-link class="link" :to="{name: `science`}">Science</router-link>
                   </b-nav-item>
                   <b-nav-item href="#">
-                    <span>Technology</span>
+                    <router-link class="link" :to="{name: `sport`}">Sport</router-link>
+                  </b-nav-item>
+                  <b-nav-item href="#">
+                    <router-link class="link" :to="{name: `technology`}">Technology</router-link>
                   </b-nav-item>
                 </b-navbar-nav>
               </b-collapse>
@@ -121,7 +118,6 @@
         <div class="title-wrap">
           <span class="title-text">Business</span>
         </div>
-        <!-- <div class="content-wrap"> -->
         <b-card-group deck row>
           <div class="col-md-4">
             <b-card class="card mb-2 new-card">
@@ -163,7 +159,6 @@
         <div class="title-wrap">
           <span class="title-text">Entertainment</span>
         </div>
-        <!-- <div class="content-wrap"> -->
         <b-card-group deck>
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
@@ -203,40 +198,38 @@
         <div class="title-wrap">
           <span class="title-text">Science</span>
         </div>
-        <div class="content-wrap">
-          <b-card-group deck>
-            <div class="col-md-4">
-              <b-card class="mb-2 new-card">
-                <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
-                <b-card-text>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</b-card-text>
-                <template v-slot:footer>
-                  <small class="text-muted">6 min ago</small>
-                  <small class="text-muted">bbc.com</small>
-                </template>
-              </b-card>
-            </div>
-            <div class="col-md-4">
-              <b-card class="mb-2 new-card">
-                <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
-                <b-card-text>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</b-card-text>
-                <template v-slot:footer>
-                  <small class="text-muted">Yestesday</small>
-                  <small class="text-muted">sourcelink.com</small>
-                </template>
-              </b-card>
-            </div>
-            <div class="col-md-4">
-              <b-card class="mb-2 new-card">
-                <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
-                <b-card-text>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</b-card-text>
-                <template v-slot:footer>
-                  <small class="text-muted">October 10, 2019</small>
-                  <small class="text-muted">sourcelink.com</small>
-                </template>
-              </b-card>
-            </div>
-          </b-card-group>
-        </div>
+        <b-card-group deck>
+          <div class="col-md-4">
+            <b-card class="mb-2 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
+              <b-card-text>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">6 min ago</small>
+                <small class="text-muted">bbc.com</small>
+              </template>
+            </b-card>
+          </div>
+          <div class="col-md-4">
+            <b-card class="mb-2 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
+              <b-card-text>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">Yestesday</small>
+                <small class="text-muted">sourcelink.com</small>
+              </template>
+            </b-card>
+          </div>
+          <div class="col-md-4">
+            <b-card class="mb-2 new-card">
+              <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
+              <b-card-text>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</b-card-text>
+              <template v-slot:footer>
+                <small class="text-muted">October 10, 2019</small>
+                <small class="text-muted">sourcelink.com</small>
+              </template>
+            </b-card>
+          </div>
+        </b-card-group>
       </div>
     </div>
 
@@ -265,7 +258,7 @@
 
 <style scoped>
 /* Common  for (Business, Entertainmenet, Science)*/
-.card-text {
+/* .card-text {
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
 }
@@ -288,7 +281,7 @@
 
 .new-card .card-body {
   padding: 0 !important;
-}
+} */
 </style>
 
 
@@ -384,14 +377,6 @@
 }
 
 /* Common for Business, Entertainment, Science */
-.content-wrap {
-  display: flex;
-  margin-top: 30px;
-  justify-content: space-between;
-
-  padding-left: 13px;
-  padding-right: 13px;
-}
 .elem-wrap {
   max-width: 526px;
 }
@@ -412,6 +397,31 @@
 .description-wrap span {
   font-size: 16px;
   font-weight: bold;
+}
+
+.card-text {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
+}
+.card-footer {
+  padding: 15px 0 0 0 !important;
+  background-color: unset !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-card {
+  margin: 0 !important;
+  max-width: 526px !important;
+  border: none !important;
+}
+
+.new-card img {
+  width: 100%;
+}
+
+.new-card .card-body {
+  padding: 0 !important;
 }
 
 /* Content */
@@ -531,17 +541,25 @@ nav.bottom-menu {
 .bottom-menu button {
   background: black;
 }
-.bottom-menu ul li a span {
+
+.bottom-menu ul li a a {
   color: #3f3f3f;
   font-size: 26px;
   font-weight: bold;
+  text-decoration: none;
 }
+
+.bottom-menu ul li a :hover {
+  color: #f8c61a;
+}
+
 .bottom-menu-wrap .navbar-nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .top-menu-wrap .navbar-nav {
   width: 100%;
   display: flex;
