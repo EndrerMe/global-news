@@ -10,7 +10,6 @@
             <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
               <b-nav class="mobile-top-menu">
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
                 <b-nav-item class="mobile-logo-wrap">
                   <img src="../../../../assets/images/logo.svg" alt="logo" />
                 </b-nav-item>
@@ -19,7 +18,7 @@
                 </b-nav-item>
               </b-nav>
 
-              <b-collapse id="nav-collapse" is-nav>
+              <div id="nav-collapse" class="showTest">
                 <div class="sub-wrap">
                   <b-navbar-nav class="wide-menu">
                     <b-nav-item class="close-link-wrap">
@@ -34,11 +33,85 @@
                       <span>October 8, 2019</span>
                       <span>Tuesday</span>
                     </b-nav-item>
-
                     <b-nav-item href="#" class="converter-wrap">
                       <span>
                         <span>Currency Converter</span>
+                        <font-awesome-icon icon="caret-down" />
+                      </span>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="weather-wrap">
+                      <span class="weather-content">
+                        <span>
+                          <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                        </span>
+                        <span class="weather-value">
+                          + 9
+                          <span class="celsius-value">&#8451;</span>
+                        </span>
+                        <span class="weather-dropdown-arrow">
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+                        <p>Glasgow</p>
+                      </span>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="search-wrap">
+                      <font-awesome-icon icon="search" class="fa-lg" />
+                      <font-awesome-icon icon="bell" class="fa-lg" />
+                    </b-nav-item>
+                  </b-navbar-nav>
 
+                  <b-navbar-nav class="mobile-side-menu">
+                    <b-nav-item class="close-link-wrap">
+                      <div class="close-wrap">
+                        <a href="#"></a>
+                      </div>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="wrap">
+                      <div class="top-side-wrap">
+                        <span class="sub-item">
+                          Currency Converter
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+
+                        <span class="sub-item">
+                          Weather
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+                      </div>
+                    </b-nav-item>
+                    <b-nav-item href="#">
+                      <div class="bottom-side-wrap">
+                        <div class="sub-item date">
+                          <span>October 8, 2019</span>
+                          <span>Tuesday</span>
+                        </div>
+                        <div class="sub-item">
+                          <button>Subscribe Us</button>
+                        </div>
+                      </div>
+                    </b-nav-item>
+                  </b-navbar-nav>
+                </div>
+              </div>
+
+              <!-- <b-collapse id="nav-collapse" is-nav>
+                <div class="sub-wrap">
+                  <b-navbar-nav class="wide-menu">
+                    <b-nav-item class="close-link-wrap">
+                      <div class="close-wrap">
+                        <a href="#"></a>
+                      </div>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="logo-wrap">
+                      <img src="../../../../assets/images/logo.svg" alt="logo" />
+                    </b-nav-item>
+                    <b-nav-item href="#" class="current-date">
+                      <span>October 8, 2019</span>
+                      <span>Tuesday</span>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="converter-wrap">
+                      <span>
+                        <span>Currency Converter</span>
                         <font-awesome-icon icon="caret-down" />
                       </span>
                     </b-nav-item>
@@ -97,8 +170,60 @@
                     </b-nav-item>
                   </b-navbar-nav>
                 </div>
-              </b-collapse>
+              </b-collapse>-->
             </b-navbar>
+
+            <div class="side-weather-wrap">
+              <div class="weather-main-wrap">
+                <div class="title-wrap section-elem">
+                  <span>Weather</span>
+                </div>
+                <div class="location-wrap section-elem">
+                  <span>Glasgow</span>
+                </div>
+
+                <div class="weather-data-wrap">
+                  <div class="clouds">
+                    <span class="icon">
+                      <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                    </span>
+                    <span class="cloud-state">Broken Clouds</span>
+                  </div>
+
+                  <div class="temp-value-wrap">
+                    <span class="temp-value">+9</span>
+                    <span class="temp-symbol">
+                      <span class="activeMode">&#8451;</span>
+                      <span>F</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="seacrh-country-wrap">
+                  <div class="text-wrap">
+                    <p>
+                      Did you mean
+                      <span class="serch-result">London</span> ?
+                    </p>
+                  </div>
+
+                  <div class="country-wrap">
+                    <span>Lond</span>
+                  </div>
+                  <div class="button-wrap">
+                    <button href="#">Search</button>
+                  </div>
+                </div>
+
+                <div class="links-wrap">
+                  <a href="#">
+                    More
+                    <font-awesome-icon icon="caret-down" />
+                  </a>
+                  <a href="#">Weather Map</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="bottom-menu-wrap">
@@ -300,19 +425,8 @@
   </div>
 </template>
 
-<style scoped>
-/* Common */
-@media (min-width: 1140px) {
-  .container {
-    max-width: 1638px !important;
-  }
-}
 
-@media (max-width: 1139px) {
-  .container {
-    max-width: 814px !important;
-  }
-}
+<style scoped>
 
 /* Header */
 @media (max-width: 1139px) {
@@ -328,27 +442,75 @@
 
 <style scoped>
 /* Header */
+
+/* class for element Id= 'nav-collapse' */
+.sideMenuActive {
+  visibility: visible !important;
+  width: 82% !important;
+  transition: all 1s;
+}
+#nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
+  display: flex;
+  flex-direction: column;
+}
+#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .top-side-wrap .sub-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  margin-top: 20px;
+}
+#nav-collapse
+  .sub-wrap
+  .mobile-side-menu
+  .nav-item
+  a
+  .top-side-wrap
+  .sub-item
+  svg {
+  color: rgb(248, 198, 26);
+}
+
+#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap {
+  padding-bottom: 20px;
+}
+
+#nav-collapse
+  .sub-wrap
+  .mobile-side-menu
+  .nav-item
+  a
+  .bottom-side-wrap
+  .sub-item.date {
+  padding-bottom: 35px;
+}
+
+#nav-collapse
+  .sub-wrap
+  .mobile-side-menu
+  .nav-item
+  a
+  .bottom-side-wrap
+  .sub-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+}
+
+#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button {
+  text-transform: none;
+  background: #f8c61a;
+  border: none;
+  height: 30px;
+  color: #052962;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
 .top-menu-wrap #nav-collapse .close-link-wrap {
   display: none;
   position: absolute;
-}
-.top-menu-wrap #nav-collapse .close-wrap a {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  position: absolute;
-  top: -45px;
-  right: 23px;
-}
-.top-menu-wrap #nav-collapse .close-wrap a::before {
-  position: absolute;
-  content: "";
-  width: 30px;
-  height: 2px;
-  background-color: rgb(248, 198, 26);
-  top: 7px;
-  right: 0px;
-  transform: rotate(45deg);
 }
 
 .top-menu-wrap #nav-collapse .close-wrap a::after {
@@ -357,9 +519,19 @@
   width: 30px;
   height: 2px;
   background-color: rgb(248, 198, 26);
-  top: 7px;
-  right: 0px;
+  top: -29px;
+  right: 30px;
   transform: rotate(-45deg);
+}
+.top-menu-wrap #nav-collapse .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: rgb(248, 198, 26);
+  top: -29px;
+  right: 30px;
+  transform: rotate(45deg);
 }
 
 .top-menu-wrap .mobile-top-menu {
@@ -409,7 +581,7 @@
     display: flex;
   }
 
-  #nav-collapse {
+  /* #nav-collapse {
     width: 82%;
     position: absolute;
     background: #052962;
@@ -417,10 +589,10 @@
     top: 0px;
     left: 0;
     bottom: 0;
-  }
+  } */
 
   #nav-collapse .sub-wrap {
-    padding-top: 74px;
+    padding-top: 58px;
     height: 100%;
   }
 
@@ -441,7 +613,7 @@
     width: 100%;
   }
 
-  #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
+  /* #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
     display: flex;
     flex-direction: column;
   }
@@ -468,9 +640,9 @@
     .sub-item
     svg {
     color: rgb(248, 198, 26);
-  }
+  } */
 
-  #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap {
+  /* #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap {
     padding-bottom: 20px;
   }
 
@@ -512,7 +684,7 @@
     font-weight: bold;
     font-size: 13px;
     letter-spacing: 1px;
-  }
+  } */
   .top-menu-wrap #nav-collapse .close-link-wrap {
     display: block;
   }
@@ -572,6 +744,181 @@
   .bottom-menu-wrap .box-menu {
     overflow: scroll !important;
     display: flex;
+  }
+}
+/* Weather */
+.weather-main-wrap {
+  padding: 0 15px;
+}
+.weather-main-wrap .section-elem {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.weather-main-wrap .title-wrap {
+  padding: 30px 0;
+}
+.weather-main-wrap .location-wrap {
+  color: white;
+}
+.weather-main-wrap .links-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.weather-main-wrap .links-wrap a {
+  color: #f8c61a;
+  text-decoration: none;
+}
+.weather-main-wrap .links-wrap a svg {
+  width: 7px;
+}
+.weather-main-wrap .seacrh-country-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 45px;
+  width: 100%;
+}
+.weather-main-wrap .seacrh-country-wrap .serch-result {
+  color: rgb(248, 198, 26) !important;
+}
+.weather-main-wrap .seacrh-country-wrap .text-wrap {
+  color: white;
+}
+.weather-data-wrap .button-wrap {
+  margin-top: 23px;
+}
+.weather-main-wrap .country-wrap span {
+  color: #eaeaea;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid;
+  text-align: start;
+}
+.weather-main-wrap .button-wrap {
+  margin-top: 15px;
+}
+.weather-main-wrap .button-wrap button {
+  width: 100%;
+  height: 35px;
+  background-color: #f8c61a;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.weather-data-wrap {
+  display: flex;
+  color: #d6d6d6;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.clouds,
+.temp-value-wrap {
+  margin: 0 10px;
+}
+.weather-data-wrap .clouds {
+  display: flex;
+  flex-direction: column;
+}
+.weather-data-wrap .clouds .cloud-state {
+  margin-top: 5px;
+}
+.weather-data-wrap .temp-value-wrap {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: initial;
+  position: relative;
+}
+.weather-data-wrap .temp-value-wrap .temp-value {
+  font-size: 38px;
+}
+.weather-data-wrap .temp-value-wrap .temp-symbol {
+  position: absolute;
+  top: 0;
+  font-size: 26px;
+  left: 32px;
+}
+.activeMode {
+  color: rgb(248, 198, 26);
+}
+.weather-data-wrap .temp-value-wrap .temp-symbol span {
+  margin: 0 8px;
+}
+.weather-data-wrap .temp-value-wrap .temp-symbol::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 22px;
+  background-color: white;
+  left: 43px;
+  top: 8px;
+}
+.weather-data-wrap .clouds img {
+  width: 70px;
+}
+.weather-data-wrap .text-wrap p.dropdown {
+  font-size: 32px;
+  font-family: initial;
+}
+.weather-data-wrap .button-wrap button {
+  height: 48px;
+  background-color: #f8c61a;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.weather-data-wrap .button-wrap button:hover {
+  background-color: #ffe076;
+}
+.weather-data-wrap .button-wrap button:hover {
+  background-color: #ffe076;
+}
+.side-weather-wrap {
+  position: absolute;
+  top: 58px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #052962;
+  z-index: 999;
+  border-top: 1px solid;
+}
+@media (min-width: 768px) {
+  .side-weather-wrap {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  #nav-collapse {
+    visibility: hidden;
+    position: absolute;
+    background: #052962;
+    z-index: 9999;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+/* ///// */
+/* Common */
+@media (min-width: 1140px) {
+  .container {
+    max-width: 1638px !important;
+  }
+}
+
+@media (max-width: 1139px) {
+  .container {
+    max-width: 814px !important;
   }
 }
 
@@ -636,11 +983,6 @@
   z-index: 999999;
   display: none;
 }
-
-/* Common */
-/* .container.content {
-  max-width: 1638px !important;
-} */
 
 /* Slider */
 .carousel-caption {
