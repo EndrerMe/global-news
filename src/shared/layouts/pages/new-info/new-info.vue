@@ -298,9 +298,81 @@
           </div>
         </div>
       </div>
-    </footer> -->
-  </div> 
+    </footer>-->
+  </div>
 </template>
+
+<style scoped>
+/* Common */
+@media (max-width: 1139px) {
+  .container {
+    max-width: 814px !important;
+  }
+}
+
+/* New Info */
+@media (max-width: 1139px) {
+  .card-wrap .new-info .title-wrap .text {
+    font-size: 22px !important;
+  }
+
+  .card-wrap .new-info .description-wrap {
+    font-size: 14px !important;
+  }
+}
+@media (max-width: 812px) {
+  .card-wrap .new-info .title-wrap .text {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .new-info {
+    max-width: unset !important;
+  }
+
+  .description-wrap{
+    margin-top: 0 !important;
+  }
+  .social-networks-wrap{
+        margin-top: 0 !important;
+
+  }
+}
+
+/* Latest News */
+@media (max-width: 1139px) {
+  .card-wrap .latest-news .text {
+    font-size: 22px !important;
+  }
+  .card-wrap .latest-news .description-wrap span {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 812px) {
+  .card-wrap .latest-news .text {
+    font-size: 18px !important;
+  }
+}
+@media (max-width: 690px) {
+  .card-wrap .latest-news .text {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 610px) {
+  .card-wrap .latest-news .text {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .latest-news {
+    max-width: unset !important;
+  }
+}
+
+</style>
+
 
 <style scoped>
 /* Social */
@@ -332,9 +404,10 @@
   fill: #f8c61a;
 }
 
-
-
 /* Common */
+.card-deck{
+  margin-top: unset;
+}
 .card.new-info,
 .card.latest-news {
   border: none;
@@ -356,7 +429,6 @@
   font-weight: bold;
 }
 
-
 /* New Info */
 .card-wrap .new-info .title-wrap {
   text-align: start;
@@ -377,31 +449,38 @@
   padding-top: 25px;
 }
 
-
 .card-wrap .new-info .description-wrap {
   text-align: start;
   margin-top: 34px;
   max-width: 1082px;
   font-size: 22px;
-    border-bottom: none;
-
+  border-bottom: none;
 }
 
 /* Latest News */
+.latest-news .card-body .title-wrap {
+  display: flex;
+  align-items: center;
+}
+.latest-news .card-body .title-wrap span {
+  display: block;
+}
+
+.latest-news .card-body .title-wrap::after {
+  content: "";
+  width: 32%;
+  height: 2px;
+  background-color: #052962;
+  display: inline-block;
+  margin-left: 15px;
+}
+
 .card-wrap .latest-news .title-wrap {
   position: relative;
   text-align: start;
   padding: 37px 0;
 }
-.card-wrap .latest-news .title-wrap::before {
-  content: "";
-  width: 53%;
-  height: 2px;
-  background-color: #052962;
-  position: absolute;
-  top: 56px;
-  right: 0px;
-}
+
 .card-wrap .latest-news .title-wrap .text {
   font-size: 32px;
   color: #052962;
@@ -426,7 +505,7 @@
 }
 </style>
 
-<style>
+<style scoped>
 /* Content */
 .container.content {
   max-width: 1638px;
@@ -569,8 +648,5 @@ footer .right-item button {
   border: none;
   letter-spacing: 1px;
 } */
-
-
-
 </style>
 

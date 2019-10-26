@@ -446,7 +446,7 @@
 
 
 
-<style>
+<style scoped>
 /* Pagination */
 
 .pagination-wrap .separator-wrap {
@@ -637,9 +637,8 @@
 }
 </style>
 
-<style>
+<style scoped>
 .new-card {
-  /* margin: 0 !important; */
   border: none !important;
 }
 
