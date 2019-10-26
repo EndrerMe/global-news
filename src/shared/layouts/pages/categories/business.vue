@@ -448,13 +448,13 @@
 <style>
 /* Pagination */
 
-.pagination-wrap .separator-wrap{
+.pagination-wrap .separator-wrap {
   display: inline-flex;
   vertical-align: top;
 }
 
-.pagination-wrap .separator-wrap .separator{
-margin-top: 5px;  
+.pagination-wrap .separator-wrap .separator {
+  margin-top: 5px;
 }
 
 .pagination-wrap .numbers-wrap .separator {
@@ -704,7 +704,7 @@ margin-top: 5px;
   content: "";
   width: 102px;
   height: 37px;
-  background-color: #C710A2;
+  background-color: #c710a2;
   left: 0;
   top: 0;
 }
@@ -850,7 +850,7 @@ nav.bottom-menu {
   justify-content: space-between;
   align-items: center;
 }
-.top-menu-wrap .navbar-nav li a svg {
+.top-menu-wrap .wide-menu li a svg {
   margin: 0 20px;
   color: rgb(248, 198, 26);
 }

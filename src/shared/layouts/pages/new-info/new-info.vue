@@ -473,7 +473,7 @@ nav.bottom-menu {
   justify-content: space-between;
   align-items: center;
 }
-.top-menu-wrap .navbar-nav li a svg {
+.top-menu-wrap .wide-menu li a svg {
   margin: 0 20px;
   color: rgb(248, 198, 26);
 }

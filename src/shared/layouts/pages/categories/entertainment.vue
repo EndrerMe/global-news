@@ -440,7 +440,7 @@
           </div>
         </div>
       </div>
-    </footer> -->
+    </footer>-->
   </div>
 </template>
 
@@ -449,13 +449,13 @@
 <style>
 /* Pagination */
 
-.pagination-wrap .separator-wrap{
+.pagination-wrap .separator-wrap {
   display: inline-flex;
   vertical-align: top;
 }
 
-.pagination-wrap .separator-wrap .separator{
-margin-top: 5px;  
+.pagination-wrap .separator-wrap .separator {
+  margin-top: 5px;
 }
 
 .pagination-wrap .numbers-wrap .separator {
@@ -842,7 +842,7 @@ nav.bottom-menu {
   justify-content: space-between;
   align-items: center;
 }
-.top-menu-wrap .navbar-nav li a svg {
+.top-menu-wrap .wide-menu li a svg {
   margin: 0 20px;
   color: rgb(248, 198, 26);
 }

@@ -21,17 +21,15 @@
 
               <b-collapse id="nav-collapse" is-nav>
                 <div class="sub-wrap">
-                  <b-navbar-nav>
+                  <b-navbar-nav class="wide-menu">
                     <b-nav-item class="close-link-wrap">
                       <div class="close-wrap">
                         <a href="#"></a>
                       </div>
                     </b-nav-item>
-
                     <b-nav-item href="#" class="logo-wrap">
                       <img src="../../../../assets/images/logo.svg" alt="logo" />
                     </b-nav-item>
-
                     <b-nav-item href="#" class="current-date">
                       <span>October 8, 2019</span>
                       <span>Tuesday</span>
@@ -62,6 +60,40 @@
                     <b-nav-item href="#" class="search-wrap">
                       <font-awesome-icon icon="search" class="fa-lg" />
                       <font-awesome-icon icon="bell" class="fa-lg" />
+                    </b-nav-item>
+                  </b-navbar-nav>
+
+                  <b-navbar-nav class="mobile-side-menu">
+                    <b-nav-item class="close-link-wrap">
+                      <div class="close-wrap">
+                        <a href="#"></a>
+                      </div>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="wrap">
+                      <div class="top-side-wrap">
+                        <span class="sub-item">
+                          Currency Converter
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+
+                        <span class="sub-item">
+                          Weather
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+                      </div>
+                    </b-nav-item>
+
+                    <b-nav-item href="#">
+                      <div class="bottom-side-wrap">
+                        <div class="sub-item date">
+                          <span>October 8, 2019</span>
+                          <span>Tuesday</span>
+                        </div>
+
+                        <div class="sub-item">
+                          <button>Subscribe Us</button>
+                        </div>
+                      </div>
                     </b-nav-item>
                   </b-navbar-nav>
                 </div>
@@ -272,13 +304,14 @@
 /* Header */
 .top-menu-wrap #nav-collapse .close-link-wrap {
   display: none;
+  position: absolute;
 }
 .top-menu-wrap #nav-collapse .close-wrap a {
   width: 18px;
   height: 18px;
   display: inline-block;
   position: absolute;
-  top: 24px;
+  top: -45px;
   right: 23px;
 }
 .top-menu-wrap #nav-collapse .close-wrap a::before {
@@ -330,13 +363,22 @@
   width: 100%;
 }
 
+#nav-collapse .sub-wrap .mobile-side-menu {
+  display: none;
+}
+
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item.wrap{
+    border-top: 1px solid #6d6d6d;
+  }
+
+
 @media (max-width: 767px) {
   .top-menu-wrap .mobile-top-menu {
     display: flex;
   }
 
   #nav-collapse {
-    width: 60%;
+    width: 82%;
     position: absolute;
     background: #052962;
     z-index: 9999;
@@ -346,10 +388,70 @@
   }
 
   #nav-collapse .sub-wrap {
-    margin-top: 74px;
-    border-top: 1px solid #585858;
+    padding-top: 74px;
+    /* border-top: 1px solid #585858; */
+    height: 100%;
   }
 
+  #nav-collapse .sub-wrap .wide-menu {
+    display: none;
+  }
+
+  #nav-collapse .sub-wrap .mobile-side-menu {
+    display: flex;
+    height: 100%;
+  }
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item {
+    display: flex;
+    width: 100%;
+  }
+
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item a {
+    width: 100%;
+  }
+
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .top-side-wrap .sub-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin-top:20px;
+  }
+
+   #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .top-side-wrap .sub-item svg{
+     color: rgb(248, 198, 26);
+   }
+
+   #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap{
+     padding-bottom: 20px;
+   }
+
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap .sub-item.date{
+    padding-bottom:  35px;
+  }
+
+    #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap .sub-item{
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button{
+    text-transform: none;
+    background: #f8c61a;
+    border: none;
+    height: 30px;
+    color: #052962;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
   .top-menu-wrap #nav-collapse .close-link-wrap {
     display: block;
   }
@@ -370,7 +472,7 @@
     position: unset;
   }
 
-  #nav-collapse .weather-content {
+  #nav-collapse .weather-content .wide-menu {
     display: flex;
   }
   #nav-collapse .navbar-nav {
@@ -698,21 +800,22 @@
   justify-content: space-between;
   align-items: center;
 }
-.top-menu-wrap .navbar-nav li a svg {
+
+.top-menu-wrap .wide-menu li a svg {
   margin: 0 20px;
   color: rgb(248, 198, 26);
 }
-.top-menu-wrap .navbar-nav li.weather-wrap {
+.top-menu-wrap .wide-menu li.weather-wrap {
   position: relative;
   display: flex;
   flex-direction: column;
 }
-.top-menu-wrap .navbar-nav li.weather-wrap .weather-dropdown-arrow {
+.top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
   position: absolute;
   top: 25px;
   right: -46px;
 }
-.top-menu-wrap .navbar-nav li.weather-wrap p {
+.top-menu-wrap .navbar-nav .wide-menu li.weather-wrap p {
   margin-bottom: 0;
 }
 .top-menu-wrap .navbar-nav li .nav-link {
@@ -733,7 +836,7 @@
 .top-menu-wrap .navbar-brand {
   padding: 0;
 }
-.top-menu-wrap .current-date a {
+.top-menu-wrap .wide-menu .current-date a {
   display: flex;
   flex-direction: column;
 }
