@@ -103,7 +103,7 @@
         </div>
         <div class="bottom-menu-wrap">
           <div class="container">
-            <div>
+            <div class="box-menu">
               <b-nav class="bottom-menu">
                 <b-nav-item>
                   <router-link class="link" :to="{name: `business`}">Business</router-link>
@@ -567,7 +567,11 @@
 @media (max-width: 767px) {
   .bottom-menu-wrap .bottom-menu {
     flex-wrap: unset;
+  }
+
+  .bottom-menu-wrap .box-menu {
     overflow: scroll !important;
+    display: flex;
   }
 }
 

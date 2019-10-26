@@ -1,86 +1,133 @@
 <template>
   <div>
+    <div class="dark-screen"></div>
     <!-- Header -->
     <div class="header-wrap">
       <div class="header-content">
         <div class="top-menu-wrap">
-          <div class="container content">
+          <div class="container">
             <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
-              <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+              <b-nav class="mobile-top-menu">
+                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+                <b-nav-item class="mobile-logo-wrap">
+                  <img src="../../../../assets/images/logo.svg" alt="logo" />
+                </b-nav-item>
+                <b-nav-item class="mobnile-search-wrap">
+                  <font-awesome-icon icon="search" class="fa-lg" />
+                </b-nav-item>
+              </b-nav>
               <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav>
-                  <b-nav-item href="#">
-                    <img src="../../../../assets/images/logo.svg" alt="logo" />
-                  </b-nav-item>
-                  <b-nav-item href="#" class="current-date">
-                    <span>October 8, 2019</span>
-                    <span>Tuesday</span>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <span>
-                      Currency Converter
-                      <font-awesome-icon icon="caret-down" />
-                    </span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span class="weather-content">
+                <div class="sub-wrap">
+                  <b-navbar-nav class="wide-menu">
+                    <b-nav-item class="close-link-wrap">
+                      <div class="close-wrap">
+                        <a href="#"></a>
+                      </div>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="logo-wrap">
+                      <img src="../../../../assets/images/logo.svg" alt="logo" />
+                    </b-nav-item>
+                    <b-nav-item href="#" class="current-date">
+                      <span>October 8, 2019</span>
+                      <span>Tuesday</span>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="converter-wrap">
                       <span>
-                        <img src="../../../../assets/images/cloud.svg" alt="cloud" />
-                      </span>
-                      <span class="weather-value">
-                        + 9
-                        <span class="celsius-value">&#8451;</span>
-                      </span>
-                      <span class="weather-dropdown-arrow">
+                        <span>Currency Converter</span>
+
                         <font-awesome-icon icon="caret-down" />
                       </span>
-                      <p>Glasgow</p>
-                    </span>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <font-awesome-icon icon="search" class="fa-lg" />
-                    <font-awesome-icon icon="bell" class="fa-lg" />
-                  </b-nav-item>
-                </b-navbar-nav>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="weather-wrap">
+                      <span class="weather-content">
+                        <span>
+                          <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                        </span>
+                        <span class="weather-value">
+                          + 9
+                          <span class="celsius-value">&#8451;</span>
+                        </span>
+                        <span class="weather-dropdown-arrow">
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+                        <p>Glasgow</p>
+                      </span>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="search-wrap">
+                      <font-awesome-icon icon="search" class="fa-lg" />
+                      <font-awesome-icon icon="bell" class="fa-lg" />
+                    </b-nav-item>
+                  </b-navbar-nav>
+                  <b-navbar-nav class="mobile-side-menu">
+                    <b-nav-item class="close-link-wrap">
+                      <div class="close-wrap">
+                        <a href="#"></a>
+                      </div>
+                    </b-nav-item>
+                    <b-nav-item href="#" class="wrap">
+                      <div class="top-side-wrap">
+                        <span class="sub-item">
+                          Currency Converter
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+
+                        <span class="sub-item">
+                          Weather
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+                      </div>
+                    </b-nav-item>
+
+                    <b-nav-item href="#">
+                      <div class="bottom-side-wrap">
+                        <div class="sub-item date">
+                          <span>October 8, 2019</span>
+                          <span>Tuesday</span>
+                        </div>
+
+                        <div class="sub-item">
+                          <button>Subscribe Us</button>
+                        </div>
+                      </div>
+                    </b-nav-item>
+                  </b-navbar-nav>
+                </div>
               </b-collapse>
             </b-navbar>
           </div>
         </div>
         <div class="bottom-menu-wrap">
           <div class="container">
-            <b-navbar class="bottom-menu" toggleable="md" type="dark" variant="info">
-              <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-              <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav>
-                  <b-nav-item href="#" class="current-date">
-                    <span>Business</span>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <span>Entertainment</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>General</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>Health</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>Science</span>
-                  </b-nav-item>
-
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>Sport</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>Technology</span>
-                  </b-nav-item>
-                </b-navbar-nav>
-              </b-collapse>
-            </b-navbar>
+            <div class="box-menu">
+              <b-nav class="bottom-menu">
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `business`}">Business</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `entertainment`}">Entertainment</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `general`}">General</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `health`}">Health</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `science`}">Science</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `sport`}">Sport</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                  <router-link class="link" :to="{name: `technology`}">Technology</router-link>
+                </b-nav-item>
+              </b-nav>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="container content">
       <!-- Top title -->
       <div class="main-title-wrap">
@@ -157,7 +204,7 @@
         </div>
       </div>
 
-      <!-- All Posts -->
+      <!-- All News -->
       <b-card-group deck row>
         <div class="col-md-4">
           <b-card class="mb-2 new-card">
@@ -446,9 +493,9 @@
       </div>
     </div>
     <!-- Footer -->
-    <!-- <footer>
+    <footer>
       <div class="container content">
-        <div class="content">
+        <div class="content-wrap">
           <div class="left-item">
             <img src="../../../../assets/images/logo.svg" alt="logo" />
           </div>
@@ -460,12 +507,19 @@
           </div>
         </div>
       </div>
-    </footer>-->
+    </footer>
   </div>
 </template>
 
+
 <style scoped>
 /* Common */
+@media (min-width: 1140px) {
+  .container {
+    max-width: 1638px !important;
+  }
+}
+
 @media (max-width: 1139px) {
   .container {
     max-width: 814px !important;
@@ -654,7 +708,6 @@
   transition: all 1s;
 }
 
-/* //// */
 .content .top-box-preview .box-item:hover img {
   transform: scale(1.1);
   transition: transform 1s;
@@ -792,78 +845,53 @@
   margin-bottom: 5px;
 }
 
-/* All Posts */
-@media (max-width: 1199px) {
-  .new-card .title-wrap {
-    max-width: 86%;
-  }
-}
-
-@media (max-width: 1139px) {
-  .new-card .title-wrap {
-    font-size: 12px !important;
-  }
-
-  .new-card .title-wrap {
-    max-width: 78%;
-  }
-}
-@media (max-width: 767px) {
-  .new-card .title-wrap {
-    font-size: 22px !important;
-  }
-}
-
 /* Header */
-.header-wrap .top-menu-wrap .container {
-  max-width: 1638px !important;
-}
-.top-menu-wrap .navbar {
-  background-color: #052962 !important;
+.bottom-menu-wrap {
+  height: 120px;
+  display: flex;
+  align-items: center;
 }
 .top-menu-wrap {
   background-color: #052962;
 }
-nav.bottom-menu {
+.bottom-menu {
   background-color: unset !important;
-  margin: 0 auto;
-  padding: 41px !important;
+  justify-content: center !important;
 }
-.bottom-menu button {
-  background: black;
-}
-.bottom-menu ul li a span {
+
+.bottom-menu li a a {
   color: #3f3f3f;
   font-size: 26px;
   font-weight: bold;
+  text-decoration: none;
 }
-.bottom-menu-wrap .navbar-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.bottom-menu li a:hover {
+  color: #f8c61a !important;
 }
+
 .top-menu-wrap .navbar-nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .top-menu-wrap .wide-menu li a svg {
   margin: 0 20px;
   color: rgb(248, 198, 26);
 }
-.top-menu-wrap .navbar-nav li.weather-wrap {
+.top-menu-wrap .wide-menu li.weather-wrap {
   position: relative;
   display: flex;
   flex-direction: column;
 }
-.top-menu-wrap .navbar-nav li.weather-wrap .weather-dropdown-arrow {
+.top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
   position: absolute;
   top: 25px;
   right: -46px;
 }
-.top-menu-wrap .navbar-nav li.weather-wrap p {
+.top-menu-wrap .navbar-nav .wide-menu li.weather-wrap p {
   margin-bottom: 0;
 }
 .top-menu-wrap .navbar-nav li .nav-link {
@@ -878,13 +906,15 @@ nav.bottom-menu {
 .top-menu-wrap .navbar-nav li .nav-item {
   color: #f9f9f9;
 }
+
 .top-menu-wrap .navbar {
-  padding: 17px;
+  background-color: #052962 !important;
+  padding: 9px 0;
 }
 .top-menu-wrap .navbar-brand {
   padding: 0;
 }
-.top-menu-wrap .current-date a {
+.top-menu-wrap .wide-menu .current-date a {
   display: flex;
   flex-direction: column;
 }
@@ -896,6 +926,86 @@ nav.bottom-menu {
   font-size: 20px;
   position: absolute;
 }
+
+.top-menu-wrap #nav-collapse .close-link-wrap {
+  display: none;
+  position: absolute;
+}
+.top-menu-wrap #nav-collapse .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: -45px;
+  right: 23px;
+}
+.top-menu-wrap #nav-collapse .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: rgb(248, 198, 26);
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.top-menu-wrap #nav-collapse .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: rgb(248, 198, 26);
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
+}
+
+.top-menu-wrap .mobile-top-menu {
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-menu-wrap .mobile-top-menu .navbar-toggler {
+  border: none;
+}
+
+.top-menu-wrap .mobile-top-menu .mobnile-search-wrap svg {
+  color: rgb(248, 198, 26);
+}
+
+.top-menu-wrap .mobile-top-menu .mobile-logo-wrap a {
+  padding: 0;
+}
+
+.top-menu-wrap .mobile-top-menu .mobile-logo-wrap img {
+  width: 90px;
+}
+
+#nav-collapse .sub-wrap {
+  width: 100%;
+}
+
+#nav-collapse .sub-wrap .mobile-side-menu {
+  display: none;
+}
+
+#nav-collapse .sub-wrap .mobile-side-menu .nav-item.wrap {
+  border-top: 1px solid #6d6d6d;
+}
+
+@media (max-width: 1139px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 18px !important;
+  }
+
+  .bottom-menu-wrap {
+    height: 100px;
+  }
+}
+
 @media (max-width: 1199px) {
   .bottom-menu ul li a span {
     font-size: 23px;
@@ -907,18 +1017,197 @@ nav.bottom-menu {
   }
 }
 
+@media (max-width: 767px) {
+  .bottom-menu-wrap {
+    height: unset !important;
+  }
+
+  .bottom-menu {
+    padding: 10px 0;
+  }
+  .top-menu-wrap .mobile-top-menu {
+    display: flex;
+  }
+
+  #nav-collapse {
+    width: 82%;
+    position: absolute;
+    background: #052962;
+    z-index: 9999;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+  }
+
+  #nav-collapse .sub-wrap {
+    padding-top: 74px;
+    height: 100%;
+  }
+
+  #nav-collapse .sub-wrap .wide-menu {
+    display: none;
+  }
+
+  #nav-collapse .sub-wrap .mobile-side-menu {
+    display: flex;
+    height: 100%;
+  }
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item {
+    display: flex;
+    width: 100%;
+  }
+
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item a {
+    width: 100%;
+  }
+
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #nav-collapse
+    .sub-wrap
+    .mobile-side-menu
+    .nav-item
+    a
+    .top-side-wrap
+    .sub-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin-top: 20px;
+  }
+
+  #nav-collapse
+    .sub-wrap
+    .mobile-side-menu
+    .nav-item
+    a
+    .top-side-wrap
+    .sub-item
+    svg {
+    color: rgb(248, 198, 26);
+  }
+
+  #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap {
+    padding-bottom: 20px;
+  }
+
+  #nav-collapse
+    .sub-wrap
+    .mobile-side-menu
+    .nav-item
+    a
+    .bottom-side-wrap
+    .sub-item.date {
+    padding-bottom: 35px;
+  }
+
+  #nav-collapse
+    .sub-wrap
+    .mobile-side-menu
+    .nav-item
+    a
+    .bottom-side-wrap
+    .sub-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  #nav-collapse
+    .sub-wrap
+    .mobile-side-menu
+    .nav-item
+    a
+    .bottom-side-wrap
+    button {
+    text-transform: none;
+    background: #f8c61a;
+    border: none;
+    height: 30px;
+    color: #052962;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .top-menu-wrap #nav-collapse .close-link-wrap {
+    display: block;
+  }
+
+  #nav-collapse .navbar-nav :nth-child(3) {
+    order: 7;
+  }
+
+  #nav-collapse .navbar-nav svg.fa-caret-down {
+    transform: rotate(-90deg);
+  }
+
+  #nav-collapse .weather-dropdown-arrow {
+    position: unset;
+  }
+
+  .top-menu-wrap .top-menu {
+    position: unset;
+  }
+
+  #nav-collapse .weather-content .wide-menu {
+    display: flex;
+  }
+  #nav-collapse .navbar-nav {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 1199px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 991px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 15px !important;
+  }
+  .carousel-caption .slide-title span {
+    font-size: 28px;
+  }
+
+  .top-menu-wrap .navbar-collapse .search-wrap a svg {
+    margin: 0 10px;
+  }
+
+  .top-menu-wrap .navbar-collapse .search-wrap {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bottom-menu-wrap .bottom-menu {
+    flex-wrap: unset;
+  }
+
+  .bottom-menu-wrap .box-menu {
+    overflow: scroll !important;
+    display: flex;
+  }
+}
+
 /* Content */
 .container.content {
   max-width: 1638px;
 }
 
 /* Footer */
-/* footer {
-  margin-top: 72px;
+footer {
   background-color: #052962;
+  margin-top: 72px;
 }
-footer .content {
+footer .content-wrap {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -949,12 +1238,59 @@ footer .right-item button {
   font-weight: 900;
   border: none;
   letter-spacing: 1px;
-} */
+}
+
+@media (max-width: 1199px) {
+  footer .right-item button {
+    width: 232px !important;
+    height: 44px;
+  }
+}
+
+@media (max-width: 991px) {
+  footer .right-item button {
+    width: 222px !important;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  footer .container.content {
+    height: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  footer .right-item button {
+    width: 185px !important;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  footer .content-wrap {
+    flex-direction: column;
+    height: unset !important;
+  }
+  footer .content-wrap .center-item {
+    margin: 0 auto;
+  }
+  footer .content-wrap :nth-child(2) {
+    order: 3;
+  }
+  footer .right-item button {
+    width: 98% !important;
+  }
+  footer .content-wrap .left-item {
+    padding: 20px 0;
+  }
+  footer .content-wrap .center-item {
+    padding: 20px 0;
+  }
+}
 </style>
 
-
-
-<style>
+<style scoped>
 /* Pagination */
 
 .pagination-wrap .separator-wrap {
@@ -1147,7 +1483,8 @@ footer .right-item button {
 
 
 <style scoped>
-/* All Posts */
+/* All News */
+
 .new-card {
   border: none !important;
 }
@@ -1194,6 +1531,26 @@ footer .right-item button {
 .new-card .card-text {
   padding: 18px 0 13px 0;
   text-align: start;
+}
+@media (max-width: 1199px) {
+  .new-card .title-wrap {
+    max-width: 86%;
+  }
+}
+
+@media (max-width: 1139px) {
+  .new-card .title-wrap {
+    font-size: 12px !important;
+  }
+
+  .new-card .title-wrap {
+    max-width: 78%;
+  }
+}
+@media (max-width: 767px) {
+  .new-card .title-wrap {
+    font-size: 22px !important;
+  }
 }
 </style>
 
