@@ -573,10 +573,13 @@
 <script>
 import Slick from "vue-slick";
 
-new Vue({
-  components: { Slick },
+export default {
+  components: { 
+    Slick 
+  },
   data() {
     return {
+      isShowSideMenu: false,
       slickOptions: {
         //options can be used from the plugin documentation
         slidesToShow: 4,
@@ -591,30 +594,22 @@ new Vue({
       }
     };
   },
-  // All slick methods can be used too, example here
-  methods: {
-    next() {
-      this.$refs.slick.next();
-    },
-    prev() {
-      this.$refs.slick.prev();
-    },
-    reInit() {
-      // Helpful if you have to deal with v-for to update dynamic lists
-      this.$refs.slick.reSlick();
-    }
-  }
-});
-
-export default {
-  data() {
-    return {
-      isShowSideMenu: false
-    };
-  },
   methods: {
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
+    },
+
+    next() {
+      this.$refs.slick.next();
+    },
+
+    prev() {
+      this.$refs.slick.prev();
+    },
+
+    reInit() {
+      // Helpful if you have to deal with v-for to update dynamic lists
+      this.$refs.slick.reSlick();
     }
   }
 };
