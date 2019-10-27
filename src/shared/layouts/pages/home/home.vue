@@ -561,11 +561,6 @@
   overflow: scroll;
 }
 
-/* .weater-details {
-  width: 100%;
-  padding-bottom: 30px;
-} */
-
 .weaterDetailsHidden {
   height: 300px;
   transition: all 1s;
