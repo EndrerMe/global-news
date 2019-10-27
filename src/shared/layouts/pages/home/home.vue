@@ -16,7 +16,6 @@
                   <font-awesome-icon icon="search" class="fa-lg" />
                 </b-nav-item>
               </b-nav>
-
               <div
                 id="nav-collapse"
                 class="showTest"
@@ -62,7 +61,6 @@
                       <font-awesome-icon icon="bell" class="fa-lg" />
                     </b-nav-item>
                   </b-navbar-nav>
-
                   <b-navbar-nav class="mobile-side-menu">
                     <b-nav-item class="close-link-wrap">
                       <div class="close-wrap" @click="toggleMobileSideMenu()">
@@ -75,7 +73,6 @@
                           Currency Converter
                           <font-awesome-icon icon="caret-down" />
                         </span>
-
                         <span class="sub-item">
                           Weather
                           <font-awesome-icon icon="caret-down" />
@@ -97,7 +94,7 @@
                 </div>
               </div>
             </b-navbar>
-
+            <!-- Mobile Side Weather -->
             <div class="modile-side-weather-wrap">
               <div class="mobile-weather-main-wrap">
                 <div class="title-wrap section-elem">
@@ -106,7 +103,6 @@
                 <div class="location-wrap section-elem">
                   <span>Glasgow</span>
                 </div>
-
                 <div class="weather-data-wrap">
                   <div class="clouds">
                     <span class="icon">
@@ -114,7 +110,6 @@
                     </span>
                     <span class="cloud-state">Broken Clouds</span>
                   </div>
-
                   <div class="temp-value-wrap">
                     <span class="temp-value">+9</span>
                     <span class="temp-symbol">
@@ -123,7 +118,6 @@
                     </span>
                   </div>
                 </div>
-
                 <div class="seacrh-country-wrap">
                   <div class="text-wrap">
                     <p>
@@ -131,7 +125,6 @@
                       <span class="serch-result">London</span> ?
                     </p>
                   </div>
-
                   <div class="country-wrap">
                     <span>Lond</span>
                   </div>
@@ -139,9 +132,8 @@
                     <button href="#">Search</button>
                   </div>
                 </div>
-
                 <div class="links-wrap">
-                  <!-- Weater Details -->
+                  <!-- Mobile Weater Details -->
                   <div class="mobile-weather-details-wrap">
                     <div class="links-wrap">
                       <div class="left-link">
@@ -154,7 +146,6 @@
                         <a href="#">Weather Map</a>
                       </div>
                     </div>
-
                     <div class="sides-wrap">
                       <div class="left-side">
                         <div class="temp-info-wrap">
@@ -215,7 +206,6 @@
                   </div>
                 </div>
               </div>
-
               <!-- Weater Map Mobile  -->
               <div class="mobile-weather-details-wrap" style="display:none">
                 <div class="sides-wrap">
@@ -276,14 +266,11 @@
                   </div>
                 </div>
               </div>
-
               <!-- Subscribe Prompt Mobile-->
-
               <div class="mobile-notify-prompt-wrap" style="display:none">
                 <div class="close-wrap">
                   <a class="close-button" href="#"></a>
                 </div>
-
                 <div class="text-wrap">
                   <p>You subscribe on</p>
                   <p class="dropdown">
@@ -302,7 +289,6 @@
                   </div>
                 </div>
               </div>
-
               <!-- Mobile footer -->
               <footer>
                 <div class="container content">
@@ -383,28 +369,14 @@
           </b-carousel-slide>
         </b-carousel>
       </div>
-
-      <!-- Test Slider -->
-      <slick ref="slick" :options="slickOptions">
-        <a href="http://placehold.it/320x120">
-          <img src="http://placehold.it/320x120" alt />
-        </a>
-
-        <a href="http://placehold.it/420x220">
-          <img src="http://placehold.it/420x220" alt />
-        </a>
-      </slick>
-
-      <!-- End Test Slider -->
-
       <!-- Business -->
       <div class="business-wrap">
         <div class="title-wrap">
           <span class="title-text">Business</span>
         </div>
-        <b-card-group deck row>
-          <div class="col-md-4">
-            <b-card class="card mb-2 new-card">
+        <slick ref="slick" :options="slickOptions">
+          <div class="card-wrap">
+            <b-card class="card mb-2 new-card col-md-12">
               <b-card-img :src="require('../../../../assets/images/business/img-1.png')"></b-card-img>
               <b-card-text>
                 A mobile version of video game Call of Duty has been downloaded
@@ -416,9 +388,8 @@
               </template>
             </b-card>
           </div>
-
-          <div class="col-md-4">
-            <b-card class="mb-2 new-card">
+          <div class="card-wrap">
+            <b-card class="mb-2 new-card col-md-12">
               <b-card-img :src="require('../../../../assets/images/business/img-2.png')"></b-card-img>
               <b-card-text>
                 All 555 Thomas Cook shops are to be bought by rival Hays Travel
@@ -431,9 +402,8 @@
               </template>
             </b-card>
           </div>
-
-          <div class="col-md-4">
-            <b-card class="mb-2 new-card">
+          <div class="card-wrap">
+            <b-card class="mb-2 new-card col-md-12">
               <b-card-img :src="require('../../../../assets/images/business/img-3.png')"></b-card-img>
               <b-card-text>
                 Goldman Sachs will review its involvement in the planned stock
@@ -446,15 +416,15 @@
               </template>
             </b-card>
           </div>
-        </b-card-group>
+        </slick>
       </div>
       <!-- Entertainmenet -->
       <div class="entertainment-wrap">
         <div class="title-wrap">
           <span class="title-text">Entertainment</span>
         </div>
-        <b-card-group deck>
-          <div class="col-md-4">
+        <slick ref="slick" :options="slickOptions">
+          <div class="card-wrap">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-4.png')"></b-card-img>
               <b-card-text>
@@ -468,8 +438,7 @@
               </template>
             </b-card>
           </div>
-
-          <div class="col-md-4">
+          <div class="card-wrap">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-5.png')"></b-card-img>
               <b-card-text>
@@ -483,7 +452,7 @@
               </template>
             </b-card>
           </div>
-          <div class="col-md-4">
+          <div class="card-wrap">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-6.png')"></b-card-img>
               <b-card-text>
@@ -497,15 +466,15 @@
               </template>
             </b-card>
           </div>
-        </b-card-group>
+        </slick>
       </div>
       <!-- Science -->
       <div class="science-wrap">
         <div class="title-wrap">
           <span class="title-text">Science</span>
         </div>
-        <b-card-group deck>
-          <div class="col-md-4">
+        <slick ref="slick" :options="slickOptions">
+          <div class="card-wrap">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
               <b-card-text>
@@ -519,7 +488,7 @@
               </template>
             </b-card>
           </div>
-          <div class="col-md-4">
+          <div class="card-wrap">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
               <b-card-text>
@@ -533,7 +502,7 @@
               </template>
             </b-card>
           </div>
-          <div class="col-md-4">
+          <div class="card-wrap">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
               <b-card-text>
@@ -547,7 +516,7 @@
               </template>
             </b-card>
           </div>
-        </b-card-group>
+        </slick>
       </div>
     </div>
     <!-- Footer -->
@@ -569,20 +538,19 @@
   </div>
 </template>
 
-
 <script>
 import Slick from "vue-slick";
 
-new Vue({
+export default {
   components: { Slick },
   data() {
     return {
+      isShowSideMenu: false,
       slickOptions: {
-        //options can be used from the plugin documentation
-        slidesToShow: 4,
+        slidesToShow: 1,
         infinite: true,
         accessibility: true,
-        adaptiveHeight: false,
+        adaptiveHeight: true,
         arrows: true,
         dots: true,
         draggable: true,
@@ -591,8 +559,10 @@ new Vue({
       }
     };
   },
-  // All slick methods can be used too, example here
   methods: {
+    toggleMobileSideMenu() {
+      this.isShowSideMenu = !this.isShowSideMenu;
+    },
     next() {
       this.$refs.slick.next();
     },
@@ -604,51 +574,91 @@ new Vue({
       this.$refs.slick.reSlick();
     }
   }
-});
-
-export default {
-  data() {
-    return {
-      isShowSideMenu: false
-    };
-  },
-  methods: {
-    toggleMobileSideMenu() {
-      this.isShowSideMenu = !this.isShowSideMenu;
-    }
-  }
 };
- </script>
+</script>
+
+<style>
+@import "../../../../../node_modules/slick-carousel/slick/slick.css";
+
+/* Slick Slider */
+.slick-slider {
+  margin-top: 30px;
+}
+.slick-slider .slick-dots {
+  display: none !important;
+}
+.slick-slider button.slick-prev,
+.slick-slider button.slick-next:focus {
+  outline: none;
+}
+.slick-slider button.slick-prev {
+  position: absolute;
+  top: -49px;
+  right: 50px;
+  color: transparent;
+  background: transparent;
+  border: none;
+  width: 30px;
+}
+.slick-slider button.slick-prev::before {
+  right: 8px;
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid #4e3535;
+  border-bottom: 2px solid #4e3535;
+  transform: rotate(45deg);
+  top: 8px;
+}
+.slick-slider button.slick-next {
+  position: absolute;
+  top: -49px;
+  right: 15px;
+  color: transparent;
+  background: transparent;
+  border: none;
+  width: 30px;
+}
+.slick-slider button.slick-next::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #4e3535;
+  border-bottom: 2px solid #4e3535;
+  transform: rotate(-45deg);
+  top: 8px;
+  left: 8px;
+}
+</style>
 
 <style scoped>
 /* Hide elements for mibile 
 Subscribe : class = 'mobile-notify-prompt-wrap'
 Dark Screen :  class = 'dark-screen'
+
+Weather Menu : class = 'modile-side-weather-wrap'
 */
 
 /* Notify */
-
 .mobile-notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
-
 .mobile-notify-prompt-wrap .text-wrap p.dropdown {
   font-size: 22px;
   font-family: initial;
   margin-right: 10px;
   font-weight: bold;
 }
-
 .mobile-notify-prompt-wrap .send-email-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
 }
-
 .mobile-notify-prompt-wrap .button-wrap {
   margin-top: 23px;
 }
-
 .mobile-notify-prompt-wrap .email-wrap span {
   color: #eaeaea;
   display: block;
@@ -656,7 +666,6 @@ Dark Screen :  class = 'dark-screen'
   border-bottom: 1px solid;
   text-align: start;
 }
-
 .mobile-notify-prompt-wrap .button-wrap button {
   width: 242px;
   height: 48px;
@@ -670,7 +679,6 @@ Dark Screen :  class = 'dark-screen'
 .mobile-notify-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-
 .mobile-notify-prompt-wrap {
   padding-bottom: 45px;
   border: 1px solid;
@@ -688,10 +696,6 @@ Dark Screen :  class = 'dark-screen'
   top: 24px;
   right: 23px;
 }
-
-.mobile-notify-prompt-wrap .close-button {
-}
-
 .mobile-notify-prompt-wrap .close-wrap a::before {
   position: absolute;
   content: "";
@@ -702,7 +706,6 @@ Dark Screen :  class = 'dark-screen'
   right: 2px;
   transform: rotate(45deg);
 }
-
 .mobile-notify-prompt-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -713,13 +716,11 @@ Dark Screen :  class = 'dark-screen'
   right: 2px;
   transform: rotate(-45deg);
 }
-
 .mobile-notify-prompt-wrap .text-wrap {
   margin-top: 50px;
   padding: 0px 90px;
   color: #f8c61a;
 }
-
 .mobile-notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
   font-size: 20px;
@@ -729,17 +730,14 @@ Dark Screen :  class = 'dark-screen'
   color: #eaeaea;
   margin-bottom: 2px;
 }
-
 .mobile-notify-prompt-wrap .send-email-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
 }
-
 .mobile-notify-prompt-wrap .button-wrap {
   margin-top: 10px;
 }
-
 .mobile-notify-prompt-wrap .email-wrap span {
   color: #eaeaea;
   display: block;
@@ -747,9 +745,7 @@ Dark Screen :  class = 'dark-screen'
   border-bottom: 1px solid;
   text-align: start;
 }
-
 .mobile-notify-prompt-wrap .button-wrap button {
-  /* width: 242px; */
   height: 32px;
   background-color: #f8c61a;
   border: none;
@@ -764,14 +760,13 @@ Dark Screen :  class = 'dark-screen'
 
 /* Weater Details */
 .modile-side-weather-wrap {
+  display: none;
   overflow: scroll;
 }
-
 .weaterDetailsHidden {
   height: 300px;
   transition: all 1s;
 }
-
 .mobile-weather-details-wrap .right-side .wrap {
   display: flex;
   flex-direction: column;
@@ -783,7 +778,6 @@ Dark Screen :  class = 'dark-screen'
   justify-content: flex-end;
   padding-left: calc((100% - 276px));
 }
-
 .mobile-weather-details-wrap .right-side .text {
   white-space: nowrap;
 }
@@ -819,7 +813,6 @@ Dark Screen :  class = 'dark-screen'
 .mobile-weather-details-wrap .temp-symbol {
   position: relative;
 }
-
 .mobile-weather-details-wrap .temp-symbol::before {
   content: "";
   position: absolute;
@@ -832,18 +825,15 @@ Dark Screen :  class = 'dark-screen'
 .mobile-weather-details-wrap .temp-value-wrap {
   text-align: start;
 }
-
 .mobile-weather-details-wrap .temp-info-wrap p {
   margin-bottom: 3px;
 }
 .mobile-weather-details-wrap .temp-info-wrap {
   color: #f9f9f9;
 }
-
 .mobile-weather-details-wrap .sides-wrap {
   display: flex;
 }
-
 .mobile-weather-details-wrap {
   width: 100%;
   display: flex;
@@ -851,7 +841,6 @@ Dark Screen :  class = 'dark-screen'
   background-color: #052962;
   z-index: 999;
 }
-
 .mobile-weather-details-wrap .close-wrap a {
   width: 18px;
   height: 18px;
@@ -870,7 +859,6 @@ Dark Screen :  class = 'dark-screen'
   right: 0px;
   transform: rotate(45deg);
 }
-
 .mobile-weather-details-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -891,7 +879,6 @@ Dark Screen :  class = 'dark-screen'
   width: 82% !important;
   transition: all 0.2s;
 }
-
 #nav-collapse {
   width: 0;
 }
@@ -915,11 +902,9 @@ Dark Screen :  class = 'dark-screen'
   svg {
   color: rgb(248, 198, 26);
 }
-
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap {
   padding-bottom: 20px;
 }
-
 #nav-collapse
   .sub-wrap
   .mobile-side-menu
@@ -929,7 +914,6 @@ Dark Screen :  class = 'dark-screen'
   .sub-item.date {
   padding-bottom: 35px;
 }
-
 #nav-collapse
   .sub-wrap
   .mobile-side-menu
@@ -941,7 +925,6 @@ Dark Screen :  class = 'dark-screen'
   flex-direction: column;
   padding: 0 15px;
 }
-
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button {
   text-transform: none;
   background: #f8c61a;
@@ -953,12 +936,10 @@ Dark Screen :  class = 'dark-screen'
   font-size: 13px;
   letter-spacing: 1px;
 }
-
 .top-menu-wrap #nav-collapse .close-link-wrap {
   display: none;
   position: absolute;
 }
-
 .top-menu-wrap #nav-collapse .close-wrap a {
   position: absolute;
   width: 30px !important;
@@ -966,7 +947,6 @@ Dark Screen :  class = 'dark-screen'
   top: -44px;
   right: 30px;
 }
-
 .top-menu-wrap #nav-collapse .close-wrap a::after {
   position: absolute;
   content: "";
@@ -987,38 +967,30 @@ Dark Screen :  class = 'dark-screen'
   right: 0px;
   transform: rotate(45deg);
 }
-
 .top-menu-wrap .mobile-top-menu {
   display: none;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
-
 .top-menu-wrap .mobile-top-menu .navbar-toggler {
   border: none;
 }
-
 .top-menu-wrap .mobile-top-menu .mobnile-search-wrap svg {
   color: rgb(248, 198, 26);
 }
-
 .top-menu-wrap .mobile-top-menu .mobile-logo-wrap a {
   padding: 0;
 }
-
 .top-menu-wrap .mobile-top-menu .mobile-logo-wrap img {
   width: 90px;
 }
-
 #nav-collapse .sub-wrap {
   width: 100%;
 }
-
 #nav-collapse .sub-wrap .mobile-side-menu {
   display: none;
 }
-
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item.wrap {
   border-top: 1px solid #6d6d6d;
 }
@@ -1027,23 +999,19 @@ Dark Screen :  class = 'dark-screen'
   .bottom-menu-wrap {
     height: unset !important;
   }
-
   .bottom-menu {
     padding: 10px 0;
   }
   .top-menu-wrap .mobile-top-menu {
     display: flex;
   }
-
   #nav-collapse .sub-wrap {
     padding-top: 58px;
     height: 100%;
   }
-
   #nav-collapse .sub-wrap .wide-menu {
     display: none;
   }
-
   #nav-collapse .sub-wrap .mobile-side-menu {
     display: flex;
     height: 100%;
@@ -1052,30 +1020,24 @@ Dark Screen :  class = 'dark-screen'
     display: flex;
     width: 100%;
   }
-
   #nav-collapse .sub-wrap .mobile-side-menu .nav-item a {
     width: 100%;
   }
   .top-menu-wrap #nav-collapse .close-link-wrap {
     display: block;
   }
-
   #nav-collapse .navbar-nav :nth-child(3) {
     order: 7;
   }
-
   #nav-collapse .navbar-nav svg.fa-caret-down {
     transform: rotate(-90deg);
   }
-
   #nav-collapse .weather-dropdown-arrow {
     position: unset;
   }
-
   .top-menu-wrap .top-menu {
     position: unset;
   }
-
   #nav-collapse .weather-content .wide-menu {
     display: flex;
   }
@@ -1083,13 +1045,11 @@ Dark Screen :  class = 'dark-screen'
     align-items: flex-start;
   }
 }
-
 @media (max-width: 1199px) {
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 22px;
   }
 }
-
 @media (max-width: 991px) {
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 15px !important;
@@ -1097,21 +1057,17 @@ Dark Screen :  class = 'dark-screen'
   .carousel-caption .slide-title span {
     font-size: 28px;
   }
-
   .top-menu-wrap .navbar-collapse .search-wrap a svg {
     margin: 0 10px;
   }
-
   .top-menu-wrap .navbar-collapse .search-wrap {
     margin-left: 10px;
   }
 }
-
 @media (max-width: 767px) {
   .bottom-menu-wrap .bottom-menu {
     flex-wrap: unset;
   }
-
   .bottom-menu-wrap .box-menu {
     overflow: scroll !important;
     display: flex;
@@ -1122,7 +1078,6 @@ Dark Screen :  class = 'dark-screen'
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 18px;
   }
-
   .bottom-menu-wrap {
     height: 100px;
   }
@@ -1197,7 +1152,6 @@ Dark Screen :  class = 'dark-screen'
   justify-content: center;
   margin-top: 15px;
 }
-
 .mobile-weather-main-wrap .weather-data-wrap .clouds {
   display: flex;
   flex-direction: column;
@@ -1286,7 +1240,6 @@ Dark Screen :  class = 'dark-screen'
   .modile-side-weather-wrap {
     display: none;
   }
-
   #nav-collapse {
     width: 100%;
   }
@@ -1303,20 +1256,17 @@ Dark Screen :  class = 'dark-screen'
   }
 }
 
-/* ///// */
 /* Common */
 @media (min-width: 1140px) {
   .container {
     max-width: 1638px !important;
   }
 }
-
 @media (max-width: 1139px) {
   .container {
     max-width: 814px !important;
   }
 }
-
 /* Slider */
 @media (max-width: 1199px) {
   .carousel-caption .slide-title span {
@@ -1333,7 +1283,6 @@ Dark Screen :  class = 'dark-screen'
     font-size: 20px !important;
   }
 }
-
 /* Content */
 @media (max-width: 1199px) {
   .business-wrap .title-wrap .title-text,
@@ -1349,7 +1298,6 @@ Dark Screen :  class = 'dark-screen'
     font-size: 20px;
   }
 }
-
 @media (max-width: 767px) {
   .business-wrap .title-wrap .title-text,
   .entertainment-wrap .title-wrap .title-text,
@@ -1360,6 +1308,17 @@ Dark Screen :  class = 'dark-screen'
   .entertainment-wrap,
   .science-wrap {
     margin-top: 30px;
+  }
+}
+@media (max-width: 575px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .slick-slider {
+    margin-top: 20px;
   }
 }
 </style>
@@ -1466,11 +1425,9 @@ Dark Screen :  class = 'dark-screen'
 .elem-wrap {
   max-width: 526px;
 }
-
 .elem-wrap img {
   width: 100%;
 }
-
 .description-wrap {
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
@@ -1487,7 +1444,6 @@ Dark Screen :  class = 'dark-screen'
 .card-deck {
   margin-top: 30px;
 }
-
 .card-text {
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
@@ -1498,13 +1454,11 @@ Dark Screen :  class = 'dark-screen'
   display: flex;
   justify-content: space-between;
 }
-
 .new-card {
   margin: 0 auto !important;
   max-width: 526px !important;
   border: none !important;
 }
-
 .new-card img {
   width: 100%;
 }
@@ -1548,7 +1502,6 @@ Dark Screen :  class = 'dark-screen'
   letter-spacing: 10px;
   padding: 6px 30px;
 }
-
 /* Science */
 .science-wrap {
   margin-top: 60px;
@@ -1566,9 +1519,7 @@ Dark Screen :  class = 'dark-screen'
   letter-spacing: 10px;
   padding: 6px 30px;
 }
-
 /* Header */
-
 .bottom-menu-wrap {
   height: 120px;
   display: flex;
@@ -1581,25 +1532,21 @@ Dark Screen :  class = 'dark-screen'
   background-color: unset !important;
   justify-content: center !important;
 }
-
 .bottom-menu li a a {
   color: #3f3f3f;
   font-size: 26px;
   font-weight: bold;
   text-decoration: none;
 }
-
 .bottom-menu li a:hover {
   color: #f8c61a !important;
 }
-
 .top-menu-wrap .navbar-nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .top-menu-wrap .wide-menu li a svg {
   margin: 0 20px;
   color: rgb(248, 198, 26);
@@ -1629,7 +1576,6 @@ Dark Screen :  class = 'dark-screen'
 .top-menu-wrap .navbar-nav li .nav-item {
   color: #f9f9f9;
 }
-
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
   padding: 9px 0;
@@ -1658,14 +1604,10 @@ Dark Screen :  class = 'dark-screen'
   .bottom-menu ul li a span {
     font-size: 17px;
   }
-
-  /* .bottom-menu li a a{
-    font-size:12px !important;
-  } */
 }
 </style>
 
-<style>
+<style scoped>
 /* Footer */
 footer {
   background-color: #052962;
@@ -1677,12 +1619,10 @@ footer .content-wrap {
   display: flex;
   justify-content: space-between;
 }
-
 footer .left-item,
 footer .right-item {
   margin: auto 0;
 }
-
 footer .center-item {
   display: flex;
 }
@@ -1692,6 +1632,15 @@ footer .center-item .text {
   align-items: flex-end;
   padding-bottom: 5px;
   font-size: 10px;
+}
+/* footer .right-item button {
+  width: 98% !important;
+  width: 185px !important;
+  height: 35px;
+  font-size: 12px;
+} */
+footer .right-item button:hover {
+  background-color: #ffe076 !important;
 }
 
 footer .right-item button {
@@ -1705,14 +1654,12 @@ footer .right-item button {
   border: none;
   letter-spacing: 1px;
 }
-
 @media (max-width: 1199px) {
   footer .right-item button {
     width: 232px !important;
     height: 44px;
   }
 }
-
 @media (max-width: 991px) {
   footer .right-item button {
     width: 222px !important;
@@ -1720,13 +1667,11 @@ footer .right-item button {
     font-size: 14px;
   }
 }
-
 @media (min-width: 768px) {
   footer .container.content {
     height: 100px;
   }
 }
-
 @media (max-width: 767px) {
   footer {
     margin-top: 0px;
@@ -1734,12 +1679,6 @@ footer .right-item button {
   footer img {
     width: 100px;
   }
-  footer .right-item button {
-    width: 185px !important;
-    height: 35px;
-    font-size: 12px;
-  }
-
   footer .content-wrap {
     flex-direction: column;
     height: unset !important;
@@ -1749,9 +1688,6 @@ footer .right-item button {
   }
   footer .content-wrap :nth-child(2) {
     order: 3;
-  }
-  footer .right-item button {
-    width: 98% !important;
   }
   footer .content-wrap .left-item {
     padding: 20px 0;
