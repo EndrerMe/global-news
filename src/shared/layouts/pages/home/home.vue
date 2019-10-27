@@ -9,7 +9,7 @@
           <div class="container">
             <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
               <b-nav class="mobile-top-menu">
-                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+                <b-navbar-toggle target="nav-collapse" @click='toggleMobileSideMenu()'></b-navbar-toggle>
                 <b-nav-item class="mobile-logo-wrap">
                   <img src="../../../../assets/images/logo.svg" alt="logo" />
                 </b-nav-item>
@@ -18,11 +18,11 @@
                 </b-nav-item>
               </b-nav>
 
-              <div id="nav-collapse" class="showTest">
+              <div id="nav-collapse" class="showTest"  v-bind:class="{ sideMenuActive: isShowSideMenu }">
                 <div class="sub-wrap">
                   <b-navbar-nav class="wide-menu">
                     <b-nav-item class="close-link-wrap">
-                      <div class="close-wrap">
+                      <div class="close-wrap" @click='toggleMobileSideMenu()'>
                         <a href="#"></a>
                       </div>
                     </b-nav-item>
@@ -554,6 +554,20 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      isShowSideMenu: false
+    }
+  },
+  methods: {
+    toggleMobileSideMenu() {
+      this.isShowSideMenu = !this.isShowSideMenu;
+    }
+  }
+}
+</script>
 
 <style scoped>
 /* Weater Details */
