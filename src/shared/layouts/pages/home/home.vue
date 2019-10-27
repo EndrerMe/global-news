@@ -427,7 +427,6 @@
 
 
 <style scoped>
-
 /* Header */
 @media (max-width: 1139px) {
   .bottom-menu-wrap .bottom-menu li a {
@@ -443,11 +442,20 @@
 <style scoped>
 /* Header */
 
-/* class for element Id= 'nav-collapse' */
+/* class for element Id= 'nav-collapse'
+    and
+    class = 'side-weather-wrap'
+    and
+    class = 'dark-screen'
+ */
 .sideMenuActive {
   visibility: visible !important;
   width: 82% !important;
   transition: all 1s;
+}
+
+#nav-collapse {
+  width: 100%;
 }
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
   display: flex;
