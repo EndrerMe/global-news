@@ -9,7 +9,7 @@
           <div class="container">
             <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
               <b-nav class="mobile-top-menu">
-                <b-navbar-toggle target="nav-collapse" @click='toggleMobileSideMenu()'></b-navbar-toggle>
+                <b-navbar-toggle target="nav-collapse" @click="toggleMobileSideMenu()"></b-navbar-toggle>
                 <b-nav-item class="mobile-logo-wrap">
                   <img src="../../../../assets/images/logo.svg" alt="logo" />
                 </b-nav-item>
@@ -18,11 +18,15 @@
                 </b-nav-item>
               </b-nav>
 
-              <div id="nav-collapse" class="showTest"  v-bind:class="{ sideMenuActive: isShowSideMenu }">
+              <div
+                id="nav-collapse"
+                class="showTest"
+                v-bind:class="{ sideMenuActive: isShowSideMenu }"
+              >
                 <div class="sub-wrap">
                   <b-navbar-nav class="wide-menu">
                     <b-nav-item class="close-link-wrap">
-                      <div class="close-wrap" @click='toggleMobileSideMenu()'>
+                      <div class="close-wrap" @click="toggleMobileSideMenu()">
                         <a href="#"></a>
                       </div>
                     </b-nav-item>
@@ -62,7 +66,7 @@
 
                   <b-navbar-nav class="mobile-side-menu">
                     <b-nav-item class="close-link-wrap">
-                      <div class="close-wrap">
+                      <div class="close-wrap" @click="toggleMobileSideMenu()">
                         <a class="close-button" href="#"></a>
                       </div>
                     </b-nav-item>
@@ -95,8 +99,8 @@
               </div>
             </b-navbar>
 
-            <div class="side-weather-wrap">
-              <div class="weather-main-wrap">
+            <div class="modile-side-weather-wrap">
+              <div class="mobile-weather-main-wrap">
                 <div class="title-wrap section-elem">
                   <span>Weather</span>
                 </div>
@@ -139,7 +143,7 @@
 
                 <div class="links-wrap">
                   <!-- Weater Details -->
-                  <div class="weather-details-wrap">
+                  <div class="mobile-weather-details-wrap">
                     <div class="links-wrap">
                       <div class="left-link">
                         <a href="#">
@@ -213,8 +217,8 @@
                 </div>
               </div>
 
-              <!-- Weater Map For Mobile  -->
-              <div class="weather-details-wrap" style="display:none">
+              <!-- Weater Map Mobile  -->
+              <div class="mobile-weather-details-wrap" style="display:none">
                 <div class="sides-wrap">
                   <div class="weather-map left-side">
                     <div class="temp-info-wrap">
@@ -273,7 +277,49 @@
                   </div>
                 </div>
               </div>
-              <!-- end  for mobile-->
+
+              <!-- Subscribe Prompt Mobile-->
+
+              <div class="mobile-notify-prompt-wrap" style="display:none">
+                <div class="close-wrap">
+                  <a class="close-button" href="#"></a>
+                </div>
+
+                <div class="text-wrap">
+                  <p>You subscribe on</p>
+                  <p class="dropdown">
+                    <span>All News</span>
+                    <span class="wropdown-arrow">
+                      <font-awesome-icon icon="caret-down" />
+                    </span>
+                  </p>
+                </div>
+                <div class="send-email-wrap">
+                  <div class="email-wrap">
+                    <span>E-mail</span>
+                  </div>
+                  <div class="button-wrap">
+                    <button href="#">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mobile footer -->
+              <footer>
+                <div class="container content">
+                  <div class="content-wrap">
+                    <div class="left-item">
+                      <img src="../../../../assets/images/logo.svg" alt="logo" />
+                    </div>
+                    <div class="center-item">
+                      <span class="text">Copyright © 2019 Global New. All rights reserved</span>
+                    </div>
+                    <div class="right-item">
+                      <button>Subscribe Us</button>
+                    </div>
+                  </div>
+                </div>
+              </footer>
             </div>
           </div>
         </div>
@@ -481,19 +527,166 @@ export default {
   data() {
     return {
       isShowSideMenu: false
-    }
+    };
   },
   methods: {
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
     }
   }
-}
+};
 </script>
 
+
+
+
 <style scoped>
+/* Hide elements for mibile 
+Subscribe : class = 'mobile-notify-prompt-wrap'
+
+Dark Screen :  class = 'dark-screen'
+
+*/
+
+
+/* Notify */
+
+.mobile-notify-prompt-wrap .text-wrap p {
+  color: #eaeaea;
+}
+
+.mobile-notify-prompt-wrap .text-wrap p.dropdown {
+  font-size: 22px;
+  font-family: initial;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.mobile-notify-prompt-wrap .send-email-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.mobile-notify-prompt-wrap .button-wrap {
+  margin-top: 23px;
+}
+
+.mobile-notify-prompt-wrap .email-wrap span {
+  color: #eaeaea;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid;
+  text-align: start;
+}
+
+.mobile-notify-prompt-wrap .button-wrap button {
+  width: 242px;
+  height: 48px;
+  background-color: #f8c61a;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mobile-notify-prompt-wrap .button-wrap button:hover {
+  background-color: #ffe076;
+}
+
+.mobile-notify-prompt-wrap {
+  padding-bottom: 45px;
+  border: 1px solid;
+  background-color: #052962;
+  z-index: 999;
+}
+.mobile-notify-prompt-wrap .close-wrap {
+  position: relative;
+}
+.mobile-notify-prompt-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+
+.mobile-notify-prompt-wrap .close-button {
+}
+
+.mobile-notify-prompt-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 8px;
+  right: 2px;
+  transform: rotate(45deg);
+}
+
+.mobile-notify-prompt-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 8px;
+  right: 2px;
+  transform: rotate(-45deg);
+}
+
+.mobile-notify-prompt-wrap .text-wrap {
+  margin-top: 50px;
+  padding: 0px 90px;
+  color: #f8c61a;
+}
+
+.mobile-notify-prompt-wrap .wropdown-arrow {
+  margin-left: 10px;
+  font-size: 20px;
+  font-size: 14px;
+}
+.mobile-notify-prompt-wrap .text-wrap p {
+  color: #eaeaea;
+  margin-bottom: 2px;
+}
+
+.mobile-notify-prompt-wrap .send-email-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.mobile-notify-prompt-wrap .button-wrap {
+  margin-top: 10px;
+}
+
+.mobile-notify-prompt-wrap .email-wrap span {
+  color: #eaeaea;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid;
+  text-align: start;
+}
+
+.mobile-notify-prompt-wrap .button-wrap button {
+  /* width: 242px; */
+  height: 32px;
+  background-color: #f8c61a;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mobile-notify-prompt-wrap .button-wrap button:hover {
+  background-color: #ffe076;
+}
+
 /* Weater Details */
-.side-weather-wrap {
+.modile-side-weather-wrap {
   overflow: scroll;
 }
 
@@ -502,11 +695,11 @@ export default {
   transition: all 1s;
 }
 
-.weather-details-wrap .right-side .wrap {
+.mobile-weather-details-wrap .right-side .wrap {
   display: flex;
   flex-direction: column;
 }
-.weather-details-wrap .right-side {
+.mobile-weather-details-wrap .right-side {
   color: #f9f9f9;
   display: flex;
   flex-direction: column;
@@ -514,10 +707,10 @@ export default {
   padding-left: calc((100% - 276px));
 }
 
-.weather-details-wrap .right-side .text {
+.mobile-weather-details-wrap .right-side .text {
   white-space: nowrap;
 }
-.weather-details-wrap .right-side .icon-wrap img {
+.mobile-weather-details-wrap .right-side .icon-wrap img {
   width: 35px;
 }
 .temp-info-wrap .additional-info {
@@ -528,14 +721,14 @@ export default {
   font-size: 13px;
   font-weight: bold;
 }
-.weather-details-wrap .show-info-wrap {
+.mobile-weather-details-wrap .show-info-wrap {
   text-align: start;
 }
-.weather-details-wrap .show-info-wrap .temp-val-symbol {
+.mobile-weather-details-wrap .show-info-wrap .temp-val-symbol {
   position: relative;
   margin-left: 5px;
 }
-.weather-details-wrap .show-info-wrap .temp-val-symbol::before {
+.mobile-weather-details-wrap .show-info-wrap .temp-val-symbol::before {
   content: "";
   width: 7px;
   height: 7px;
@@ -543,14 +736,14 @@ export default {
   border: 1px solid #a09f9f;
   border-radius: 10px;
 }
-.weather-details-wrap .temp-symbol span {
+.mobile-weather-details-wrap .temp-symbol span {
   margin: 0 7px;
 }
-.weather-details-wrap .temp-symbol {
+.mobile-weather-details-wrap .temp-symbol {
   position: relative;
 }
 
-.weather-details-wrap .temp-symbol::before {
+.mobile-weather-details-wrap .temp-symbol::before {
   content: "";
   position: absolute;
   width: 1px;
@@ -559,22 +752,22 @@ export default {
   left: 22px;
   top: 0px;
 }
-.weather-details-wrap .temp-value-wrap {
+.mobile-weather-details-wrap .temp-value-wrap {
   text-align: start;
 }
 
-.weather-details-wrap .temp-info-wrap p {
+.mobile-weather-details-wrap .temp-info-wrap p {
   margin-bottom: 3px;
 }
-.weather-details-wrap .temp-info-wrap {
+.mobile-weather-details-wrap .temp-info-wrap {
   color: #f9f9f9;
 }
 
-.weather-details-wrap .sides-wrap {
+.mobile-weather-details-wrap .sides-wrap {
   display: flex;
 }
 
-.weather-details-wrap {
+.mobile-weather-details-wrap {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -582,7 +775,7 @@ export default {
   z-index: 999;
 }
 
-.weather-details-wrap .close-wrap a {
+.mobile-weather-details-wrap .close-wrap a {
   width: 18px;
   height: 18px;
   display: inline-block;
@@ -590,7 +783,7 @@ export default {
   top: 24px;
   right: 23px;
 }
-.weather-details-wrap .close-wrap a::before {
+.mobile-weather-details-wrap .close-wrap a::before {
   position: absolute;
   content: "";
   width: 15px;
@@ -601,7 +794,7 @@ export default {
   transform: rotate(45deg);
 }
 
-.weather-details-wrap .close-wrap a::after {
+.mobile-weather-details-wrap .close-wrap a::after {
   position: absolute;
   content: "";
   width: 15px;
@@ -616,16 +809,10 @@ export default {
 <style scoped>
 /* Header */
 
-/* set class 'sideMenuActive' for element Id = 'nav-collapse'
-    and
-    class = 'side-weather-wrap'
-    and
-    class = 'dark-screen'
- */
 .sideMenuActive {
   visibility: visible !important;
   width: 82% !important;
-  transition: all 1s;
+  transition: all 0.2s;
 }
 
 #nav-collapse {
@@ -865,58 +1052,58 @@ export default {
 }
 
 /* Weather */
-.weather-main-wrap {
+.mobile-weather-main-wrap {
   padding: 0 15px 40px 15px;
 }
-.weather-main-wrap .section-elem {
+.mobile-weather-main-wrap .section-elem {
   display: flex;
   justify-content: center;
   color: white;
 }
-.weather-main-wrap .title-wrap {
+.mobile-weather-main-wrap .title-wrap {
   padding: 30px 0;
 }
-.weather-main-wrap .location-wrap {
+.mobile-weather-main-wrap .location-wrap {
   color: white;
 }
-.weather-main-wrap .links-wrap {
+.mobile-weather-main-wrap .links-wrap {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
-.weather-main-wrap .links-wrap a {
+.mobile-weather-main-wrap .links-wrap a {
   color: #f8c61a;
   text-decoration: none;
 }
-.weather-main-wrap .links-wrap a svg {
+.mobile-weather-main-wrap .links-wrap a svg {
   width: 7px;
 }
-.weather-main-wrap .seacrh-country-wrap {
+.mobile-weather-main-wrap .seacrh-country-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 45px;
   width: 100%;
 }
-.weather-main-wrap .seacrh-country-wrap .serch-result {
+.mobile-weather-main-wrap .seacrh-country-wrap .serch-result {
   color: rgb(248, 198, 26) !important;
 }
-.weather-main-wrap .seacrh-country-wrap .text-wrap {
+.mobile-weather-main-wrap .seacrh-country-wrap .text-wrap {
   color: white;
 }
-.weather-data-wrap .button-wrap {
+.mobile-weather-main-wrap .weather-data-wrap .button-wrap {
   margin-top: 23px;
 }
-.weather-main-wrap .country-wrap span {
+.mobile-weather-main-wrap .country-wrap span {
   color: #eaeaea;
   display: block;
   width: 100%;
   border-bottom: 1px solid;
   text-align: start;
 }
-.weather-main-wrap .button-wrap {
+.mobile-weather-main-wrap .button-wrap {
   margin-top: 15px;
 }
-.weather-main-wrap .button-wrap button {
+.mobile-weather-main-wrap .button-wrap button {
   width: 100%;
   height: 35px;
   background-color: #f8c61a;
@@ -926,7 +1113,7 @@ export default {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-.weather-data-wrap {
+.mobile-weather-main-wrap .weather-data-wrap {
   display: flex;
   color: #d6d6d6;
   display: flex;
@@ -934,14 +1121,14 @@ export default {
   margin-top: 15px;
 }
 
-.weather-data-wrap .clouds {
+.mobile-weather-main-wrap .weather-data-wrap .clouds {
   display: flex;
   flex-direction: column;
 }
-.weather-data-wrap .clouds .cloud-state {
+.mobile-weather-main-wrap .weather-data-wrap .clouds .cloud-state {
   margin-top: 5px;
 }
-.weather-data-wrap .temp-value-wrap {
+ .mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap {
   display: flex;
   align-items: center;
   color: white;
@@ -950,22 +1137,22 @@ export default {
   position: relative;
   padding-right: 55px;
 }
-.weather-data-wrap .temp-value-wrap .temp-value {
+.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-value {
   font-size: 38px;
 }
-.weather-data-wrap .temp-value-wrap .temp-symbol {
+.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-symbol {
   position: absolute;
   top: 0;
   font-size: 26px;
   left: 32px;
 }
-.weather-data-wrap .temp-value-wrap .temp-symbol .activeMode.active {
+.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-symbol .activeMode.active {
   color: rgb(248, 198, 26);
 }
-.weather-data-wrap .temp-value-wrap .temp-symbol span {
+.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-symbol span {
   margin: 0 8px;
 }
-.weather-data-wrap .temp-value-wrap .temp-symbol::before {
+.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-symbol::before {
   content: "";
   position: absolute;
   width: 1px;
@@ -974,14 +1161,14 @@ export default {
   left: 42px;
   top: 8px;
 }
-.weather-data-wrap .clouds img {
+.mobile-weather-main-wrap .weather-data-wrap .clouds img {
   width: 70px;
 }
-.weather-data-wrap .text-wrap p.dropdown {
+.mobile-weather-main-wrap .weather-data-wrap .text-wrap p.dropdown {
   font-size: 32px;
   font-family: initial;
 }
-.weather-data-wrap .button-wrap button {
+.mobile-weather-main-wrap .weather-data-wrap .button-wrap button {
   width: 100%;
   height: 35px;
   background-color: #f8c61a;
@@ -991,13 +1178,13 @@ export default {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-.weather-data-wrap .button-wrap button:hover {
+.mobile-weather-main-wrap .weather-data-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-.weather-data-wrap .button-wrap button:hover {
+.mobile-weather-main-wrap.weather-data-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-.side-weather-wrap {
+.modile-side-weather-wrap {
   position: absolute;
   top: 58px;
   bottom: 0;
@@ -1008,7 +1195,7 @@ export default {
   border-top: 1px solid;
 }
 @media (min-width: 768px) {
-  .side-weather-wrap {
+  .modile-side-weather-wrap {
     display: none;
   }
 
@@ -1453,6 +1640,12 @@ footer .right-item button {
 }
 
 @media (max-width: 767px) {
+  footer {
+    margin-top: 0px;
+  }
+  footer img {
+    width: 100px;
+  }
   footer .right-item button {
     width: 185px !important;
     height: 35px;
