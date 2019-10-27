@@ -535,6 +535,7 @@
         </b-card-group>
       </div>
     </div>
+
     <!-- Footer -->
     <footer>
       <div class="container content">
@@ -555,16 +556,87 @@
 </template>
 
 <script>
+import newsService from './../../../services/news.service';
+import ratesService from './../../../services/rates.service';
+import mapsService from './../../../services/maps.service';
+import * as mapboxgl from 'mapbox-gl';
+// import weatherService from './../../../services/weather.service';
+
 export default {
+  name: 'Home',
   data() {
     return {
-      isShowSideMenu: false
+      isShowSideMenu: false,
+      test: '',
+      scienceData: [],
+      entertainmentData: [],
+      businessData: [],
+      map: null,
+      days: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+      months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
     }
   },
   methods: {
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
-    }
+    },
+  },
+  created() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaWtheWkiLCJhIjoiY2syOHhrbXgwMDFpcjNlcDJpemdxMmwzciJ9.aQmySRGh2L1CJDa5n5mEGQ'
+    // const today = new Date();
+    // const currentMount = this.monthList[today.getMonth()+1].name;
+    // const curretDay = today.getDate();
+    // const currentYear = today.getFullYear();
+    // const weekDay = this.days[today.getDay()];
+
+    newsService.getData('science', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.scienceData.push(res.data.articles[i]);
+      }
+    })
+
+    newsService.getData('entertainment', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.entertainmentData.push(res.data.articles[i]);
+      }
+    })
+
+    newsService.getData('business', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.businessData.push(res.data.articles[i]);
+      }
+    })
+
+    mapsService.getData().then((res) => {
+      console.log(res)
+    })
+
+    ratesService.getRates('USD').then((res) => {
+      console.log(res)
+    })
+
+    // this.$getLocation()
+    //   .then(coordinates => {
+    //     weatherService.getWeather(coordinates.lat, coordinates.lng).then((res) => {
+    //       this.temp = res.data.main.temp;
+    //       this.temp = this.temp + '';
+    //       this.temp = this.temp.split(".")[0];
+    //       this.location = res.data.name;
+    //       this.date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+    //     });
+    //   });
+  },
+  mounted() {
+    // this.map = new mapboxgl.Map({
+    //   container: 'map', // container id
+    //   style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    //   center: [-74.50, 40], // starting position [lng, lat]
+    //   zoom: 9 // starting zoom
+    // });
+
+    // this.map.on('click', (e) => {
+    //   console.log(e)
+    // })
   }
 }
 </script>

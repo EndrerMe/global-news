@@ -3,6 +3,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import VueRouter from 'vue-router'
+import VueMoment from 'vue-moment';
+import VueGeolocation from 'vue-browser-geolocation';
 
 // Router
 import routes from './routes';
@@ -26,6 +28,8 @@ library.add(
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
+Vue.use(VueMoment);
+Vue.use(VueGeolocation);
 
 const router = new VueRouter({routes})
 

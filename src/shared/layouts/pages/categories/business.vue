@@ -511,6 +511,27 @@
   </div>
 </template>
 
+<script>
+import newsService from './../../../services/news.service';
+
+export default {
+  name: 'currentCategoryPage',
+  data() {
+    return {
+      category: null,
+      currentNews: null,
+    }
+  },
+  created() {
+    this.category = this.$router.currentRoute;
+    newsService.getData(this.category.name, 1).then((res) => {
+      this.currentNews = res.data.articles
+    })
+  },
+  watch:{
+  },
+}
+</script>
 
 <style scoped>
 /* Common */
