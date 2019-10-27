@@ -193,8 +193,8 @@
                   <div class="temp-value-wrap">
                     <span class="temp-value">+9</span>
                     <span class="temp-symbol">
-                      <span class="activeMode">&#8451;</span>
-                      <span>F</span>
+                      <span class="activeMode active">&#8451;</span>
+                      <span class="activeMode">F</span>
                     </span>
                   </div>
                 </div>
@@ -216,11 +216,78 @@
                 </div>
 
                 <div class="links-wrap">
-                  <a href="#">
-                    More
-                    <font-awesome-icon icon="caret-down" />
-                  </a>
-                  <a href="#">Weather Map</a>
+                  <!-- Weater Details -->
+                  <div class="weather-details-wrap">
+                    <div class="links-wrap">
+                      <div class="left-link">
+                        <a href="#">
+                          More
+                          <font-awesome-icon icon="caret-down" />
+                        </a>
+                      </div>
+                      <div class="right-link">
+                        <a href="#">Weather Map</a>
+                      </div>
+                    </div>
+
+                    <div class="sides-wrap">
+                      <div class="left-side">
+                        <div class="temp-info-wrap">
+                          <div class="temp-value-wrap info-elem">
+                            <p>
+                              <span class="cwitch">Show weather in :</span>
+                              <span class="temp-symbol">
+                                <span>F</span>
+                                <span>&#8451;</span>
+                              </span>
+                            </p>
+                            <p>Place : London</p>
+                          </div>
+                          <div class="show-info-wrap info-elem">
+                            <p>
+                              Min Temperature :
+                              <span class="temp-value">
+                                14
+                                <span class="temp-val-symbol"></span>
+                              </span>
+                            </p>
+                            <p>
+                              Max Temperature :
+                              <span class="temp-value">
+                                14
+                                <span class="temp-val-symbol"></span>
+                              </span>
+                            </p>
+                            <p>
+                              Temperature :
+                              <span class="temp-value">
+                                14
+                                <span class="temp-val-symbol"></span>
+                              </span>
+                            </p>
+                          </div>
+                          <div class="additional-info info-elem">
+                            <p class>
+                              Humidity :
+                              <span class="value">28</span>
+                            </p>
+                            <p class>
+                              Wind Speed :
+                              <span class="value">3</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="right-side">
+                        <div class="wrap">
+                          <span class="icon-wrap">
+                            <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                          </span>
+                          <span class="text">Broken Clouds</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -427,22 +494,136 @@
 
 
 <style scoped>
-/* Header */
-@media (max-width: 1139px) {
-  .bottom-menu-wrap .bottom-menu li a {
-    font-size: 18px !important;
-  }
+/* Weater Details */
+.side-weather-wrap {
+  overflow: scroll;
+}
 
-  .bottom-menu-wrap {
-    height: 100px;
-  }
+/* .weater-details {
+  width: 100%;
+  padding-bottom: 30px;
+} */
+
+.weaterDetailsHidden {
+  height: 300px;
+  transition: all 1s;
+}
+
+.weather-details-wrap .right-side .wrap {
+  display: flex;
+  flex-direction: column;
+}
+.weather-details-wrap .right-side {
+  color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: calc((100% - 276px));
+}
+
+.weather-details-wrap .right-side .text {
+  white-space: nowrap;
+}
+.weather-details-wrap .right-side .icon-wrap img {
+  width: 35px;
+}
+.temp-info-wrap .additional-info {
+  text-align: start;
+}
+.temp-info-wrap .info-elem {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.weather-details-wrap .show-info-wrap {
+  text-align: start;
+}
+.weather-details-wrap .show-info-wrap .temp-val-symbol {
+  position: relative;
+  margin-left: 5px;
+}
+.weather-details-wrap .show-info-wrap .temp-val-symbol::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  border: 1px solid #a09f9f;
+  border-radius: 10px;
+}
+.weather-details-wrap .temp-symbol span {
+  margin: 0 7px;
+}
+.weather-details-wrap .temp-symbol {
+  position: relative;
+}
+
+.weather-details-wrap .temp-symbol::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 16px;
+  background-color: white;
+  left: 22px;
+  top: 0px;
+}
+.weather-details-wrap .temp-value-wrap {
+  text-align: start;
+}
+
+.weather-details-wrap .temp-info-wrap p {
+  margin-bottom: 3px;
+}
+.weather-details-wrap .temp-info-wrap {
+  color: #f9f9f9;
+}
+
+.weather-details-wrap .sides-wrap {
+  display: flex;
+}
+
+.weather-details-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #052962;
+  z-index: 999;
+}
+
+.weather-details-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+.weather-details-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.weather-details-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
 }
 </style>
 
 <style scoped>
 /* Header */
 
-/* class for element Id= 'nav-collapse'
+/* set class 'sideMenuActive' for element Id = 'nav-collapse'
     and
     class = 'side-weather-wrap'
     and
@@ -589,16 +770,6 @@
     display: flex;
   }
 
-  /* #nav-collapse {
-    width: 82%;
-    position: absolute;
-    background: #052962;
-    z-index: 9999;
-    top: 0px;
-    left: 0;
-    bottom: 0;
-  } */
-
   #nav-collapse .sub-wrap {
     padding-top: 58px;
     height: 100%;
@@ -620,79 +791,6 @@
   #nav-collapse .sub-wrap .mobile-side-menu .nav-item a {
     width: 100%;
   }
-
-  /* #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #nav-collapse
-    .sub-wrap
-    .mobile-side-menu
-    .nav-item
-    a
-    .top-side-wrap
-    .sub-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 15px;
-    margin-top: 20px;
-  }
-
-  #nav-collapse
-    .sub-wrap
-    .mobile-side-menu
-    .nav-item
-    a
-    .top-side-wrap
-    .sub-item
-    svg {
-    color: rgb(248, 198, 26);
-  } */
-
-  /* #nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap {
-    padding-bottom: 20px;
-  }
-
-  #nav-collapse
-    .sub-wrap
-    .mobile-side-menu
-    .nav-item
-    a
-    .bottom-side-wrap
-    .sub-item.date {
-    padding-bottom: 35px;
-  }
-
-  #nav-collapse
-    .sub-wrap
-    .mobile-side-menu
-    .nav-item
-    a
-    .bottom-side-wrap
-    .sub-item {
-    display: flex;
-    flex-direction: column;
-    padding: 0 15px;
-  }
-
-  #nav-collapse
-    .sub-wrap
-    .mobile-side-menu
-    .nav-item
-    a
-    .bottom-side-wrap
-    button {
-    text-transform: none;
-    background: #f8c61a;
-    border: none;
-    height: 30px;
-    color: #052962;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 13px;
-    letter-spacing: 1px;
-  } */
   .top-menu-wrap #nav-collapse .close-link-wrap {
     display: block;
   }
@@ -754,9 +852,20 @@
     display: flex;
   }
 }
+/* Header */
+@media (max-width: 1139px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 18px !important;
+  }
+
+  .bottom-menu-wrap {
+    height: 100px;
+  }
+}
+
 /* Weather */
 .weather-main-wrap {
-  padding: 0 15px;
+  padding: 0 15px 40px 15px;
 }
 .weather-main-wrap .section-elem {
   display: flex;
@@ -772,7 +881,7 @@
 .weather-main-wrap .links-wrap {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .weather-main-wrap .links-wrap a {
   color: #f8c61a;
@@ -823,10 +932,7 @@
   justify-content: center;
   margin-top: 15px;
 }
-.clouds,
-.temp-value-wrap {
-  margin: 0 10px;
-}
+
 .weather-data-wrap .clouds {
   display: flex;
   flex-direction: column;
@@ -839,9 +945,9 @@
   align-items: center;
   color: white;
   font-size: 32px;
-  font-weight: bold;
   font-family: initial;
   position: relative;
+  padding-right: 55px;
 }
 .weather-data-wrap .temp-value-wrap .temp-value {
   font-size: 38px;
@@ -852,7 +958,7 @@
   font-size: 26px;
   left: 32px;
 }
-.activeMode {
+.weather-data-wrap .temp-value-wrap .temp-symbol .activeMode.active {
   color: rgb(248, 198, 26);
 }
 .weather-data-wrap .temp-value-wrap .temp-symbol span {
@@ -861,10 +967,10 @@
 .weather-data-wrap .temp-value-wrap .temp-symbol::before {
   content: "";
   position: absolute;
-  width: 2px;
+  width: 1px;
   height: 22px;
   background-color: white;
-  left: 43px;
+  left: 42px;
   top: 8px;
 }
 .weather-data-wrap .clouds img {
@@ -875,10 +981,11 @@
   font-family: initial;
 }
 .weather-data-wrap .button-wrap button {
-  height: 48px;
+  width: 100%;
+  height: 35px;
   background-color: #f8c61a;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
