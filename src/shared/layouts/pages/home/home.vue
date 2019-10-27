@@ -63,7 +63,7 @@
                   <b-navbar-nav class="mobile-side-menu">
                     <b-nav-item class="close-link-wrap">
                       <div class="close-wrap">
-                        <a href="#"></a>
+                        <a class="close-button" href="#"></a>
                       </div>
                     </b-nav-item>
                     <b-nav-item href="#" class="wrap">
@@ -93,84 +93,6 @@
                   </b-navbar-nav>
                 </div>
               </div>
-
-              <!-- <b-collapse id="nav-collapse" is-nav>
-                <div class="sub-wrap">
-                  <b-navbar-nav class="wide-menu">
-                    <b-nav-item class="close-link-wrap">
-                      <div class="close-wrap">
-                        <a href="#"></a>
-                      </div>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="logo-wrap">
-                      <img src="../../../../assets/images/logo.svg" alt="logo" />
-                    </b-nav-item>
-                    <b-nav-item href="#" class="current-date">
-                      <span>October 8, 2019</span>
-                      <span>Tuesday</span>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="converter-wrap">
-                      <span>
-                        <span>Currency Converter</span>
-                        <font-awesome-icon icon="caret-down" />
-                      </span>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="weather-wrap">
-                      <span class="weather-content">
-                        <span>
-                          <img src="../../../../assets/images/cloud.svg" alt="cloud" />
-                        </span>
-                        <span class="weather-value">
-                          + 9
-                          <span class="celsius-value">&#8451;</span>
-                        </span>
-                        <span class="weather-dropdown-arrow">
-                          <font-awesome-icon icon="caret-down" />
-                        </span>
-                        <p>Glasgow</p>
-                      </span>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="search-wrap">
-                      <font-awesome-icon icon="search" class="fa-lg" />
-                      <font-awesome-icon icon="bell" class="fa-lg" />
-                    </b-nav-item>
-                  </b-navbar-nav>
-
-                  <b-navbar-nav class="mobile-side-menu">
-                    <b-nav-item class="close-link-wrap">
-                      <div class="close-wrap">
-                        <a href="#"></a>
-                      </div>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="wrap">
-                      <div class="top-side-wrap">
-                        <span class="sub-item">
-                          Currency Converter
-                          <font-awesome-icon icon="caret-down" />
-                        </span>
-
-                        <span class="sub-item">
-                          Weather
-                          <font-awesome-icon icon="caret-down" />
-                        </span>
-                      </div>
-                    </b-nav-item>
-
-                    <b-nav-item href="#">
-                      <div class="bottom-side-wrap">
-                        <div class="sub-item date">
-                          <span>October 8, 2019</span>
-                          <span>Tuesday</span>
-                        </div>
-
-                        <div class="sub-item">
-                          <button>Subscribe Us</button>
-                        </div>
-                      </div>
-                    </b-nav-item>
-                  </b-navbar-nav>
-                </div>
-              </b-collapse>-->
             </b-navbar>
 
             <div class="side-weather-wrap">
@@ -292,7 +214,7 @@
               </div>
 
               <!-- Weater Map For Mobile  -->
-              <div class="weather-details-wrap"  style="display:none">
+              <div class="weather-details-wrap" style="display:none">
                 <div class="sides-wrap">
                   <div class="weather-map left-side">
                     <div class="temp-info-wrap">
@@ -759,14 +681,22 @@
   position: absolute;
 }
 
+.top-menu-wrap #nav-collapse .close-wrap a {
+  position: absolute;
+  width: 30px !important;
+  height: 30px;
+  top: -44px;
+  right: 30px;
+}
+
 .top-menu-wrap #nav-collapse .close-wrap a::after {
   position: absolute;
   content: "";
   width: 30px;
   height: 2px;
   background-color: rgb(248, 198, 26);
-  top: -29px;
-  right: 30px;
+  top: 14px;
+  right: 0px;
   transform: rotate(-45deg);
 }
 .top-menu-wrap #nav-collapse .close-wrap a::before {
@@ -775,8 +705,8 @@
   width: 30px;
   height: 2px;
   background-color: rgb(248, 198, 26);
-  top: -29px;
-  right: 30px;
+  top: 14px;
+  right: 0px;
   transform: rotate(45deg);
 }
 
@@ -912,7 +842,7 @@
 /* Header */
 @media (max-width: 1139px) {
   .bottom-menu-wrap .bottom-menu li a {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 
   .bottom-menu-wrap {
@@ -1066,6 +996,10 @@
 @media (min-width: 768px) {
   .side-weather-wrap {
     display: none;
+  }
+
+  #nav-collapse {
+    width: 100%;
   }
 }
 @media (max-width: 767px) {
@@ -1435,6 +1369,10 @@
   .bottom-menu ul li a span {
     font-size: 17px;
   }
+
+  /* .bottom-menu li a a{
+    font-size:12px !important;
+  } */
 }
 </style>
 
