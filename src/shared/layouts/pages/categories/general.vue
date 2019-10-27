@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <!-- Header -->
@@ -6,7 +5,12 @@
       <div class="header-content">
         <div class="top-menu-wrap">
           <div class="container content">
-            <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
+            <b-navbar
+              class="top-menu"
+              toggleable="md"
+              type="dark"
+              variant="info"
+            >
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
@@ -26,7 +30,10 @@
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content">
                       <span>
-                        <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                        <img
+                          src="../../../../assets/images/cloud.svg"
+                          alt="cloud"
+                        />
                       </span>
                       <span class="weather-value">
                         + 9
@@ -49,7 +56,12 @@
         </div>
         <div class="bottom-menu-wrap">
           <div class="container">
-            <b-navbar class="bottom-menu" toggleable="md" type="dark" variant="info">
+            <b-navbar
+              class="bottom-menu"
+              toggleable="md"
+              type="dark"
+              variant="info"
+            >
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
@@ -143,7 +155,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-5.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-5.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>How tech changed the way</p>
@@ -151,7 +167,10 @@
                 </span>
               </div>
             </div>
-            <b-card-text>DreamWorks Animation has made blockbusters ranging from Shrek to Kung Fu Panda and How to Train Your Dragon. As...</b-card-text>
+            <b-card-text
+              >DreamWorks Animation has made blockbusters ranging from Shrek to
+              Kung Fu Panda and How to Train Your Dragon. As...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">6 min ago</small>
               <small class="text-muted">bbc.com</small>
@@ -163,7 +182,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-6.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-6.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Five Star: Making Rain or Shine was "an ordeal",</p>
@@ -172,7 +195,11 @@
               </div>
             </div>
 
-            <b-card-text>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat...</b-card-text>
+            <b-card-text
+              >Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">Yestesday</small>
               <small class="text-muted">sourcelink.com</small>
@@ -184,7 +211,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-7.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-7.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Rapper Jack Grange says music</p>
@@ -193,7 +224,11 @@
               </div>
             </div>
 
-            <b-card-text>A teenage rap artist says performing music has helped him come to terms with his ADHD and release his "inside anger". Eighteen...</b-card-text>
+            <b-card-text
+              >A teenage rap artist says performing music has helped him come to
+              terms with his ADHD and release his "inside anger".
+              Eighteen...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">October 10, 2019</small>
               <small class="text-muted">sourcelink.com</small>
@@ -207,7 +242,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-8.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-8.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>His Dark Materials: Behind the scenes of the TV</p>
@@ -216,7 +255,11 @@
               </div>
             </div>
 
-            <b-card-text>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</b-card-text>
+            <b-card-text
+              >Ahead of the eight-part dramatisation of the first of Philip
+              Pullman's best-selling His Dark Materials novels, the
+              BBC's...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">6 min ago</small>
               <small class="text-muted">bbc.com</small>
@@ -228,7 +271,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-9.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-9.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Elton John:</p>
@@ -237,7 +284,11 @@
               </div>
             </div>
 
-            <b-card-text>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</b-card-text>
+            <b-card-text
+              >He may have started out singing cover versions on cheap
+              compilation albums, but Elton John went on to become
+              the...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">Yestesday</small>
               <small class="text-muted">sourcelink.com</small>
@@ -249,7 +300,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-10.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-10.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Brit winner Finley Quaye sentenced for bar</p>
@@ -258,7 +313,11 @@
               </div>
             </div>
 
-            <b-card-text>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</b-card-text>
+            <b-card-text
+              >A Brit Award-winning musician has been ordered to carry out 200
+              hours of unpaid work for punching a bar manager
+              and...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">October 10, 2019</small>
               <small class="text-muted">sourcelink.com</small>
@@ -272,7 +331,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-11.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-11.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Booker Prize: Margaret Atwood and Bernardine</p>
@@ -281,7 +344,11 @@
               </div>
             </div>
 
-            <b-card-text>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</b-card-text>
+            <b-card-text
+              >Ahead of the eight-part dramatisation of the first of Philip
+              Pullman's best-selling His Dark Materials novels, the
+              BBC's...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">6 min ago</small>
               <small class="text-muted">bbc.com</small>
@@ -293,7 +360,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-12.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-12.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Pharrell says he's "embarrassed" by</p>
@@ -302,7 +373,11 @@
               </div>
             </div>
 
-            <b-card-text>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</b-card-text>
+            <b-card-text
+              >He may have started out singing cover versions on cheap
+              compilation albums, but Elton John went on to become
+              the...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">Yestesday</small>
               <small class="text-muted">sourcelink.com</small>
@@ -314,7 +389,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-13.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-13.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>John le Carré:</p>
@@ -323,7 +402,11 @@
               </div>
             </div>
 
-            <b-card-text>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</b-card-text>
+            <b-card-text
+              >A Brit Award-winning musician has been ordered to carry out 200
+              hours of unpaid work for punching a bar manager
+              and...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">October 10, 2019</small>
               <small class="text-muted">sourcelink.com</small>
@@ -337,7 +420,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-14.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-14.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Russian rappers battle police</p>
@@ -346,7 +433,11 @@
               </div>
             </div>
 
-            <b-card-text>Ahead of the eight-part dramatisation of the first of Philip Pullman's best-selling His Dark Materials novels, the BBC's...</b-card-text>
+            <b-card-text
+              >Ahead of the eight-part dramatisation of the first of Philip
+              Pullman's best-selling His Dark Materials novels, the
+              BBC's...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">6 min ago</small>
               <small class="text-muted">bbc.com</small>
@@ -358,7 +449,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-15.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-15.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Bill Turnbull backs cannabis for medicinal</p>
@@ -367,7 +462,11 @@
               </div>
             </div>
 
-            <b-card-text>He may have started out singing cover versions on cheap compilation albums, but Elton John went on to become the...</b-card-text>
+            <b-card-text
+              >He may have started out singing cover versions on cheap
+              compilation albums, but Elton John went on to become
+              the...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">Yestesday</small>
               <small class="text-muted">sourcelink.com</small>
@@ -379,7 +478,11 @@
           <b-card class="mb-2 new-card">
             <div class="image-wrap">
               <div class="gradient"></div>
-              <b-card-img :src="require('../../../../assets/images/entertainment/img-13.png')"></b-card-img>
+              <b-card-img
+                :src="
+                  require('../../../../assets/images/entertainment/img-13.png')
+                "
+              ></b-card-img>
               <div class="title-wrap">
                 <span class="title">
                   <p>Billy Connolly: 'Nothing else will keep you going</p>
@@ -388,7 +491,11 @@
               </div>
             </div>
 
-            <b-card-text>A Brit Award-winning musician has been ordered to carry out 200 hours of unpaid work for punching a bar manager and...</b-card-text>
+            <b-card-text
+              >A Brit Award-winning musician has been ordered to carry out 200
+              hours of unpaid work for punching a bar manager
+              and...</b-card-text
+            >
             <template v-slot:footer>
               <small class="text-muted">October 10, 2019</small>
               <small class="text-muted">sourcelink.com</small>
@@ -444,18 +551,16 @@
   </div>
 </template>
 
-
-
 <style scoped>
 /* Pagination */
 
-.pagination-wrap .separator-wrap{
+.pagination-wrap .separator-wrap {
   display: inline-flex;
   vertical-align: top;
 }
 
-.pagination-wrap .separator-wrap .separator{
-margin-top: 5px;  
+.pagination-wrap .separator-wrap .separator {
+  margin-top: 5px;
 }
 
 .pagination-wrap .numbers-wrap .separator {
@@ -705,7 +810,7 @@ margin-top: 5px;
   content: "";
   width: 102px;
   height: 37px;
-  background-color: #1BFE85;
+  background-color: #1bfe85;
   left: 0;
   top: 0;
 }
@@ -953,4 +1058,3 @@ footer .right-item button {
   letter-spacing: 1px;
 } */
 </style>
-

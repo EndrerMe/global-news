@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <div class="dark-screen"></div>
@@ -328,25 +327,25 @@
             <div class="box-menu">
               <b-nav class="bottom-menu">
                 <b-nav-item>
-                  <router-link class="link" :to="{name: `business`}">Business</router-link>
+                  <router-link class="link" :to="{ name: `business` }">Business</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{name: `entertainment`}">Entertainment</router-link>
+                  <router-link class="link" :to="{ name: `entertainment` }">Entertainment</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{name: `general`}">General</router-link>
+                  <router-link class="link" :to="{ name: `general` }">General</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{name: `health`}">Health</router-link>
+                  <router-link class="link" :to="{ name: `health` }">Health</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{name: `science`}">Science</router-link>
+                  <router-link class="link" :to="{ name: `science` }">Science</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{name: `sport`}">Sport</router-link>
+                  <router-link class="link" :to="{ name: `sport` }">Sport</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{name: `technology`}">Technology</router-link>
+                  <router-link class="link" :to="{ name: `technology` }">Technology</router-link>
                 </b-nav-item>
               </b-nav>
             </div>
@@ -385,6 +384,19 @@
         </b-carousel>
       </div>
 
+      <!-- Test Slider -->
+      <slick ref="slick" :options="slickOptions">
+        <a href="http://placehold.it/320x120">
+          <img src="http://placehold.it/320x120" alt />
+        </a>
+
+        <a href="http://placehold.it/420x220">
+          <img src="http://placehold.it/420x220" alt />
+        </a>
+      </slick>
+
+      <!-- End Test Slider -->
+
       <!-- Business -->
       <div class="business-wrap">
         <div class="title-wrap">
@@ -394,7 +406,10 @@
           <div class="col-md-4">
             <b-card class="card mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-1.png')"></b-card-img>
-              <b-card-text>A mobile version of video game Call of Duty has been downloaded more than 100 million times in its first week...</b-card-text>
+              <b-card-text>
+                A mobile version of video game Call of Duty has been downloaded
+                more than 100 million times in its first week...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">6 min ago</small>
                 <small class="text-muted">bbc.com</small>
@@ -405,7 +420,11 @@
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-2.png')"></b-card-img>
-              <b-card-text>All 555 Thomas Cook shops are to be bought by rival Hays Travel in a move that could save up to 2,500 jobs. The independent...</b-card-text>
+              <b-card-text>
+                All 555 Thomas Cook shops are to be bought by rival Hays Travel
+                in a move that could save up to 2,500 jobs. The
+                independent...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">Yestesday</small>
                 <small class="text-muted">sourcelink.com</small>
@@ -416,7 +435,11 @@
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-3.png')"></b-card-img>
-              <b-card-text>Goldman Sachs will review its involvement in the planned stock market listing of Chinese artificial intelligence firm Megvii...</b-card-text>
+              <b-card-text>
+                Goldman Sachs will review its involvement in the planned stock
+                market listing of Chinese artificial intelligence firm
+                Megvii...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">October 10, 2019</small>
                 <small class="text-muted">sourcelink.com</small>
@@ -434,7 +457,11 @@
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-4.png')"></b-card-img>
-              <b-card-text>On World Mental Health Day, a disabled presenter shares her simple secrets of happiness. Jessica Kellgren-Fozard gets a...</b-card-text>
+              <b-card-text>
+                On World Mental Health Day, a disabled presenter shares her
+                simple secrets of happiness. Jessica Kellgren-Fozard gets
+                a...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">6 min ago</small>
                 <small class="text-muted">bbc.com</small>
@@ -445,7 +472,11 @@
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-5.png')"></b-card-img>
-              <b-card-text>The Nobel Prize for Literature is set to be awarded on Thursday. Twice. The Handmaid's Tale author Margaret Atwood, fellow...</b-card-text>
+              <b-card-text>
+                The Nobel Prize for Literature is set to be awarded on
+                Thursday. Twice. The Handmaid's Tale author Margaret Atwood,
+                fellow...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">Yestesday</small>
                 <small class="text-muted">sourcelink.com</small>
@@ -455,7 +486,11 @@
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-6.png')"></b-card-img>
-              <b-card-text>Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick. The former San Francisco...</b-card-text>
+              <b-card-text>
+                Rihanna's confirmed she turned down the Superbowl halftime show
+                to support Colin Kaepernick. The former San
+                Francisco...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">October 10, 2019</small>
                 <small class="text-muted">sourcelink.com</small>
@@ -473,7 +508,11 @@
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
-              <b-card-text>Culling badgers drives them to roam further afield, allowing them to disperse tuberculosis over a larger area, new...</b-card-text>
+              <b-card-text>
+                Culling badgers drives them to roam further afield, allowing
+                them to disperse tuberculosis over a larger area,
+                new...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">6 min ago</small>
                 <small class="text-muted">bbc.com</small>
@@ -483,7 +522,11 @@
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
-              <b-card-text>Three scientists have been awarded the 2019 Nobel Prize in Physics for "ground-breaking" discoveries about the Universe...</b-card-text>
+              <b-card-text>
+                Three scientists have been awarded the 2019 Nobel Prize in
+                Physics for "ground-breaking" discoveries about the
+                Universe...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">Yestesday</small>
                 <small class="text-muted">sourcelink.com</small>
@@ -493,7 +536,11 @@
           <div class="col-md-4">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
-              <b-card-text>Antarctica's Emperor penguins could be in real difficulty come 2100 if the climate warms as expected. Experts say the birds...</b-card-text>
+              <b-card-text>
+                Antarctica's Emperor penguins could be in real difficulty come
+                2100 if the climate warms as expected. Experts say the
+                birds...
+              </b-card-text>
               <template v-slot:footer>
                 <small class="text-muted">October 10, 2019</small>
                 <small class="text-muted">sourcelink.com</small>
@@ -522,7 +569,43 @@
   </div>
 </template>
 
+
 <script>
+import Slick from "vue-slick";
+
+new Vue({
+  components: { Slick },
+  data() {
+    return {
+      slickOptions: {
+        //options can be used from the plugin documentation
+        slidesToShow: 4,
+        infinite: true,
+        accessibility: true,
+        adaptiveHeight: false,
+        arrows: true,
+        dots: true,
+        draggable: true,
+        edgeFriction: 0.3,
+        swipe: true
+      }
+    };
+  },
+  // All slick methods can be used too, example here
+  methods: {
+    next() {
+      this.$refs.slick.next();
+    },
+    prev() {
+      this.$refs.slick.prev();
+    },
+    reInit() {
+      // Helpful if you have to deal with v-for to update dynamic lists
+      this.$refs.slick.reSlick();
+    }
+  }
+});
+
 export default {
   data() {
     return {
@@ -535,19 +618,13 @@ export default {
     }
   }
 };
-</script>
-
-
-
+ </script>
 
 <style scoped>
 /* Hide elements for mibile 
 Subscribe : class = 'mobile-notify-prompt-wrap'
-
 Dark Screen :  class = 'dark-screen'
-
 */
-
 
 /* Notify */
 
@@ -1128,7 +1205,7 @@ Dark Screen :  class = 'dark-screen'
 .mobile-weather-main-wrap .weather-data-wrap .clouds .cloud-state {
   margin-top: 5px;
 }
- .mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap {
+.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap {
   display: flex;
   align-items: center;
   color: white;
@@ -1146,13 +1223,24 @@ Dark Screen :  class = 'dark-screen'
   font-size: 26px;
   left: 32px;
 }
-.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-symbol .activeMode.active {
+.mobile-weather-main-wrap
+  .weather-data-wrap
+  .temp-value-wrap
+  .temp-symbol
+  .activeMode.active {
   color: rgb(248, 198, 26);
 }
-.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-symbol span {
+.mobile-weather-main-wrap
+  .weather-data-wrap
+  .temp-value-wrap
+  .temp-symbol
+  span {
   margin: 0 8px;
 }
-.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-symbol::before {
+.mobile-weather-main-wrap
+  .weather-data-wrap
+  .temp-value-wrap
+  .temp-symbol::before {
   content: "";
   position: absolute;
   width: 1px;

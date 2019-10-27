@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: 'global-news'
-}
+  publicPath: "global-news"
+};
