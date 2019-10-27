@@ -693,7 +693,7 @@
 }
 
 #nav-collapse {
-  width: 100%;
+  width: 0;
 }
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
   display: flex;
