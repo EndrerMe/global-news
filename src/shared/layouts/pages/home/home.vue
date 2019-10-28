@@ -97,7 +97,7 @@
 
                   <!-- Subscribe -->
 
-                <div class="subscribe-prompt-wrap"  v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s'}">
+                <div class="subscribe-prompt-wrap"  v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s', 'animation-delay':'3s' }">
       <div class="close-wrap">
         <a href="#"></a>
       </div>
@@ -622,7 +622,7 @@ export default {
   padding-bottom: 40px;
   border: 1px solid;
   position: absolute;
-  right: 0px;
+  right: -15px;
   top: 102px;
   background-color: #052962;
   z-index: 999;
