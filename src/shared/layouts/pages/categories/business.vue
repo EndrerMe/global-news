@@ -852,18 +852,19 @@
   text-transform: uppercase;
   letter-spacing: 10px;
   padding-left: 86px;
+  font-family:'Amiri-Bold';
 }
 
 .content .main-title-wrap .text::before {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  width: 102px;
-  height: 37px;
-  background-color: #c710a2;
-  left: 0;
-  top: 0;
-}
+    z-index: -1;
+    position: absolute;
+    content: "";
+    width: 98px;
+    height: 36px;
+    background-color: #c710a2;
+    left: 0;
+    top: 10px;
+    }
 
 .content .top-box-preview {
   margin-top: 42px;
@@ -890,6 +891,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-family: 'Amiri-Bold';
 }
 
 .right-side .image-wrap {
@@ -942,6 +944,7 @@
 
 .top-box-preview .left-side {
   position: relative;
+  font-family: 'Amiri-Bold';
 }
 .top-box-preview .title-wrap {
   position: absolute;
@@ -1449,6 +1452,7 @@ footer .right-item button {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Amiri-Bold';
 }
 .pagination-wrap button {
   background-color: unset;
@@ -1644,6 +1648,7 @@ footer .right-item button {
   text-align: start;
   left: 25px;
   bottom: 25px;
+   font-family: 'Amiri-Bold';
 }
 .new-card .title-wrap p {
   margin-bottom: 0;
@@ -1655,6 +1660,7 @@ footer .right-item button {
   padding-right: 0;
   display: flex;
   justify-content: space-between;
+  font-family: 'Poppins-Regular';
 }
 .new-card .card-text {
   padding: 18px 0 13px 0;

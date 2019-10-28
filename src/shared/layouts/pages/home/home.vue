@@ -109,6 +109,67 @@
       </div>
     </div>
 
+    <div class="weather-details-wrap">
+      <div class="close-wrap">
+        <a href="#"></a>
+      </div>
+      <div class="left-side">
+        <div class="temp-info-wrap">
+          <div class="temp-value-wrap info-elem">
+            <p>
+              <span class="cwitch">Show weather in :</span>
+              <span class="temp-symbol">
+                <span class="switch-mode">F</span>
+                <span class="switch-mode active">&#8451;</span>
+              </span>
+            </p>
+            <p>Place : London</p>
+          </div>
+          <div class="show-info-wrap info-elem">
+            <p>
+              Min Temperature :
+              <span class="temp-value">
+                14
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+            <p>
+              Max Temperature :
+              <span class="temp-value">
+                14
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+            <p>
+              Temperature :
+              <span class="temp-value">
+                14
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+          </div>
+          <div class="additional-info info-elem">
+            <p class>
+              Humidity :
+              <span class="value">28</span>
+            </p>
+            <p class>
+              Wind Speed :
+              <span class="value">3</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="wrap">
+          <span class="icon-wrap">
+            <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+          </span>
+          <span>Broken Clouds</span>
+        </div>
+      </div>
+    </div>
+
         <!-- Weather -->
     <div class="weather-main-wrap">
       <div class="weather-search-wrap">
@@ -165,6 +226,12 @@
             <option>CHF</option>
             <option>MYR</option>
             <option>BGN</option>
+            <option>TRY</option>
+            <option>CNY</option>
+            <option>NOK</option>
+            <option>NZD</option>
+            <option>ZAR</option>
+            <option>MXN</option>
           </select>
         </div>
         <div class="value-wrap">
@@ -493,7 +560,7 @@
          >
           <span class="title-text" >Business</span>
         </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
+        <slick ref="slick" :options="slickOptions" data-aos="fade-up" 
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
         data-aos-once="false">
@@ -553,7 +620,7 @@
 
           <span class="title-text" >Entertainment</span>
         </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
+        <slick ref="slick" :options="slickOptions" data-aos="fade-up" 
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
         data-aos-once="false">
@@ -610,7 +677,7 @@
         <div class="title-wrap">
           <span class="title-text">Science</span>
         </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
+        <slick ref="slick" :options="slickOptions" data-aos="fade-up" 
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
         data-aos-once="false">
@@ -721,6 +788,132 @@ export default {
 
 <style>
 @import "../../../../../node_modules/slick-carousel/slick/slick.css";
+@import "../../../../assets/css/fonts.css";
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap');
+
+
+/* Weather Details */
+
+.weather-details-wrap .right-side {
+  position: absolute;
+  right: 11%;
+  top: 35%;
+  font-size: 24px;
+  font-weight: bold;
+     font-family: 'Poppins-Medium' !important;
+
+}
+.weather-details-wrap .right-side .wrap span {
+  margin: 20px 0;
+}
+.weather-details-wrap .right-side .wrap {
+  display: flex;
+  flex-direction: column;
+}
+.weather-details-wrap .right-side {
+  color: #f9f9f9;
+}
+.weather-details-wrap .right-side .icon-wrap img {
+  width: 130px;
+}
+.weather-details-wrap .temp-info-wrap .additional-info {
+  text-align: start;
+}
+.weather-details-wrap .temp-info-wrap .info-elem {
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+.weather-details-wrap .left-side .switch-mode.active{
+    color:#F8C61A;
+}
+
+.weather-details-wrap .show-info-wrap {
+  text-align: start;
+}
+.weather-details-wrap .show-info-wrap .temp-val-symbol {
+  position: relative;
+  margin-left: 5px;
+}
+
+.weather-details-wrap .show-info-wrap .temp-val-symbol::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  border: 1px solid #a09f9f;
+  border-radius: 10px;
+}
+.weather-details-wrap .temp-symbol span {
+  margin: 0 7px;
+}
+.weather-details-wrap .temp-symbol {
+  position: relative;
+}
+.weather-details-wrap .temp-symbol::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  background-color: white;
+  left: 27px;
+  top: 7px;
+}
+.weather-details-wrap .temp-value-wrap {
+  text-align: start;
+}
+
+.weather-details-wrap .temp-info-wrap p {
+  margin-bottom: 3px;
+}
+.weather-details-wrap .temp-info-wrap {
+      color: #f9f9f9;
+    font-size: 24px;
+    margin-top: 91px;
+    margin-bottom: 48px;
+    font-family: 'Poppins-Medium';
+}
+.weather-details-wrap {
+  display:none;
+  /* display: flex; */
+  width: 618px;
+  position: absolute;
+  top: 300px;
+  background-color: #052962;
+  border: 1px solid;
+  z-index: 999;
+  padding: 0 50px;
+}
+
+.weather-details-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+.weather-details-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.weather-details-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
+}
 
 
 /* Weather */
@@ -732,6 +925,7 @@ export default {
 .weather-main-wrap .links-wrap a {
   color: #f8c61a;
   text-decoration: none;
+  font-family:'Poppins-Regular';
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol {
@@ -747,6 +941,8 @@ export default {
   font-weight: bold;
   position: relative;
   margin-top: 50px;
+    font-family:'Poppins-SemiBold';
+
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol span {
@@ -768,6 +964,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family:'Poppins-Regular';
 }
 
 .weather-search-wrap .clouds img {
@@ -822,6 +1019,7 @@ export default {
 .weather-search-wrap .text-wrap {
   margin-top: 80px;
   padding: 0;
+  font-family: 'Poppins-Regular';
 }
 .weather-search-wrap .text-wrap p {
   color: #eaeaea;
@@ -880,6 +1078,7 @@ export default {
   width: 100%;
   border-bottom: 1px solid;
   text-align: start;
+  font-family: 'Poppins-Regular';
 }
 
 .weather-search-wrap .button-wrap button {
@@ -891,6 +1090,8 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+    font-family: 'Poppins-SemiBold';
+
 }
 .weather-search-wrap .button-wrap button:hover {
   background-color: #ffe076;
@@ -913,6 +1114,7 @@ export default {
     rgba(255, 255, 255, 0.5186449579831933) 100%
   );
   margin-top: 10px;
+  letter-spacing:1px;
 }
 
 .currency-converter-wrap .to .value-wrap {
@@ -945,7 +1147,7 @@ export default {
   color: white;
   font-size: 26px;
   border: none;
-  font-family: initial;
+  font-family:  'Amiri-Bold';
 }
 
 .currency-converter-wrap .to .dropdown-wrap .dropdown:focus {
@@ -988,7 +1190,7 @@ export default {
   color: white;
   font-size: 26px;
   border: none;
-  font-family: initial;
+  font-family:  'Amiri-Bold';
 }
 
 .currency-converter-wrap .from .dropdown-wrap .dropdown:focus {
@@ -1006,6 +1208,7 @@ export default {
   color: #eaeaea;
   font-size: 10px;
   padding: 0 60px;
+  font-family:'Amiri-Regular';
 }
 
 .currency-converter-wrap .convert-icon{
@@ -1103,6 +1306,7 @@ export default {
 }
 .subscribe-prompt-wrap .text-wrap span {
   color: #eaeaea;
+  font-family:'Poppins-Regular';
 }
 
 .subscribe-prompt-wrap .button-wrap {
@@ -1118,6 +1322,8 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-family:'Poppins-SemiBold';
+  color:#052962;
 }
 .subscribe-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
@@ -1178,12 +1384,6 @@ export default {
 </style>
 
 <style scoped>
-/* Hide elements for mibile 
-Subscribe : class = 'mobile-notify-prompt-wrap'
-Dark Screen :  class = 'dark-screen'
-
-Weather Menu : class = 'modile-side-weather-wrap'
-*/
 
 /* Notify */
 .mobile-notify-prompt-wrap .text-wrap p {
@@ -1332,8 +1532,8 @@ Weather Menu : class = 'modile-side-weather-wrap'
   text-align: start;
 }
 .temp-info-wrap .info-elem {
-  margin-top: 15px;
-  font-size: 13px;
+  margin-top: 43px;
+  font-size: 24px;
   font-weight: bold;
 }
 .mobile-weather-details-wrap .show-info-wrap {
@@ -1343,6 +1543,8 @@ Weather Menu : class = 'modile-side-weather-wrap'
   position: relative;
   margin-left: 5px;
 }
+
+
 .mobile-weather-details-wrap .show-info-wrap .temp-val-symbol::before {
   content: "";
   width: 7px;
@@ -1721,6 +1923,9 @@ Weather Menu : class = 'modile-side-weather-wrap'
   font-size: 26px;
   left: 32px;
 }
+
+
+
 .mobile-weather-main-wrap
   .weather-data-wrap
   .temp-value-wrap
@@ -1882,6 +2087,12 @@ Weather Menu : class = 'modile-side-weather-wrap'
   display: none;
 }
 
+.business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text{
+    font-family:'Poppins-Bold';
+  }
+
 /* Slider */
 .carousel-caption {
   position: absolute;
@@ -1899,6 +2110,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
 }
 .carousel-caption .slide-title span {
   font-size: 40px;
+  font-family:'Amiri-Bold';
 }
 .carousel-indicators {
   display: flex;
@@ -1991,6 +2203,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
 .card-text {
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
+  font-family:'Poppins-Regular';
 }
 .card-footer {
   padding: 15px 0 0 0 !important;
@@ -2081,6 +2294,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
   font-size: 26px;
   font-weight: bold;
   text-decoration: none;
+  font-family:'Amiri-Bold';
 }
 .bottom-menu li a:hover {
   color: #f8c61a !important;
@@ -2110,6 +2324,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
 }
 .top-menu-wrap .navbar-nav li .nav-link {
   padding: 0 !important;
+  font-family:'Poppins-Regular';
 }
 .top-menu-wrap .navbar-nav li a span {
   color: #f9f9f9;
@@ -2119,6 +2334,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
 }
 .top-menu-wrap .navbar-nav li .nav-item {
   color: #f9f9f9;
+  /* font-family:'Poppins-Regular' !important; */
 }
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
@@ -2176,13 +2392,9 @@ footer .center-item .text {
   align-items: flex-end;
   padding-bottom: 5px;
   font-size: 10px;
+  font-family: 'Poppins-Light';
 }
-/* footer .right-item button {
-  width: 98% !important;
-  width: 185px !important;
-  height: 35px;
-  font-size: 12px;
-} */
+
 footer .right-item button:hover {
   background-color: #ffe076 !important;
 }
@@ -2197,6 +2409,7 @@ footer .right-item button {
   font-weight: 900;
   border: none;
   letter-spacing: 1px;
+  font-family: 'Poppins-Bold';
 }
 @media (max-width: 1199px) {
   footer .right-item button {
@@ -2240,4 +2453,19 @@ footer .right-item button {
     padding: 20px 0;
   }
 }
+
+
+/* Hide elements for mibile 
+Subscribe : class = 'mobile-notify-prompt-wrap'
+Dark Screen :  class = 'dark-screen'
+
+Weather Menu : class = 'modile-side-weather-wrap'
+
+Weather Details : class = 'weather-details-wrap'
+
+class = 'currency-converter-wrap'
+
+ class = 'weather-main-wrap'
+*/
+
 </style>

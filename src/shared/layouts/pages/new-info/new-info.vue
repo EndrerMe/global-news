@@ -469,15 +469,18 @@
 }
 .blue-text {
   color: blue;
+  font-size:22px;
 }
 .bold-text {
-  font-weight: bold;
+    font-family: 'Poppins-SemiBold';
+     font-size:22px;
 }
 
 /* New Info */
 .card-wrap .new-info .title-wrap {
   text-align: start;
   padding: 37px 0;
+  font-family: 'Amiri-Bold'; 
 }
 .card-wrap .new-info .title-wrap .text {
   font-size: 32px;
@@ -500,12 +503,16 @@
   max-width: 1082px;
   font-size: 22px;
   border-bottom: none;
+ font-family: 'Poppins-Regular';
+
+
 }
 
 /* Latest News */
 .latest-news .card-body .title-wrap {
   display: flex;
   align-items: center;
+  font-family: 'Amiri-Bold'; 
 }
 .latest-news .card-body .title-wrap span {
   display: block;
@@ -545,8 +552,9 @@
   border-bottom: none;
 }
 .card-wrap .latest-news .description-wrap span {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
+  font-family: 'Amiri-Bold'; 
 }
 </style>
 
