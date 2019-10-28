@@ -364,7 +364,7 @@
           </b-carousel-slide>
           <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
             <div class="slide-title">
-              <span>Third Slide</span>
+              <span>Third Slide</span> 
             </div>
           </b-carousel-slide>
         </b-carousel>
