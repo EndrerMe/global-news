@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <HeaderDesctop></HeaderDesctop>
     <router-view />
   </div>
 </template>
@@ -15,9 +16,12 @@
 </style>
 
 <script>
-import loader from './shared/layouts/pages/home/home';
+import HeaderDesctop from './shared/layouts/header/header';
 
 export default {
-  name: "app"
+  name: "app",
+  components: {
+    HeaderDesctop
+  }
 };
 </script>

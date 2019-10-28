@@ -1,19 +1,37 @@
 <template>
-    <footer>
-      <div class="container content">
-        <div class="content-wrap">
-          <div class="left-item">
-            <img src="../../../assets/images/logo.svg" alt="logo" />
-          </div>
-          <div class="center-item">
-            <span class="text">Copyright © 2019 Global New. All rights reserved</span>
-          </div>
-          <div class="right-item">
-            <button>Subscribe Us</button>
+    <div>
+      <footer>
+        <div class="container content">
+          <div class="content-wrap">
+            <div class="left-item">
+              <img src="../../../assets/images/logo.svg" alt="logo" />
+            </div>
+            <div class="center-item">
+              <span class="text">Copyright © 2019 Global New. All rights reserved</span>
+            </div>
+            <div class="right-item">
+              <button>Subscribe Us</button>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+
+      <footer>
+        <div class="container content">
+          <div class="content-wrap">
+            <div class="left-item">
+              <img src="../../../../assets/images/logo.svg" alt="logo" />
+            </div>
+            <div class="center-item">
+              <span class="text">Copyright © 2019 Global New. All rights reserved</span>
+            </div>
+            <div class="right-item">
+              <button>Subscribe Us</button>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
 </template>
 
 <script>
