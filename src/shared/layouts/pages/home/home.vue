@@ -97,7 +97,7 @@
 
                   <!-- Subscribe -->
 
-                <div class="subscribe-prompt-wrap"  v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s', 'animation-delay':'3s' }">
+      <div class="subscribe-prompt-wrap"  v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s' }">
       <div class="close-wrap">
         <a href="#"></a>
       </div>
@@ -108,6 +108,102 @@
         <button href="#">Subscribe Us</button>
       </div>
     </div>
+
+        <!-- Weather -->
+    <div class="weather-main-wrap">
+      <div class="weather-search-wrap">
+        <div class="close-wrap">
+          <a href="#"></a>
+        </div>
+
+        <div class="text-wrap">
+          <p>Do you mean London?</p>
+        </div>
+        <div class="seacrh-country-wrap">
+          <div class="country-wrap">
+            <span>Lond</span>
+          </div>
+          <div class="button-wrap">
+            <button href="#">Search</button>
+          </div>
+        </div>
+
+        <div class="clouds">
+          <span>Broken Clouds</span>
+          <span class="icon">
+            <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+          </span>
+        </div>
+
+        <div class="temp-value-wrap">
+          <span>+12</span>
+
+          <span class="temp-symbol">
+            <span>&#8451;</span>
+            <span>F</span>
+          </span>
+        </div>
+      </div>
+      <div class="links-wrap">
+        <a href="#">Weather Map</a>
+        <a href="#">More</a>
+      </div>
+    </div>
+
+
+
+    <!-- Currency Converter -->
+    <div class="currency-converter-wrap">
+      <div class="close-wrap">
+        <a href="#"></a>
+      </div>
+      <div class="from">
+        <div class="dropdown-wrap" selected>
+          <span>from</span>
+          <select class="dropdown">
+            <option>USD</option>
+            <option>CHF</option>
+            <option>MYR</option>
+            <option>BGN</option>
+          </select>
+        </div>
+        <div class="value-wrap">
+          <span class="value">100</span>
+        </div>
+      </div>
+
+      <div class="convert-icon">
+                              <img src="../../../../assets/images/header/change-arrows.svg" alt="logo" />
+
+      </div>
+      <div class="to">
+        <div class="dropdown-wrap" selected>
+          <span>to</span>
+          <select class="dropdown">
+            <option>EUR</option>
+            <option>CHF</option>
+            <option>MYR</option>
+            <option>BGN</option>
+          </select>
+        </div>
+        <div class="value-wrap">
+          <span class="value">91.0249</span>
+        </div>
+      </div>
+
+      <div class="rate-wrap">
+        <div>
+          <span>EUR/USD = 1.0986</span>
+        </div>
+        <div>
+          <span>USD/JPY = 106.8905</span>
+        </div>
+        <div>
+          <span>GBP/USD = 1.2234</span>
+        </div>
+      </div>
+    </div>
+
 
 
 
@@ -390,13 +486,17 @@
       </div>
       <!-- Business -->
       <div class="business-wrap">
-        <div class="title-wrap" data-aos="fade-right" data-aos-easing="ease-in-out"
-         data-aos-mirror="true"
-         data-aos-once="false"
+        <div class="title-wrap" data-aos="fade-right" 
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
          >
           <span class="title-text" >Business</span>
         </div>
-        <slick ref="slick" :options="slickOptions">
+        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false">
           <div class="card-wrap">
             <b-card class="card mb-2 new-card col-md-12">
               <b-card-img :src="require('../../../../assets/images/business/img-1.png')"></b-card-img>
@@ -441,7 +541,10 @@
         </slick>
       </div>
       <!-- Entertainmenet -->
-      <div class="entertainment-wrap" >
+      <div class="entertainment-wrap" data-aos="fade-right" 
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false">
 
         <div class="title-wrap" data-aos="fade-right" data-aos-easing="ease-in-out"
          data-aos-mirror="true"
@@ -450,7 +553,10 @@
 
           <span class="title-text" >Entertainment</span>
         </div>
-        <slick ref="slick" :options="slickOptions">
+        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false">
           <div class="card-wrap">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-4.png')"></b-card-img>
@@ -496,14 +602,18 @@
         </slick>
       </div>
       <!-- Science -->
-      <div class="science-wrap" data-aos="fade-right" data-aos-easing="ease-in-out"
-         data-aos-mirror="true"
-         data-aos-once="false"
+      <div class="science-wrap" data-aos="fade-right" 
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
          >
         <div class="title-wrap">
           <span class="title-text">Science</span>
         </div>
-        <slick ref="slick" :options="slickOptions">
+        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false">
           <div class="card-wrap">
             <b-card class="mb-2 new-card">
               <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
@@ -612,8 +722,337 @@ export default {
 <style>
 @import "../../../../../node_modules/slick-carousel/slick/slick.css";
 
-#app{
-  overflow:hidden;
+
+/* Weather */
+.weather-main-wrap .links-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 55px;
+}
+.weather-main-wrap .links-wrap a {
+  color: #f8c61a;
+  text-decoration: none;
+}
+
+.weather-search-wrap .temp-value-wrap .temp-symbol {
+  position: absolute;
+  top: -7px;
+  font-size: 26px !important;
+  left: 161px;
+}
+
+.weather-search-wrap .temp-value-wrap {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  position: relative;
+  margin-top: 50px;
+}
+
+.weather-search-wrap .temp-value-wrap .temp-symbol span {
+  margin: 0 5px;
+}
+.weather-search-wrap .temp-value-wrap .temp-symbol::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background-color: white;
+  left: 37px;
+  top: 7px;
+}
+
+.weather-search-wrap .clouds {
+  margin-top: 55px;
+  color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-search-wrap .clouds img {
+  width: 90px;
+}
+
+.weather-main-wrap {
+  display:none;
+  position: absolute;
+  width: 380px;
+  right: 200px;
+  top: 102px;
+  background-color: #052962;
+  padding-bottom: 20px;
+  border: 1px solid;
+  z-index: 999;
+  padding: 0 20px 10px 20px;
+}
+.weather-search-wrap {
+  padding: 0 40px;
+}
+.weather-search-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+.weather-search-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.weather-search-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
+}
+
+.weather-search-wrap .text-wrap {
+  margin-top: 80px;
+  padding: 0;
+}
+.weather-search-wrap .text-wrap p {
+  color: #eaeaea;
+}
+
+.weather-search-wrap .text-wrap p.dropdown {
+  font-size: 32px;
+  font-family: initial;
+}
+
+.weather-search-wrap .seacrh-country-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.weather-search-wrap .button-wrap {
+  margin-top: 23px;
+}
+
+.weather-search-wrap .country-wrap span {
+  color: #eaeaea;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid;
+  text-align: start;
+}
+
+.weather-search-wrap .button-wrap button {
+  width: 242px;
+  height: 48px;
+  background-color: #f8c61a;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.weather-search-wrap .button-wrap button:hover {
+  background-color: #ffe076;
+}
+
+.weather-search-wrap .seacrh-country-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.weather-search-wrap .button-wrap {
+  margin-top: 23px;
+}
+
+.weather-search-wrap .country-wrap span {
+  color: #eaeaea;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid;
+  text-align: start;
+}
+
+.weather-search-wrap .button-wrap button {
+  width: 242px;
+  height: 48px;
+  background-color: #f8c61a;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.weather-search-wrap .button-wrap button:hover {
+  background-color: #ffe076;
+}
+
+/* Currency Converter */
+/* Notify */
+.currency-converter-wrap .rate-wrap {
+  padding: 0 60px;
+  margin-top: 45px;
+}
+.currency-converter-wrap .rate-wrap span {
+  color: #e2e1e1;
+  padding: 14px;
+  display: block;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.21612394957983194) 100%,
+    rgba(255, 255, 255, 0.5186449579831933) 100%
+  );
+  margin-top: 10px;
+}
+
+.currency-converter-wrap .to .value-wrap {
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+}
+
+.currency-converter-wrap .to .value-wrap .value {
+  width: 103px;
+  display: block;
+  border-bottom: 1px solid #b7b7b7 !important;
+  text-align: center;
+}
+
+.currency-converter-wrap .to .dropdown-wrap {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.currency-converter-wrap .to .dropdown-wrap .dropdown option {
+  font-size: 16px;
+  color: black;
+}
+
+.currency-converter-wrap .to .dropdown-wrap .dropdown {
+  background: transparent;
+  width: 80px;
+  height: 40px;
+  color: white;
+  font-size: 26px;
+  border: none;
+  font-family: initial;
+}
+
+.currency-converter-wrap .to .dropdown-wrap .dropdown:focus {
+  outline: none;
+}
+
+.currency-converter-wrap .to {
+  margin-top: 15px;
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+}
+.currency-converter-wrap .from .value-wrap {
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+}
+
+.currency-converter-wrap .from .value-wrap .value {
+  width: 103px;
+  display: block;
+  border-bottom: 1px solid #b7b7b7 !important;
+  text-align: center;
+}
+
+.currency-converter-wrap .from .dropdown-wrap {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.currency-converter-wrap .from .dropdown-wrap .dropdown option {
+  font-size: 16px;
+  color: black;
+}
+
+.currency-converter-wrap .from .dropdown-wrap .dropdown {
+  background: transparent;
+  width: 80px;
+  height: 40px;
+  color: white;
+  font-size: 26px;
+  border: none;
+  font-family: initial;
+}
+
+.currency-converter-wrap .from .dropdown-wrap .dropdown:focus {
+  outline: none;
+}
+
+.currency-converter-wrap .from {
+  margin-top: 70px;
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+}
+.currency-converter-wrap .from,
+.currency-converter-wrap .to {
+  color: #eaeaea;
+  font-size: 10px;
+  padding: 0 60px;
+}
+
+.currency-converter-wrap .convert-icon{
+  margin-top:20px;
+      padding: 0 60px;
+      text-align:start;
+}
+
+.currency-converter-wrap {
+  display:none;
+  width: 380px;
+  border: 1px solid;
+  position: absolute;
+  right: 590px;
+  top: 102px;
+  background-color: #052962;
+  z-index: 999;
+  padding-bottom: 45px;
+}
+.currency-converter-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+.currency-converter-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.currency-converter-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
 }
 
 /* Subscribe */
