@@ -15,6 +15,8 @@
 </style>
 
 <script>
+import loader from './shared/layouts/pages/home/home';
+
 export default {
   name: "app"
 };
