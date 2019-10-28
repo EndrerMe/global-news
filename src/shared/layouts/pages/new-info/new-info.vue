@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <!-- Header -->
@@ -6,7 +5,12 @@
       <div class="header-content">
         <div class="top-menu-wrap">
           <div class="container">
-            <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
+            <b-navbar
+              class="top-menu"
+              toggleable="md"
+              type="dark"
+              variant="info"
+            >
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
@@ -26,7 +30,10 @@
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content">
                       <span>
-                        <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                        <img
+                          src="../../../../assets/images/cloud.svg"
+                          alt="cloud"
+                        />
                       </span>
                       <span class="weather-value">
                         + 9
@@ -49,7 +56,12 @@
         </div>
         <div class="bottom-menu-wrap">
           <div class="container">
-            <b-navbar class="bottom-menu" toggleable="md" type="dark" variant="info">
+            <b-navbar
+              class="bottom-menu"
+              toggleable="md"
+              type="dark"
+              variant="info"
+            >
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
@@ -87,10 +99,14 @@
         <b-card-group deck>
           <b-card class="new-info" header-tag="header">
             <div class="title-wrap">
-              <span class="text">Rihanna wouldn't "sell out" For halftime show</span>
+              <span class="text"
+                >Rihanna wouldn't "sell out" For halftime show</span
+              >
             </div>
 
-            <b-card-img :src="require('../../../../assets/images/new-info/img-1.png')"></b-card-img>
+            <b-card-img
+              :src="require('../../../../assets/images/new-info/img-1.png')"
+            ></b-card-img>
 
             <b-card-text>
               <span>6 min ago</span>
@@ -99,70 +115,82 @@
 
             <div class="description-wrap">
               <p>
-                Rihanna's confirmed she turned down the Superbowl halftime show to support Colin Kaepernick.
-                The former San Francisco 49ers quarterback was dropped from the NFL for protesting social
+                Rihanna's confirmed she turned down the Superbowl halftime show
+                to support Colin Kaepernick. The former San Francisco 49ers
+                quarterback was dropped from the NFL for protesting social
                 injustice
-                <span
-                  class="blue-text"
-                >by kneeling during the national anthem</span>. In this month's cover story with Vogue magazine,
-                Rihanna said she did it to take a stand.
+                <span class="blue-text"
+                  >by kneeling during the national anthem</span
+                >. In this month's cover story with Vogue magazine, Rihanna said
+                she did it to take a stand.
               </p>
               <p>
-                <span
-                  class="bold-text"
-                >"I couldn't dare do that. Who gains from that? Not my people. I just couldn't be a sellout."</span>
-              </p>
-              <p>
-                <span
-                  class="bold-text"
-                >"I couldn't be an enabler. There's things within that organization that I do not agree with at all, and</span>
-              </p>
-              <p>
-                <span class="bold-text">I was not about to go and be of service to them in any way."</span>
-              </p>
-              <p>
-                It was widely rumoured she was offered the controversial February 2019 halftime show, which
-                draws in audiences of up to 100m, but this is the first time Rihanna's talked about why she
-                <span
-                  class="blue-text"
+                <span class="bold-text"
+                  >"I couldn't dare do that. Who gains from that? Not my people.
+                  I just couldn't be a sellout."</span
                 >
-                  refused
-                  to appear.
+              </p>
+              <p>
+                <span class="bold-text"
+                  >"I couldn't be an enabler. There's things within that
+                  organization that I do not agree with at all, and</span
+                >
+              </p>
+              <p>
+                <span class="bold-text"
+                  >I was not about to go and be of service to them in any
+                  way."</span
+                >
+              </p>
+              <p>
+                It was widely rumoured she was offered the controversial
+                February 2019 halftime show, which draws in audiences of up to
+                100m, but this is the first time Rihanna's talked about why she
+                <span class="blue-text">
+                  refused to appear.
                 </span>
               </p>
               <p>
-                Cardi B and Pink, also reportedly rejected the NFL's offer to perform at the Atlanta event - in a show
-                of solidarity with Kaepernick - and it was eventually headlined by Maroon 5, Travis Scott and Big
-                Boi. It's not the only politics Rihanna gets into during the interview. She also opens up about gun
-                violence in America.
+                Cardi B and Pink, also reportedly rejected the NFL's offer to
+                perform at the Atlanta event - in a show of solidarity with
+                Kaepernick - and it was eventually headlined by Maroon 5, Travis
+                Scott and Big Boi. It's not the only politics Rihanna gets into
+                during the interview. She also opens up about gun violence in
+                America.
               </p>
               <p>
                 <span class="bold-text">"It is devastating," she says.</span>
               </p>
               <p>
-                "People are being murdered by war weapons that they legally purchase. This is just not normal.
-                That should never, ever be normal."
+                "People are being murdered by war weapons that they legally
+                purchase. This is just not normal. That should never, ever be
+                normal."
               </p>
               <p>
-                On her personal life, which she generally avoids discussing, Rihanna confirms she's in a
-                relationship. Her rumoured boyfriend is the the Saudi businessman Hassan Jameel.
+                On her personal life, which she generally avoids discussing,
+                Rihanna confirms she's in a relationship. Her rumoured boyfriend
+                is the the Saudi businessman Hassan Jameel.
               </p>
               <p>
                 <span class="bold-text">
-                  "Yeah, I'm dating," she says. "I'm actually in an exclusive relationship for quite some time, and it's
-                  going really well, so I'm happy."
+                  "Yeah, I'm dating," she says. "I'm actually in an exclusive
+                  relationship for quite some time, and it's going really well,
+                  so I'm happy."
                 </span>
               </p>
               <p>
-                She is, of course, keen to talk about her fashion brand, Fenty - named after her real name Robyn
-                Rihanna Fenty. The 31-year-old says she made it a rule that she had to love and wear all of Fenty
-                Maison herself - the high-end fashion line she founded with Louis Vuitton earlier this year. She also
-                reveals that she inspires herself - she is her own muse.
+                She is, of course, keen to talk about her fashion brand, Fenty -
+                named after her real name Robyn Rihanna Fenty. The 31-year-old
+                says she made it a rule that she had to love and wear all of
+                Fenty Maison herself - the high-end fashion line she founded
+                with Louis Vuitton earlier this year. She also reveals that she
+                inspires herself - she is her own muse.
               </p>
               <p>
-                <span
-                  class="bold-text"
-                >"I'm not the face of my brand, but I am the muse, and my DNA has to run all the way through it,"</span>
+                <span class="bold-text"
+                  >"I'm not the face of my brand, but I am the muse, and my DNA
+                  has to run all the way through it,"</span
+                >
                 she says.
               </p>
             </div>
@@ -193,7 +221,11 @@
                     height="17.838"
                     viewBox="0 0 18.424 17.838"
                   >
-                    <g id="Group_38" data-name="Group 38" transform="translate(0 5.171)">
+                    <g
+                      id="Group_38"
+                      data-name="Group 38"
+                      transform="translate(0 5.171)"
+                    >
                       <g id="Group_37" data-name="Group 37">
                         <rect
                           id="Rectangle_26"
@@ -204,7 +236,11 @@
                         />
                       </g>
                     </g>
-                    <g id="Group_40" data-name="Group 40" transform="translate(5.758 5.171)">
+                    <g
+                      id="Group_40"
+                      data-name="Group 40"
+                      transform="translate(5.758 5.171)"
+                    >
                       <g id="Group_39" data-name="Group 39">
                         <path
                           id="Path_23"
@@ -215,7 +251,11 @@
                         />
                       </g>
                     </g>
-                    <g id="Group_42" data-name="Group 42" transform="translate(0.223 0)">
+                    <g
+                      id="Group_42"
+                      data-name="Group 42"
+                      transform="translate(0.223 0)"
+                    >
                       <g id="Group_41" data-name="Group 41">
                         <circle
                           id="Ellipse_12"
@@ -259,7 +299,10 @@
                 <img src="../../../../assets/images/new-info/img-2.png" />
               </div>
               <div class="description-wrap">
-                <span>Nobel Prize for Literature to name two winners after scandal-hit year</span>
+                <span
+                  >Nobel Prize for Literature to name two winners after
+                  scandal-hit year</span
+                >
               </div>
             </div>
             <div class="item-wrap">
@@ -267,7 +310,9 @@
                 <img src="../../../../assets/images/new-info/img-3.png" />
               </div>
               <div class="description-wrap">
-                <span>Goldman Sachs reviews role in Chinese tech firm Megvii</span>
+                <span
+                  >Goldman Sachs reviews role in Chinese tech firm Megvii</span
+                >
               </div>
             </div>
             <div class="item-wrap">
@@ -275,7 +320,10 @@
                 <img src="../../../../assets/images/new-info/img-4.png" />
               </div>
               <div class="description-wrap">
-                <span>Badger culls risk increased spread of TB to cattle, study finds</span>
+                <span
+                  >Badger culls risk increased spread of TB to cattle, study
+                  finds</span
+                >
               </div>
             </div>
           </b-card>
@@ -331,12 +379,11 @@
     max-width: unset !important;
   }
 
-  .description-wrap{
+  .description-wrap {
     margin-top: 0 !important;
   }
-  .social-networks-wrap{
-        margin-top: 0 !important;
-
+  .social-networks-wrap {
+    margin-top: 0 !important;
   }
 }
 
@@ -370,9 +417,7 @@
     max-width: unset !important;
   }
 }
-
 </style>
-
 
 <style scoped>
 /* Social */
@@ -405,7 +450,7 @@
 }
 
 /* Common */
-.card-deck{
+.card-deck {
   margin-top: unset;
 }
 .card.new-info,
@@ -649,4 +694,3 @@ footer .right-item button {
   letter-spacing: 1px;
 } */
 </style>
-

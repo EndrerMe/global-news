@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <!-- Subscribe -->
@@ -831,7 +830,3 @@
   z-index: 999;
 }
 </style>
-
-
-
-

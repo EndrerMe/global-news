@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -15,8 +15,9 @@
 </style>
 
 <script>
+import loader from './shared/layouts/pages/home/home';
+
 export default {
-  name: "app",
+  name: "app"
 };
 </script>
-
