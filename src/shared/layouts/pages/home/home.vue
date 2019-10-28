@@ -572,7 +572,9 @@
 import Slick from "vue-slick";
 
 export default {
-  components: { Slick },
+  components: { 
+    Slick 
+  },
   data() {
     return {
       isShowSideMenu: false,
