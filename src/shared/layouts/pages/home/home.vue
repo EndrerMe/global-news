@@ -543,6 +543,9 @@ import Slick from "vue-slick";
 
 export default {
   components: { Slick },
+  components: { 
+    Slick 
+  },
   data() {
     return {
       isShowSideMenu: false,
@@ -566,9 +569,11 @@ export default {
     next() {
       this.$refs.slick.next();
     },
+
     prev() {
       this.$refs.slick.prev();
     },
+
     reInit() {
       // Helpful if you have to deal with v-for to update dynamic lists
       this.$refs.slick.reSlick();

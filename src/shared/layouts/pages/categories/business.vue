@@ -6,12 +6,7 @@
       <div class="header-content">
         <div class="top-menu-wrap">
           <div class="container">
-            <b-navbar
-              class="top-menu"
-              toggleable="md"
-              type="dark"
-              variant="info"
-            >
+            <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
               <b-nav class="mobile-top-menu">
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
                 <b-nav-item class="mobile-logo-wrap">
@@ -30,10 +25,7 @@
                       </div>
                     </b-nav-item>
                     <b-nav-item href="#" class="logo-wrap">
-                      <img
-                        src="../../../../assets/images/logo.svg"
-                        alt="logo"
-                      />
+                      <img src="../../../../assets/images/logo.svg" alt="logo" />
                     </b-nav-item>
                     <b-nav-item href="#" class="current-date">
                       <span>October 8, 2019</span>
@@ -49,10 +41,7 @@
                     <b-nav-item href="#" class="weather-wrap">
                       <span class="weather-content">
                         <span>
-                          <img
-                            src="../../../../assets/images/cloud.svg"
-                            alt="cloud"
-                          />
+                          <img src="../../../../assets/images/cloud.svg" alt="cloud" />
                         </span>
                         <span class="weather-value">
                           + 9
@@ -112,39 +101,25 @@
             <div class="box-menu">
               <b-nav class="bottom-menu">
                 <b-nav-item>
-                  <router-link class="link" :to="{ name: `business` }"
-                    >Business</router-link
-                  >
+                  <router-link class="link" :to="{ name: `business` }">Business</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{ name: `entertainment` }"
-                    >Entertainment</router-link
-                  >
+                  <router-link class="link" :to="{ name: `entertainment` }">Entertainment</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{ name: `general` }"
-                    >General</router-link
-                  >
+                  <router-link class="link" :to="{ name: `general` }">General</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{ name: `health` }"
-                    >Health</router-link
-                  >
+                  <router-link class="link" :to="{ name: `health` }">Health</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{ name: `science` }"
-                    >Science</router-link
-                  >
+                  <router-link class="link" :to="{ name: `science` }">Science</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{ name: `sport` }"
-                    >Sport</router-link
-                  >
+                  <router-link class="link" :to="{ name: `sport` }">Sport</router-link>
                 </b-nav-item>
                 <b-nav-item>
-                  <router-link class="link" :to="{ name: `technology` }"
-                    >Technology</router-link
-                  >
+                  <router-link class="link" :to="{ name: `technology` }">Technology</router-link>
                 </b-nav-item>
               </b-nav>
             </div>
@@ -247,10 +222,12 @@
                 </span>
               </div>
             </div>
-            <b-card-text
-              >DreamWorks Animation has made blockbusters ranging from Shrek to
-              Kung Fu Panda and How to Train Your Dragon. As...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                DreamWorks Animation has made blockbusters ranging from Shrek to
+                Kung Fu Panda and How to Train Your Dragon. As...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">6 min ago</small>
               <small class="text-muted">bbc.com</small>
@@ -274,12 +251,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                occaecat...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">Yestesday</small>
               <small class="text-muted">sourcelink.com</small>
@@ -303,12 +281,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >A teenage rap artist says performing music has helped him come to
-              terms with his ADHD and release his "inside anger".
-              Eighteen...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                A teenage rap artist says performing music has helped him come to
+                terms with his ADHD and release his "inside anger".
+                Eighteen...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">October 10, 2019</small>
               <small class="text-muted">sourcelink.com</small>
@@ -334,12 +313,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >Ahead of the eight-part dramatisation of the first of Philip
-              Pullman's best-selling His Dark Materials novels, the
-              BBC's...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                Ahead of the eight-part dramatisation of the first of Philip
+                Pullman's best-selling His Dark Materials novels, the
+                BBC's...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">6 min ago</small>
               <small class="text-muted">bbc.com</small>
@@ -363,12 +343,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >He may have started out singing cover versions on cheap
-              compilation albums, but Elton John went on to become
-              the...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                He may have started out singing cover versions on cheap
+                compilation albums, but Elton John went on to become
+                the...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">Yestesday</small>
               <small class="text-muted">sourcelink.com</small>
@@ -392,12 +373,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >A Brit Award-winning musician has been ordered to carry out 200
-              hours of unpaid work for punching a bar manager
-              and...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                A Brit Award-winning musician has been ordered to carry out 200
+                hours of unpaid work for punching a bar manager
+                and...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">October 10, 2019</small>
               <small class="text-muted">sourcelink.com</small>
@@ -423,12 +405,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >Ahead of the eight-part dramatisation of the first of Philip
-              Pullman's best-selling His Dark Materials novels, the
-              BBC's...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                Ahead of the eight-part dramatisation of the first of Philip
+                Pullman's best-selling His Dark Materials novels, the
+                BBC's...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">6 min ago</small>
               <small class="text-muted">bbc.com</small>
@@ -452,12 +435,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >He may have started out singing cover versions on cheap
-              compilation albums, but Elton John went on to become
-              the...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                He may have started out singing cover versions on cheap
+                compilation albums, but Elton John went on to become
+                the...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">Yestesday</small>
               <small class="text-muted">sourcelink.com</small>
@@ -481,12 +465,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >A Brit Award-winning musician has been ordered to carry out 200
-              hours of unpaid work for punching a bar manager
-              and...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                A Brit Award-winning musician has been ordered to carry out 200
+                hours of unpaid work for punching a bar manager
+                and...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">October 10, 2019</small>
               <small class="text-muted">sourcelink.com</small>
@@ -513,11 +498,13 @@
               </div>
             </div>
 
-            <b-card-text
-              >Ahead of the eight-part dramatisation of the first of Philip
-              Pullman's best-selling His Dark Materials novels, the
-              BBC's...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                Ahead of the eight-part dramatisation of the first of Philip
+                Pullman's best-selling His Dark Materials novels, the
+                BBC's...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">6 min ago</small>
               <small class="text-muted">bbc.com</small>
@@ -541,12 +528,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >He may have started out singing cover versions on cheap
-              compilation albums, but Elton John went on to become
-              the...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                He may have started out singing cover versions on cheap
+                compilation albums, but Elton John went on to become
+                the...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">Yestesday</small>
               <small class="text-muted">sourcelink.com</small>
@@ -570,12 +558,13 @@
                 </span>
               </div>
             </div>
-
-            <b-card-text
-              >A Brit Award-winning musician has been ordered to carry out 200
-              hours of unpaid work for punching a bar manager
-              and...</b-card-text
-            >
+            <div class="text-wrap">
+              <b-card-text>
+                A Brit Award-winning musician has been ordered to carry out 200
+                hours of unpaid work for punching a bar manager
+                and...
+              </b-card-text>
+            </div>
             <template v-slot:footer>
               <small class="text-muted">October 10, 2019</small>
               <small class="text-muted">sourcelink.com</small>
@@ -620,9 +609,7 @@
             <img src="../../../../assets/images/logo.svg" alt="logo" />
           </div>
           <div class="center-item">
-            <span class="text"
-              >Copyright © 2019 Global New. All rights reserved</span
-            >
+            <span class="text">Copyright © 2019 Global New. All rights reserved</span>
           </div>
           <div class="right-item">
             <button>Subscribe Us</button>
@@ -647,9 +634,36 @@
   }
   .main-title-wrap span {
     font-size: 24px !important;
+    letter-spacing: 8px !important;
   }
   .main-title-wrap span::before {
     height: 27px !important;
+    width: 95px !important;
+  }
+}
+@media (max-width: 767px) {
+  .main-title-wrap span {
+    font-size: 24px !important;
+  }
+}
+@media (max-width: 499px) {
+  .main-title-wrap span {
+    font-size: 20px !important;
+    letter-spacing: 6px !important;
+  }
+  .main-title-wrap span::before {
+    height: 21px !important;
+    width: 94px !important;
+  }
+}
+@media (max-width: 375px) {
+  .main-title-wrap span {
+    font-size: 16px !important;
+    letter-spacing: 5px !important;
+  }
+  .main-title-wrap span::before {
+    height: 16px !important;
+    width: 92px !important;
   }
 }
 </style>
@@ -708,10 +722,7 @@
   }
   .top-box-preview {
     margin-bottom: 20px !important;
-  }
-
-  .new-card {
-    margin-bottom: 30px !important;
+    margin-top: 20px !important;
   }
 
   .top-box-preview .title-wrap {
@@ -1608,23 +1619,22 @@ footer .right-item button {
 .new-card {
   border: none !important;
 }
-
+.new-card .text-wrap p {
+  max-block-size: 70px;
+  overflow: hidden;
+}
 .new-card .card-body {
   padding: 0 !important;
 }
-
 .new-card .image-wrap {
   position: relative;
 }
-
 .card-deck {
   margin-bottom: 35px;
 }
-
 .card-deck .card-body .image-wrap .gradient {
   margin: 0;
 }
-
 .new-card .title-wrap {
   position: absolute;
   bottom: 10px;
@@ -1638,7 +1648,6 @@ footer .right-item button {
 .new-card .title-wrap p {
   margin-bottom: 0;
 }
-
 .new-card .card-footer {
   background: transparent;
   text-align: start;
@@ -1647,22 +1656,24 @@ footer .right-item button {
   display: flex;
   justify-content: space-between;
 }
-
 .new-card .card-text {
   padding: 18px 0 13px 0;
   text-align: start;
+  border: none;
+}
+.new-card .text-wrap {
+  border-bottom: 1px solid #b3abab;
+  padding-bottom: 10px;
 }
 @media (max-width: 1199px) {
   .new-card .title-wrap {
     max-width: 86%;
   }
 }
-
 @media (max-width: 1139px) {
   .new-card .title-wrap {
     font-size: 12px !important;
   }
-
   .new-card .title-wrap {
     max-width: 78%;
   }
@@ -1670,6 +1681,9 @@ footer .right-item button {
 @media (max-width: 767px) {
   .new-card .title-wrap {
     font-size: 22px !important;
+  }
+  .new-card {
+    margin-bottom: 30px !important;
   }
 }
 </style>
