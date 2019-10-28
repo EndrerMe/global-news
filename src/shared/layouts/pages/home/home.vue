@@ -542,7 +542,6 @@
 import Slick from "vue-slick";
 
 export default {
-  components: { Slick },
   components: { 
     Slick 
   },
