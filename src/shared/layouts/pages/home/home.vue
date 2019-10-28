@@ -93,6 +93,24 @@
                   </b-navbar-nav>
                 </div>
               </div>
+
+
+                  <!-- Subscribe -->
+
+                <div class="subscribe-prompt-wrap"  v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s'}">
+      <div class="close-wrap">
+        <a href="#"></a>
+      </div>
+      <div class="text-wrap">
+        <span>Do you want to receive more news ?</span>
+      </div>
+      <div class="button-wrap">
+        <button href="#">Subscribe Us</button>
+      </div>
+    </div>
+
+
+
             </b-navbar>
             <!-- Mobile Side Weather -->
             <div class="modile-side-weather-wrap">
@@ -339,8 +357,9 @@
         </div>
       </div>
     </div>
-    <!-- Slider -->
     <div class="container content">
+      <!-- Slider -->
+
       <div class="slider-wrap">
         <b-carousel
           id="carousel-1"
@@ -364,15 +383,18 @@
           </b-carousel-slide>
           <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
             <div class="slide-title">
-              <span>Third Slide</span> 
+              <span>Third Slide</span>
             </div>
           </b-carousel-slide>
         </b-carousel>
       </div>
       <!-- Business -->
       <div class="business-wrap">
-        <div class="title-wrap">
-          <span class="title-text">Business</span>
+        <div class="title-wrap" data-aos="fade-right" data-aos-easing="ease-in-out"
+         data-aos-mirror="true"
+         data-aos-once="false"
+         >
+          <span class="title-text" >Business</span>
         </div>
         <slick ref="slick" :options="slickOptions">
           <div class="card-wrap">
@@ -419,9 +441,14 @@
         </slick>
       </div>
       <!-- Entertainmenet -->
-      <div class="entertainment-wrap">
-        <div class="title-wrap">
-          <span class="title-text">Entertainment</span>
+      <div class="entertainment-wrap" >
+
+        <div class="title-wrap" data-aos="fade-right" data-aos-easing="ease-in-out"
+         data-aos-mirror="true"
+         data-aos-once="false"
+         >
+
+          <span class="title-text" >Entertainment</span>
         </div>
         <slick ref="slick" :options="slickOptions">
           <div class="card-wrap">
@@ -469,7 +496,10 @@
         </slick>
       </div>
       <!-- Science -->
-      <div class="science-wrap">
+      <div class="science-wrap" data-aos="fade-right" data-aos-easing="ease-in-out"
+         data-aos-mirror="true"
+         data-aos-once="false"
+         >
         <div class="title-wrap">
           <span class="title-text">Science</span>
         </div>
@@ -543,9 +573,6 @@ import Slick from "vue-slick";
 
 export default {
   components: { Slick },
-  components: { 
-    Slick 
-  },
   data() {
     return {
       isShowSideMenu: false,
@@ -569,21 +596,92 @@ export default {
     next() {
       this.$refs.slick.next();
     },
-
     prev() {
       this.$refs.slick.prev();
     },
-
     reInit() {
       // Helpful if you have to deal with v-for to update dynamic lists
       this.$refs.slick.reSlick();
     }
-  }
+  },
 };
 </script>
 
 <style>
 @import "../../../../../node_modules/slick-carousel/slick/slick.css";
+
+#app{
+  overflow:hidden;
+}
+
+/* Subscribe */
+.subscribe-prompt-wrap {
+  width: 381px;
+  padding-bottom: 40px;
+  border: 1px solid;
+  position: absolute;
+  right: 0px;
+  top: 102px;
+  background-color: #052962;
+  z-index: 999;
+}
+
+.subscribe-prompt-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+.subscribe-prompt-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.subscribe-prompt-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
+}
+
+.subscribe-prompt-wrap .text-wrap {
+  margin-top: 90px;
+  padding: 0px 115px;
+}
+.subscribe-prompt-wrap .text-wrap span {
+  color: #eaeaea;
+}
+
+.subscribe-prompt-wrap .button-wrap {
+  margin-top: 37px;
+}
+
+.subscribe-prompt-wrap .button-wrap button {
+  width: 242px;
+  height: 48px;
+  background-color: #f8c61a;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.subscribe-prompt-wrap .button-wrap button:hover {
+  background-color: #ffe076;
+}
+
 
 /* Slick Slider */
 .slick-slider {

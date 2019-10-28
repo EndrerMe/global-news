@@ -4,12 +4,17 @@ import App from "./App.vue";
 import BootstrapVue from "bootstrap-vue";
 import VueRouter from "vue-router";
 import Slick from "vue-slick";
+import vWow from "v-wow";
+import AOS from 'aos';
 
 // Router
 import routes from "./routes";
 // Styles
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import "animate.css";
+import "aos/dist/aos.css";
+
 // Fonts
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -45,11 +50,15 @@ library.add(
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
- Vue.use(Slick);
+Vue.use(Slick);
+Vue.use(vWow);
 
 const router = new VueRouter({ routes });
 
 new Vue({
+  created() {
+    AOS.init();
+  },
   render: h => h(App),
   router
 }).$mount("#app");
