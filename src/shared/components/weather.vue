@@ -258,14 +258,29 @@ export default {
 </script>
 
 <style scoped>
+
+/* Weather */
+.weather-main-wrap {
+  /* display: none; */
+  position: absolute;
+  width: 380px;
+  right: -160px;
+  top: 92px;
+  background-color: #052962;
+  padding-bottom: 20px;
+  z-index: 999;
+  padding: 0 20px 10px 20px;
+}
+
 .weather-main-wrap .links-wrap {
   display: flex;
   justify-content: space-between;
   margin-top: 55px;
 }
 .weather-main-wrap .links-wrap a {
-  color: #f8c61a;
+  color: #f8c61a !important;
   text-decoration: none;
+  font-family: "Poppins-Regular";
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol {
@@ -281,6 +296,7 @@ export default {
   font-weight: bold;
   position: relative;
   margin-top: 50px;
+  font-family: "Poppins-SemiBold";
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol span {
@@ -302,23 +318,13 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Poppins-Regular";
 }
 
 .weather-search-wrap .clouds img {
   width: 90px;
 }
 
-.weather-main-wrap {
-  position: absolute;
-  width: 380px;
-  right: 200px;
-  top: 102px;
-  background-color: #052962;
-  padding-bottom: 20px;
-  border: 1px solid;
-  z-index: 999;
-  padding: 0 20px 10px 20px;
-}
 .weather-search-wrap {
   padding: 0 40px;
 }
@@ -355,6 +361,7 @@ export default {
 .weather-search-wrap .text-wrap {
   margin-top: 80px;
   padding: 0;
+  font-family: "Poppins-Regular";
 }
 .weather-search-wrap .text-wrap p {
   color: #eaeaea;
@@ -413,6 +420,7 @@ export default {
   width: 100%;
   border-bottom: 1px solid;
   text-align: start;
+  font-family: "Poppins-Regular";
 }
 
 .weather-search-wrap .button-wrap button {
@@ -424,11 +432,14 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-family: "Poppins-SemiBold";
 }
 .weather-search-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
 
+
+/* Mob */
 .modile-side-weather-wrap {
   display: none;
   overflow: scroll;

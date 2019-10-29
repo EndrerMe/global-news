@@ -4,7 +4,6 @@
       <div class="top-menu-wrap">
         <div class="container">
           <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
-            
             <b-nav class="mobile-top-menu">
               <b-navbar-toggle target="nav-collapse" @click="toggleMobileSideMenu()"></b-navbar-toggle>
               <b-nav-item class="mobile-logo-wrap">
@@ -16,131 +15,146 @@
             </b-nav>
 
             <div
-                id="nav-collapse"
-                class="showTest"
-                v-bind:class="{ sideMenuActive: isShowSideMenu }"
-              >
-                <div class="sub-wrap">
-                  <b-navbar-nav class="wide-menu">
-                    <b-nav-item class="close-link-wrap">
-                      <div class="close-wrap" @click="toggleMobileSideMenu()">
-                        <a href="#"></a>
-                      </div>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="logo-wrap">
-                      <img src="../../../assets/images/logo.svg" alt="logo" />
-                    </b-nav-item>
-                    <b-nav-item href="#" class="current-date">
-                      <span>October 8, 2019</span>
-                      <span>Tuesday</span>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="converter-wrap" @click='toggleConverterModal()'>
+              id="nav-collapse"
+              class="showTest"
+              v-bind:class="{ sideMenuActive: isShowSideMenu }"
+            >
+              <div class="sub-wrap">
+                <b-navbar-nav class="wide-menu">
+                  <b-nav-item class="close-link-wrap">
+                    <div class="close-wrap" @click="toggleMobileSideMenu()">
+                      <a href="#"></a>
+                    </div>
+                  </b-nav-item>
+                  <b-nav-item href="#" class="logo-wrap">
+                    <img src="../../../assets/images/logo.svg" alt="logo" />
+                  </b-nav-item>
+                  <b-nav-item href="#" class="current-date">
+                    <span>October 8, 2019</span>
+                    <span>Tuesday</span>
+                  </b-nav-item>
+                  <b-nav-item href="#" class="converter-wrap" @click="toggleConverterModal()">
+                    <span>
+                      <span>Currency Converter</span>
+                      <font-awesome-icon icon="caret-down" />
+                    </span>
+                  </b-nav-item>
+                  <b-nav-item href="#" class="weather-wrap" @click="toggleWeatherModal()">
+                    <span class="weather-content">
                       <span>
-                        <span>Currency Converter</span>
+                        <img src="../../../assets/images/cloud.svg" alt="cloud" />
+                      </span>
+                      <span class="weather-value">
+                        + 9
+                        <span class="celsius-value">&#8451;</span>
+                      </span>
+                      <span class="weather-dropdown-arrow">
                         <font-awesome-icon icon="caret-down" />
                       </span>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="weather-wrap" @click='toggleWeatherModal()'>
-                      <span class="weather-content">
-                        <span>
-                          <img src="../../../assets/images/cloud.svg" alt="cloud" />
-                        </span>
-                        <span class="weather-value">
-                          + 9
-                          <span class="celsius-value">&#8451;</span>
-                        </span>
-                        <span class="weather-dropdown-arrow">
-                          <font-awesome-icon icon="caret-down" />
-                        </span>
-                        <p>Glasgow</p>
+                      <p>Glasgow</p>
+                    </span>
+                    <weatherDesctop
+                      :isShowWeatherModal="isShowWeatherModal"
+                      :isShowConverter="isShowConverter"
+                    ></weatherDesctop>
+                  </b-nav-item>
+                  <li class="nav-item search-wrap">
+                    <div>
+                      <a href="#">
+                        <font-awesome-icon icon="search" class="fa-lg" />
+                      </a>
+                    </div>
+                    <div class="bell active">
+                      <a href="#">
+                        <font-awesome-icon icon="bell" class="fa-lg" />
+                      </a>
+                    </div>
+                  </li>
+                </b-navbar-nav>
+                <b-navbar-nav class="mobile-side-menu">
+                  <b-nav-item class="close-link-wrap">
+                    <div class="close-wrap" @click="toggleMobileSideMenu()">
+                      <a class="close-button" href="#"></a>
+                    </div>
+                  </b-nav-item>
+                  <b-nav-item href="#" class="wrap">
+                    <div class="top-side-wrap">
+                      <span class="sub-item">
+                        Currency Converter
+                        <font-awesome-icon icon="caret-down" />
                       </span>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="search-wrap">
-                      <font-awesome-icon icon="search" class="fa-lg" />
-                      <font-awesome-icon icon="bell" class="fa-lg" />
-                    </b-nav-item>
-                  </b-navbar-nav>
-                  <b-navbar-nav class="mobile-side-menu">
-                    <b-nav-item class="close-link-wrap">
-                      <div class="close-wrap" @click="toggleMobileSideMenu()">
-                        <a class="close-button" href="#"></a>
+                      <span class="sub-item">
+                        Weather
+                        <font-awesome-icon icon="caret-down" />
+                      </span>
+                    </div>
+                  </b-nav-item>
+                  <b-nav-item href="#">
+                    <div class="bottom-side-wrap">
+                      <div class="sub-item date">
+                        <span>October 8, 2019</span>
+                        <span>Tuesday</span>
                       </div>
-                    </b-nav-item>
-                    <b-nav-item href="#" class="wrap">
-                      <div class="top-side-wrap">
-                        <span class="sub-item">
-                          Currency Converter
-                          <font-awesome-icon icon="caret-down" />
-                        </span>
-                        <span class="sub-item">
-                          Weather
-                          <font-awesome-icon icon="caret-down" />
-                        </span>
+                      <div class="sub-item">
+                        <button>Subscribe Us</button>
                       </div>
-                    </b-nav-item>
-                    <b-nav-item href="#">
-                      <div class="bottom-side-wrap">
-                        <div class="sub-item date">
-                          <span>October 8, 2019</span>
-                          <span>Tuesday</span>
-                        </div>
-                        <div class="sub-item">
-                          <button>Subscribe Us</button>
-                        </div>
-                      </div>
-                    </b-nav-item>
-                  </b-navbar-nav>
-                </div>
+                    </div>
+                  </b-nav-item>
+                </b-navbar-nav>
               </div>
+            </div>
 
-              <subscribeDesctop></subscribeDesctop>
-              <weatherDesctop :isShowWeatherModal='isShowWeatherModal' :isShowConverter='isShowConverter'></weatherDesctop>
+            <subscribeDesctop></subscribeDesctop>
           </b-navbar>
         </div>
       </div>
 
       <navigationDesctop></navigationDesctop>
-
     </div>
   </div>
 </template>
 
 <script>
-import weatherDesctop from './../../components/weather';
-import subscribeDesctop from './../../components/subscribe';
-import navigationDesctop from './../../components/navigation';
+import weatherDesctop from "./../../components/weather";
+import subscribeDesctop from "./../../components/subscribe";
+import navigationDesctop from "./../../components/navigation";
 
 export default {
-    name: 'HeaderDesctop',
-    components: {
-      weatherDesctop,
-      subscribeDesctop,
-      navigationDesctop
+  name: "HeaderDesctop",
+  components: {
+    weatherDesctop,
+    subscribeDesctop,
+    navigationDesctop
+  },
+  data() {
+    return {
+      isShowSideMenu: false,
+      isShowWeatherModal: false,
+      isShowConverter: false
+    };
+  },
+  methods: {
+    toggleMobileSideMenu() {
+      this.isShowSideMenu = !this.isShowSideMenu;
     },
-    data() {
-        return {
-            isShowSideMenu: false,
-            isShowWeatherModal: false,
-            isShowConverter: false,
-        }
+
+    toggleWeatherModal() {
+      this.isShowWeatherModal = !this.isShowWeatherModal;
     },
-    methods: {
-        toggleMobileSideMenu() {
-            this.isShowSideMenu = !this.isShowSideMenu;
-        },
 
-        toggleWeatherModal() {
-          this.isShowWeatherModal = !this.isShowWeatherModal;
-        },
-
-        toggleConverterModal() {
-          this.isShowConverter = !this.isShowConverter;
-        }
+    toggleConverterModal() {
+      this.isShowConverter = !this.isShowConverter;
     }
-}
+  }
+};
 </script>
 
+<style>
+@import "./../../../assets/css/fonts.css";
+</style>
+
 <style scoped>
+
 .sideMenuActive {
   visibility: visible !important;
   width: 82% !important;
@@ -341,6 +355,39 @@ export default {
   }
 }
 /* Header */
+
+#nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
+  height: 100%;
+  width: 100%;
+  transform: rotate(0deg);
+  animation-name: rotate-bell;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  transform-origin: 50% 0%;
+  animation-timing-function: ease-in-out;
+}
+
+#nav-collapse .sub-wrap .wide-menu .search-wrap {
+  display: flex;
+}
+
+@keyframes rotate-bell {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 @media (max-width: 1139px) {
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 18px;

@@ -58,10 +58,9 @@ export default {
 .subscribe-prompt-wrap {
   width: 381px;
   padding-bottom: 40px;
-  border: 1px solid;
   position: absolute;
   right: -15px;
-  top: 102px;
+  top: 101px;
   background-color: #052962;
   z-index: 999;
 }
@@ -99,6 +98,8 @@ export default {
 .subscribe-prompt-wrap .text-wrap {
   margin-top: 90px;
   padding: 0px 115px;
+  font-family: "Poppins-Regular";
+  font-size:16px;
 }
 .subscribe-prompt-wrap .text-wrap span {
   color: #eaeaea;

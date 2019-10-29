@@ -14,7 +14,7 @@
           </select>
         </div>
         <div class="value-wrap">
-          <span class="value">100</span>
+          <input class="value" value="100" />
         </div>
       </div>
 
@@ -33,7 +33,7 @@
           </select>
         </div>
         <div class="value-wrap">
-          <span class="value">91.0249</span>
+                    <input class="value" value="91.0249" />
         </div>
       </div>
 
