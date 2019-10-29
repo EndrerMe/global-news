@@ -33,7 +33,7 @@
         <div class="value-wrap">
           <span class="value">91.0249</span> 
         </div>
-      </div>
+      </div> 
 
       <div class="rate-wrap">
         <div>
