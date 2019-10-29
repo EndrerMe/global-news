@@ -94,186 +94,181 @@
                 </div>
               </div>
 
+              <!-- Subscribe -->
 
-                  <!-- Subscribe -->
+              <div
+                class="subscribe-prompt-wrap"
+                v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s' }"
+              >
+                <div class="close-wrap">
+                  <a href="#"></a>
+                </div>
+                <div class="text-wrap">
+                  <span>Do you want to receive more news ?</span>
+                </div>
+                <div class="button-wrap">
+                  <button href="#">Subscribe Us</button>
+                </div>
+              </div>
 
-      <div class="subscribe-prompt-wrap"  v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s' }">
-      <div class="close-wrap">
-        <a href="#"></a>
-      </div>
-      <div class="text-wrap">
-        <span>Do you want to receive more news ?</span>
-      </div>
-      <div class="button-wrap">
-        <button href="#">Subscribe Us</button>
-      </div>
-    </div>
+              <div class="weather-details-wrap">
+                <div class="close-wrap">
+                  <a href="#"></a>
+                </div>
+                <div class="left-side">
+                  <div class="temp-info-wrap">
+                    <div class="temp-value-wrap info-elem">
+                      <p>
+                        <span class="cwitch">Show weather in :</span>
+                        <span class="temp-symbol">
+                          <span class="switch-mode">F</span>
+                          <span class="switch-mode active">&#8451;</span>
+                        </span>
+                      </p>
+                      <p>Place : London</p>
+                    </div>
+                    <div class="show-info-wrap info-elem">
+                      <p>
+                        Min Temperature :
+                        <span class="temp-value">
+                          14
+                          <span class="temp-val-symbol"></span>
+                        </span>
+                      </p>
+                      <p>
+                        Max Temperature :
+                        <span class="temp-value">
+                          14
+                          <span class="temp-val-symbol"></span>
+                        </span>
+                      </p>
+                      <p>
+                        Temperature :
+                        <span class="temp-value">
+                          14
+                          <span class="temp-val-symbol"></span>
+                        </span>
+                      </p>
+                    </div>
+                    <div class="additional-info info-elem">
+                      <p class>
+                        Humidity :
+                        <span class="value">28</span>
+                      </p>
+                      <p class>
+                        Wind Speed :
+                        <span class="value">3</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="right-side">
+                  <div class="wrap">
+                    <span class="icon-wrap">
+                      <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                    </span>
+                    <span>Broken Clouds</span>
+                  </div>
+                </div>
+              </div>
 
-    <div class="weather-details-wrap">
-      <div class="close-wrap">
-        <a href="#"></a>
-      </div>
-      <div class="left-side">
-        <div class="temp-info-wrap">
-          <div class="temp-value-wrap info-elem">
-            <p>
-              <span class="cwitch">Show weather in :</span>
-              <span class="temp-symbol">
-                <span class="switch-mode">F</span>
-                <span class="switch-mode active">&#8451;</span>
-              </span>
-            </p>
-            <p>Place : London</p>
-          </div>
-          <div class="show-info-wrap info-elem">
-            <p>
-              Min Temperature :
-              <span class="temp-value">
-                14
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-            <p>
-              Max Temperature :
-              <span class="temp-value">
-                14
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-            <p>
-              Temperature :
-              <span class="temp-value">
-                14
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-          </div>
-          <div class="additional-info info-elem">
-            <p class>
-              Humidity :
-              <span class="value">28</span>
-            </p>
-            <p class>
-              Wind Speed :
-              <span class="value">3</span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="right-side">
-        <div class="wrap">
-          <span class="icon-wrap">
-            <img src="../../../../assets/images/cloud.svg" alt="cloud" />
-          </span>
-          <span>Broken Clouds</span>
-        </div>
-      </div>
-    </div>
+              <!-- Weather -->
+              <div class="weather-main-wrap">
+                <div class="weather-search-wrap">
+                  <div class="close-wrap">
+                    <a href="#"></a>
+                  </div>
 
-        <!-- Weather -->
-    <div class="weather-main-wrap">
-      <div class="weather-search-wrap">
-        <div class="close-wrap">
-          <a href="#"></a>
-        </div>
+                  <div class="text-wrap">
+                    <p>Do you mean London?</p>
+                  </div>
+                  <div class="seacrh-country-wrap">
+                    <div class="country-wrap">
+                      <span>Lond</span>
+                    </div>
+                    <div class="button-wrap">
+                      <button href="#">Search</button>
+                    </div>
+                  </div>
 
-        <div class="text-wrap">
-          <p>Do you mean London?</p>
-        </div>
-        <div class="seacrh-country-wrap">
-          <div class="country-wrap">
-            <span>Lond</span>
-          </div>
-          <div class="button-wrap">
-            <button href="#">Search</button>
-          </div>
-        </div>
+                  <div class="clouds">
+                    <span>Broken Clouds</span>
+                    <span class="icon">
+                      <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                    </span>
+                  </div>
 
-        <div class="clouds">
-          <span>Broken Clouds</span>
-          <span class="icon">
-            <img src="../../../../assets/images/cloud.svg" alt="cloud" />
-          </span>
-        </div>
+                  <div class="temp-value-wrap">
+                    <span>+12</span>
 
-        <div class="temp-value-wrap">
-          <span>+12</span>
+                    <span class="temp-symbol">
+                      <span>&#8451;</span>
+                      <span>F</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="links-wrap">
+                  <a href="#">Weather Map</a>
+                  <a href="#">More</a>
+                </div>
+              </div>
 
-          <span class="temp-symbol">
-            <span>&#8451;</span>
-            <span>F</span>
-          </span>
-        </div>
-      </div>
-      <div class="links-wrap">
-        <a href="#">Weather Map</a>
-        <a href="#">More</a>
-      </div>
-    </div>
+              <!-- Currency Converter -->
+              <div class="currency-converter-wrap">
+                <div class="close-wrap">
+                  <a href="#"></a>
+                </div>
+                <div class="from">
+                  <div class="dropdown-wrap" selected>
+                    <span>from</span>
+                    <select class="dropdown">
+                      <option>USD</option>
+                      <option>CHF</option>
+                      <option>MYR</option>
+                      <option>BGN</option>
+                      <option>TRY</option>
+                      <option>CNY</option>
+                      <option>NOK</option>
+                      <option>NZD</option>
+                      <option>ZAR</option>
+                      <option>MXN</option>
+                    </select>
+                  </div>
+                  <div class="value-wrap">
+                    <span class="value">100</span>
+                  </div>
+                </div>
 
+                <div class="convert-icon">
+                  <img src="../../../../assets/images/header/change-arrows.svg" alt="logo" />
+                </div>
+                <div class="to">
+                  <div class="dropdown-wrap" selected>
+                    <span>to</span>
+                    <select class="dropdown">
+                      <option>EUR</option>
+                      <option>CHF</option>
+                      <option>MYR</option>
+                      <option>BGN</option>
+                    </select>
+                  </div>
+                  <div class="value-wrap">
+                    <span class="value">91.0249</span>
+                  </div>
+                </div>
 
-
-    <!-- Currency Converter -->
-    <div class="currency-converter-wrap">
-      <div class="close-wrap">
-        <a href="#"></a>
-      </div>
-      <div class="from">
-        <div class="dropdown-wrap" selected>
-          <span>from</span>
-          <select class="dropdown">
-            <option>USD</option>
-            <option>CHF</option>
-            <option>MYR</option>
-            <option>BGN</option>
-            <option>TRY</option>
-            <option>CNY</option>
-            <option>NOK</option>
-            <option>NZD</option>
-            <option>ZAR</option>
-            <option>MXN</option>
-          </select>
-        </div>
-        <div class="value-wrap">
-          <span class="value">100</span>
-        </div>
-      </div>
-
-      <div class="convert-icon">
-                              <img src="../../../../assets/images/header/change-arrows.svg" alt="logo" />
-
-      </div>
-      <div class="to">
-        <div class="dropdown-wrap" selected>
-          <span>to</span>
-          <select class="dropdown">
-            <option>EUR</option>
-            <option>CHF</option>
-            <option>MYR</option>
-            <option>BGN</option>
-          </select>
-        </div>
-        <div class="value-wrap">
-          <span class="value">91.0249</span>
-        </div>
-      </div>
-
-      <div class="rate-wrap">
-        <div>
-          <span>EUR/USD = 1.0986</span>
-        </div>
-        <div>
-          <span>USD/JPY = 106.8905</span>
-        </div>
-        <div>
-          <span>GBP/USD = 1.2234</span>
-        </div>
-      </div>
-    </div>
-
-
-
-
+                <div class="rate-wrap">
+                  <div>
+                    <span>EUR/USD = 1.0986</span>
+                  </div>
+                  <div>
+                    <span>USD/JPY = 106.8905</span>
+                  </div>
+                  <div>
+                    <span>GBP/USD = 1.2234</span>
+                  </div>
+                </div>
+              </div>
             </b-navbar>
             <!-- Mobile Side Weather -->
             <div class="modile-side-weather-wrap">
@@ -553,19 +548,29 @@
       </div>
       <!-- Business -->
       <div class="business-wrap">
-        <div class="title-wrap" data-aos="fade-right" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false"
-         >
-          <span class="title-text" >Business</span>
+        <div
+          class="title-wrap"
+          data-aos="fade-right"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
+          <span class="title-text">Business</span>
         </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-up" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false">
+        <slick
+          ref="slick"
+          :options="slickOptions"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <div class="card-wrap">
-            <b-card class="card mb-2 new-card col-md-12">
+            <b-card
+              class="card mb-2 new-card col-md-12"
+              title="Call of Duty breaks records as publisher faces 
+Hong Kong backlash"
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-1.png')"></b-card-img>
               <b-card-text>
                 A mobile version of video game Call of Duty has been downloaded
@@ -578,7 +583,11 @@
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card col-md-12">
+            <b-card
+              class="mb-2 new-card col-md-12"
+              title="All 555 Thomas Cook shops are to be bought 
+by rival Hays Travel in a move that could save "
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-2.png')"></b-card-img>
               <b-card-text>
                 All 555 Thomas Cook shops are to be bought by rival Hays Travel
@@ -592,7 +601,11 @@
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card col-md-12">
+            <b-card
+              class="mb-2 new-card col-md-12"
+              title="Goldman Sachs reviews role in Chinese tech 
+firm Megvii"
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-3.png')"></b-card-img>
               <b-card-text>
                 Goldman Sachs will review its involvement in the planned stock
@@ -608,24 +621,35 @@
         </slick>
       </div>
       <!-- Entertainmenet -->
-      <div class="entertainment-wrap" data-aos="fade-right" 
+      <div
+        class="entertainment-wrap"
+        data-aos="fade-right"
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
-        data-aos-once="false">
-
-        <div class="title-wrap" data-aos="fade-right" data-aos-easing="ease-in-out"
-         data-aos-mirror="true"
-         data-aos-once="false"
-         >
-
-          <span class="title-text" >Entertainment</span>
+        data-aos-once="false"
+      >
+        <div
+          class="title-wrap"
+          data-aos="fade-right"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
+          <span class="title-text">Entertainment</span>
         </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-up" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false">
+        <slick
+          ref="slick"
+          :options="slickOptions"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <div class="card-wrap">
-            <b-card class="mb-2 new-card">
+            <b-card class="mb-2 new-card"
+            title="YouTuber Jessica Kellgren-Fozard:
+'It's OK not to be OK"
+>
               <b-card-img :src="require('../../../../assets/images/business/img-4.png')"></b-card-img>
               <b-card-text>
                 On World Mental Health Day, a disabled presenter shares her
@@ -639,7 +663,10 @@
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card">
+            <b-card class="mb-2 new-card"
+            title="Nobel Prize for Literature to name two 
+winners after scandal-hit year"
+>
               <b-card-img :src="require('../../../../assets/images/business/img-5.png')"></b-card-img>
               <b-card-text>
                 The Nobel Prize for Literature is set to be awarded on
@@ -653,7 +680,10 @@
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card">
+            <b-card class="mb-2 new-card"
+            title="Rihanna wouldn't 'sell out' for halftime
+Superbowl show"
+>
               <b-card-img :src="require('../../../../assets/images/business/img-6.png')"></b-card-img>
               <b-card-text>
                 Rihanna's confirmed she turned down the Superbowl halftime show
@@ -669,20 +699,28 @@
         </slick>
       </div>
       <!-- Science -->
-      <div class="science-wrap" data-aos="fade-right" 
+      <div
+        class="science-wrap"
+        data-aos="fade-right"
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
         data-aos-once="false"
-         >
+      >
         <div class="title-wrap">
           <span class="title-text">Science</span>
         </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-up" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false">
+        <slick
+          ref="slick"
+          :options="slickOptions"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <div class="card-wrap">
-            <b-card class="mb-2 new-card">
+            <b-card class="mb-2 new-card"
+            title="Badger culls risk increased spread of TB to cattle, study finds"
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
               <b-card-text>
                 Culling badgers drives them to roam further afield, allowing
@@ -696,7 +734,10 @@
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card">
+            <b-card class="mb-2 new-card"
+            title="Nobel physics prize: 'Ground-breaking' win 
+for planets and Big Bang"
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
               <b-card-text>
                 Three scientists have been awarded the 2019 Nobel Prize in
@@ -710,7 +751,9 @@
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card">
+            <b-card class="mb-2 new-card"
+            title="Climate change: Emperor penguin 'needs greater protection'"
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
               <b-card-text>
                 Antarctica's Emperor penguins could be in real difficulty come
@@ -749,8 +792,8 @@
 import Slick from "vue-slick";
 
 export default {
-  components: { 
-    Slick 
+  components: {
+    Slick
   },
   data() {
     return {
@@ -782,15 +825,14 @@ export default {
       // Helpful if you have to deal with v-for to update dynamic lists
       this.$refs.slick.reSlick();
     }
-  },
+  }
 };
 </script>
 
 <style>
 @import "../../../../../node_modules/slick-carousel/slick/slick.css";
 @import "../../../../assets/css/fonts.css";
-@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap");
 
 /* Weather Details */
 
@@ -800,8 +842,7 @@ export default {
   top: 35%;
   font-size: 24px;
   font-weight: bold;
-     font-family: 'Poppins-Medium' !important;
-
+  font-family: "Poppins-Medium" !important;
 }
 .weather-details-wrap .right-side .wrap span {
   margin: 20px 0;
@@ -824,8 +865,8 @@ export default {
   font-weight: bold;
 }
 
-.weather-details-wrap .left-side .switch-mode.active{
-    color:#F8C61A;
+.weather-details-wrap .left-side .switch-mode.active {
+  color: #f8c61a;
 }
 
 .weather-details-wrap .show-info-wrap {
@@ -867,14 +908,14 @@ export default {
   margin-bottom: 3px;
 }
 .weather-details-wrap .temp-info-wrap {
-      color: #f9f9f9;
-    font-size: 24px;
-    margin-top: 91px;
-    margin-bottom: 48px;
-    font-family: 'Poppins-Medium';
+  color: #f9f9f9;
+  font-size: 24px;
+  margin-top: 91px;
+  margin-bottom: 48px;
+  font-family: "Poppins-Medium";
 }
 .weather-details-wrap {
-  display:none;
+  display: none;
   /* display: flex; */
   width: 618px;
   position: absolute;
@@ -915,7 +956,6 @@ export default {
   transform: rotate(-45deg);
 }
 
-
 /* Weather */
 .weather-main-wrap .links-wrap {
   display: flex;
@@ -925,7 +965,7 @@ export default {
 .weather-main-wrap .links-wrap a {
   color: #f8c61a;
   text-decoration: none;
-  font-family:'Poppins-Regular';
+  font-family: "Poppins-Regular";
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol {
@@ -941,8 +981,7 @@ export default {
   font-weight: bold;
   position: relative;
   margin-top: 50px;
-    font-family:'Poppins-SemiBold';
-
+  font-family: "Poppins-SemiBold";
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol span {
@@ -964,7 +1003,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family:'Poppins-Regular';
+  font-family: "Poppins-Regular";
 }
 
 .weather-search-wrap .clouds img {
@@ -972,7 +1011,7 @@ export default {
 }
 
 .weather-main-wrap {
-  display:none;
+  display: none;
   position: absolute;
   width: 380px;
   right: 200px;
@@ -1019,7 +1058,7 @@ export default {
 .weather-search-wrap .text-wrap {
   margin-top: 80px;
   padding: 0;
-  font-family: 'Poppins-Regular';
+  font-family: "Poppins-Regular";
 }
 .weather-search-wrap .text-wrap p {
   color: #eaeaea;
@@ -1078,7 +1117,7 @@ export default {
   width: 100%;
   border-bottom: 1px solid;
   text-align: start;
-  font-family: 'Poppins-Regular';
+  font-family: "Poppins-Regular";
 }
 
 .weather-search-wrap .button-wrap button {
@@ -1090,8 +1129,7 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-    font-family: 'Poppins-SemiBold';
-
+  font-family: "Poppins-SemiBold";
 }
 .weather-search-wrap .button-wrap button:hover {
   background-color: #ffe076;
@@ -1114,7 +1152,7 @@ export default {
     rgba(255, 255, 255, 0.5186449579831933) 100%
   );
   margin-top: 10px;
-  letter-spacing:1px;
+  letter-spacing: 1px;
 }
 
 .currency-converter-wrap .to .value-wrap {
@@ -1147,7 +1185,7 @@ export default {
   color: white;
   font-size: 26px;
   border: none;
-  font-family:  'Amiri-Bold';
+  font-family: "Amiri-Bold";
 }
 
 .currency-converter-wrap .to .dropdown-wrap .dropdown:focus {
@@ -1190,7 +1228,7 @@ export default {
   color: white;
   font-size: 26px;
   border: none;
-  font-family:  'Amiri-Bold';
+  font-family: "Amiri-Bold";
 }
 
 .currency-converter-wrap .from .dropdown-wrap .dropdown:focus {
@@ -1208,17 +1246,17 @@ export default {
   color: #eaeaea;
   font-size: 10px;
   padding: 0 60px;
-  font-family:'Amiri-Regular';
+  font-family: "Amiri-Regular";
 }
 
-.currency-converter-wrap .convert-icon{
-  margin-top:20px;
-      padding: 0 60px;
-      text-align:start;
+.currency-converter-wrap .convert-icon {
+  margin-top: 20px;
+  padding: 0 60px;
+  text-align: start;
 }
 
 .currency-converter-wrap {
-  display:none;
+  display: none;
   width: 380px;
   border: 1px solid;
   position: absolute;
@@ -1306,7 +1344,7 @@ export default {
 }
 .subscribe-prompt-wrap .text-wrap span {
   color: #eaeaea;
-  font-family:'Poppins-Regular';
+  font-family: "Poppins-Regular";
 }
 
 .subscribe-prompt-wrap .button-wrap {
@@ -1322,13 +1360,12 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family:'Poppins-SemiBold';
-  color:#052962;
+  font-family: "Poppins-SemiBold";
+  color: #052962;
 }
 .subscribe-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-
 
 /* Slick Slider */
 .slick-slider {
@@ -1384,7 +1421,6 @@ export default {
 </style>
 
 <style scoped>
-
 /* Notify */
 .mobile-notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
@@ -1543,7 +1579,6 @@ export default {
   position: relative;
   margin-left: 5px;
 }
-
 
 .mobile-weather-details-wrap .show-info-wrap .temp-val-symbol::before {
   content: "";
@@ -1924,8 +1959,6 @@ export default {
   left: 32px;
 }
 
-
-
 .mobile-weather-main-wrap
   .weather-data-wrap
   .temp-value-wrap
@@ -2088,10 +2121,10 @@ export default {
 }
 
 .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text{
-    font-family:'Poppins-Bold';
-  }
+.entertainment-wrap .title-wrap .title-text,
+.science-wrap .title-wrap .title-text {
+  font-family: "Poppins-Bold";
+}
 
 /* Slider */
 .carousel-caption {
@@ -2110,7 +2143,7 @@ export default {
 }
 .carousel-caption .slide-title span {
   font-size: 40px;
-  font-family:'Amiri-Bold';
+  font-family: "Amiri-Bold";
 }
 .carousel-indicators {
   display: flex;
@@ -2203,7 +2236,7 @@ export default {
 .card-text {
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
-  font-family:'Poppins-Regular';
+  font-family: "Poppins-Regular";
 }
 .card-footer {
   padding: 15px 0 0 0 !important;
@@ -2215,6 +2248,7 @@ export default {
   margin: 0 auto !important;
   max-width: 526px !important;
   border: none !important;
+  padding: 0 !important;
 }
 .new-card img {
   width: 100%;
@@ -2222,6 +2256,15 @@ export default {
 
 .new-card .card-body {
   padding: 0 !important;
+}
+
+.new-card .card-title {
+  position: absolute;
+  top: 450px;
+  color: white;
+  font-family: "Amiri-Regular";
+  font-size: 20px;
+  padding: 0 35px;
 }
 
 /* Business */
@@ -2294,7 +2337,7 @@ export default {
   font-size: 26px;
   font-weight: bold;
   text-decoration: none;
-  font-family:'Amiri-Bold';
+  font-family: "Amiri-Bold";
 }
 .bottom-menu li a:hover {
   color: #f8c61a !important;
@@ -2324,7 +2367,7 @@ export default {
 }
 .top-menu-wrap .navbar-nav li .nav-link {
   padding: 0 !important;
-  font-family:'Poppins-Regular';
+  font-family: "Poppins-Regular";
 }
 .top-menu-wrap .navbar-nav li a span {
   color: #f9f9f9;
@@ -2392,7 +2435,7 @@ footer .center-item .text {
   align-items: flex-end;
   padding-bottom: 5px;
   font-size: 10px;
-  font-family: 'Poppins-Light';
+  font-family: "Poppins-Light";
 }
 
 footer .right-item button:hover {
@@ -2409,7 +2452,7 @@ footer .right-item button {
   font-weight: 900;
   border: none;
   letter-spacing: 1px;
-  font-family: 'Poppins-Bold';
+  font-family: "Poppins-Bold";
 }
 @media (max-width: 1199px) {
   footer .right-item button {
@@ -2454,7 +2497,6 @@ footer .right-item button {
   }
 }
 
-
 /* Hide elements for mibile 
 Subscribe : class = 'mobile-notify-prompt-wrap'
 Dark Screen :  class = 'dark-screen'
@@ -2467,5 +2509,4 @@ class = 'currency-converter-wrap'
 
  class = 'weather-main-wrap'
 */
-
 </style>
