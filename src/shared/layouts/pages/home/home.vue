@@ -312,8 +312,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
 
 <style scoped>
 
-
-
 /* Common */
 @media (min-width: 1140px) {
   .container {
@@ -342,7 +340,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
   }
 }
 /* Content */
-@media (max-width: 1199px) {
+/* @media (max-width: 1199px) {
   .business-wrap .title-wrap .title-text,
   .entertainment-wrap .title-wrap .title-text,
   .science-wrap .title-wrap .title-text {
@@ -378,7 +376,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
   .slick-slider {
     margin-top: 20px;
   }
-}
+} */
 </style>
 
 <style>
@@ -550,15 +548,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
 }
 .entertainment-wrap .title-wrap {
   border-left: 5px solid #ff995e;
-}
-.entertainment-wrap .title-wrap .title-text {
-  display: block;
-  font-size: 32px;
-  font-family: "Poppins";
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding: 6px 30px;
 }
 /* Science */
 .science-wrap {

@@ -69,6 +69,7 @@
                         <font-awesome-icon icon="bell" class="fa-lg" />
                       </a>
                     </div>
+                    <subscribeDesctop></subscribeDesctop>
                   </li>
                 </b-navbar-nav>
                 <b-navbar-nav class="mobile-side-menu">
@@ -104,7 +105,6 @@
               </div>
             </div>
 
-            <subscribeDesctop></subscribeDesctop>
           </b-navbar>
         </div>
       </div>
@@ -300,6 +300,7 @@ export default {
   #nav-collapse .sub-wrap .mobile-side-menu .nav-item {
     display: flex;
     width: 100%;
+    font-family: "Poppins-Regular";
   }
   #nav-collapse .sub-wrap .mobile-side-menu .nav-item a {
     width: 100%;
@@ -356,13 +357,6 @@ export default {
 }
 /* Header */
 
-/* Bottom menu */
-.bottom-menu-wrap {
-  height: 120px;
-  display: flex;
-  align-items: center;
-}
-/* end */
 
 #nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
   height: 100%;
@@ -396,14 +390,6 @@ export default {
   }
 }
 
-@media (max-width: 1139px) {
-  .bottom-menu-wrap .bottom-menu li a {
-    font-size: 18px;
-  }
-  .bottom-menu-wrap {
-    height: 100px;
-  }
-}
 .top-menu-wrap {
   background-color: #052962;
 }
