@@ -627,7 +627,7 @@
   transform: rotate(-45deg);
 }
 
-/* Notify */
+/* Notify Subscribe*/
 
 .notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
@@ -763,7 +763,7 @@
   background-color: #ffe076;
 }
 
-/* Subscribe */
+/* Subscribe Auto Show*/
 .subscribe-prompt-wrap .close-wrap a {
   width: 18px;
   height: 18px;

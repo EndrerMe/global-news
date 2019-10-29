@@ -16,11 +16,12 @@
       </div>
     </div>
 
-
-    <div class="mobile-notify-prompt-wrap" >
+    <!-- Notify Subscribe-->
+    <div class="notify-prompt-wrap">
       <div class="close-wrap">
-        <a class="close-button" href="#"></a>
+        <a href="#"></a>
       </div>
+
       <div class="text-wrap">
         <p>You subscribe on</p>
         <p class="dropdown">
@@ -32,16 +33,14 @@
       </div>
       <div class="send-email-wrap">
         <div class="email-wrap">
-          <input value="E-mail"/>
+          <span>E-mail</span>
         </div>
         <div class="button-wrap">
           <button href="#">Subscribe</button>
         </div>
       </div>
     </div>
-
   </div>
-  
 </template>
 
 <script>
@@ -61,32 +60,37 @@ export default {
 </script>
 
 <style scoped>
-/* Notify */
-.mobile-notify-prompt-wrap .text-wrap p {
+/* Notify Subscribe*/
+
+.notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
-.mobile-notify-prompt-wrap .text-wrap p.dropdown {
-  font-size: 22px;
+
+.notify-prompt-wrap .text-wrap p.dropdown {
+  font-size: 32px;
   font-family: initial;
   margin-right: 10px;
-  font-weight: bold;
 }
-.mobile-notify-prompt-wrap .send-email-wrap {
+
+.notify-prompt-wrap .send-email-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
 }
-.mobile-notify-prompt-wrap .button-wrap {
+
+.notify-prompt-wrap .button-wrap {
   margin-top: 23px;
 }
-.mobile-notify-prompt-wrap .email-wrap span {
+
+.notify-prompt-wrap .email-wrap span {
   color: #eaeaea;
   display: block;
   width: 100%;
   border-bottom: 1px solid;
   text-align: start;
 }
-.mobile-notify-prompt-wrap .button-wrap button {
+
+.notify-prompt-wrap .button-wrap button {
   width: 242px;
   height: 48px;
   background-color: #f8c61a;
@@ -95,23 +99,25 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+font-family: 'Poppins-SemiBold';
+color:#052962;
 }
-.mobile-notify-prompt-wrap .button-wrap button:hover {
+.notify-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-.mobile-notify-prompt-wrap {
-  right: 0px;
-  top: 101px;
-  position: absolute;
-  padding-bottom: 45px;
+
+
+.notify-prompt-wrap {
+  width: 355px;
+  padding-bottom: 56px;
   border: 1px solid;
+  position: absolute;
+  right: 0;
+  top: 101px;
   background-color: #052962;
   z-index: 999;
 }
-.mobile-notify-prompt-wrap .close-wrap {
-  position: relative;
-}
-.mobile-notify-prompt-wrap .close-wrap a {
+.notify-prompt-wrap .close-wrap a {
   width: 18px;
   height: 18px;
   display: inline-block;
@@ -119,75 +125,73 @@ export default {
   top: 24px;
   right: 23px;
 }
-.mobile-notify-prompt-wrap .close-wrap a::before {
+.notify-prompt-wrap .close-wrap a::before {
   position: absolute;
   content: "";
   width: 15px;
   height: 1px;
   background-color: white;
-  top: 8px;
-  right: 2px;
+  top: 7px;
+  right: 0px;
   transform: rotate(45deg);
 }
-.mobile-notify-prompt-wrap .close-wrap a::after {
+
+.notify-prompt-wrap .close-wrap a::after {
   position: absolute;
   content: "";
   width: 15px;
   height: 1px;
   background-color: white;
-  top: 8px;
-  right: 2px;
+  top: 7px;
+  right: 0px;
   transform: rotate(-45deg);
 }
-.mobile-notify-prompt-wrap .text-wrap {
-  margin-top: 50px;
+
+.notify-prompt-wrap .text-wrap {
+  margin-top: 86px;
   padding: 0px 90px;
   color: #f8c61a;
 }
-.mobile-notify-prompt-wrap .wropdown-arrow {
+
+.notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
   font-size: 20px;
   font-size: 14px;
 }
-.mobile-notify-prompt-wrap .text-wrap p {
+.notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
-  margin-bottom: 2px;
 }
-.mobile-notify-prompt-wrap .send-email-wrap {
+
+.notify-prompt-wrap .text-wrap p.dropdown {
+  font-size: 32px;
+  font-family: initial;
+}
+
+.notify-prompt-wrap .send-email-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
 }
-.mobile-notify-prompt-wrap .button-wrap {
-  margin-top: 10px;
+
+.notify-prompt-wrap .button-wrap {
+  margin-top: 23px;
 }
-.mobile-notify-prompt-wrap .email-wrap span {
+
+.notify-prompt-wrap .email-wrap span {
   color: #eaeaea;
   display: block;
   width: 100%;
   border-bottom: 1px solid;
   text-align: start;
 }
-.mobile-notify-prompt-wrap .button-wrap button {
-  height: 32px;
-  background-color: #f8c61a;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.mobile-notify-prompt-wrap .button-wrap button:hover {
-  background-color: #ffe076;
-}
 
-/* /// */
+/* Subscribe Prompt Auto*/
 .subscribe-prompt-wrap {
   width: 381px;
   padding-bottom: 40px;
   border: 1px solid;
   position: absolute;
-  right: -15px;
+  right: 0px;
   top: 101px;
   background-color: #052962;
   z-index: 999;
@@ -225,7 +229,7 @@ export default {
 
 .subscribe-prompt-wrap .text-wrap {
   margin-top: 90px;
-  padding: 0px 115px;
+  padding: 0px 100px;
   font-family: "Poppins-Regular";
   font-size: 16px;
 }

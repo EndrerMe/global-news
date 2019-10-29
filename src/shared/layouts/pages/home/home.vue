@@ -232,6 +232,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
   background-color: #ffe076;
 }
 .mobile-notify-prompt-wrap {
+  /* display: none; */
   padding-bottom: 45px;
   border: 1px solid;
   background-color: #052962;
