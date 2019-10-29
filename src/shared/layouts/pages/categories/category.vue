@@ -13,11 +13,11 @@
           </div>
           <div class="gradient"></div>
           <div class="image-box">
-            <img v-if='currentNews[0].urlToImage' :src="currentNews[0].urlToImage" />
+            <img :src="firstBlock.urlToImage" />
           </div>
           <div class="title-wrap">
             <span class="title">
-              <p>{{currentNews[0].title}}</p>
+              <p>{{firstBlock.title}}</p>
             </span>
           </div>
         </div>
@@ -29,11 +29,11 @@
               </div>
               <div class="gradient"></div>
               <div class="image-box">
-                <img v-if='currentNews[1].urlToImage' :src="currentNews[1].urlToImage" />
+                <img :src="secoundBlock.urlToImage" />
               </div>
               <div class="title-wrap">
                 <span class="title">
-                  <p>{{currentNews[1].title}}</p>
+                  <p>{{secoundBlock.title}}</p>
                 </span>
               </div>
             </div>
@@ -45,11 +45,11 @@
               </div>
               <div class="gradient"></div>
               <div class="image-box">
-                <img v-if='currentNews[2].urlToImage' :src="currentNews[2].urlToImage" />
+                <img :src="thirdBlock.urlToImage" />
               </div>
               <div class="title-wrap">
                 <span class="title">
-                  <p>{{currentNews[2].title}}</p>
+                  <p>{{thirdBlock.title}}</p>
                 </span>
               </div>
             </div>
@@ -59,11 +59,11 @@
               </div>
               <div class="gradient"></div>
               <div class="image-box">
-                <img v-if='currentNews[3].urlToImage' :src="currentNews[3].urlToImage" />
+                <img :src="fourthBlock.urlToImage" />
               </div>
               <div class="title-wrap">
                 <span class="title">
-                  <p>{{currentNews[3].title}}</p>
+                  <p>{{fourthBlock.title}}</p>
                 </span>
               </div>
             </div>
@@ -138,13 +138,32 @@ export default {
         return {
             currentNews: [],
             category: null,
+            firstBlock: {
+              title: '',
+              urlToImage: ''
+            },
+            secoundBlock: {
+              title: '',
+              urlToImage: ''
+            },
+            thirdBlock: {
+              title: '',
+              urlToImage: ''
+            },
+            fourthBlock: {
+              title: '',
+              urlToImage: ''
+            },
         }
     },
     beforeCreate() {
         this.category = this.$route.params.category;
         newsService.getData(this.category, 1).then(res => {
             this.currentNews = res.data.articles;
-                console.log(this.currentNews);
+            this.firstBlock = res.data.articles[0];
+            this.secoundBlock = res.data.articles[1];
+            this.thirdBlock = res.data.articles[2];
+            this.fourthBlock = res.data.articles[3];
             }, (err) => {
                 console.log(err);
             });
@@ -156,7 +175,10 @@ export default {
                 this.category = to.params.category;
                 newsService.getData(this.category, 1).then(res => {
                     this.currentNews = res.data.articles;
-                    console.log(this.currentNews);
+                    this.firstBlock = res.data.articles[0];
+                    this.secoundBlock = res.data.articles[1];
+                    this.thirdBlock = res.data.articles[2];
+                    this.fourthBlock = res.data.articles[3];
                 }, (err) => {
                     console.log(err);
                 });

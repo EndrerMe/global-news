@@ -1,6 +1,6 @@
 <template>
     <div class="currency-converter-wrap" v-if='isShowConverter'>
-      <div class="close-wrap">
+      <div class="close-wrap" @click='closeConverterModal()'>
         <a href="#"></a>
       </div>
       <div class="from">
@@ -31,7 +31,7 @@
           </select>
         </div>
         <div class="value-wrap">
-          <span class="value">91.0249</span> 
+          <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span> 
         </div>
       </div> 
 
@@ -176,6 +176,11 @@ export default {
 
   },
   methods: {
+    closeConverterModal() {
+      this.$emit('closeConverterModal', false)
+      this.isShowConverter = false;
+    },
+
       changeCurrentRate(event) {
           let target = event.target.value;
           this.currentRate = target + '';

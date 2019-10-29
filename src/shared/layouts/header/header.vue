@@ -39,8 +39,8 @@
                       <font-awesome-icon icon="caret-down" />
                     </span>
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap" @click='toggleWeatherModal()'>
-                    <span class="weather-content">
+                  <b-nav-item href="#" class="weather-wrap">
+                    <span class="weather-content"  @click='toggleWeatherModal()'>
                       <span>
                         <img src="../../../assets/images/cloud.svg" alt="cloud" />
                       </span>
@@ -54,6 +54,7 @@
                       <p>Glasgow</p>
                     </span>
                     <weatherDesctop
+                      @closeWeatherModal='closeWeatherModal'
                       :isShowWeatherModal="isShowWeatherModal"
                       :isShowConverter="isShowConverter"
                     ></weatherDesctop>
@@ -144,6 +145,10 @@ export default {
 
     toggleConverterModal() {
       this.isShowConverter = !this.isShowConverter;
+    },
+
+    closeWeatherModal() {
+      this.isShowWeatherModal = false;
     }
   }
 };

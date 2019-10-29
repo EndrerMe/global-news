@@ -2,7 +2,7 @@
     <div>
         <div class="weather-main-wrap" v-if='isShowWeatherModal'>
           <div class="weather-search-wrap">
-            <div class="close-wrap">
+            <div class="close-wrap" @click='closeWeatherModal()'>
               <a href="#"></a>
             </div>
 
@@ -36,11 +36,11 @@
           </div>
           <div class="links-wrap">
             <a href="#">Weather Map</a>
-            <a href="#">More</a>
+            <a href="#" @click='showMoreWeather()'>More</a>
           </div>
       </div>
 
-      <converterDesctop :isShowConverter='isShowConverter'></converterDesctop>
+      <converterDesctop :isShowConverter='isShowConverter' @closeConverterModal='closeConverterModal'></converterDesctop>
 
       <div class="modile-side-weather-wrap">
         <div class="mobile-weather-main-wrap">
@@ -154,7 +154,7 @@
           </div>
         </div>
 
-        <div class="mobile-weather-details-wrap" style="display:none">
+        <div class="mobile-weather-details-wrap" v-if='isShowMoreWeather'>
           <div class="sides-wrap">
             <div class="weather-map left-side">
               <div class="temp-info-wrap">
@@ -237,6 +237,7 @@ export default {
       coordinates: null,
       isCelsius: true,
       currentWeatherImg: null,
+      isShowMoreWeather: false
     }
   },
   created() {
@@ -253,6 +254,21 @@ export default {
          });
       });
 
+  },
+
+  methods: {
+    closeWeatherModal() {
+      this.$emit('closeWeatherModal', false)
+      this.isShowWeatherModal = false;
+    },
+
+    closeConverterModal() {
+      this.isShowConverter = false;
+    },
+
+    showMoreWeather() {
+      this.isShowMoreWeather = true;
+    }
   }
 }
 </script>

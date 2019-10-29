@@ -14,27 +14,27 @@
 
 
         <div class="mobile-notify-prompt-wrap" style="display:none">
-            <div class="close-wrap">
-                <a class="close-button" href="#"></a>
-            </div>
-            <div class="text-wrap">
-                <p>You subscribe on</p>
-                <p class="dropdown">
-                <span>All News</span>
-                <span class="wropdown-arrow">
-                    <font-awesome-icon icon="caret-down" />
-                </span>
-                </p>
-            </div>
-            <div class="send-email-wrap">
-                <div class="email-wrap">
-                <span>E-mail</span>
-                </div>
-                <div class="button-wrap">
-                <button href="#">Subscribe</button>
-                </div>
-            </div>
-            </div>
+          <div class="close-wrap">
+              <a class="close-button" href="#"></a>
+          </div>
+          <div class="text-wrap">
+              <p>You subscribe on</p>
+              <p class="dropdown">
+              <span>All News</span>
+              <span class="wropdown-arrow">
+                  <font-awesome-icon icon="caret-down" />
+              </span>
+              </p>
+          </div>
+          <div class="send-email-wrap">
+              <div class="email-wrap">
+              <span>E-mail</span>
+              </div>
+              <div class="button-wrap">
+              <button href="#">Subscribe</button>
+              </div>
+          </div>
+        </div>
     </div>
 </template>
 
