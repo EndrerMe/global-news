@@ -40,6 +40,67 @@
                         <span>Currency Converter</span>
                         <font-awesome-icon icon="caret-down" />
                       </span>
+
+                      <!-- /// -->
+                      <!-- Currency Converter -->
+
+                      <div class="currency-converter-wrap">
+                        <div class="close-wrap">
+                          <a href="#"></a>
+                        </div>
+                        <div class="from">
+                          <div class="dropdown-wrap" selected>
+                            <span>from</span>
+                            <select class="dropdown">
+                              <option>USD</option>
+                              <option>CHF</option>
+                              <option>MYR</option>
+                              <option>BGN</option>
+                              <option>TRY</option>
+                              <option>CNY</option>
+                              <option>NOK</option>
+                              <option>NZD</option>
+                              <option>ZAR</option>
+                              <option>MXN</option>
+                            </select>
+                          </div>
+                          <div class="value-wrap">
+                            <span class="value">100</span>
+                          </div>
+                        </div>
+
+                        <div class="convert-icon">
+                          <img src="../../../../assets/images/header/change-arrows.svg" alt="logo" />
+                        </div>
+                        <div class="to">
+                          <div class="dropdown-wrap" selected>
+                            <span>to</span>
+                            <select class="dropdown">
+                              <option>EUR</option>
+                              <option>CHF</option>
+                              <option>MYR</option>
+                              <option>BGN</option>
+                            </select>
+                          </div>
+                          <div class="value-wrap">
+                            <span class="value">91.0249</span>
+                          </div>
+                        </div>
+
+                        <div class="rate-wrap">
+                          <div>
+                            <span>EUR/USD = 1.0986</span>
+                          </div>
+                          <div>
+                            <span>USD/JPY = 106.8905</span>
+                          </div>
+                          <div>
+                            <span>GBP/USD = 1.2234</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- /// -->
                     </b-nav-item>
                     <b-nav-item href="#" class="weather-wrap">
                       <span class="weather-content">
@@ -55,6 +116,47 @@
                         </span>
                         <p>Glasgow</p>
                       </span>
+
+                      <!-- Weather -->
+                      <div class="weather-main-wrap">
+                        <div class="weather-search-wrap">
+                          <div class="close-wrap">
+                            <a href="#"></a>
+                          </div>
+
+                          <div class="text-wrap">
+                            <p>Do you mean London?</p>
+                          </div>
+                          <div class="seacrh-country-wrap">
+                            <div class="country-wrap">
+                              <span>Lond</span>
+                            </div>
+                            <div class="button-wrap">
+                              <button href="#">Search</button>
+                            </div>
+                          </div>
+
+                          <div class="clouds">
+                            <span>Broken Clouds</span>
+                            <span class="icon">
+                              <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                            </span>
+                          </div>
+
+                          <div class="temp-value-wrap">
+                            <span>+12</span>
+
+                            <span class="temp-symbol">
+                              <span>&#8451;</span>
+                              <span>F</span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="links-wrap">
+                          <a href="#">Weather Map</a>
+                          <a href="#">More</a>
+                        </div>
+                      </div>
                     </b-nav-item>
                     <b-nav-item href="#" class="search-wrap">
                       <font-awesome-icon icon="search" class="fa-lg" />
@@ -173,7 +275,7 @@
               </div>
 
               <!-- Weather -->
-              <div class="weather-main-wrap">
+              <!-- <div class="weather-main-wrap">
                 <div class="weather-search-wrap">
                   <div class="close-wrap">
                     <a href="#"></a>
@@ -211,64 +313,7 @@
                   <a href="#">Weather Map</a>
                   <a href="#">More</a>
                 </div>
-              </div>
-
-              <!-- Currency Converter -->
-              <div class="currency-converter-wrap">
-                <div class="close-wrap">
-                  <a href="#"></a>
-                </div>
-                <div class="from">
-                  <div class="dropdown-wrap" selected>
-                    <span>from</span>
-                    <select class="dropdown">
-                      <option>USD</option>
-                      <option>CHF</option>
-                      <option>MYR</option>
-                      <option>BGN</option>
-                      <option>TRY</option>
-                      <option>CNY</option>
-                      <option>NOK</option>
-                      <option>NZD</option>
-                      <option>ZAR</option>
-                      <option>MXN</option>
-                    </select>
-                  </div>
-                  <div class="value-wrap">
-                    <span class="value">100</span>
-                  </div>
-                </div>
-
-                <div class="convert-icon">
-                  <img src="../../../../assets/images/header/change-arrows.svg" alt="logo" />
-                </div>
-                <div class="to">
-                  <div class="dropdown-wrap" selected>
-                    <span>to</span>
-                    <select class="dropdown">
-                      <option>EUR</option>
-                      <option>CHF</option>
-                      <option>MYR</option>
-                      <option>BGN</option>
-                    </select>
-                  </div>
-                  <div class="value-wrap">
-                    <span class="value">91.0249</span>
-                  </div>
-                </div>
-
-                <div class="rate-wrap">
-                  <div>
-                    <span>EUR/USD = 1.0986</span>
-                  </div>
-                  <div>
-                    <span>USD/JPY = 106.8905</span>
-                  </div>
-                  <div>
-                    <span>GBP/USD = 1.2234</span>
-                  </div>
-                </div>
-              </div>
+              </div>-->
             </b-navbar>
             <!-- Mobile Side Weather -->
             <div class="modile-side-weather-wrap">
@@ -646,10 +691,11 @@ firm Megvii"
           data-aos-once="false"
         >
           <div class="card-wrap">
-            <b-card class="mb-2 new-card"
-            title="YouTuber Jessica Kellgren-Fozard:
+            <b-card
+              class="mb-2 new-card"
+              title="YouTuber Jessica Kellgren-Fozard:
 'It's OK not to be OK"
->
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-4.png')"></b-card-img>
               <b-card-text>
                 On World Mental Health Day, a disabled presenter shares her
@@ -663,10 +709,11 @@ firm Megvii"
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card"
-            title="Nobel Prize for Literature to name two 
+            <b-card
+              class="mb-2 new-card"
+              title="Nobel Prize for Literature to name two 
 winners after scandal-hit year"
->
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-5.png')"></b-card-img>
               <b-card-text>
                 The Nobel Prize for Literature is set to be awarded on
@@ -680,10 +727,11 @@ winners after scandal-hit year"
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card"
-            title="Rihanna wouldn't 'sell out' for halftime
+            <b-card
+              class="mb-2 new-card"
+              title="Rihanna wouldn't 'sell out' for halftime
 Superbowl show"
->
+            >
               <b-card-img :src="require('../../../../assets/images/business/img-6.png')"></b-card-img>
               <b-card-text>
                 Rihanna's confirmed she turned down the Superbowl halftime show
@@ -718,8 +766,9 @@ Superbowl show"
           data-aos-once="false"
         >
           <div class="card-wrap">
-            <b-card class="mb-2 new-card"
-            title="Badger culls risk increased spread of TB to cattle, study finds"
+            <b-card
+              class="mb-2 new-card"
+              title="Badger culls risk increased spread of TB to cattle, study finds"
             >
               <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
               <b-card-text>
@@ -734,8 +783,9 @@ Superbowl show"
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card"
-            title="Nobel physics prize: 'Ground-breaking' win 
+            <b-card
+              class="mb-2 new-card"
+              title="Nobel physics prize: 'Ground-breaking' win 
 for planets and Big Bang"
             >
               <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
@@ -751,8 +801,9 @@ for planets and Big Bang"
             </b-card>
           </div>
           <div class="card-wrap">
-            <b-card class="mb-2 new-card"
-            title="Climate change: Emperor penguin 'needs greater protection'"
+            <b-card
+              class="mb-2 new-card"
+              title="Climate change: Emperor penguin 'needs greater protection'"
             >
               <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
               <b-card-text>
@@ -957,13 +1008,26 @@ export default {
 }
 
 /* Weather */
+.weather-main-wrap {
+  display: none;
+  position: absolute;
+  width: 380px;
+  right: -160px;
+  top: 91px;
+  background-color: #052962;
+  padding-bottom: 20px;
+  border: 1px solid;
+  z-index: 999;
+  padding: 0 20px 10px 20px;
+}
+
 .weather-main-wrap .links-wrap {
   display: flex;
   justify-content: space-between;
   margin-top: 55px;
 }
 .weather-main-wrap .links-wrap a {
-  color: #f8c61a;
+  color: #f8c61a !important;
   text-decoration: none;
   font-family: "Poppins-Regular";
 }
@@ -1010,18 +1074,6 @@ export default {
   width: 90px;
 }
 
-.weather-main-wrap {
-  display: none;
-  position: absolute;
-  width: 380px;
-  right: 200px;
-  top: 102px;
-  background-color: #052962;
-  padding-bottom: 20px;
-  border: 1px solid;
-  z-index: 999;
-  padding: 0 20px 10px 20px;
-}
 .weather-search-wrap {
   padding: 0 40px;
 }
@@ -1137,6 +1189,10 @@ export default {
 
 /* Currency Converter */
 /* Notify */
+/* .currency-converter-wrap .converter-wrap{
+  position: relative;
+} */
+
 .currency-converter-wrap .rate-wrap {
   padding: 0 60px;
   margin-top: 45px;
@@ -1260,12 +1316,24 @@ export default {
   width: 380px;
   border: 1px solid;
   position: absolute;
+  right: -69px;
+  top: 62px;
+  background-color: #052962;
+  z-index: 999;
+  padding-bottom: 45px;
+}
+
+/* .currency-converter-wrap {
+  display: none;
+  width: 380px;
+  border: 1px solid;
+  position: absolute;
   right: 590px;
   top: 102px;
   background-color: #052962;
   z-index: 999;
   padding-bottom: 45px;
-}
+} */
 .currency-converter-wrap .close-wrap a {
   width: 18px;
   height: 18px;
@@ -1303,14 +1371,14 @@ export default {
   border: 1px solid;
   position: absolute;
   right: -15px;
-  top: 102px;
+  top: 101px;
   background-color: #052962;
   z-index: 999;
 }
 
 .subscribe-prompt-wrap .close-wrap a {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   display: inline-block;
   position: absolute;
   top: 24px;
@@ -1319,10 +1387,10 @@ export default {
 .subscribe-prompt-wrap .close-wrap a::before {
   position: absolute;
   content: "";
-  width: 15px;
+  width: 20px;
   height: 1px;
   background-color: white;
-  top: 7px;
+  top: 9px;
   right: 0px;
   transform: rotate(45deg);
 }
@@ -1330,10 +1398,10 @@ export default {
 .subscribe-prompt-wrap .close-wrap a::after {
   position: absolute;
   content: "";
-  width: 15px;
+  width: 20px;
   height: 1px;
   background-color: white;
-  top: 7px;
+  top: 9px;
   right: 0px;
   transform: rotate(-45deg);
 }
@@ -1723,28 +1791,28 @@ export default {
 }
 .top-menu-wrap #nav-collapse .close-wrap a {
   position: absolute;
-  width: 30px !important;
-  height: 30px;
-  top: -44px;
+  width: 20px !important;
+  height: 20px;
+  top: 24px;
   right: 30px;
 }
 .top-menu-wrap #nav-collapse .close-wrap a::after {
   position: absolute;
   content: "";
-  width: 30px;
-  height: 2px;
-  background-color: rgb(248, 198, 26);
-  top: 14px;
+  width: 20px;
+  height: 1px;
+  background-color: white;
+  top: 9px;
   right: 0px;
   transform: rotate(-45deg);
 }
 .top-menu-wrap #nav-collapse .close-wrap a::before {
   position: absolute;
   content: "";
-  width: 30px;
-  height: 2px;
-  background-color: rgb(248, 198, 26);
-  top: 14px;
+  width: 20px;
+  height: 1px;
+  background-color: white;
+  top: 9px;
   right: 0px;
   transform: rotate(45deg);
 }
@@ -2357,6 +2425,11 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
+.top-menu-wrap .wide-menu .converter-wrap {
+  position: relative;
+}
+
 .top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
   position: absolute;
   top: 25px;
