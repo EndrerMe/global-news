@@ -65,12 +65,12 @@
                         <font-awesome-icon icon="search" class="fa-lg" />
                       </a>
                     </div>
-                    <div class="bell active">
+                    <div class="bell active" @click='showSubscribeFullFun()'>
                       <a href="#">
                         <font-awesome-icon icon="bell" class="fa-lg" />
                       </a>
                     </div>
-                    <subscribeDesctop></subscribeDesctop>
+                    <subscribeDesctop :showSubscribeFull='showSubscribeFull'></subscribeDesctop>
                   </li>
                 </b-navbar-nav>
                 <b-navbar-nav class="mobile-side-menu">
@@ -131,7 +131,8 @@ export default {
     return {
       isShowSideMenu: false,
       isShowWeatherModal: false,
-      isShowConverter: false
+      isShowConverter: false,
+      showSubscribeFull: false,
     };
   },
   methods: {
@@ -149,6 +150,10 @@ export default {
 
     closeWeatherModal() {
       this.isShowWeatherModal = false;
+    },
+
+    showSubscribeFullFun() {
+      this.showSubscribeFull = !this.showSubscribeFull
     }
   }
 };

@@ -12,37 +12,13 @@
         <span>Do you want to receive more news ?</span>
       </div>
       <div class="button-wrap">
-        <button href="#">Subscribe Us</button>
+        <button href="#" @click='showFullSubscribe()'>Subscribe Us</button>
       </div>
     </div>
 
 
-<<<<<<< HEAD
-        <div class="mobile-notify-prompt-wrap" style="display:none">
-          <div class="close-wrap">
-              <a class="close-button" href="#"></a>
-          </div>
-          <div class="text-wrap">
-              <p>You subscribe on</p>
-              <p class="dropdown">
-              <span>All News</span>
-              <span class="wropdown-arrow">
-                  <font-awesome-icon icon="caret-down" />
-              </span>
-              </p>
-          </div>
-          <div class="send-email-wrap">
-              <div class="email-wrap">
-              <span>E-mail</span>
-              </div>
-              <div class="button-wrap">
-              <button href="#">Subscribe</button>
-              </div>
-          </div>
-        </div>
-=======
-    <div class="mobile-notify-prompt-wrap" >
-      <div class="close-wrap">
+    <div class="mobile-notify-prompt-wrap" v-if='isShowSubscribeFull'>
+      <div class="close-wrap" @click='closeSubscribeFull()'>
         <a class="close-button" href="#"></a>
       </div>
       <div class="text-wrap">
@@ -62,7 +38,6 @@
           <button href="#">Subscribe</button>
         </div>
       </div>
->>>>>>> 8c643f02b7c7f1a11ae44cee3d6e6794f8153b8e
     </div>
 
   </div>
@@ -72,14 +47,35 @@
 <script>
 export default {
   name: "subscribeDesctop",
+  props: ['showSubscribeFull'],
   data() {
     return {
-      isShowSubscribe: true
+      isShowSubscribe: true,
+      isShowSubscribeFull: false,
     };
   },
   methods: {
     closeSubSubscribe() {
       this.isShowSubscribe = false;
+    },
+
+    showFullSubscribe() {
+      this.isShowSubscribe = false;
+      this.isShowSubscribeFull = true;
+    },
+
+    closeSubscribeFull() {
+      this.isShowSubscribeFull = false;
+    }
+  },
+  watch: {
+    showSubscribeFull: function(newValue) {
+      if (this.isShowSubscribeFull !== newValue) {
+        this.isShowSubscribe = false;
+        this.isShowSubscribeFull = newValue;
+      } else {
+        return;
+      }
     }
   }
 };
