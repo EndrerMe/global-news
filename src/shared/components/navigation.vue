@@ -4,25 +4,25 @@
         <div class="box-menu">
             <b-nav class="bottom-menu">
             <b-nav-item>
-                <router-link class="link" :to="{ name: `business` }">Business</router-link>
+                <router-link class="link" :to="{ name: `category`, params: {category: 'business'} }">Business</router-link>
             </b-nav-item>
             <b-nav-item>
-                <router-link class="link" :to="{ name: `entertainment` }">Entertainment</router-link>
+                <router-link class="link" :to="{ name: `category`, params: {category: 'entertainment'} }">Entertainment</router-link>
             </b-nav-item>
             <b-nav-item>
-                <router-link class="link" :to="{ name: `general` }">General</router-link>
+                <router-link class="link" :to="{ name: `category`, params: {category: 'general'} }">General</router-link>
             </b-nav-item>
             <b-nav-item>
-                <router-link class="link" :to="{ name: `health` }">Health</router-link>
+                <router-link class="link" :to="{ name: `category`, params: {category: 'health'} }">Health</router-link>
             </b-nav-item>
             <b-nav-item>
-                <router-link class="link" :to="{ name: `science` }">Science</router-link>
+                <router-link class="link" :to="{ name: `category`, params: {category: 'science'} }">Science</router-link>
             </b-nav-item>
             <b-nav-item>
-                <router-link class="link" :to="{ name: `sport` }">Sport</router-link>
+                <router-link class="link" :to="{ name: `category`, params: {category: 'sport'} }">Sport</router-link>
             </b-nav-item>
             <b-nav-item>
-                <router-link class="link" :to="{ name: `technology` }">Technology</router-link>
+                <router-link class="link" :to="{ name: `category`, params: {category: 'technology'} }">Technology</router-link>
             </b-nav-item>
             </b-nav>
         </div>
@@ -32,7 +32,7 @@
 
 <script>
 export default {
-    
+    name: 'navigationDesctop'
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="currency-converter-wrap">
+    <div class="currency-converter-wrap" v-if='isShowConverter'>
       <div class="close-wrap">
         <a href="#"></a>
       </div>
@@ -53,7 +53,8 @@
 
 <script>
 export default {
-    name: 'converterDesctop'
+    name: 'converterDesctop',
+    props: ['isShowConverter'],
 }
 </script>
 
@@ -175,7 +176,6 @@ export default {
 }
 
 .currency-converter-wrap {
-  display:none;
   width: 380px;
   border: 1px solid;
   position: absolute;

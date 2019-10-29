@@ -34,13 +34,13 @@
                       <span>October 8, 2019</span>
                       <span>Tuesday</span>
                     </b-nav-item>
-                    <b-nav-item href="#" class="converter-wrap">
+                    <b-nav-item href="#" class="converter-wrap" @click='toggleConverterModal()'>
                       <span>
                         <span>Currency Converter</span>
                         <font-awesome-icon icon="caret-down" />
                       </span>
                     </b-nav-item>
-                    <b-nav-item href="#" class="weather-wrap">
+                    <b-nav-item href="#" class="weather-wrap" @click='toggleWeatherModal()'>
                       <span class="weather-content">
                         <span>
                           <img src="../../../assets/images/cloud.svg" alt="cloud" />
@@ -94,12 +94,12 @@
               </div>
 
               <subscribeDesctop></subscribeDesctop>
-              <weatherDesctop></weatherDesctop>
+              <weatherDesctop :isShowWeatherModal='isShowWeatherModal' :isShowConverter='isShowConverter'></weatherDesctop>
           </b-navbar>
         </div>
       </div>
 
-      <!-- navigation -->
+      <navigationDesctop></navigationDesctop>
 
     </div>
   </div>
@@ -108,22 +108,34 @@
 <script>
 import weatherDesctop from './../../components/weather';
 import subscribeDesctop from './../../components/subscribe';
+import navigationDesctop from './../../components/navigation';
 
 export default {
     name: 'HeaderDesctop',
     components: {
       weatherDesctop,
-      subscribeDesctop
+      subscribeDesctop,
+      navigationDesctop
     },
     data() {
         return {
             isShowSideMenu: false,
+            isShowWeatherModal: false,
+            isShowConverter: false,
         }
     },
     methods: {
         toggleMobileSideMenu() {
             this.isShowSideMenu = !this.isShowSideMenu;
         },
+
+        toggleWeatherModal() {
+          this.isShowWeatherModal = !this.isShowWeatherModal;
+        },
+
+        toggleConverterModal() {
+          this.isShowConverter = !this.isShowConverter;
+        }
     }
 }
 </script>

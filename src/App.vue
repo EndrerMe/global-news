@@ -2,6 +2,7 @@
   <div id="app">
     <HeaderDesctop></HeaderDesctop>
     <router-view />
+    <Footer></Footer>
   </div>
 </template>
 
@@ -17,11 +18,13 @@
 
 <script>
 import HeaderDesctop from './shared/layouts/header/header';
+import Footer from './shared/layouts/footer/footer';
 
 export default {
   name: "app",
   components: {
-    HeaderDesctop
+    HeaderDesctop,
+    Footer
   }
 };
 </script>

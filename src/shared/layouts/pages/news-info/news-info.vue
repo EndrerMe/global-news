@@ -1,111 +1,17 @@
 <template>
   <div>
-    <!-- Header -->
-    <div class="header-wrap">
-      <div class="header-content">
-        <div class="top-menu-wrap">
-          <div class="container">
-            <b-navbar
-              class="top-menu"
-              toggleable="md"
-              type="dark"
-              variant="info"
-            >
-              <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-              <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav>
-                  <b-nav-item href="#">
-                    <img src="../../../../assets/images/logo.svg" alt="logo" />
-                  </b-nav-item>
-                  <b-nav-item href="#" class="current-date">
-                    <span>October 8, 2019</span>
-                    <span>Tuesday</span>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <span>
-                      Currency Converter
-                      <font-awesome-icon icon="caret-down" />
-                    </span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span class="weather-content">
-                      <span>
-                        <img
-                          src="../../../../assets/images/cloud.svg"
-                          alt="cloud"
-                        />
-                      </span>
-                      <span class="weather-value">
-                        + 9
-                        <span class="celsius-value">&#8451;</span>
-                      </span>
-                      <span class="weather-dropdown-arrow">
-                        <font-awesome-icon icon="caret-down" />
-                      </span>
-                      <p>Glasgow</p>
-                    </span>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <font-awesome-icon icon="search" class="fa-lg" />
-                    <font-awesome-icon icon="bell" class="fa-lg" />
-                  </b-nav-item>
-                </b-navbar-nav>
-              </b-collapse>
-            </b-navbar>
-          </div>
-        </div>
-        <div class="bottom-menu-wrap">
-          <div class="container">
-            <b-navbar
-              class="bottom-menu"
-              toggleable="md"
-              type="dark"
-              variant="info"
-            >
-              <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-              <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav>
-                  <b-nav-item href="#" class="current-date">
-                    <span>Business</span>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <span>Entertainment</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>General</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>Health</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>Science</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>Sport</span>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span>Technology</span>
-                  </b-nav-item>
-                </b-navbar-nav>
-              </b-collapse>
-            </b-navbar>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="container content">
       <div class="card-wrap">
         <b-card-group deck>
           <b-card class="new-info" header-tag="header">
             <div class="title-wrap">
               <span class="text"
-                >Rihanna wouldn't "sell out" For halftime show</span
+                >{{news.title}}</span
               >
             </div>
 
             <b-card-img
-              :src="require('../../../../assets/images/new-info/img-1.png')"
+              :src="news.urlToImage"
             ></b-card-img>
 
             <b-card-text>
@@ -115,83 +21,7 @@
 
             <div class="description-wrap">
               <p>
-                Rihanna's confirmed she turned down the Superbowl halftime show
-                to support Colin Kaepernick. The former San Francisco 49ers
-                quarterback was dropped from the NFL for protesting social
-                injustice
-                <span class="blue-text"
-                  >by kneeling during the national anthem</span
-                >. In this month's cover story with Vogue magazine, Rihanna said
-                she did it to take a stand.
-              </p>
-              <p>
-                <span class="bold-text"
-                  >"I couldn't dare do that. Who gains from that? Not my people.
-                  I just couldn't be a sellout."</span
-                >
-              </p>
-              <p>
-                <span class="bold-text"
-                  >"I couldn't be an enabler. There's things within that
-                  organization that I do not agree with at all, and</span
-                >
-              </p>
-              <p>
-                <span class="bold-text"
-                  >I was not about to go and be of service to them in any
-                  way."</span
-                >
-              </p>
-              <p>
-                It was widely rumoured she was offered the controversial
-                February 2019 halftime show, which draws in audiences of up to
-                100m, but this is the first time Rihanna's talked about why she
-                <span class="blue-text">
-                  refused to appear.
-                </span>
-              </p>
-              <p>
-                Cardi B and Pink, also reportedly rejected the NFL's offer to
-                perform at the Atlanta event - in a show of solidarity with
-                Kaepernick - and it was eventually headlined by Maroon 5, Travis
-                Scott and Big Boi. It's not the only politics Rihanna gets into
-                during the interview. She also opens up about gun violence in
-                America.
-              </p>
-              <p>
-                <span class="bold-text">"It is devastating," she says.</span>
-              </p>
-              <p>
-                "People are being murdered by war weapons that they legally
-                purchase. This is just not normal. That should never, ever be
-                normal."
-              </p>
-              <p>
-                On her personal life, which she generally avoids discussing,
-                Rihanna confirms she's in a relationship. Her rumoured boyfriend
-                is the the Saudi businessman Hassan Jameel.
-              </p>
-              <p>
-                <span class="bold-text">
-                  "Yeah, I'm dating," she says. "I'm actually in an exclusive
-                  relationship for quite some time, and it's going really well,
-                  so I'm happy."
-                </span>
-              </p>
-              <p>
-                She is, of course, keen to talk about her fashion brand, Fenty -
-                named after her real name Robyn Rihanna Fenty. The 31-year-old
-                says she made it a rule that she had to love and wear all of
-                Fenty Maison herself - the high-end fashion line she founded
-                with Louis Vuitton earlier this year. She also reveals that she
-                inspires herself - she is her own muse.
-              </p>
-              <p>
-                <span class="bold-text"
-                  >"I'm not the face of my brand, but I am the muse, and my DNA
-                  has to run all the way through it,"</span
-                >
-                she says.
+                {{ news.content }}
               </p>
             </div>
 
@@ -330,25 +160,18 @@
         </b-card-group>
       </div>
     </div>
-
-    <!-- Footer -->
-    <!-- <footer>
-      <div class="container content">
-        <div class="content">
-          <div class="left-item">
-            <img src="../../../../assets/images/logo.svg" alt="logo" />
-          </div>
-          <div class="center-item">
-            <span class="text">Copyright © 2019 Global New. All rights reserved</span>
-          </div>
-          <div class="right-item">
-            <button>Subscribe Us</button>
-          </div>
-        </div>
-      </div>
-    </footer>-->
   </div>
 </template>
+
+<script>
+export default {
+  props: ['news'],
+  name: 'newsInfo',
+  created() {
+    console.log(this.news)
+  }
+}
+</script>
 
 <style scoped>
 /* Common */

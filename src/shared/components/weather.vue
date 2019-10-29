@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="weather-main-wrap">
+        <div class="weather-main-wrap" v-if='isShowWeatherModal'>
           <div class="weather-search-wrap">
             <div class="close-wrap">
               <a href="#"></a>
@@ -21,12 +21,12 @@
             <div class="clouds">
               <span>Broken Clouds</span>
               <span class="icon">
-                <img src="../../assets/images/cloud.svg" alt="cloud" />
+                <img :src="currentWeatherImg" alt="cloud" />
               </span>
             </div>
 
             <div class="temp-value-wrap">
-              <span>+12</span>
+              <span>{{ temp }}</span>
 
               <span class="temp-symbol">
                 <span>&#8451;</span>
@@ -40,7 +40,7 @@
           </div>
       </div>
 
-      <converterDesctop></converterDesctop>
+      <converterDesctop :isShowConverter='isShowConverter'></converterDesctop>
 
       <div class="modile-side-weather-wrap">
         <div class="mobile-weather-main-wrap">
@@ -221,12 +221,39 @@
 
 <script>
 import converterDesctop from './converter';
+import weatherService from './../services/weather.service';
 
 export default {
-    name: 'weatherDesctop',
-    components: {
-      converterDesctop
+  props: ['isShowWeatherModal', 'isShowConverter'],
+  name: 'weatherDesctop',
+  components: {
+    converterDesctop
+  },
+  data() {
+    return {
+      temp: '',
+      location: '',
+      date: '',
+      coordinates: null,
+      isCelsius: true,
+      currentWeatherImg: null,
     }
+  },
+  created() {
+    this.$getLocation()
+      .then(coordinates => {
+        this.coordinates = coordinates;
+        weatherService.getWeather(coordinates.lat, coordinates.lng).then((res) => {
+          this.temp = res.data.main.temp;
+          this.temp = this.temp + '';
+          this.temp = this.temp.split(".")[0];
+          this.location = res.data.name;
+          this.date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+          this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
+        });
+      });
+
+  }
 }
 </script>
 
@@ -282,7 +309,6 @@ export default {
 }
 
 .weather-main-wrap {
-  display:none;
   position: absolute;
   width: 380px;
   right: 200px;

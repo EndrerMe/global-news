@@ -4,7 +4,7 @@ import {environment} from './../../environment/environment'
 
 export default {
     name: 'weatherService',
-    getWeather(lat, lon, country) {
+    getWeather(lat, lon) {
         return axios.get(`${environment.weatherApiUrl}lat=${lat}&lon=${lon}${environment.weatherApiKey}&units=metric`);
     },
 

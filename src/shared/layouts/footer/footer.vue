@@ -16,11 +16,11 @@
         </div>
       </footer>
 
-      <footer>
+      <!-- <footer>
         <div class="container content">
           <div class="content-wrap">
             <div class="left-item">
-              <img src="../../../../assets/images/logo.svg" alt="logo" />
+              <img src="../../../assets/images/logo.svg" alt="logo" />
             </div>
             <div class="center-item">
               <span class="text">Copyright © 2019 Global New. All rights reserved</span>
@@ -30,7 +30,7 @@
             </div>
           </div>
         </div>
-      </footer>
+      </footer> -->
     </div>
 </template>
 
@@ -52,12 +52,10 @@ footer .content-wrap {
   display: flex;
   justify-content: space-between;
 }
-
 footer .left-item,
 footer .right-item {
   margin: auto 0;
 }
-
 footer .center-item {
   display: flex;
 }
@@ -67,6 +65,15 @@ footer .center-item .text {
   align-items: flex-end;
   padding-bottom: 5px;
   font-size: 10px;
+}
+/* footer .right-item button {
+  width: 98% !important;
+  width: 185px !important;
+  height: 35px;
+  font-size: 12px;
+} */
+footer .right-item button:hover {
+  background-color: #ffe076 !important;
 }
 
 footer .right-item button {
@@ -80,14 +87,12 @@ footer .right-item button {
   border: none;
   letter-spacing: 1px;
 }
-
 @media (max-width: 1199px) {
   footer .right-item button {
     width: 232px !important;
     height: 44px;
   }
 }
-
 @media (max-width: 991px) {
   footer .right-item button {
     width: 222px !important;
@@ -95,20 +100,18 @@ footer .right-item button {
     font-size: 14px;
   }
 }
-
 @media (min-width: 768px) {
   footer .container.content {
     height: 100px;
   }
 }
-
 @media (max-width: 767px) {
-  footer .right-item button {
-    width: 185px !important;
-    height: 35px;
-    font-size: 12px;
+  footer {
+    margin-top: 0px;
   }
-
+  footer img {
+    width: 100px;
+  }
   footer .content-wrap {
     flex-direction: column;
     height: unset !important;
@@ -118,9 +121,6 @@ footer .right-item button {
   }
   footer .content-wrap :nth-child(2) {
     order: 3;
-  }
-  footer .right-item button {
-    width: 98% !important;
   }
   footer .content-wrap .left-item {
     padding: 20px 0;

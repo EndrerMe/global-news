@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="subscribe-prompt-wrap"  v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s' }">
-            <div class="close-wrap">
+        <div class="subscribe-prompt-wrap"  v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s' }" v-if='isShowSubscribe'>
+            <div class="close-wrap" @click='closeSubSubscribe()'>
                 <a href="#"></a>
             </div>
             <div class="text-wrap">
@@ -40,7 +40,17 @@
 
 <script>
 export default {
-    name: 'subscribeDesctop'
+    name: 'subscribeDesctop',
+    data() {
+      return {
+        isShowSubscribe: true,
+      }
+    },
+    methods: {
+      closeSubSubscribe() {
+        this.isShowSubscribe = false;
+      }
+    }
 }
 </script>
 

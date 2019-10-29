@@ -37,211 +37,28 @@
         </b-carousel>
       </div>
       <!-- Business -->
-      <div class="business-wrap">
-        <div class="title-wrap" data-aos="fade-right" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false"
-         >
-          <span class="title-text" >Business</span>
-        </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false">
-          <div class="card-wrap">
-            <b-card class="card mb-2 new-card col-md-12">
-              <b-card-img :src="require('../../../../assets/images/business/img-1.png')"></b-card-img>
-              <b-card-text>
-                A mobile version of video game Call of Duty has been downloaded
-                more than 100 million times in its first week...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">6 min ago</small>
-                <small class="text-muted">bbc.com</small>
-              </template>
-            </b-card>
-          </div>
-          <div class="card-wrap">
-            <b-card class="mb-2 new-card col-md-12">
-              <b-card-img :src="require('../../../../assets/images/business/img-2.png')"></b-card-img>
-              <b-card-text>
-                All 555 Thomas Cook shops are to be bought by rival Hays Travel
-                in a move that could save up to 2,500 jobs. The
-                independent...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">Yestesday</small>
-                <small class="text-muted">sourcelink.com</small>
-              </template>
-            </b-card>
-          </div>
-          <div class="card-wrap">
-            <b-card class="mb-2 new-card col-md-12">
-              <b-card-img :src="require('../../../../assets/images/business/img-3.png')"></b-card-img>
-              <b-card-text>
-                Goldman Sachs will review its involvement in the planned stock
-                market listing of Chinese artificial intelligence firm
-                Megvii...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">October 10, 2019</small>
-                <small class="text-muted">sourcelink.com</small>
-              </template>
-            </b-card>
-          </div>
-        </slick>
-      </div>
+      <card :sendedNews='entertainmentNewsHome' :title="'Science'" :titleBorder="'c710a2'"></card>
       <!-- Entertainmenet -->
-      <div class="entertainment-wrap" data-aos="fade-right" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false">
-
-        <div class="title-wrap" data-aos="fade-right" data-aos-easing="ease-in-out"
-         data-aos-mirror="true"
-         data-aos-once="false"
-         >
-
-          <span class="title-text" >Entertainment</span>
-        </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false">
-          <div class="card-wrap">
-            <b-card class="mb-2 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-4.png')"></b-card-img>
-              <b-card-text>
-                On World Mental Health Day, a disabled presenter shares her
-                simple secrets of happiness. Jessica Kellgren-Fozard gets
-                a...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">6 min ago</small>
-                <small class="text-muted">bbc.com</small>
-              </template>
-            </b-card>
-          </div>
-          <div class="card-wrap">
-            <b-card class="mb-2 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-5.png')"></b-card-img>
-              <b-card-text>
-                The Nobel Prize for Literature is set to be awarded on
-                Thursday. Twice. The Handmaid's Tale author Margaret Atwood,
-                fellow...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">Yestesday</small>
-                <small class="text-muted">sourcelink.com</small>
-              </template>
-            </b-card>
-          </div>
-          <div class="card-wrap">
-            <b-card class="mb-2 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-6.png')"></b-card-img>
-              <b-card-text>
-                Rihanna's confirmed she turned down the Superbowl halftime show
-                to support Colin Kaepernick. The former San
-                Francisco...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">October 10, 2019</small>
-                <small class="text-muted">sourcelink.com</small>
-              </template>
-            </b-card>
-          </div>
-        </slick>
-      </div>
+      <card :sendedNews='scienceNewsHome' :title="'Entertainment'" :titleBorder="'ff995e'"></card>
       <!-- Science -->
-      <div class="science-wrap" data-aos="fade-right" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false"
-         >
-        <div class="title-wrap">
-          <span class="title-text">Science</span>
-        </div>
-        <slick ref="slick" :options="slickOptions" data-aos="fade-right" 
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false">
-          <div class="card-wrap">
-            <b-card class="mb-2 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-7.png')"></b-card-img>
-              <b-card-text>
-                Culling badgers drives them to roam further afield, allowing
-                them to disperse tuberculosis over a larger area,
-                new...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">6 min ago</small>
-                <small class="text-muted">bbc.com</small>
-              </template>
-            </b-card>
-          </div>
-          <div class="card-wrap">
-            <b-card class="mb-2 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-8.png')"></b-card-img>
-              <b-card-text>
-                Three scientists have been awarded the 2019 Nobel Prize in
-                Physics for "ground-breaking" discoveries about the
-                Universe...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">Yestesday</small>
-                <small class="text-muted">sourcelink.com</small>
-              </template>
-            </b-card>
-          </div>
-          <div class="card-wrap">
-            <b-card class="mb-2 new-card">
-              <b-card-img :src="require('../../../../assets/images/business/img-9.png')"></b-card-img>
-              <b-card-text>
-                Antarctica's Emperor penguins could be in real difficulty come
-                2100 if the climate warms as expected. Experts say the
-                birds...
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">October 10, 2019</small>
-                <small class="text-muted">sourcelink.com</small>
-              </template>
-            </b-card>
-          </div>
-        </slick>
-      </div>
+      <card :sendedNews='businessNewsHome' :title="'Business'" :titleBorder="'10c7ba'"></card>
     </div>
-    <!-- Footer -->
-    <footer>
-      <div class="container content">
-        <div class="content-wrap">
-          <div class="left-item">
-            <img src="../../../../assets/images/logo.svg" alt="logo" />
-          </div>
-          <div class="center-item">
-            <span class="text">Copyright © 2019 Global New. All rights reserved</span>
-          </div>
-          <div class="right-item">
-            <button>Subscribe Us</button>
-          </div>
-        </div>
-      </div>
-    </footer>
   </div>
 </template>
 
 <script>
-import Slick from "vue-slick";
+import card from './../../../components/card';
+import newsService from './../../../services/news.service';
 
 export default {
   components: { 
-    Slick 
+    card
   },
   data() {
     return {
       isShowSideMenu: false,
       slickOptions: {
-        slidesToShow: 1,
+        slidesToShow: 3,
         infinite: true,
         accessibility: true,
         adaptiveHeight: true,
@@ -250,8 +67,37 @@ export default {
         draggable: true,
         edgeFriction: 0.3,
         swipe: true
-      }
+      },
+      entertainmentNewsHome: [],
+      scienceNewsHome: [],
+      businessNewsHome: [],
     };
+  },
+  created() {
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize();
+  },
+  beforeCreate() {
+    newsService.getData('entertainment', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.entertainmentNewsHome.push(res.data.articles[i]);
+      }
+    })
+
+    newsService.getData('science', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.scienceNewsHome.push(res.data.articles[i]);
+      }
+    })
+
+    newsService.getData('business', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.businessNewsHome.push(res.data.articles[i]);
+      }
+    })
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     toggleMobileSideMenu() {
@@ -266,7 +112,16 @@ export default {
     reInit() {
       // Helpful if you have to deal with v-for to update dynamic lists
       this.$refs.slick.reSlick();
-    }
+    },
+
+    handleResize() {
+      console.log(window.innerWidth)
+      if (window.innerWidth < 767) {
+        this.slickOptions.slidesToShow = 1;
+      } else {
+        this.slickOptions.slidesToShow = 3;
+      }
+    },
   },
 };
 </script>
@@ -275,405 +130,6 @@ export default {
 @import "../../../../../node_modules/slick-carousel/slick/slick.css";
 
 
-/* Weather */
-.weather-main-wrap .links-wrap {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 55px;
-}
-.weather-main-wrap .links-wrap a {
-  color: #f8c61a;
-  text-decoration: none;
-}
-
-.weather-search-wrap .temp-value-wrap .temp-symbol {
-  position: absolute;
-  top: -7px;
-  font-size: 26px !important;
-  left: 161px;
-}
-
-.weather-search-wrap .temp-value-wrap {
-  color: white;
-  font-size: 32px;
-  font-weight: bold;
-  position: relative;
-  margin-top: 50px;
-}
-
-.weather-search-wrap .temp-value-wrap .temp-symbol span {
-  margin: 0 5px;
-}
-.weather-search-wrap .temp-value-wrap .temp-symbol::before {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 20px;
-  background-color: white;
-  left: 37px;
-  top: 7px;
-}
-
-.weather-search-wrap .clouds {
-  margin-top: 55px;
-  color: #eaeaea;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.weather-search-wrap .clouds img {
-  width: 90px;
-}
-
-.weather-main-wrap {
-  display:none;
-  position: absolute;
-  width: 380px;
-  right: 200px;
-  top: 102px;
-  background-color: #052962;
-  padding-bottom: 20px;
-  border: 1px solid;
-  z-index: 999;
-  padding: 0 20px 10px 20px;
-}
-.weather-search-wrap {
-  padding: 0 40px;
-}
-.weather-search-wrap .close-wrap a {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  position: absolute;
-  top: 24px;
-  right: 23px;
-}
-.weather-search-wrap .close-wrap a::before {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(45deg);
-}
-
-.weather-search-wrap .close-wrap a::after {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(-45deg);
-}
-
-.weather-search-wrap .text-wrap {
-  margin-top: 80px;
-  padding: 0;
-}
-.weather-search-wrap .text-wrap p {
-  color: #eaeaea;
-}
-
-.weather-search-wrap .text-wrap p.dropdown {
-  font-size: 32px;
-  font-family: initial;
-}
-
-.weather-search-wrap .seacrh-country-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
-.weather-search-wrap .button-wrap {
-  margin-top: 23px;
-}
-
-.weather-search-wrap .country-wrap span {
-  color: #eaeaea;
-  display: block;
-  width: 100%;
-  border-bottom: 1px solid;
-  text-align: start;
-}
-
-.weather-search-wrap .button-wrap button {
-  width: 242px;
-  height: 48px;
-  background-color: #f8c61a;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.weather-search-wrap .button-wrap button:hover {
-  background-color: #ffe076;
-}
-
-.weather-search-wrap .seacrh-country-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
-.weather-search-wrap .button-wrap {
-  margin-top: 23px;
-}
-
-.weather-search-wrap .country-wrap span {
-  color: #eaeaea;
-  display: block;
-  width: 100%;
-  border-bottom: 1px solid;
-  text-align: start;
-}
-
-.weather-search-wrap .button-wrap button {
-  width: 242px;
-  height: 48px;
-  background-color: #f8c61a;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.weather-search-wrap .button-wrap button:hover {
-  background-color: #ffe076;
-}
-
-/* Currency Converter */
-/* Notify */
-.currency-converter-wrap .rate-wrap {
-  padding: 0 60px;
-  margin-top: 45px;
-}
-.currency-converter-wrap .rate-wrap span {
-  color: #e2e1e1;
-  padding: 14px;
-  display: block;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.21612394957983194) 100%,
-    rgba(255, 255, 255, 0.5186449579831933) 100%
-  );
-  margin-top: 10px;
-}
-
-.currency-converter-wrap .to .value-wrap {
-  font-size: 19px;
-  display: flex;
-  align-items: center;
-}
-
-.currency-converter-wrap .to .value-wrap .value {
-  width: 103px;
-  display: block;
-  border-bottom: 1px solid #b7b7b7 !important;
-  text-align: center;
-}
-
-.currency-converter-wrap .to .dropdown-wrap {
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-}
-.currency-converter-wrap .to .dropdown-wrap .dropdown option {
-  font-size: 16px;
-  color: black;
-}
-
-.currency-converter-wrap .to .dropdown-wrap .dropdown {
-  background: transparent;
-  width: 80px;
-  height: 40px;
-  color: white;
-  font-size: 26px;
-  border: none;
-  font-family: initial;
-}
-
-.currency-converter-wrap .to .dropdown-wrap .dropdown:focus {
-  outline: none;
-}
-
-.currency-converter-wrap .to {
-  margin-top: 15px;
-  text-align: start;
-  display: flex;
-  justify-content: space-between;
-}
-.currency-converter-wrap .from .value-wrap {
-  font-size: 19px;
-  display: flex;
-  align-items: center;
-}
-
-.currency-converter-wrap .from .value-wrap .value {
-  width: 103px;
-  display: block;
-  border-bottom: 1px solid #b7b7b7 !important;
-  text-align: center;
-}
-
-.currency-converter-wrap .from .dropdown-wrap {
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-}
-.currency-converter-wrap .from .dropdown-wrap .dropdown option {
-  font-size: 16px;
-  color: black;
-}
-
-.currency-converter-wrap .from .dropdown-wrap .dropdown {
-  background: transparent;
-  width: 80px;
-  height: 40px;
-  color: white;
-  font-size: 26px;
-  border: none;
-  font-family: initial;
-}
-
-.currency-converter-wrap .from .dropdown-wrap .dropdown:focus {
-  outline: none;
-}
-
-.currency-converter-wrap .from {
-  margin-top: 70px;
-  text-align: start;
-  display: flex;
-  justify-content: space-between;
-}
-.currency-converter-wrap .from,
-.currency-converter-wrap .to {
-  color: #eaeaea;
-  font-size: 10px;
-  padding: 0 60px;
-}
-
-.currency-converter-wrap .convert-icon{
-  margin-top:20px;
-      padding: 0 60px;
-      text-align:start;
-}
-
-.currency-converter-wrap {
-  display:none;
-  width: 380px;
-  border: 1px solid;
-  position: absolute;
-  right: 590px;
-  top: 102px;
-  background-color: #052962;
-  z-index: 999;
-  padding-bottom: 45px;
-}
-.currency-converter-wrap .close-wrap a {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  position: absolute;
-  top: 24px;
-  right: 23px;
-}
-.currency-converter-wrap .close-wrap a::before {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(45deg);
-}
-
-.currency-converter-wrap .close-wrap a::after {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(-45deg);
-}
-
-/* Subscribe */
-.subscribe-prompt-wrap {
-  width: 381px;
-  padding-bottom: 40px;
-  border: 1px solid;
-  position: absolute;
-  right: -15px;
-  top: 102px;
-  background-color: #052962;
-  z-index: 999;
-}
-
-.subscribe-prompt-wrap .close-wrap a {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  position: absolute;
-  top: 24px;
-  right: 23px;
-}
-.subscribe-prompt-wrap .close-wrap a::before {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(45deg);
-}
-
-.subscribe-prompt-wrap .close-wrap a::after {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(-45deg);
-}
-
-.subscribe-prompt-wrap .text-wrap {
-  margin-top: 90px;
-  padding: 0px 115px;
-}
-.subscribe-prompt-wrap .text-wrap span {
-  color: #eaeaea;
-}
-
-.subscribe-prompt-wrap .button-wrap {
-  margin-top: 37px;
-}
-
-.subscribe-prompt-wrap .button-wrap button {
-  width: 242px;
-  height: 48px;
-  background-color: #f8c61a;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.subscribe-prompt-wrap .button-wrap button:hover {
-  background-color: #ffe076;
-}
 
 
 /* Slick Slider */
@@ -851,292 +307,12 @@ Weather Menu : class = 'modile-side-weather-wrap'
 }
 
 /* Weater Details */
-.modile-side-weather-wrap {
-  display: none;
-  overflow: scroll;
-}
-.weaterDetailsHidden {
-  height: 300px;
-  transition: all 1s;
-}
-.mobile-weather-details-wrap .right-side .wrap {
-  display: flex;
-  flex-direction: column;
-}
-.mobile-weather-details-wrap .right-side {
-  color: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-left: calc((100% - 276px));
-}
-.mobile-weather-details-wrap .right-side .text {
-  white-space: nowrap;
-}
-.mobile-weather-details-wrap .right-side .icon-wrap img {
-  width: 35px;
-}
-.temp-info-wrap .additional-info {
-  text-align: start;
-}
-.temp-info-wrap .info-elem {
-  margin-top: 15px;
-  font-size: 13px;
-  font-weight: bold;
-}
-.mobile-weather-details-wrap .show-info-wrap {
-  text-align: start;
-}
-.mobile-weather-details-wrap .show-info-wrap .temp-val-symbol {
-  position: relative;
-  margin-left: 5px;
-}
-.mobile-weather-details-wrap .show-info-wrap .temp-val-symbol::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  position: absolute;
-  border: 1px solid #a09f9f;
-  border-radius: 10px;
-}
-.mobile-weather-details-wrap .temp-symbol span {
-  margin: 0 7px;
-}
-.mobile-weather-details-wrap .temp-symbol {
-  position: relative;
-}
-.mobile-weather-details-wrap .temp-symbol::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 16px;
-  background-color: white;
-  left: 22px;
-  top: 0px;
-}
-.mobile-weather-details-wrap .temp-value-wrap {
-  text-align: start;
-}
-.mobile-weather-details-wrap .temp-info-wrap p {
-  margin-bottom: 3px;
-}
-.mobile-weather-details-wrap .temp-info-wrap {
-  color: #f9f9f9;
-}
-.mobile-weather-details-wrap .sides-wrap {
-  display: flex;
-}
-.mobile-weather-details-wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #052962;
-  z-index: 999;
-}
-.mobile-weather-details-wrap .close-wrap a {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  position: absolute;
-  top: 24px;
-  right: 23px;
-}
-.mobile-weather-details-wrap .close-wrap a::before {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(45deg);
-}
-.mobile-weather-details-wrap .close-wrap a::after {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(-45deg);
-}
+
 </style>
 
 <style scoped>
 
-/* Weather */
-.mobile-weather-main-wrap {
-  padding: 0 15px 40px 15px;
-}
-.mobile-weather-main-wrap .section-elem {
-  display: flex;
-  justify-content: center;
-  color: white;
-}
-.mobile-weather-main-wrap .title-wrap {
-  padding: 30px 0;
-}
-.mobile-weather-main-wrap .location-wrap {
-  color: white;
-}
-.mobile-weather-main-wrap .links-wrap {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-.mobile-weather-main-wrap .links-wrap a {
-  color: #f8c61a;
-  text-decoration: none;
-}
-.mobile-weather-main-wrap .links-wrap a svg {
-  width: 7px;
-}
-.mobile-weather-main-wrap .seacrh-country-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  margin-top: 45px;
-  width: 100%;
-}
-.mobile-weather-main-wrap .seacrh-country-wrap .serch-result {
-  color: rgb(248, 198, 26) !important;
-}
-.mobile-weather-main-wrap .seacrh-country-wrap .text-wrap {
-  color: white;
-}
-.mobile-weather-main-wrap .weather-data-wrap .button-wrap {
-  margin-top: 23px;
-}
-.mobile-weather-main-wrap .country-wrap span {
-  color: #eaeaea;
-  display: block;
-  width: 100%;
-  border-bottom: 1px solid;
-  text-align: start;
-}
-.mobile-weather-main-wrap .button-wrap {
-  margin-top: 15px;
-}
-.mobile-weather-main-wrap .button-wrap button {
-  width: 100%;
-  height: 35px;
-  background-color: #f8c61a;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.mobile-weather-main-wrap .weather-data-wrap {
-  display: flex;
-  color: #d6d6d6;
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-.mobile-weather-main-wrap .weather-data-wrap .clouds {
-  display: flex;
-  flex-direction: column;
-}
-.mobile-weather-main-wrap .weather-data-wrap .clouds .cloud-state {
-  margin-top: 5px;
-}
-.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap {
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 32px;
-  font-family: initial;
-  position: relative;
-  padding-right: 55px;
-}
-.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-value {
-  font-size: 38px;
-}
-.mobile-weather-main-wrap .weather-data-wrap .temp-value-wrap .temp-symbol {
-  position: absolute;
-  top: 0;
-  font-size: 26px;
-  left: 32px;
-}
-.mobile-weather-main-wrap
-  .weather-data-wrap
-  .temp-value-wrap
-  .temp-symbol
-  .activeMode.active {
-  color: rgb(248, 198, 26);
-}
-.mobile-weather-main-wrap
-  .weather-data-wrap
-  .temp-value-wrap
-  .temp-symbol
-  span {
-  margin: 0 8px;
-}
-.mobile-weather-main-wrap
-  .weather-data-wrap
-  .temp-value-wrap
-  .temp-symbol::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 22px;
-  background-color: white;
-  left: 42px;
-  top: 8px;
-}
-.mobile-weather-main-wrap .weather-data-wrap .clouds img {
-  width: 70px;
-}
-.mobile-weather-main-wrap .weather-data-wrap .text-wrap p.dropdown {
-  font-size: 32px;
-  font-family: initial;
-}
-.mobile-weather-main-wrap .weather-data-wrap .button-wrap button {
-  width: 100%;
-  height: 35px;
-  background-color: #f8c61a;
-  border: none;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.mobile-weather-main-wrap .weather-data-wrap .button-wrap button:hover {
-  background-color: #ffe076;
-}
-.mobile-weather-main-wrap.weather-data-wrap .button-wrap button:hover {
-  background-color: #ffe076;
-}
-.modile-side-weather-wrap {
-  position: absolute;
-  top: 58px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #052962;
-  z-index: 999;
-  border-top: 1px solid;
-}
-@media (min-width: 768px) {
-  .modile-side-weather-wrap {
-    display: none;
-  }
-  #nav-collapse {
-    width: 100%;
-  }
-}
-@media (max-width: 767px) {
-  #nav-collapse {
-    visibility: hidden;
-    position: absolute;
-    background: #052962;
-    z-index: 9999;
-    top: 0px;
-    left: 0;
-    bottom: 0;
-  }
-}
+
 
 /* Common */
 @media (min-width: 1140px) {
