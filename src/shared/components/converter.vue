@@ -13,7 +13,7 @@
           </select>
         </div>
         <div class="value-wrap">
-          <input class="value" value="100" />
+          <input class="value" value="100" v-on:input="changeAmount($event)" type="number" placeholder="Amount" @focus="focusOn" @blur="focusOut"/>
         </div>
       </div>
 
@@ -31,7 +31,7 @@
           </select>
         </div>
         <div class="value-wrap">
-                    <input class="value" value="91.0249" />
+          <input class="value" value="91.0249" />
         </div>
       </div>
 
