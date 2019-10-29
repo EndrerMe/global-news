@@ -356,6 +356,14 @@ export default {
 }
 /* Header */
 
+/* Bottom menu */
+.bottom-menu-wrap {
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+/* end */
+
 #nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
   height: 100%;
   width: 100%;

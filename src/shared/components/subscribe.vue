@@ -58,6 +58,7 @@ export default {
 .subscribe-prompt-wrap {
   width: 381px;
   padding-bottom: 40px;
+  border: 1px solid;
   position: absolute;
   right: -15px;
   top: 101px;
@@ -118,6 +119,8 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-family: "Poppins-SemiBold";
+  color: #052962;
 }
 .subscribe-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
