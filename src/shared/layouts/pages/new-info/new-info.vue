@@ -5,12 +5,7 @@
       <div class="header-content">
         <div class="top-menu-wrap">
           <div class="container">
-            <b-navbar
-              class="top-menu"
-              toggleable="md"
-              type="dark"
-              variant="info"
-            >
+            <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
@@ -30,10 +25,7 @@
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content">
                       <span>
-                        <img
-                          src="../../../../assets/images/cloud.svg"
-                          alt="cloud"
-                        />
+                        <img src="../../../../assets/images/cloud.svg" alt="cloud" />
                       </span>
                       <span class="weather-value">
                         + 9
@@ -56,12 +48,7 @@
         </div>
         <div class="bottom-menu-wrap">
           <div class="container">
-            <b-navbar
-              class="bottom-menu"
-              toggleable="md"
-              type="dark"
-              variant="info"
-            >
+            <b-navbar class="bottom-menu" toggleable="md" type="dark" variant="info">
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
               <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
@@ -99,14 +86,10 @@
         <b-card-group deck>
           <b-card class="new-info" header-tag="header">
             <div class="title-wrap">
-              <span class="text"
-                >Rihanna wouldn't "sell out" For halftime show</span
-              >
+              <span class="text">Rihanna wouldn't "sell out" For halftime show</span>
             </div>
 
-            <b-card-img
-              :src="require('../../../../assets/images/new-info/img-1.png')"
-            ></b-card-img>
+            <b-card-img :src="require('../../../../assets/images/new-info/img-1.png')"></b-card-img>
 
             <b-card-text>
               <span>6 min ago</span>
@@ -119,36 +102,36 @@
                 to support Colin Kaepernick. The former San Francisco 49ers
                 quarterback was dropped from the NFL for protesting social
                 injustice
-                <span class="blue-text"
-                  >by kneeling during the national anthem</span
-                >. In this month's cover story with Vogue magazine, Rihanna said
+                <span
+                  class="blue-text"
+                >by kneeling during the national anthem</span>. In this month's cover story with Vogue magazine, Rihanna said
                 she did it to take a stand.
               </p>
               <p>
-                <span class="bold-text"
-                  >"I couldn't dare do that. Who gains from that? Not my people.
-                  I just couldn't be a sellout."</span
-                >
+                <span class="bold-text">
+                  "I couldn't dare do that. Who gains from that? Not my people.
+                  I just couldn't be a sellout."
+                </span>
               </p>
               <p>
-                <span class="bold-text"
-                  >"I couldn't be an enabler. There's things within that
-                  organization that I do not agree with at all, and</span
-                >
+                <span class="bold-text">
+                  "I couldn't be an enabler. There's things within that
+                  organization that I do not agree with at all, and
+                </span>
               </p>
               <p>
-                <span class="bold-text"
-                  >I was not about to go and be of service to them in any
-                  way."</span
-                >
+                <span class="bold-text">
+                  I was not about to go and be of service to them in any
+                  way."
+                </span>
               </p>
               <p>
                 It was widely rumoured she was offered the controversial
                 February 2019 halftime show, which draws in audiences of up to
                 100m, but this is the first time Rihanna's talked about why she
-                <span class="blue-text">
-                  refused to appear.
-                </span>
+                <span
+                  class="blue-text"
+                >refused to appear.</span>
               </p>
               <p>
                 Cardi B and Pink, also reportedly rejected the NFL's offer to
@@ -187,10 +170,10 @@
                 inspires herself - she is her own muse.
               </p>
               <p>
-                <span class="bold-text"
-                  >"I'm not the face of my brand, but I am the muse, and my DNA
-                  has to run all the way through it,"</span
-                >
+                <span class="bold-text">
+                  "I'm not the face of my brand, but I am the muse, and my DNA
+                  has to run all the way through it,"
+                </span>
                 she says.
               </p>
             </div>
@@ -221,11 +204,7 @@
                     height="17.838"
                     viewBox="0 0 18.424 17.838"
                   >
-                    <g
-                      id="Group_38"
-                      data-name="Group 38"
-                      transform="translate(0 5.171)"
-                    >
+                    <g id="Group_38" data-name="Group 38" transform="translate(0 5.171)">
                       <g id="Group_37" data-name="Group 37">
                         <rect
                           id="Rectangle_26"
@@ -236,11 +215,7 @@
                         />
                       </g>
                     </g>
-                    <g
-                      id="Group_40"
-                      data-name="Group 40"
-                      transform="translate(5.758 5.171)"
-                    >
+                    <g id="Group_40" data-name="Group 40" transform="translate(5.758 5.171)">
                       <g id="Group_39" data-name="Group 39">
                         <path
                           id="Path_23"
@@ -251,11 +226,7 @@
                         />
                       </g>
                     </g>
-                    <g
-                      id="Group_42"
-                      data-name="Group 42"
-                      transform="translate(0.223 0)"
-                    >
+                    <g id="Group_42" data-name="Group 42" transform="translate(0.223 0)">
                       <g id="Group_41" data-name="Group 41">
                         <circle
                           id="Ellipse_12"
@@ -297,33 +268,37 @@
             <div class="item-wrap">
               <div class="image-wrap">
                 <img src="../../../../assets/images/new-info/img-2.png" />
+
+                <span class="category-wrap entertainment">Entertainment</span>
               </div>
               <div class="description-wrap">
-                <span
-                  >Nobel Prize for Literature to name two winners after
-                  scandal-hit year</span
-                >
+                <span>
+                  Nobel Prize for Literature to name two winners after
+                  scandal-hit year
+                </span>
               </div>
             </div>
             <div class="item-wrap">
               <div class="image-wrap">
                 <img src="../../../../assets/images/new-info/img-3.png" />
+
+                <span class="category-wrap business">Business</span>
               </div>
               <div class="description-wrap">
-                <span
-                  >Goldman Sachs reviews role in Chinese tech firm Megvii</span
-                >
+                <span>Goldman Sachs reviews role in Chinese tech firm Megvii</span>
               </div>
             </div>
             <div class="item-wrap">
               <div class="image-wrap">
                 <img src="../../../../assets/images/new-info/img-4.png" />
+
+                <span class="category-wrap science">Science</span>
               </div>
               <div class="description-wrap">
-                <span
-                  >Badger culls risk increased spread of TB to cattle, study
-                  finds</span
-                >
+                <span>
+                  Badger culls risk increased spread of TB to cattle, study
+                  finds
+                </span>
               </div>
             </div>
           </b-card>
@@ -469,18 +444,18 @@
 }
 .blue-text {
   color: blue;
-  font-size:22px;
+  font-size: 22px;
 }
 .bold-text {
-    font-family: 'Poppins-SemiBold';
-     font-size:22px;
+  font-family: "Poppins-SemiBold";
+  font-size: 22px;
 }
 
 /* New Info */
 .card-wrap .new-info .title-wrap {
   text-align: start;
   padding: 37px 0;
-  font-family: 'Amiri-Bold'; 
+  font-family: "Amiri-Bold";
 }
 .card-wrap .new-info .title-wrap .text {
   font-size: 32px;
@@ -503,16 +478,14 @@
   max-width: 1082px;
   font-size: 22px;
   border-bottom: none;
- font-family: 'Poppins-Regular';
-
-
+  font-family: "Poppins-Regular";
 }
 
 /* Latest News */
 .latest-news .card-body .title-wrap {
   display: flex;
   align-items: center;
-  font-family: 'Amiri-Bold'; 
+  font-family: "Amiri-Bold";
 }
 .latest-news .card-body .title-wrap span {
   display: block;
@@ -540,9 +513,49 @@
   text-transform: uppercase;
 }
 
+.card-wrap .latest-news .item-wrap .image-wrap {
+  position: relative;
+}
 .card-wrap .latest-news .item-wrap img {
   width: 100%;
 }
+
+.card-wrap .latest-news .item-wrap .category-wrap {
+  position: absolute;
+  font-size: 14px;
+  font-family: "Poppins-Medium";
+  color: white;
+  padding-left: 37px;
+  left: 0px;
+  bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.card-wrap .latest-news .item-wrap .category-wrap.entertainment::before{
+  content: "";
+  width: 3px;
+  height: 20px;
+  background-color: #FF995E;
+  position: absolute;
+  left: 22px;
+}
+.card-wrap .latest-news .item-wrap .category-wrap.business::before{
+  content: "";
+  width: 3px;
+  height: 20px;
+  background-color: #c710a2;
+  position: absolute;
+  left: 22px;
+}
+.card-wrap .latest-news .item-wrap .category-wrap.science::before{
+  content: "";
+  width: 3px;
+  height: 20px;
+  background-color: #10C7BA;
+  position: absolute;
+  left: 22px;
+}
+
 .card-wrap .latest-news .description-wrap {
   text-align: start;
   max-width: 526px;
@@ -554,7 +567,7 @@
 .card-wrap .latest-news .description-wrap span {
   font-size: 22px;
   font-weight: bold;
-  font-family: 'Amiri-Bold'; 
+  font-family: "Amiri-Bold";
 }
 </style>
 

@@ -99,8 +99,6 @@
                           </div>
                         </div>
                       </div>
-
-                      <!-- /// -->
                     </b-nav-item>
                     <b-nav-item href="#" class="weather-wrap">
                       <span class="weather-content">
@@ -116,7 +114,6 @@
                         </span>
                         <p>Glasgow</p>
                       </span>
-
                       <!-- Weather -->
                       <div class="weather-main-wrap">
                         <div class="weather-search-wrap">
@@ -135,17 +132,14 @@
                               <button href="#">Search</button>
                             </div>
                           </div>
-
                           <div class="clouds">
                             <span>Broken Clouds</span>
                             <span class="icon">
                               <img src="../../../../assets/images/cloud.svg" alt="cloud" />
                             </span>
                           </div>
-
                           <div class="temp-value-wrap">
                             <span>+12</span>
-
                             <span class="temp-symbol">
                               <span>&#8451;</span>
                               <span>F</span>
@@ -158,10 +152,27 @@
                         </div>
                       </div>
                     </b-nav-item>
-                    <b-nav-item href="#" class="search-wrap">
-                      <font-awesome-icon icon="search" class="fa-lg" />
-                      <font-awesome-icon icon="bell" class="fa-lg" />
-                    </b-nav-item>
+
+                    <li class="nav-item search-wrap">
+                      <div>
+                        <a href="#">
+                          <font-awesome-icon icon="search" class="fa-lg" />
+                        </a>
+                      </div>
+                      <div class="bell active">
+                        <a href="#">
+                          <font-awesome-icon icon="bell" class="fa-lg" />
+                        </a>
+                      </div>
+                    </li>
+                    <!-- <b-nav-item href="#" class="search-wrap">
+                      <div>
+                        <font-awesome-icon icon="search" class="fa-lg" />
+                      </div>
+                      <div class="bell">
+                        <font-awesome-icon icon="bell" class="fa-lg" />
+                      </div>
+                    </b-nav-item>-->
                   </b-navbar-nav>
                   <b-navbar-nav class="mobile-side-menu">
                     <b-nav-item class="close-link-wrap">
@@ -197,7 +208,6 @@
               </div>
 
               <!-- Subscribe -->
-
               <div
                 class="subscribe-prompt-wrap"
                 v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s' }"
@@ -273,47 +283,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Weather -->
-              <!-- <div class="weather-main-wrap">
-                <div class="weather-search-wrap">
-                  <div class="close-wrap">
-                    <a href="#"></a>
-                  </div>
-
-                  <div class="text-wrap">
-                    <p>Do you mean London?</p>
-                  </div>
-                  <div class="seacrh-country-wrap">
-                    <div class="country-wrap">
-                      <span>Lond</span>
-                    </div>
-                    <div class="button-wrap">
-                      <button href="#">Search</button>
-                    </div>
-                  </div>
-
-                  <div class="clouds">
-                    <span>Broken Clouds</span>
-                    <span class="icon">
-                      <img src="../../../../assets/images/cloud.svg" alt="cloud" />
-                    </span>
-                  </div>
-
-                  <div class="temp-value-wrap">
-                    <span>+12</span>
-
-                    <span class="temp-symbol">
-                      <span>&#8451;</span>
-                      <span>F</span>
-                    </span>
-                  </div>
-                </div>
-                <div class="links-wrap">
-                  <a href="#">Weather Map</a>
-                  <a href="#">More</a>
-                </div>
-              </div>-->
             </b-navbar>
             <!-- Mobile Side Weather -->
             <div class="modile-side-weather-wrap">
@@ -577,16 +546,19 @@
           <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=52">
             <div class="slide-title">
               <span>White House vows to boycott impeachment</span>
+              <span class="slide-category general">CATEGOORY 1</span>
             </div>
           </b-carousel-slide>
           <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
             <div class="slide-title">
               <span>Second Slide</span>
+              <span class="slide-category entertainment">CATEGORY 2</span>
             </div>
           </b-carousel-slide>
           <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
             <div class="slide-title">
               <span>Third Slide</span>
+              <span class="slide-category science">CATEGOORY 3</span>
             </div>
           </b-carousel-slide>
         </b-carousel>
@@ -1013,10 +985,9 @@ export default {
   position: absolute;
   width: 380px;
   right: -160px;
-  top: 91px;
+  top: 92px;
   background-color: #052962;
   padding-bottom: 20px;
-  border: 1px solid;
   z-index: 999;
   padding: 0 20px 10px 20px;
 }
@@ -1189,9 +1160,6 @@ export default {
 
 /* Currency Converter */
 /* Notify */
-/* .currency-converter-wrap .converter-wrap{
-  position: relative;
-} */
 
 .currency-converter-wrap .rate-wrap {
   padding: 0 60px;
@@ -1323,17 +1291,6 @@ export default {
   padding-bottom: 45px;
 }
 
-/* .currency-converter-wrap {
-  display: none;
-  width: 380px;
-  border: 1px solid;
-  position: absolute;
-  right: 590px;
-  top: 102px;
-  background-color: #052962;
-  z-index: 999;
-  padding-bottom: 45px;
-} */
 .currency-converter-wrap .close-wrap a {
   width: 18px;
   height: 18px;
@@ -1366,6 +1323,7 @@ export default {
 
 /* Subscribe */
 .subscribe-prompt-wrap {
+  display:none;
   width: 381px;
   padding-bottom: 40px;
   border: 1px solid;
@@ -1722,6 +1680,38 @@ export default {
 
 <style scoped>
 /* Header */
+/* Bell Animation */
+#nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
+  height: 100%;
+  width: 100%;
+  transform: rotate(0deg);
+  animation-name: rotate-bell;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  transform-origin: 50% 0%;
+  animation-timing-function: ease-in-out;
+}
+
+#nav-collapse .sub-wrap .wide-menu .search-wrap {
+  display: flex;
+}
+
+@keyframes rotate-bell {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 .sideMenuActive {
   visibility: visible !important;
@@ -1785,6 +1775,7 @@ export default {
   font-size: 13px;
   letter-spacing: 1px;
 }
+
 .top-menu-wrap #nav-collapse .close-link-wrap {
   display: none;
   position: absolute;
@@ -1828,6 +1819,7 @@ export default {
 .top-menu-wrap .mobile-top-menu .mobnile-search-wrap svg {
   color: rgb(248, 198, 26);
 }
+
 .top-menu-wrap .mobile-top-menu .mobile-logo-wrap a {
   padding: 0;
 }
@@ -1861,6 +1853,7 @@ export default {
   #nav-collapse .sub-wrap .wide-menu {
     display: none;
   }
+
   #nav-collapse .sub-wrap .mobile-side-menu {
     display: flex;
     height: 100%;
@@ -2123,6 +2116,11 @@ export default {
     font-size: 34px;
   }
 }
+@media (max-width: 991px) {
+  .carousel-caption .slide-title span {
+    font-size: 28px;
+  }
+}
 @media (max-width: 767px) {
   .carousel-caption .slide-title span {
     font-size: 24px !important;
@@ -2133,6 +2131,16 @@ export default {
     font-size: 20px !important;
   }
 }
+
+@media (max-width: 375px) {
+  .slider-wrap .carousel-control-next,
+   .slider-wrap .carousel-control-prev
+    {
+    width: 25px !important;
+    height: 25px !important;
+  }
+}
+
 /* Content */
 @media (max-width: 1199px) {
   .business-wrap .title-wrap .title-text,
@@ -2209,6 +2217,42 @@ export default {
 .carousel-caption .slide-title {
   max-width: 400px;
 }
+
+.carousel-caption .slide-title .slide-category {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  text-align: start;
+  letter-spacing: 5px;
+  font-family: "Poppins-Medium";
+  padding-left: 30px;
+}
+
+.carousel-caption .slide-title .slide-category.general::before {
+  content: "";
+  width: 3px;
+  height: 23px;
+  background-color: #1bfe85;
+  position: absolute;
+  left: 15px;
+}
+.carousel-caption .slide-title .slide-category.entertainment::before {
+  content: "";
+  width: 3px;
+  height: 23px;
+  background-color: #ff995e;
+  position: absolute;
+  left: 15px;
+}
+.carousel-caption .slide-title .slide-category.science::before {
+  content: "";
+  width: 3px;
+  height: 23px;
+  background-color: #10c7ba;
+  position: absolute;
+  left: 15px;
+}
+
 .carousel-caption .slide-title span {
   font-size: 40px;
   font-family: "Amiri-Bold";
