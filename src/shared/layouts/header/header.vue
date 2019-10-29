@@ -39,7 +39,7 @@
                       <font-awesome-icon icon="caret-down" />
                     </span>
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap" @click="toggleWeatherModal()">
+                  <b-nav-item href="#" class="weather-wrap" @click='toggleWeatherModal()'>
                     <span class="weather-content">
                       <span>
                         <img src="../../../assets/images/cloud.svg" alt="cloud" />

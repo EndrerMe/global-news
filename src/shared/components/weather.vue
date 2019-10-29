@@ -250,7 +250,7 @@ export default {
           this.location = res.data.name;
           this.date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
           this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
-        });
+         });
       });
 
   }
