@@ -154,7 +154,7 @@
           </div>
         </div>
 
-        <div class="mobile-weather-details-wrap" v-if='isShowMoreWeather'>
+        <div class="mobile-weather-details-wrap" >
           <div class="sides-wrap">
             <div class="weather-map left-side">
               <div class="temp-info-wrap">
@@ -457,7 +457,7 @@ export default {
 
 /* Mob */
 .modile-side-weather-wrap {
-  display: none;
+  /* display: none; */
   overflow: scroll;
 }
 .weaterDetailsHidden {

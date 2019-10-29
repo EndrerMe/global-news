@@ -37,6 +37,50 @@ export default {
 </script>
 
 <style scoped>
+/* Bottom menu */
+.bottom-menu-wrap {
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+.bottom-menu-wrap {
+  font-family: "Amiri-Bold";
+}
+
+@media (max-width: 1199px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 1139px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 18px;
+  }
+  .bottom-menu-wrap {
+    height: 100px;
+  }
+}
+
+@media (max-width: 991px) {
+  .bottom-menu-wrap .bottom-menu li a {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .bottom-menu-wrap .bottom-menu {
+    flex-wrap: unset;
+  }
+  .bottom-menu-wrap .box-menu {
+    overflow: scroll !important;
+    display: flex;
+  }
+}
+
+
+/* end */
+
 .bottom-menu {
   background-color: unset !important;
   justify-content: center !important;
@@ -66,9 +110,5 @@ export default {
   .bottom-menu ul li a span {
     font-size: 17px;
   }
-
-  /* .bottom-menu li a a{
-    font-size:12px !important;
-  } */
 }
 </style>
