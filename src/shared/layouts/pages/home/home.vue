@@ -57,25 +57,10 @@ export default {
   data() {
     return {
       isShowSideMenu: false,
-      slickOptions: {
-        slidesToShow: 3,
-        infinite: true,
-        accessibility: true,
-        adaptiveHeight: true,
-        arrows: true,
-        dots: true,
-        draggable: true,
-        edgeFriction: 0.3,
-        swipe: true
-      },
       entertainmentNewsHome: [],
       scienceNewsHome: [],
       businessNewsHome: [],
     };
-  },
-  created() {
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize();
   },
   beforeCreate() {
     newsService.getData('entertainment', 1).then((res) => {
@@ -96,9 +81,6 @@ export default {
       }
     })
   },
-  destroyed() {
-    window.removeEventListener('resize', this.handleResize)
-  },
   methods: {
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
@@ -112,15 +94,6 @@ export default {
     reInit() {
       // Helpful if you have to deal with v-for to update dynamic lists
       this.$refs.slick.reSlick();
-    },
-
-    handleResize() {
-      console.log(window.innerWidth)
-      if (window.innerWidth < 767) {
-        this.slickOptions.slidesToShow = 1;
-      } else {
-        this.slickOptions.slidesToShow = 3;
-      }
     },
   },
 };

@@ -61,7 +61,7 @@
       </div>
     </div>
 
-    <div class="bg-close" v-if='!isWeatherMap && isShowMoreWeather'></div>
+    <div class="bg-close" v-if='!isWeatherMap && isShowMoreWeather' @click='closeMoreWeather()'></div>
   </div>
 </template>
 
