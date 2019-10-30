@@ -1,122 +1,164 @@
 <template>
-  <div>
+  <div class="component-wrap">
     <div class="weather-dark-screen">
+      <div class="weather-details-wrap" v-if="isShowMoreWeather">
+        <div class="back-to-home">
+          <a href="#" class="back-to-home-button">
+            <font-awesome-icon icon="angle-left" />
+          </a>
+        </div>
 
-    <div class="weather-details-wrap" v-if='isShowMoreWeather'>
-      <div class="close-wrap" @click='closeMoreWeather()'>
-        <a href="#"></a>
-      </div>
-      <div class="left-side">
-        <div class="temp-info-wrap">
-          <div class="temp-value-wrap info-elem">
-            <p>
-              <span class="cwitch">Show weather in :</span>
-              <span class="temp-symbol">
-                <span class="switch-mode">F</span>
-                <span class="switch-mode active">&#8451;</span>
-              </span>
-            </p>
-            <p>Place : {{ weatherData.sys.country }}</p>
+        <div class="close-wrap" @click="closeMoreWeather()">
+          <a href="#"></a>
+        </div>
+        <div class="left-side">
+          <div class="temp-info-wrap">
+            <div class="temp-value-wrap info-elem">
+              <p>
+                <span class="cwitch">Show weather in :</span>
+                <span class="temp-symbol">
+                  <span class="switch-mode">F</span>
+                  <span class="switch-mode active">&#8451;</span>
+                </span>
+              </p>
+              <p>Place : {{ weatherData.sys.country }}</p>
+            </div>
+            <div class="show-info-wrap info-elem">
+              <p>
+                Min Temperature :
+                <span class="temp-value">
+                  {{ weatherData.main.temp_min }}
+                  <span class="temp-val-symbol"></span>
+                </span>
+              </p>
+              <p>
+                Max Temperature :
+                <span class="temp-value">
+                  {{ weatherData.main.temp_max }}
+                  <span class="temp-val-symbol"></span>
+                </span>
+              </p>
+              <p>
+                Temperature :
+                <span class="temp-value">
+                  {{ weatherData.main.temp }}
+                  <span class="temp-val-symbol"></span>
+                </span>
+              </p>
+            </div>
+            <div class="additional-info info-elem">
+              <p class>
+                Humidity :
+                <span class="value">{{ weatherData.main.humidity }}</span>
+              </p>
+              <p class>
+                Wind Speed :
+                <span class="value">{{ weatherData.wind.speed }}</span>
+              </p>
+            </div>
           </div>
-          <div class="show-info-wrap info-elem">
-            <p>
-              Min Temperature :
-              <span class="temp-value">
-                {{ weatherData.main.temp_min }}
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-            <p>
-              Max Temperature :
-              <span class="temp-value">
-                {{ weatherData.main.temp_max }}
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-            <p>
-              Temperature :
-              <span class="temp-value">
-                {{ weatherData.main.temp }}
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-          </div>
-          <div class="additional-info info-elem">
-            <p class>
-              Humidity :
-              <span class="value">{{ weatherData.main.humidity }}</span>
-            </p>
-            <p class>
-              Wind Speed :
-              <span class="value">{{ weatherData.wind.speed }}</span>
-            </p>
+        </div>
+        <div class="right-side">
+          <div class="wrap">
+            <span class="icon-wrap">
+              <img :src="weatherImg" alt />
+            </span>
+            <span>{{ weatherData.weather[0].description }}</span>
           </div>
         </div>
       </div>
-      <div class="right-side">
-        <div class="wrap">
-          <span class="icon-wrap">
-            <img :src="weatherImg" alt="" />
-          </span>
-          <span>{{ weatherData.weather[0].description }}</span>
-        </div>
-      </div>
+
+      <div class="bg-close" v-if="!isWeatherMap && isShowMoreWeather" @click="closeMoreWeather()"></div>
     </div>
-
-    <div class="bg-close" v-if='!isWeatherMap && isShowMoreWeather' @click='closeMoreWeather()'></div>
   </div>
-
-</div>
 </template>
 
 <script>
 export default {
-  props: ['isShowMoreWeather', 'weatherData', 'isWeatherMap'],
-  name: 'moreWeather',
+  props: ["isShowMoreWeather", "weatherData", "isWeatherMap"],
+  name: "moreWeather",
   data() {
     return {
-      weatherImg: ''
-    }
+      weatherImg: ""
+    };
   },
   mounted() {
     if (this.weatherData) {
-      this.weatherData.main.temp = this.weatherData.main.temp + '';
+      this.weatherData.main.temp = this.weatherData.main.temp + "";
       this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
-      this.weatherData.main.temp_max = this.weatherData.main.temp_max + '';
-      this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(".")[0];
-      this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
-      this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
+      this.weatherData.main.temp_max = this.weatherData.main.temp_max + "";
+      this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(
+        "."
+      )[0];
+      this.weatherData.main.temp_min = this.weatherData.main.temp_min + "";
+      this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(
+        "."
+      )[0];
       this.weatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
   },
   created() {
-    console.log(this.isShowMoreWeather)
+    console.log(this.isShowMoreWeather);
   },
   methods: {
     closeMoreWeather() {
-      this.$emit('closeMoreWeather', false);
+      this.$emit("closeMoreWeather", false);
     }
   },
   watch: {
     isShowMoreWeather: function(newVal) {
-      console.log(newVal)
+      console.log(newVal);
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.weather-dark-screen.active{
+/* .weather-dark-screen.active {
   position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.weather-dark-screen {
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+}
+.weather-details-wrap {
+  display: flex;
+  width: 602px;
+  /* position: absolute; */
+  background-color: #052962;
+  border: 1px solid;
+  z-index: 1000;
+  padding: 0 50px;
 }
 
+.weather-dark-screen .back-to-home {
+  position: fixed;
+  font-size: 30px;
+  top: -750px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.weather-dark-screen .back-to-home a {
+  font-size: 100px;
+  background-color: rgba(43, 44, 91, 0.4);
+  background: rgba(43, 44, 91, 0.4);
+  color: rgba(43, 44, 91, 0.4);
+  padding: 0 35px;
+}
+.weather-dark-screen .back-to-home a svg {
+  color: white;
+}
 .weather-details-wrap .right-side {
   position: absolute;
   right: 11%;
@@ -162,22 +204,21 @@ export default {
   margin: 0 5px;
 }
 
-.weather-details-wrap .temp-symbol .switch-mode.active{
-  color: #F8C61A;
+.weather-details-wrap .temp-symbol .switch-mode.active {
+  color: #f8c61a;
 }
-
 
 .weather-details-wrap .temp-symbol {
   position: relative;
 }
 .weather-details-wrap .temp-symbol::before {
-    content: "";
-    position: absolute;
-    width: 1px;
-    height: 26px;
-    background-color: white;
-    left: 22px;
-    top: 2px;
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 26px;
+  background-color: white;
+  left: 22px;
+  top: 2px;
 }
 .weather-details-wrap .temp-value-wrap {
   text-align: start;
@@ -185,24 +226,14 @@ export default {
 
 .weather-details-wrap .temp-info-wrap p {
   margin-bottom: 10px;
-  font-family: 'Poppins-Regular';
-  font-size:24px;
-  
+  font-family: "Poppins-Regular";
+  font-size: 24px;
 }
 .weather-details-wrap .temp-info-wrap {
   color: #f9f9f9;
   font-size: 24px;
   margin-top: 95px;
   margin-bottom: 44px;
-}
-.weather-details-wrap {
-  display: flex;
-  width: 602px;
-  position: absolute;
-  background-color: #052962;
-  border: 1px solid;
-  z-index: 1000;
-  padding: 0 50px;
 }
 
 .weather-details-wrap .close-wrap a {
@@ -517,13 +548,13 @@ export default {
   }
 }
 
-.bg-close {
+/* .bg-close {
   position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-}
+} */
 </style>
