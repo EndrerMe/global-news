@@ -428,8 +428,7 @@ export default {
   margin-bottom: 44px;
 }
 .weather-details-wrap {
-  display:none;
-/* display: flex; */
+  display: flex;
   width: 602px;
   position: absolute;
   top: 500px;
