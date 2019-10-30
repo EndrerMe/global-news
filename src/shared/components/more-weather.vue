@@ -190,7 +190,6 @@ export default {
   border: 1px solid;
   z-index: 1000;
   padding: 0 50px;
-  left: -550px;
 }
 
 .weather-details-wrap .close-wrap a {
