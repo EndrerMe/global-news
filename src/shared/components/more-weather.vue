@@ -110,66 +110,6 @@
           </div>
         </div>
       </div>
-
-      <div class="mobile-weather-details-wrap">
-        <div class="sides-wrap">
-          <div class="weather-map left-side">
-            <div class="temp-info-wrap">
-              <div class="temp-value-wrap info-elem">
-                <p>
-                  <span class="cwitch">Show weather in :</span>
-                  <span class="temp-symbol">
-                    <span>F</span>
-                    <span>&#8451;</span>
-                  </span>
-                </p>
-                <p>Place : London</p>
-              </div>
-              <div class="show-info-wrap info-elem">
-                <p>
-                  Min Temperature :
-                  <span class="temp-value">
-                    14
-                    <span class="temp-val-symbol"></span>
-                  </span>
-                </p>
-                <p>
-                  Max Temperature :
-                  <span class="temp-value">
-                    14
-                    <span class="temp-val-symbol"></span>
-                  </span>
-                </p>
-                <p>
-                  Temperature :
-                  <span class="temp-value">
-                    14
-                    <span class="temp-val-symbol"></span>
-                  </span>
-                </p>
-              </div>
-              <div class="additional-info info-elem">
-                <p class>
-                  Humidity :
-                  <span class="value">28</span>
-                </p>
-                <p class>
-                  Wind Speed :
-                  <span class="value">3</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="right-side">
-            <div class="wrap">
-              <span class="icon-wrap">
-                <img src="../../assets/images/cloud.svg" alt="cloud" />
-              </span>
-              <span class="text">Broken Clouds</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 </template>
 
