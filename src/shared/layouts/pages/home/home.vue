@@ -9,32 +9,7 @@
       <!-- Slider -->
 
       <div class="slider-wrap">
-        <b-carousel
-          id="carousel-1"
-          :interval="4000"
-          controls
-          indicators
-          background="#ababab"
-          img-width="1024"
-          img-height="480"
-          style="text-shadow: 1px 1px 2px #333;"
-        >
-          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=52">
-            <div class="slide-title">
-              <span>White House vows to boycott impeachment</span>
-            </div>
-          </b-carousel-slide>
-          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-            <div class="slide-title">
-              <span>Second Slide</span>
-            </div>
-          </b-carousel-slide>
-          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
-            <div class="slide-title">
-              <span>Third Slide</span>
-            </div>
-          </b-carousel-slide>
-        </b-carousel>
+        <homeSlider></homeSlider>
       </div>
       <!-- Business -->
       <card :sendedNews='entertainmentNewsHome' :title="'Science'" :titleBorder="'c710a2'"></card>
@@ -49,10 +24,12 @@
 <script>
 import card from './../../../components/card';
 import newsService from './../../../services/news.service';
+import homeSlider from './../../../components/home-slider';
 
 export default {
   components: { 
-    card
+    card,
+    homeSlider
   },
   data() {
     return {
@@ -64,20 +41,38 @@ export default {
   },
   beforeCreate() {
     newsService.getData('entertainment', 1).then((res) => {
-      for (let i = 0; i < 3; i++) {
-        this.entertainmentNewsHome.push(res.data.articles[i]);
+      let newsCol = 3;
+      for (let i = 0; i < newsCol; i++) {
+        if (res.data.articles[i].urlToImage) {
+          this.entertainmentNewsHome.push(res.data.articles[i]);
+        } else {
+          newsCol += 1;
+          continue;
+        }
       }
     })
 
     newsService.getData('science', 1).then((res) => {
-      for (let i = 0; i < 3; i++) {
-        this.scienceNewsHome.push(res.data.articles[i]);
+      let newsCol = 3;
+      for (let i = 0; i < newsCol; i++) {
+        if (res.data.articles[i].urlToImage) {
+          this.scienceNewsHome.push(res.data.articles[i]);
+        } else {
+          newsCol += 1;
+          continue;
+        }
       }
     })
 
     newsService.getData('business', 1).then((res) => {
-      for (let i = 0; i < 3; i++) {
-        this.businessNewsHome.push(res.data.articles[i]);
+      let newsCol = 3;
+      for (let i = 0; i < newsCol; i++) {
+        if (res.data.articles[i].urlToImage) {
+          this.businessNewsHome.push(res.data.articles[i]);
+        } else {
+          newsCol += 1;
+          continue;
+        }
       }
     })
   },

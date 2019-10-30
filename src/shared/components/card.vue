@@ -28,8 +28,8 @@
 
           <b-card-text>{{ news.description }}</b-card-text>
           <template v-slot:footer>
-            <small class="text-muted">6 min ago</small>
-            <small class="text-muted">bbc.com</small>
+            <small class="text-muted">{{ news.publishedAt | moment("from", "now") }}</small>
+            <small class="text-muted">{{ news.source.name }}</small>
           </template>
         </b-card>
       </div>
@@ -69,7 +69,9 @@ export default {
       }
     };
   },
-  created() {},
+  created() {
+    console.log(this.sendedNews)
+  },
   methods: {
     goToCurrentNews(news) {
       this.$router.push({ name: "news-info", params: { news } });
@@ -207,5 +209,56 @@ export default {
   text-transform: uppercase;
   letter-spacing: 10px;
   padding: 6px 30px;
+}
+
+.slick-slider {
+  margin-top: 30px;
+}
+.slick-slider .slick-dots {
+  display: none !important;
+}
+.slick-slider button.slick-prev,
+.slick-slider button.slick-next:focus {
+  outline: none;
+}
+.slick-slider button.slick-prev {
+  position: absolute;
+  top: -49px;
+  right: 50px;
+  color: transparent;
+  background: transparent;
+  border: none;
+  width: 30px;
+}
+.slick-slider button.slick-prev::before {
+  right: 8px;
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid #4e3535;
+  border-bottom: 2px solid #4e3535;
+  transform: rotate(45deg);
+  top: 8px;
+}
+.slick-slider button.slick-next {
+  position: absolute;
+  top: -49px;
+  right: 15px;
+  color: transparent;
+  background: transparent;
+  border: none;
+  width: 30px;
+}
+.slick-slider button.slick-next::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #4e3535;
+  border-bottom: 2px solid #4e3535;
+  transform: rotate(-45deg);
+  top: 8px;
+  left: 8px;
 }
 </style>

@@ -8,6 +8,7 @@ import vWow from "v-wow";
 import AOS from 'aos';
 import VueGeolocation from 'vue-browser-geolocation';
 import SocialSharing from 'vue-social-sharing'
+import VueMoment from 'vue-moment';
 
 // Router
 import routes from "./routes";
@@ -55,6 +56,7 @@ Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(Slick);
 Vue.use(vWow);
+Vue.use(VueMoment);
 Vue.use(VueGeolocation);
 Vue.use(SocialSharing);
 

@@ -26,96 +26,104 @@
             </div>
 
             <div class="social-networks-wrap">
-              <div class="icons-wrap">
-                <a href="#">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="9.212"
-                    height="18.424"
-                    viewBox="0 0 9.212 18.424"
-                  >
-                    <path
-                      id="Path_22"
-                      data-name="Path 22"
-                      d="M133.758,6.333V4.03a1.152,1.152,0,0,1,1.152-1.152h1.152V0h-2.3A3.454,3.454,0,0,0,130.3,3.455V6.333H128V9.212h2.3v9.212h3.455V9.212h2.3l1.152-2.879Z"
-                      transform="translate(-128)"
-                      fill
-                    />
-                  </svg>
-                </a>
-                <a href="#">
-                  <svg
-                    id="linkedin"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18.424"
-                    height="17.838"
-                    viewBox="0 0 18.424 17.838"
-                  >
-                    <g
-                      id="Group_38"
-                      data-name="Group 38"
-                      transform="translate(0 5.171)"
-                    >
-                      <g id="Group_37" data-name="Group 37">
-                        <rect
-                          id="Rectangle_26"
-                          data-name="Rectangle 26"
-                          width="4.12"
-                          height="12.667"
-                          fill
-                        />
-                      </g>
-                    </g>
-                    <g
-                      id="Group_40"
-                      data-name="Group 40"
-                      transform="translate(5.758 5.171)"
-                    >
-                      <g id="Group_39" data-name="Group 39">
-                        <path
-                          id="Path_23"
-                          data-name="Path 23"
-                          d="M169.585,160.149c-.044-.014-.085-.029-.131-.041s-.111-.023-.167-.032a3.692,3.692,0,0,0-.739-.075,5.725,5.725,0,0,0-4.428,2.422V160H160v12.667h4.12v-6.909s3.114-4.337,4.428-1.152v8.061h4.119v-8.548A4.108,4.108,0,0,0,169.585,160.149Z"
-                          transform="translate(-160 -160)"
-                          fill
-                        />
-                      </g>
-                    </g>
-                    <g
-                      id="Group_42"
-                      data-name="Group 42"
-                      transform="translate(0.223 0)"
-                    >
-                      <g id="Group_41" data-name="Group 41">
-                        <circle
-                          id="Ellipse_12"
-                          data-name="Ellipse 12"
-                          cx="1.94"
-                          cy="1.94"
-                          r="1.94"
-                          fill
-                        />
-                      </g>
-                    </g>
-                  </svg>
-                </a>
-                <a href="#">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="19.209"
-                    height="15.607"
-                    viewBox="0 0 19.209 15.607"
-                  >
-                    <path
-                      id="Path_24"
-                      data-name="Path 24"
-                      d="M19.209,49.848a8.21,8.21,0,0,1-2.269.622,3.916,3.916,0,0,0,1.732-2.177,7.87,7.87,0,0,1-2.5.953,3.938,3.938,0,0,0-6.812,2.693,4.055,4.055,0,0,0,.091.9,11.146,11.146,0,0,1-8.117-4.119,3.939,3.939,0,0,0,1.21,5.263A3.889,3.889,0,0,1,.768,53.5v.043a3.956,3.956,0,0,0,3.155,3.869,3.931,3.931,0,0,1-1.032.13,3.482,3.482,0,0,1-.746-.067,3.975,3.975,0,0,0,3.68,2.743,7.913,7.913,0,0,1-4.883,1.68A7.376,7.376,0,0,1,0,61.84a11.086,11.086,0,0,0,6.041,1.767A11.131,11.131,0,0,0,17.249,52.4c0-.174-.006-.342-.014-.509A7.856,7.856,0,0,0,19.209,49.848Z"
-                      transform="translate(0 -48)"
-                      fill
-                    />
-                  </svg>
-                </a>
-              </div>
+              <social-sharing url=""
+                :title="news.title"
+                :description="news.description"
+                :media="news.urlToImage"
+                :quote="news.description"
+                hashtags="news"
+                inline-template class="shared">
+                  <div class="icons-wrap">
+                      <network network="facebook" class="social">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9.212"
+                          height="18.424"
+                          viewBox="0 0 9.212 18.424"
+                        >
+                          <path
+                            id="Path_22"
+                            data-name="Path 22"
+                            d="M133.758,6.333V4.03a1.152,1.152,0,0,1,1.152-1.152h1.152V0h-2.3A3.454,3.454,0,0,0,130.3,3.455V6.333H128V9.212h2.3v9.212h3.455V9.212h2.3l1.152-2.879Z"
+                            transform="translate(-128)"
+                            fill
+                          />
+                        </svg>
+                      </network>
+                      <network network="linkedin" class="social">
+                        <svg
+                          id="linkedin"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18.424"
+                          height="17.838"
+                          viewBox="0 0 18.424 17.838"
+                        >
+                          <g
+                            id="Group_38"
+                            data-name="Group 38"
+                            transform="translate(0 5.171)"
+                          >
+                            <g id="Group_37" data-name="Group 37">
+                              <rect
+                                id="Rectangle_26"
+                                data-name="Rectangle 26"
+                                width="4.12"
+                                height="12.667"
+                                fill
+                              />
+                            </g>
+                          </g>
+                          <g
+                            id="Group_40"
+                            data-name="Group 40"
+                            transform="translate(5.758 5.171)"
+                          >
+                            <g id="Group_39" data-name="Group 39">
+                              <path
+                                id="Path_23"
+                                data-name="Path 23"
+                                d="M169.585,160.149c-.044-.014-.085-.029-.131-.041s-.111-.023-.167-.032a3.692,3.692,0,0,0-.739-.075,5.725,5.725,0,0,0-4.428,2.422V160H160v12.667h4.12v-6.909s3.114-4.337,4.428-1.152v8.061h4.119v-8.548A4.108,4.108,0,0,0,169.585,160.149Z"
+                                transform="translate(-160 -160)"
+                                fill
+                              />
+                            </g>
+                          </g>
+                          <g
+                            id="Group_42"
+                            data-name="Group 42"
+                            transform="translate(0.223 0)"
+                          >
+                            <g id="Group_41" data-name="Group 41">
+                              <circle
+                                id="Ellipse_12"
+                                data-name="Ellipse 12"
+                                cx="1.94"
+                                cy="1.94"
+                                r="1.94"
+                                fill
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </network>
+                      <network network="twitter" class="social">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19.209"
+                            height="15.607"
+                            viewBox="0 0 19.209 15.607"
+                          >
+                            <path
+                              id="Path_24"
+                              data-name="Path 24"
+                              d="M19.209,49.848a8.21,8.21,0,0,1-2.269.622,3.916,3.916,0,0,0,1.732-2.177,7.87,7.87,0,0,1-2.5.953,3.938,3.938,0,0,0-6.812,2.693,4.055,4.055,0,0,0,.091.9,11.146,11.146,0,0,1-8.117-4.119,3.939,3.939,0,0,0,1.21,5.263A3.889,3.889,0,0,1,.768,53.5v.043a3.956,3.956,0,0,0,3.155,3.869,3.931,3.931,0,0,1-1.032.13,3.482,3.482,0,0,1-.746-.067,3.975,3.975,0,0,0,3.68,2.743,7.913,7.913,0,0,1-4.883,1.68A7.376,7.376,0,0,1,0,61.84a11.086,11.086,0,0,0,6.041,1.767A11.131,11.131,0,0,0,17.249,52.4c0-.174-.006-.342-.014-.509A7.856,7.856,0,0,0,19.209,49.848Z"
+                              transform="translate(0 -48)"
+                              fill
+                            />
+                          </svg>
+                      </network>
+                  </div>
+              </social-sharing>
             </div>
           </b-card>
 
