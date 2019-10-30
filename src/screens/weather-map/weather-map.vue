@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="back-to-home">
+    <div class="back-to-home" @click='goBack()'>
       <a href="#" class="back-to-home-button">
         <font-awesome-icon icon="angle-left" />
       </a>
@@ -74,6 +74,10 @@ export default {
   methods: {
     closeMoreWeather() {
       this.isShowMoreWeather = false;
+    },
+
+    goBack() {
+        this.$router.go(-1);
     }
   }
 };

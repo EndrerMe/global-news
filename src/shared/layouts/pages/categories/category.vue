@@ -2,7 +2,7 @@
     <div class="container content">
       <!-- Top title -->
       <div class="main-title-wrap">
-        <span class="text">Business</span>
+        <span class="text">{{ category | titleToUpperCase }}</span>
       </div>
 
       <!-- Top-box with 4 images -->
@@ -159,11 +159,17 @@ export default {
     beforeCreate() {
         this.category = this.$route.params.category;
         newsService.getData(this.category, 1).then(res => {
-            this.currentNews = res.data.articles;
-            this.firstBlock = res.data.articles[0];
-            this.secoundBlock = res.data.articles[1];
-            this.thirdBlock = res.data.articles[2];
-            this.fourthBlock = res.data.articles[3];
+          this.firstBlock = res.data.articles[0];
+          this.secoundBlock = res.data.articles[1];
+          this.thirdBlock = res.data.articles[2];
+          this.fourthBlock = res.data.articles[3];
+            for (let i = 0; i < 16; i++) {
+              if (res.data.articles[i].urlToImage) {
+                this.currentNews.push(res.data.articles[i])
+              } else {
+                continue;
+              }
+            }
             }, (err) => {
                 console.log(err);
             });
@@ -173,12 +179,19 @@ export default {
             if (to.params.category) {
                 this.currentNews = [];
                 this.category = to.params.category;
+                // let newsCol = 3;
                 newsService.getData(this.category, 1).then(res => {
-                    this.currentNews = res.data.articles;
                     this.firstBlock = res.data.articles[0];
                     this.secoundBlock = res.data.articles[1];
                     this.thirdBlock = res.data.articles[2];
-                    this.fourthBlock = res.data.articles[3];
+                    this.fourthBlock = res.data.articles[3];                    
+                    for (let i = 0; i < 16; i++) {
+                      if (res.data.articles[i].urlToImage) {
+                        this.currentNews.push(res.data.articles[i])
+                      } else {
+                        continue;
+                      }
+                    }
                 }, (err) => {
                     console.log(err);
                 });
@@ -189,6 +202,16 @@ export default {
         goToCurrentNews(news) {
             this.$router.push({name: 'news-info', params: {news}})
         }
+    },
+    filters: {
+      titleToUpperCase: function(value) {
+        if (!value) return '';
+        value = value.toString().toUpperCase();
+        return value;
+      }
+    },
+    mounted() {
+      this.category = this.$route.params.category;
     }
 }
 </script>
