@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <moreWeather :isShowMoreWeather='isShowMoreWeather' @closeMoreWeather='closeMoreWeather' :weatherData='weatherData'></moreWeather>
+        <moreWeather :isShowMoreWeather='isShowMoreWeather' @closeMoreWeather='closeMoreWeather' :weatherData='weatherData' :isWeatherMap='true'></moreWeather>
         <div id='map' class="map"></div>
     </div>
 </template>
@@ -41,7 +41,9 @@ export default {
                     that.isShowMoreWeather = true;
                 })
             });
-        })
+        }).catch(function (e) {
+            console.log(e);
+        }) 
     },
     methods: {
         closeMoreWeather() {
