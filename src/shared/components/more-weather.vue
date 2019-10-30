@@ -1,121 +1,99 @@
 <template>
-    <div class="modile-side-weather-wrap">
-      <div class="mobile-weather-main-wrap">
-        <div class="title-wrap section-elem">
-          <span>Weather</span>
-        </div>
-        <div class="location-wrap section-elem">
-          <span>Glasgow</span>
-        </div>
-        <div class="weather-data-wrap">
-          <div class="clouds">
-            <span class="icon">
-              <img src="../../assets/images/cloud.svg" alt="cloud" />
-            </span>
-            <span class="cloud-state">Broken Clouds</span>
-          </div>
-          <div class="temp-value-wrap">
-            <span class="temp-value">+9</span>
+ <div class="weather-details-wrap" v-if='isShowMoreWeather'>
+    <div class="close-wrap" @click='closeMoreWeather()'>
+      <a href="#"></a>
+    </div>
+    <div class="left-side">
+      <div class="temp-info-wrap">
+        <div class="temp-value-wrap info-elem">
+          <p>
+            <span class="cwitch">Show weather in :</span>
             <span class="temp-symbol">
-              <span class="activeMode active">&#8451;</span>
-              <span class="activeMode">F</span>
+              <span class="switch-mode">F</span>
+              <span class="switch-mode active">&#8451;</span>
             </span>
-          </div>
+          </p>
+          <p>Place : {{ weatherData.sys.country }}</p>
         </div>
-        <div class="seacrh-country-wrap">
-          <div class="text-wrap">
-            <p>
-              Did you mean
-              <span class="serch-result">London</span> ?
-            </p>
-          </div>
-          <div class="country-wrap">
-            <span>Lond</span>
-          </div>
-          <div class="button-wrap">
-            <button href="#">Search</button>
-          </div>
+        <div class="show-info-wrap info-elem">
+          <p>
+            Min Temperature :
+            <span class="temp-value">
+              {{ weatherData.main.temp_min }}
+              <span class="temp-val-symbol"></span>
+            </span>
+          </p>
+          <p>
+            Max Temperature :
+            <span class="temp-value">
+              {{ weatherData.main.temp_max }}
+              <span class="temp-val-symbol"></span>
+            </span>
+          </p>
+          <p>
+            Temperature :
+            <span class="temp-value">
+              {{ weatherData.main.temp }}
+              <span class="temp-val-symbol"></span>
+            </span>
+          </p>
         </div>
-        <div class="links-wrap">
-          <!-- Mobile Weater Details -->
-          <div class="mobile-weather-details-wrap">
-            <div class="links-wrap">
-              <div class="left-link">
-                <a href="#">
-                  More
-                  <font-awesome-icon icon="caret-down" />
-                </a>
-              </div>
-              <div class="right-link">
-                <a href="#">Weather Map</a>
-              </div>
-            </div>
-            <div class="sides-wrap">
-              <div class="left-side">
-                <div class="temp-info-wrap">
-                  <div class="temp-value-wrap info-elem">
-                    <p>
-                      <span class="cwitch">Show weather in :</span>
-                      <span class="temp-symbol">
-                        <span>F</span>
-                        <span>&#8451;</span>
-                      </span>
-                    </p>
-                    <p>Place : London</p>
-                  </div>
-                  <div class="show-info-wrap info-elem">
-                    <p>
-                      Min Temperature :
-                      <span class="temp-value">
-                        14
-                        <span class="temp-val-symbol"></span>
-                      </span>
-                    </p>
-                    <p>
-                      Max Temperature :
-                      <span class="temp-value">
-                        14
-                        <span class="temp-val-symbol"></span>
-                      </span>
-                    </p>
-                    <p>
-                      Temperature :
-                      <span class="temp-value">
-                        14
-                        <span class="temp-val-symbol"></span>
-                      </span>
-                    </p>
-                  </div>
-                  <div class="additional-info info-elem">
-                    <p class>
-                      Humidity :
-                      <span class="value">28</span>
-                    </p>
-                    <p class>
-                      Wind Speed :
-                      <span class="value">3</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="right-side">
-                <div class="wrap">
-                  <span class="icon-wrap">
-                    <img src="../../assets/images/cloud.svg" alt="cloud" />
-                  </span>
-                  <span class="text">Broken Clouds</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="additional-info info-elem">
+          <p class>
+            Humidity :
+            <span class="value">{{ weatherData.main.humidity }}</span>
+          </p>
+          <p class>
+            Wind Speed :
+            <span class="value">{{ weatherData.wind.speed }}</span>
+          </p>
         </div>
       </div>
     </div>
+    <div class="right-side">
+      <div class="wrap">
+        <span class="icon-wrap">
+          <img :src="weatherImg" alt="" />
+        </span>
+        <span>{{ weatherData.weather[0].description }}</span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'moreWeather'
+  props: ['isShowMoreWeather', 'weatherData'],
+  name: 'moreWeather',
+  data() {
+    return {
+      weatherImg: ''
+    }
+  },
+  mounted() {
+    if (this.weatherData) {
+      this.weatherData.main.temp = this.weatherData.main.temp + '';
+      this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
+      this.weatherData.main.temp_max = this.weatherData.main.temp_max + '';
+      this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(".")[0];
+      this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
+      this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
+      this.weatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
+    }
+  },
+  created() {
+    console.log(this.isShowMoreWeather)
+  },
+  methods: {
+    closeMoreWeather() {
+      this.$emit('closeMoreWeather', false);
+    }
+  },
+  watch: {
+    isShowMoreWeather: function(newVal) {
+      console.log(newVal)
+    }
+  }
 }
 </script>
 
@@ -200,14 +178,13 @@ export default {
   margin-bottom: 44px;
 }
 .weather-details-wrap {
-  display:none;
-/* display: flex; */
+  display: flex;
   width: 602px;
   position: absolute;
   top: 500px;
   background-color: #052962;
   border: 1px solid;
-  z-index: 999;
+  z-index: 1000;
   padding: 0 50px;
   left: -550px;
 }

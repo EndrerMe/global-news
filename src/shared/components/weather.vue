@@ -6,8 +6,6 @@
           <a href="#"></a>
         </div>
         <div class="temp-value-wrap">
-          <span>{{ temp }}</span>
-
           <div class="text-wrap">
             <span>
               Do you mean
@@ -32,8 +30,7 @@
         </div>
 
         <div class="temp-value-wrap">
-          <span>{{ temp }}</span>
-          <span class="value">5434</span>
+          <span class="value">{{ temp }}</span>
           <span class="temp-symbol-wrap">
             <span class="temp-symbol">
               <span class="mode active">&#8451;</span>
@@ -43,7 +40,7 @@
         </div>
       </div>
       <div class="links-wrap">
-        <a href="#">Weather Map</a>
+        <a href="#" @click='showWeatherMap()'>Weather Map</a>
         <a href="#" @click="showMoreWeather()">More</a>
       </div>
     </div>
@@ -225,81 +222,25 @@
     </div>
 
     <!-- Weater Details -->
-    <div class="weather-details-wrap">
-      <div class="close-wrap">
-        <a href="#"></a>
-      </div>
-      <div class="left-side">
-        <div class="temp-info-wrap">
-          <div class="temp-value-wrap info-elem">
-            <p>
-              <span class="cwitch">Show weather in :</span>
-              <span class="temp-symbol">
-                <span class="switch-mode">F</span>
-                <span class="switch-mode active">&#8451;</span>
-              </span>
-            </p>
-            <p>Place : London</p>
-          </div>
-          <div class="show-info-wrap info-elem">
-            <p>
-              Min Temperature :
-              <span class="temp-value">
-                14
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-            <p>
-              Max Temperature :
-              <span class="temp-value">
-                14
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-            <p>
-              Temperature :
-              <span class="temp-value">
-                14
-                <span class="temp-val-symbol"></span>
-              </span>
-            </p>
-          </div>
-          <div class="additional-info info-elem">
-            <p class>
-              Humidity :
-              <span class="value">28</span>
-            </p>
-            <p class>
-              Wind Speed :
-              <span class="value">3</span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="right-side">
-        <div class="wrap">
-          <span class="icon-wrap">
-            <img src="../../assets/images/cloud.svg" alt="cloud" />
-          </span>
-          <span>Broken Clouds</span>
-        </div>
-      </div>
-    </div>
+    <moreWeather :isShowMoreWeather='isShowMoreWeather' @closeMoreWeather='closeMoreWeather' :weatherData='weatherData'></moreWeather>
   </div>
 </template>
 
 <script>
 import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
+import moreWeather from './../components/more-weather';
 
 export default {
   props: ["isShowWeatherModal", "isShowConverter"],
   name: "weatherDesctop",
   components: {
-    converterDesctop
+    converterDesctop,
+    moreWeather
   },
   data() {
     return {
+      weatherData: null,
       temp: "",
       location: "",
       date: "",
@@ -309,10 +250,11 @@ export default {
       isShowMoreWeather: false
     };
   },
-  created() {
+  beforeCreate() {
     this.$getLocation().then(coordinates => {
       this.coordinates = coordinates;
       weatherService.getWeather(coordinates.lat, coordinates.lng).then(res => {
+        this.weatherData = res.data;
         this.temp = res.data.main.temp;
         this.temp = this.temp + "";
         this.temp = this.temp.split(".")[0];
@@ -338,6 +280,17 @@ export default {
 
     showMoreWeather() {
       this.isShowMoreWeather = true;
+    },
+
+    closeMoreWeather() {
+      this.isShowMoreWeather = false;
+    },
+
+    showWeatherMap() {
+      let data = this.weatherData;
+      this.$emit("closeWeatherModal", false);
+      this.isShowWeatherModal = false;
+      this.$router.push({name: 'weatherMap', params: {data}});
     }
   }
 };

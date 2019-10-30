@@ -15,6 +15,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "animate.css";
 import "aos/dist/aos.css";
+import "./assets/css/global/global.css";
 
 // Fonts
 import { library } from "@fortawesome/fontawesome-svg-core";
