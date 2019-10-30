@@ -12,14 +12,13 @@
         <span>Do you want to receive more news ?</span>
       </div>
       <div class="button-wrap">
-        <button href="#">Subscribe Us</button>
+        <button href="#" @click='showFullSubscribe()'>Subscribe Us</button>
       </div>
     </div>
 
-    <!-- Notify Subscribe-->
-    <div class="notify-prompt-wrap">
-      <div class="close-wrap">
-        <a href="#"></a>
+    <div class="notify-prompt-wrap" v-if='isShowSubscribeFull'>
+      <div class="close-wrap" @click='closeSubscribeFull()'>
+        <a class="close-button" href="#"></a>
       </div>
 
       <div class="text-wrap">
@@ -46,14 +45,35 @@
 <script>
 export default {
   name: "subscribeDesctop",
+  props: ['showSubscribeFull'],
   data() {
     return {
-      isShowSubscribe: true
+      isShowSubscribe: true,
+      isShowSubscribeFull: false,
     };
   },
   methods: {
     closeSubSubscribe() {
       this.isShowSubscribe = false;
+    },
+
+    showFullSubscribe() {
+      this.isShowSubscribe = false;
+      this.isShowSubscribeFull = true;
+    },
+
+    closeSubscribeFull() {
+      this.isShowSubscribeFull = false;
+    }
+  },
+  watch: {
+    showSubscribeFull: function(newValue) {
+      if (this.isShowSubscribeFull !== newValue) {
+        this.isShowSubscribe = false;
+        this.isShowSubscribeFull = newValue;
+      } else {
+        return;
+      }
     }
   }
 };

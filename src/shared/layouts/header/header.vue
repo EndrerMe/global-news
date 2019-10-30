@@ -43,8 +43,8 @@
 
 
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap" @click="toggleWeatherModal()">
-                    <span class="weather-content">
+                  <b-nav-item href="#" class="weather-wrap">
+                    <span class="weather-content"  @click='toggleWeatherModal()'>
                       <span>
                         <img src="../../../assets/images/cloud.svg" alt="cloud" />
                       </span>
@@ -58,6 +58,7 @@
                       <p>Glasgow</p>
                     </span>
                     <weatherDesctop
+                      @closeWeatherModal='closeWeatherModal'
                       :isShowWeatherModal="isShowWeatherModal"
                     ></weatherDesctop>
                   </b-nav-item>
@@ -67,12 +68,12 @@
                         <font-awesome-icon icon="search" class="fa-lg" />
                       </a>
                     </div>
-                    <div class="bell active">
+                    <div class="bell active" @click='showSubscribeFullFun()'>
                       <a href="#">
                         <font-awesome-icon icon="bell" class="fa-lg" />
                       </a>
                     </div>
-                    <subscribeDesctop></subscribeDesctop>
+                    <subscribeDesctop :showSubscribeFull='showSubscribeFull'></subscribeDesctop>
                   </li>
                 </b-navbar-nav>
                 <b-navbar-nav class="mobile-side-menu">
@@ -134,7 +135,8 @@ export default {
     return {
       isShowSideMenu: false,
       isShowWeatherModal: false,
-      isShowConverter: false
+      isShowConverter: false,
+      showSubscribeFull: false,
     };
   },
   methods: {
@@ -148,6 +150,14 @@ export default {
 
     toggleConverterModal() {
       this.isShowConverter = !this.isShowConverter;
+    },
+
+    closeWeatherModal() {
+      this.isShowWeatherModal = false;
+    },
+
+    showSubscribeFullFun() {
+      this.showSubscribeFull = !this.showSubscribeFull
     }
   }
 };

@@ -168,8 +168,7 @@ export default {
   props: ['news'],
   name: 'newsInfo',
   created() {
-    console.log(this.news)
-  }
+  },
 }
 </script>
 
