@@ -30,8 +30,8 @@
                     <img src="../../../assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
                   <b-nav-item href="#" class="current-date">
-                    <span>October 8, 2019</span>
-                    <span>Tuesday</span>
+                    <span>{{currentDate.day}} {{currentDate.month}}, {{currentDate.year}}</span>
+                    <span>{{currentDate.weekDay}}</span>
                   </b-nav-item>
                   <b-nav-item href="#" class="converter-wrap" @click="toggleConverterModal()">
                     <span>
@@ -147,6 +147,15 @@ export default {
       temp: '',
       location: '',
       currentWeatherImg: '',
+      weekdays: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+      months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+      date: '',
+      currentDate: {
+        day: '',
+        weekDay: '',
+        month: '',
+        year: '',
+      }
     };
   },
   methods: {
@@ -182,6 +191,12 @@ export default {
       this.location = this.weatherData.name;
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
+
+    this.date = new Date();
+    this.currentDate.day = this.date.getDate();
+    this.currentDate.weekDay = this.weekdays[this.date.getDay()];
+    this.currentDate.month = this.months[ this.date.getMonth() ];
+    this.currentDate.year = this.date.getFullYear();
   },
   watch: {
     weatherData: function() {
@@ -191,6 +206,8 @@ export default {
       this.location = this.weatherData.name;
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
+  },
+  create() {
   }
 };
 </script>
