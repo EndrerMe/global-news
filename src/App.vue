@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderDesctop></HeaderDesctop>
+    <HeaderDesctop :weatherData='weatherData' ></HeaderDesctop>
     <router-view />
     <Footer></Footer>
   </div>
@@ -19,12 +19,30 @@
 <script>
 import HeaderDesctop from './shared/layouts/header/header';
 import Footer from './shared/layouts/footer/footer';
+import weatherService from './shared/services/weather.service';
 
 export default {
   name: "app",
   components: {
     HeaderDesctop,
     Footer
-  }
+  },
+  data() {
+    return {
+      weatherData: null,
+    }
+  },
+  beforeCreate() {
+    this.$getLocation().then(coordinates => {
+      this.coordinates = coordinates;
+      weatherService.getWeather(coordinates.lat, coordinates.lng).then(res => {
+        this.weatherData = res.data;
+      });
+    }).catch(function () {
+      weatherService.getWeather(51.51062085840897, -0.12035208720763535).then(res => {
+        this.weatherData = res.data;
+      });
+    }) 
+  },
 };
 </script>

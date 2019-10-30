@@ -228,11 +228,10 @@
 
 <script>
 import converterDesctop from "./converter";
-import weatherService from "./../services/weather.service";
 import moreWeather from './../components/more-weather';
 
 export default {
-  props: ["isShowWeatherModal", "isShowConverter"],
+  props: ["isShowWeatherModal", "isShowConverter", 'weatherData'],
   name: "weatherDesctop",
   components: {
     converterDesctop,
@@ -240,7 +239,6 @@ export default {
   },
   data() {
     return {
-      weatherData: null,
       temp: "",
       location: "",
       date: "",
@@ -250,37 +248,6 @@ export default {
       isShowMoreWeather: false
     };
   },
-  beforeCreate() {
-    this.$getLocation().then(coordinates => {
-      this.coordinates = coordinates;
-      weatherService.getWeather(coordinates.lat, coordinates.lng).then(res => {
-        this.weatherData = res.data;
-        this.temp = res.data.main.temp;
-        this.temp = this.temp + "";
-        this.temp = this.temp.split(".")[0];
-        this.location = res.data.name;
-        this.date = new Date()
-          .toJSON()
-          .slice(0, 10)
-          .replace(/-/g, "/");
-        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
-      });
-    }).catch(function () {
-      weatherService.getWeather(51.51062085840897, -0.12035208720763535).then(res => {
-        this.weatherData = res.data;
-        this.temp = res.data.main.temp;
-        this.temp = this.temp + "";
-        this.temp = this.temp.split(".")[0];
-        this.location = res.data.name;
-        this.date = new Date()
-          .toJSON()
-          .slice(0, 10)
-          .replace(/-/g, "/");
-        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
-      });
-    }) 
-  },
-
   methods: {
     closeWeatherModal() {
       this.$emit("closeWeatherModal", false);
@@ -302,6 +269,32 @@ export default {
       let data = this.weatherData;
       this.$emit("closeWeatherModal", false);
       this.$router.push({name: 'weatherMap', params: {data}});
+    }
+  },
+  mounted() {
+    if (this.weatherData) {
+      this.temp = this.weatherData.main.temp;
+      this.temp = this.temp + "";
+      this.temp = this.temp.split(".")[0];
+      this.location = this.weatherData.name;
+      this.date = new Date()
+        .toJSON()
+        .slice(0, 10)
+        .replace(/-/g, "/");
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
+    }
+  },
+  watch: {
+    weatherData: function() {
+      this.temp = this.weatherData.main.temp;
+      this.temp = this.temp + "";
+      this.temp = this.temp.split(".")[0];
+      this.location = this.weatherData.name;
+      this.date = new Date()
+        .toJSON()
+        .slice(0, 10)
+        .replace(/-/g, "/");
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
   }
 };

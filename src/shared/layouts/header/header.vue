@@ -46,18 +46,19 @@
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content"  @click='toggleWeatherModal()'>
                       <span>
-                        <img src="../../../assets/images/cloud.svg" alt="cloud" />
+                        <img :src="currentWeatherImg" alt="" />
                       </span>
                       <span class="weather-value">
-                        + 9
+                        {{ temp }}
                         <span class="celsius-value">&#8451;</span>
                       </span>
                       <span class="weather-dropdown-arrow">
                         <font-awesome-icon icon="caret-down" />
                       </span>
-                      <p>Glasgow</p>
+                      <p>{{ location }}</p>
                     </span>
                     <weatherDesctop
+                      :weatherData='weatherData'
                       @closeWeatherModal='closeWeatherModal'
                       :isShowWeatherModal="isShowWeatherModal"
                     ></weatherDesctop>
@@ -129,6 +130,7 @@ import moreWeather from './../../components/more-weather';
 
 export default {
   name: "HeaderDesctop",
+  props: ['weatherData'],
   components: {
     weatherDesctop,
     subscribeDesctop,
@@ -142,6 +144,9 @@ export default {
       isShowWeatherModal: false,
       isShowConverter: false,
       showSubscribeFull: false,
+      temp: '',
+      location: '',
+      currentWeatherImg: '',
     };
   },
   methods: {
@@ -167,6 +172,24 @@ export default {
 
     goToHomePage() {
       this.$router.push({ name: "Home"});
+    }
+  },
+  mounted() {
+    if (this.weatherData) {
+      this.temp = this.weatherData.main.temp;
+      this.temp = this.temp + "";
+      this.temp = this.temp.split(".")[0];
+      this.location = this.weatherData.name;
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
+    }
+  },
+  watch: {
+    weatherData: function() {
+      this.temp = this.weatherData.main.temp;
+      this.temp = this.temp + "";
+      this.temp = this.temp.split(".")[0];
+      this.location = this.weatherData.name;
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
   }
 };
