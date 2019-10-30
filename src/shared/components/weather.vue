@@ -393,7 +393,6 @@ export default {
   position: absolute;
   top: 500px;
   background-color: #052962;
-  border: 1px solid;
   z-index: 999;
   padding: 0 50px;
   left: -550px;
@@ -435,7 +434,7 @@ export default {
   position: absolute;
   width: 355px;
   right: -150px;
-  top: 92px;
+  top: 106px;
   background-color: #052962;
   padding-bottom: 20px;
   z-index: 999;
@@ -893,7 +892,11 @@ export default {
     bottom: 0;
   }
 }
-
+@media (max-width: 1139px) {
+  .weather-main-wrap{
+    top: 103px;
+  }
+}
 /* Links More Info weater hidden class='weather-details-wrap' */
 
 </style>

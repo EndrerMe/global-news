@@ -6,7 +6,7 @@
           <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
             <b-nav class="mobile-top-menu">
               <b-navbar-toggle target="nav-collapse" @click="toggleMobileSideMenu()"></b-navbar-toggle>
-              <b-nav-item class="mobile-logo-wrap" @click='goToHomePage()'>
+              <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
                 <img src="../../../assets/images/logo.svg" alt="logo" />
               </b-nav-item>
               <b-nav-item class="mobnile-search-wrap">
@@ -26,7 +26,7 @@
                       <a href="#"></a>
                     </div>
                   </b-nav-item>
-                  <b-nav-item href="#" class="logo-wrap" @click='goToHomePage()'>
+                  <b-nav-item href="#" class="logo-wrap" @click="goToHomePage()">
                     <img src="../../../assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
                   <b-nav-item href="#" class="current-date">
@@ -40,14 +40,13 @@
                     </span>
 
                     <converterDesctop :isShowConverter="isShowConverter"></converterDesctop>
-
-
                   </b-nav-item>
                   <b-nav-item href="#" class="weather-wrap">
-                    <span class="weather-content"  @click='toggleWeatherModal()'>
-                      <span>
-                        <img :src="currentWeatherImg" alt="" />
+                    <span class="weather-content" @click="toggleWeatherModal()">
+                      <span class="weather-icon">
+                        <img :src="currentWeatherImg" alt />
                       </span>
+
                       <span class="weather-value">
                         {{ temp }}
                         <span class="celsius-value">&#8451;</span>
@@ -55,11 +54,14 @@
                       <span class="weather-dropdown-arrow">
                         <font-awesome-icon icon="caret-down" />
                       </span>
-                      <p>{{ location }}</p>
+
+                      <div class="location-name">
+                        <p>{{ location }}</p>
+                      </div>
                     </span>
                     <weatherDesctop
-                      :weatherData='weatherData'
-                      @closeWeatherModal='closeWeatherModal'
+                      :weatherData="weatherData"
+                      @closeWeatherModal="closeWeatherModal"
                       :isShowWeatherModal="isShowWeatherModal"
                     ></weatherDesctop>
                   </b-nav-item>
@@ -69,12 +71,12 @@
                         <font-awesome-icon icon="search" class="fa-lg" />
                       </a>
                     </div>
-                    <div class="bell active" @click='showSubscribeFullFun()'>
+                    <div class="bell active" @click="showSubscribeFullFun()">
                       <a href="#">
                         <font-awesome-icon icon="bell" class="fa-lg" />
                       </a>
                     </div>
-                    <subscribeDesctop :showSubscribeFull='showSubscribeFull'></subscribeDesctop>
+                    <subscribeDesctop :showSubscribeFull="showSubscribeFull"></subscribeDesctop>
                   </li>
                 </b-navbar-nav>
                 <b-navbar-nav class="mobile-side-menu">
@@ -112,10 +114,9 @@
           </b-navbar>
 
           <moreWeather></moreWeather>
-
         </div>
       </div>
-  
+
       <navigationDesctop></navigationDesctop>
     </div>
   </div>
@@ -126,11 +127,11 @@ import weatherDesctop from "./../../components/weather";
 import subscribeDesctop from "./../../components/subscribe";
 import navigationDesctop from "./../../components/navigation";
 import converterDesctop from "./../../components/converter";
-import moreWeather from './../../components/more-weather';
+import moreWeather from "./../../components/more-weather";
 
 export default {
   name: "HeaderDesctop",
-  props: ['weatherData'],
+  props: ["weatherData"],
   components: {
     weatherDesctop,
     subscribeDesctop,
@@ -144,17 +145,38 @@ export default {
       isShowWeatherModal: false,
       isShowConverter: false,
       showSubscribeFull: false,
-      temp: '',
-      location: '',
-      currentWeatherImg: '',
-      weekdays: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
-      months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
-      date: '',
+      temp: "",
+      location: "",
+      currentWeatherImg: "",
+      weekdays: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      months: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      date: "",
       currentDate: {
-        day: '',
-        weekDay: '',
-        month: '',
-        year: '',
+        day: "",
+        weekDay: "",
+        month: "",
+        year: ""
       }
     };
   },
@@ -176,11 +198,11 @@ export default {
     },
 
     showSubscribeFullFun() {
-      this.showSubscribeFull = !this.showSubscribeFull
+      this.showSubscribeFull = !this.showSubscribeFull;
     },
 
     goToHomePage() {
-      this.$router.push({ name: "Home"});
+      this.$router.push({ name: "Home" });
     }
   },
   mounted() {
@@ -195,7 +217,7 @@ export default {
     this.date = new Date();
     this.currentDate.day = this.date.getDate();
     this.currentDate.weekDay = this.weekdays[this.date.getDay()];
-    this.currentDate.month = this.months[ this.date.getMonth() ];
+    this.currentDate.month = this.months[this.date.getMonth()];
     this.currentDate.year = this.date.getFullYear();
   },
   watch: {
@@ -207,19 +229,16 @@ export default {
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
   },
-  create() {
-  }
+  create() {}
 };
 </script>
 
 <style>
 @import "./../../../assets/css/fonts.css";
-
 </style>
 
 <style scoped>
 /* Header */
-
 .sideMenuActive {
   visibility: visible !important;
   width: 82% !important;
@@ -227,7 +246,7 @@ export default {
 }
 #nav-collapse {
   width: 0;
-  margin:0 auto;
+  margin: 0 auto;
 }
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
   display: flex;
@@ -337,9 +356,10 @@ export default {
 }
 #nav-collapse .sub-wrap .wide-menu {
   font-family: "Poppins-Regular";
+  height: 100px;
 }
-#nav-collapse .sub-wrap .wide-menu .converter-wrap{
-  position:relative;
+#nav-collapse .sub-wrap .wide-menu .converter-wrap {
+  position: relative;
 }
 
 #nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
@@ -384,11 +404,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
-  position: absolute;
-  top: 25px;
-  right: -46px;
-}
+
 .top-menu-wrap .navbar-nav .wide-menu li.weather-wrap p {
   margin-bottom: 0;
 }
@@ -406,7 +422,7 @@ export default {
 }
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
-  padding: 9px 0;
+  padding: 0;
 }
 .top-menu-wrap .navbar-brand {
   padding: 0;
@@ -415,6 +431,24 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
+.nav-item .nav-link .weather-content {
+  position: relative;
+}
+.nav-item .nav-link .weather-content .weather-icon img {
+  width: 70px;
+}
+
+.top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
+  position: absolute;
+  top: 12px;
+  right: -55px;
+}
+
+.top-menu-wrap .wide-menu li.weather-wrap .location-name {
+  text-align: end;
+}
+
 .top-menu-wrap .weather-value {
   font-family: "Semibold";
   font-size: 28px;
@@ -422,8 +456,8 @@ export default {
 .top-menu-wrap .weather-value .celsius-value {
   font-size: 20px;
   position: absolute;
+  top: -10px;
 }
-
 
 @media (max-width: 767px) {
   .bottom-menu-wrap {
@@ -481,6 +515,16 @@ export default {
     font-size: 22px;
   }
 }
+@media (max-width: 1139px) {
+
+ #nav-collapse .sub-wrap .wide-menu {
+    font-size: 12px;
+  }
+  /* .bottom-menu-wrap .bottom-menu li a {
+    font-size: 12px;
+  } */
+}
+
 @media (max-width: 991px) {
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 15px !important;
@@ -491,9 +535,10 @@ export default {
   .top-menu-wrap .navbar-collapse .search-wrap a svg {
     margin: 0 10px;
   }
-  .top-menu-wrap .navbar-collapse .search-wrap {
-    margin-left: 10px;
+ .top-menu-wrap #nav-collapse .search-wrap {
+    margin-left: 30px !important;
   }
+  
 }
 @media (max-width: 767px) {
   .bottom-menu-wrap .bottom-menu {
@@ -519,7 +564,6 @@ export default {
     transform: rotate(0deg);
   }
 }
-
 
 @media (min-width: 768px) {
   .modile-side-weather-wrap {
@@ -550,8 +594,8 @@ export default {
   .container {
     max-width: 814px !important;
   }
-  #nav-collapse .sub-wrap .wide-menu .search-wrap{
-    margin-left:20px;
+  #nav-collapse .sub-wrap .wide-menu .search-wrap {
+    margin-left: 20px;
   }
 }
 </style>
