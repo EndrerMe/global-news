@@ -6,7 +6,7 @@
           <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
             <b-nav class="mobile-top-menu">
               <b-navbar-toggle target="nav-collapse" @click="toggleMobileSideMenu()"></b-navbar-toggle>
-              <b-nav-item class="mobile-logo-wrap">
+              <b-nav-item class="mobile-logo-wrap" @click='goToHomePage()'>
                 <img src="../../../assets/images/logo.svg" alt="logo" />
               </b-nav-item>
               <b-nav-item class="mobnile-search-wrap">
@@ -26,7 +26,7 @@
                       <a href="#"></a>
                     </div>
                   </b-nav-item>
-                  <b-nav-item href="#" class="logo-wrap">
+                  <b-nav-item href="#" class="logo-wrap" @click='goToHomePage()'>
                     <img src="../../../assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
                   <b-nav-item href="#" class="current-date">
@@ -163,6 +163,10 @@ export default {
 
     showSubscribeFullFun() {
       this.showSubscribeFull = !this.showSubscribeFull
+    },
+
+    goToHomePage() {
+      this.$router.push({ name: "Home"});
     }
   }
 };

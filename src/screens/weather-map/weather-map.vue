@@ -36,13 +36,26 @@ export default {
             });
 
             this.map.on('click', function (e) {
+                console.log(e)
                 weatherService.getWeather(e.lngLat.lat, e.lngLat.lng).then((res) => {
                     that.weatherData = res.data;
                     that.isShowMoreWeather = true;
                 })
             });
-        }).catch(function (e) {
-            console.log(e);
+        }).catch(function () {
+            this.map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+                center: [51.51062085840897, -0.12035208720763535], // starting position [lng, lat]
+                zoom: 9 // starting zoom
+            });
+
+            this.map.on('click', function (e) {
+                weatherService.getWeather(e.lngLat.lat, e.lngLat.lng).then((res) => {
+                    that.weatherData = res.data;
+                    that.isShowMoreWeather = true;
+                })
+            });
         }) 
     },
     methods: {

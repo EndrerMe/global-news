@@ -265,13 +265,25 @@ export default {
           .replace(/-/g, "/");
         this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
       });
-    });
+    }).catch(function () {
+      weatherService.getWeather(51.51062085840897, -0.12035208720763535).then(res => {
+        this.weatherData = res.data;
+        this.temp = res.data.main.temp;
+        this.temp = this.temp + "";
+        this.temp = this.temp.split(".")[0];
+        this.location = res.data.name;
+        this.date = new Date()
+          .toJSON()
+          .slice(0, 10)
+          .replace(/-/g, "/");
+        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
+      });
+    }) 
   },
 
   methods: {
     closeWeatherModal() {
       this.$emit("closeWeatherModal", false);
-      this.isShowWeatherModal = false;
     },
 
     closeConverterModal() {
@@ -289,7 +301,6 @@ export default {
     showWeatherMap() {
       let data = this.weatherData;
       this.$emit("closeWeatherModal", false);
-      this.isShowWeatherModal = false;
       this.$router.push({name: 'weatherMap', params: {data}});
     }
   }
