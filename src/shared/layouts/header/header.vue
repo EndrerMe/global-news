@@ -302,6 +302,9 @@ export default {
   font-size: 13px;
   letter-spacing: 1px;
 }
+#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button:hover{
+  background: #ffe076;
+}
 .top-menu-wrap #nav-collapse .close-link-wrap {
   display: none;
   position: absolute;
