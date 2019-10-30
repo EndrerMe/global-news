@@ -87,6 +87,7 @@ export default {
       this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
       this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
       this.weatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
+      console.log(this.weatherImg)
     }
   },
   created() {
