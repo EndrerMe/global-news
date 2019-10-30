@@ -170,6 +170,7 @@ export default {
 
 <style>
 @import "./../../../assets/css/fonts.css";
+
 </style>
 
 <style scoped>
@@ -182,6 +183,7 @@ export default {
 }
 #nav-collapse {
   width: 0;
+  margin:0 auto;
 }
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
   display: flex;
