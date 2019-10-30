@@ -319,7 +319,6 @@ export default {
 
 <style scoped>
 .currency-converter-wrap .rate-wrap {
-  padding: 0 60px;
   margin-top: 45px;
 }
 .currency-converter-wrap .rate-wrap span {
@@ -389,6 +388,9 @@ export default {
   display: block;
   border-bottom: 1px solid #b7b7b7 !important;
   text-align: center;
+    background: transparent;
+    border: none;
+    color:white;
 }
 
 .currency-converter-wrap .from .dropdown-wrap {
@@ -425,24 +427,22 @@ export default {
 .currency-converter-wrap .to {
   color: #eaeaea;
   font-size: 10px;
-  padding: 0 60px;
 }
 
 .currency-converter-wrap .convert-icon{
   margin-top:20px;
-      padding: 0 60px;
-      text-align:start;
+  text-align:start;
 }
 
 .currency-converter-wrap {
-  width: 380px;
-  border: 1px solid;
+  width: 355px;
   position: absolute;
-  right: 590px;
-  top: 102px;
+  right: -70px;
+  top: 63px;
   background-color: #052962;
   z-index: 999;
-  padding-bottom: 45px;
+  padding:0 60px 45px 60px;
+  /* padding-bottom: 45px; */
 }
 .currency-converter-wrap .close-wrap a {
   width: 18px;

@@ -1,264 +1,334 @@
 <template>
-    <div>
-        <div class="weather-main-wrap" v-if='isShowWeatherModal'>
-          <div class="weather-search-wrap">
-            <div class="close-wrap" @click='closeWeatherModal()'>
-              <a href="#"></a>
-            </div>
+  <div>
+    <div class="weather-main-wrap" v-if="isShowWeatherModal">
+      <div class="weather-search-wrap">
+        <div class="close-wrap" @click="closeWeatherModal()">
+          <a href="#"></a>
+        </div>
+        <div class="temp-value-wrap">
+          <span>{{ temp }}</span>
 
-            <div class="text-wrap">
-              <p>Do you mean London?</p>
-            </div>
-            <div class="seacrh-country-wrap">
-              <div class="country-wrap">
-                <span>Lond</span>
-              </div>
-              <div class="button-wrap">
-                <button href="#">Search</button>
-              </div>
-            </div>
-
-            <div class="clouds">
-              <span>Broken Clouds</span>
-              <span class="icon">
-                <img :src="currentWeatherImg" alt="cloud" />
-              </span>
-            </div>
-
-            <div class="temp-value-wrap">
-              <span>{{ temp }}</span>
-
-              <span class="temp-symbol">
-                <span>&#8451;</span>
-                <span>F</span>
-              </span>
-            </div>
+          <div class="text-wrap">
+            <span>
+              Do you mean
+              <span class="search-result">London</span>?
+            </span>
           </div>
-          <div class="links-wrap">
-            <a href="#">Weather Map</a>
-            <a href="#" @click='showMoreWeather()'>More</a>
+        </div>
+
+        <div class="seacrh-country-wrap">
+          <div class="country-wrap">
+            <span>Lond</span>
           </div>
+          <div class="button-wrap">
+            <button href="#">Search</button>
+          </div>
+        </div>
+        <div class="clouds">
+          <span>Broken Clouds</span>
+          <span class="icon">
+            <img :src="currentWeatherImg" alt="cloud" />
+          </span>
+        </div>
+
+        <div class="temp-value-wrap">
+          <span>{{ temp }}</span>
+          <span class="value">5434</span>
+          <span class="temp-symbol-wrap">
+            <span class="temp-symbol">
+              <span class="mode active">&#8451;</span>
+              <span class="mode">F</span>
+            </span>
+          </span>
+        </div>
       </div>
-
-      <converterDesctop :isShowConverter='isShowConverter' @closeConverterModal='closeConverterModal'></converterDesctop>
-
-      <div class="modile-side-weather-wrap">
-        <div class="mobile-weather-main-wrap">
-          <div class="title-wrap section-elem">
-            <span>Weather</span>
-          </div>
-          <div class="location-wrap section-elem">
-            <span>Glasgow</span>
-          </div>
-          <div class="weather-data-wrap">
-            <div class="clouds">
-              <span class="icon">
-                <img src="../../assets/images/cloud.svg" alt="cloud" />
-              </span>
-              <span class="cloud-state">Broken Clouds</span>
-            </div>
-            <div class="temp-value-wrap">
-              <span class="temp-value">+9</span>
-              <span class="temp-symbol">
-                <span class="activeMode active">&#8451;</span>
-                <span class="activeMode">F</span>
-              </span>
-            </div>
-          </div>
-          <div class="seacrh-country-wrap">
-            <div class="text-wrap">
-              <p>
-                Did you mean
-                <span class="serch-result">London</span> ?
-              </p>
-            </div>
-            <div class="country-wrap">
-              <span>Lond</span>
-            </div>
-            <div class="button-wrap">
-              <button href="#">Search</button>
-            </div>
-          </div>
-          <div class="links-wrap">
-            <!-- Mobile Weater Details -->
-            <div class="mobile-weather-details-wrap">
-              <div class="links-wrap">
-                <div class="left-link">
-                  <a href="#">
-                    More
-                    <font-awesome-icon icon="caret-down" />
-                  </a>
-                </div>
-                <div class="right-link">
-                  <a href="#">Weather Map</a>
-                </div>
-              </div>
-              <div class="sides-wrap">
-                <div class="left-side">
-                  <div class="temp-info-wrap">
-                    <div class="temp-value-wrap info-elem">
-                      <p>
-                        <span class="cwitch">Show weather in :</span>
-                        <span class="temp-symbol">
-                          <span>F</span>
-                          <span>&#8451;</span>
-                        </span>
-                      </p>
-                      <p>Place : London</p>
-                    </div>
-                    <div class="show-info-wrap info-elem">
-                      <p>
-                        Min Temperature :
-                        <span class="temp-value">
-                          14
-                          <span class="temp-val-symbol"></span>
-                        </span>
-                      </p>
-                      <p>
-                        Max Temperature :
-                        <span class="temp-value">
-                          14
-                          <span class="temp-val-symbol"></span>
-                        </span>
-                      </p>
-                      <p>
-                        Temperature :
-                        <span class="temp-value">
-                          14
-                          <span class="temp-val-symbol"></span>
-                        </span>
-                      </p>
-                    </div>
-                    <div class="additional-info info-elem">
-                      <p class>
-                        Humidity :
-                        <span class="value">28</span>
-                      </p>
-                      <p class>
-                        Wind Speed :
-                        <span class="value">3</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="right-side">
-                  <div class="wrap">
-                    <span class="icon-wrap">
-                      <img src="../../assets/images/cloud.svg" alt="cloud" />
-                    </span>
-                    <span class="text">Broken Clouds</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mobile-weather-details-wrap" >
-          <div class="sides-wrap">
-            <div class="weather-map left-side">
-              <div class="temp-info-wrap">
-                <div class="temp-value-wrap info-elem">
-                  <p>
-                    <span class="cwitch">Show weather in :</span>
-                    <span class="temp-symbol">
-                      <span>F</span>
-                      <span>&#8451;</span>
-                    </span>
-                  </p>
-                  <p>Place : London</p>
-                </div>
-                <div class="show-info-wrap info-elem">
-                  <p>
-                    Min Temperature :
-                    <span class="temp-value">
-                      14
-                      <span class="temp-val-symbol"></span>
-                    </span>
-                  </p>
-                  <p>
-                    Max Temperature :
-                    <span class="temp-value">
-                      14
-                      <span class="temp-val-symbol"></span>
-                    </span>
-                  </p>
-                  <p>
-                    Temperature :
-                    <span class="temp-value">
-                      14
-                      <span class="temp-val-symbol"></span>
-                    </span>
-                  </p>
-                </div>
-                <div class="additional-info info-elem">
-                  <p class>
-                    Humidity :
-                    <span class="value">28</span>
-                  </p>
-                  <p class>
-                    Wind Speed :
-                    <span class="value">3</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="right-side">
-              <div class="wrap">
-                <span class="icon-wrap">
-                  <img src="../../assets/images/cloud.svg" alt="cloud" />
-                </span>
-                <span class="text">Broken Clouds</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
+      <div class="links-wrap">
+        <a href="#">Weather Map</a>
+        <a href="#" @click="showMoreWeather()">More</a>
       </div>
     </div>
+
+    <converterDesctop :isShowConverter="isShowConverter" @closeConverterModal="closeConverterModal"></converterDesctop>
+
+    <!-- Mobile  Weather -->
+    <div class="modile-side-weather-wrap">
+      <div class="mobile-weather-main-wrap">
+        <div class="title-wrap section-elem">
+          <span>Weather</span>
+        </div>
+        <div class="location-wrap section-elem">
+          <span>Glasgow</span>
+        </div>
+        <div class="weather-data-wrap">
+          <div class="clouds">
+            <span class="icon">
+              <img src="../../assets/images/cloud.svg" alt="cloud" />
+            </span>
+            <span class="cloud-state">Broken Clouds</span>
+          </div>
+          <div class="temp-value-wrap">
+            <span class="temp-value">+9</span>
+            <span class="temp-symbol">
+              <span class="activeMode active">&#8451;</span>
+              <span class="activeMode">F</span>
+            </span>
+          </div>
+        </div>
+        <div class="seacrh-country-wrap">
+          <div class="text-wrap">
+            <p>
+              Did you mean
+              <span class="serch-result">London</span> ?
+            </p>
+          </div>
+          <div class="country-wrap">
+            <span>Lond</span>
+          </div>
+          <div class="button-wrap">
+            <button href="#">Search</button>
+          </div>
+        </div>
+        <div class="links-wrap">
+          <!-- Mobile Weater Details -->
+          <div class="mobile-weather-details-wrap">
+            <div class="links-wrap">
+              <div class="left-link">
+                <a href="#">
+                  More
+                  <font-awesome-icon icon="caret-down" />
+                </a>
+              </div>
+              <div class="right-link">
+                <a href="#">Weather Map</a>
+              </div>
+            </div>
+            <div class="sides-wrap">
+              <div class="left-side">
+                <div class="temp-info-wrap">
+                  <div class="temp-value-wrap info-elem">
+                    <p>
+                      <span class="cwitch">Show weather in :</span>
+                      <span class="temp-symbol">
+                        <span>F</span>
+                        <span>&#8451;</span>
+                      </span>
+                    </p>
+                    <p>Place : London</p>
+                  </div>
+                  <div class="show-info-wrap info-elem">
+                    <p>
+                      Min Temperature :
+                      <span class="temp-value">
+                        14
+                        <span class="temp-val-symbol"></span>
+                      </span>
+                    </p>
+                    <p>
+                      Max Temperature :
+                      <span class="temp-value">
+                        14
+                        <span class="temp-val-symbol"></span>
+                      </span>
+                    </p>
+                    <p>
+                      Temperature :
+                      <span class="temp-value">
+                        14
+                        <span class="temp-val-symbol"></span>
+                      </span>
+                    </p>
+                  </div>
+                  <div class="additional-info info-elem">
+                    <p class>
+                      Humidity :
+                      <span class="value">28</span>
+                    </p>
+                    <p class>
+                      Wind Speed :
+                      <span class="value">3</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="right-side">
+                <div class="wrap">
+                  <span class="icon-wrap">
+                    <img src="../../assets/images/cloud.svg" alt="cloud" />
+                  </span>
+                  <span class="text">Broken Clouds</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-weather-details-wrap">
+        <div class="sides-wrap">
+          <div class="weather-map left-side">
+            <div class="temp-info-wrap">
+              <div class="temp-value-wrap info-elem">
+                <p>
+                  <span class="cwitch">Show weather in :</span>
+                  <span class="temp-symbol">
+                    <span>F</span>
+                    <span>&#8451;</span>
+                  </span>
+                </p>
+                <p>Place : London</p>
+              </div>
+              <div class="show-info-wrap info-elem">
+                <p>
+                  Min Temperature :
+                  <span class="temp-value">
+                    14
+                    <span class="temp-val-symbol"></span>
+                  </span>
+                </p>
+                <p>
+                  Max Temperature :
+                  <span class="temp-value">
+                    14
+                    <span class="temp-val-symbol"></span>
+                  </span>
+                </p>
+                <p>
+                  Temperature :
+                  <span class="temp-value">
+                    14
+                    <span class="temp-val-symbol"></span>
+                  </span>
+                </p>
+              </div>
+              <div class="additional-info info-elem">
+                <p class>
+                  Humidity :
+                  <span class="value">28</span>
+                </p>
+                <p class>
+                  Wind Speed :
+                  <span class="value">3</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="right-side">
+            <div class="wrap">
+              <span class="icon-wrap">
+                <img src="../../assets/images/cloud.svg" alt="cloud" />
+              </span>
+              <span class="text">Broken Clouds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weater Details -->
+    <div class="weather-details-wrap">
+      <div class="close-wrap">
+        <a href="#"></a>
+      </div>
+      <div class="left-side">
+        <div class="temp-info-wrap">
+          <div class="temp-value-wrap info-elem">
+            <p>
+              <span class="cwitch">Show weather in :</span>
+              <span class="temp-symbol">
+                <span class="switch-mode">F</span>
+                <span class="switch-mode active">&#8451;</span>
+              </span>
+            </p>
+            <p>Place : London</p>
+          </div>
+          <div class="show-info-wrap info-elem">
+            <p>
+              Min Temperature :
+              <span class="temp-value">
+                14
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+            <p>
+              Max Temperature :
+              <span class="temp-value">
+                14
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+            <p>
+              Temperature :
+              <span class="temp-value">
+                14
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+          </div>
+          <div class="additional-info info-elem">
+            <p class>
+              Humidity :
+              <span class="value">28</span>
+            </p>
+            <p class>
+              Wind Speed :
+              <span class="value">3</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="wrap">
+          <span class="icon-wrap">
+            <img src="../../assets/images/cloud.svg" alt="cloud" />
+          </span>
+          <span>Broken Clouds</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import converterDesctop from './converter';
-import weatherService from './../services/weather.service';
+import converterDesctop from "./converter";
+import weatherService from "./../services/weather.service";
 
 export default {
-  props: ['isShowWeatherModal', 'isShowConverter'],
-  name: 'weatherDesctop',
+  props: ["isShowWeatherModal", "isShowConverter"],
+  name: "weatherDesctop",
   components: {
     converterDesctop
   },
   data() {
     return {
-      temp: '',
-      location: '',
-      date: '',
+      temp: "",
+      location: "",
+      date: "",
       coordinates: null,
       isCelsius: true,
       currentWeatherImg: null,
       isShowMoreWeather: false
-    }
+    };
   },
   created() {
-    this.$getLocation()
-      .then(coordinates => {
-        this.coordinates = coordinates;
-        weatherService.getWeather(coordinates.lat, coordinates.lng).then((res) => {
-          this.temp = res.data.main.temp;
-          this.temp = this.temp + '';
-          this.temp = this.temp.split(".")[0];
-          this.location = res.data.name;
-          this.date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-          this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
-         });
+    this.$getLocation().then(coordinates => {
+      this.coordinates = coordinates;
+      weatherService.getWeather(coordinates.lat, coordinates.lng).then(res => {
+        this.temp = res.data.main.temp;
+        this.temp = this.temp + "";
+        this.temp = this.temp.split(".")[0];
+        this.location = res.data.name;
+        this.date = new Date()
+          .toJSON()
+          .slice(0, 10)
+          .replace(/-/g, "/");
+        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
       });
-
+    });
   },
 
   methods: {
     closeWeatherModal() {
-      this.$emit('closeWeatherModal', false)
+      this.$emit("closeWeatherModal", false);
       this.isShowWeatherModal = false;
     },
 
@@ -270,22 +340,147 @@ export default {
       this.isShowMoreWeather = true;
     }
   }
-}
+};
 </script>
 
 <style scoped>
+/* Weather Details */
+
+/* font-family: 'Poppins-SemiBold'; */
+
+.weather-details-wrap .right-side {
+  position: absolute;
+  right: 11%;
+  top: 35%;
+  font-size: 24px;
+  font-weight: bold;
+}
+.weather-details-wrap .right-side .wrap span {
+  margin: 10px 0;
+}
+.weather-details-wrap .right-side .wrap {
+  display: flex;
+  flex-direction: column;
+}
+.weather-details-wrap .right-side {
+  color: #f9f9f9;
+}
+.weather-details-wrap .right-side .icon-wrap img {
+  width: 130px;
+}
+.temp-info-wrap .additional-info {
+  text-align: start;
+}
+.temp-info-wrap .info-elem {
+  margin-top: 40px;
+  /* font-weight: bold; */
+}
+.weather-details-wrap .show-info-wrap {
+  text-align: start;
+}
+.weather-details-wrap .show-info-wrap .temp-val-symbol {
+  position: relative;
+  margin-left: 5px;
+}
+.weather-details-wrap .show-info-wrap .temp-val-symbol::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  border: 1px solid #a09f9f;
+  border-radius: 10px;
+}
+.weather-details-wrap .temp-symbol span {
+  margin: 0 5px;
+}
+
+.weather-details-wrap .temp-symbol .switch-mode.active{
+  color: #F8C61A;
+}
+
+
+.weather-details-wrap .temp-symbol {
+  position: relative;
+}
+.weather-details-wrap .temp-symbol::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 26px;
+    background-color: white;
+    left: 22px;
+    top: 2px;
+}
+.weather-details-wrap .temp-value-wrap {
+  text-align: start;
+}
+
+.weather-details-wrap .temp-info-wrap p {
+  margin-bottom: 10px;
+  font-family: 'Poppins-Regular';
+  font-size:24px;
+  
+}
+.weather-details-wrap .temp-info-wrap {
+  color: #f9f9f9;
+  font-size: 24px;
+  margin-top: 95px;
+  margin-bottom: 44px;
+}
+.weather-details-wrap {
+  display:none;
+/* display: flex; */
+  width: 602px;
+  position: absolute;
+  top: 500px;
+  background-color: #052962;
+  border: 1px solid;
+  z-index: 999;
+  padding: 0 50px;
+  left: -550px;
+}
+
+.weather-details-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+.weather-details-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.weather-details-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  background-color: white;
+  top: 7px;
+  right: 0px;
+  transform: rotate(-45deg);
+}
+
 
 /* Weather */
 .weather-main-wrap {
-  /* display: none; */
   position: absolute;
-  width: 380px;
-  right: -160px;
+  width: 355px;
+  right: -150px;
   top: 92px;
   background-color: #052962;
   padding-bottom: 20px;
   z-index: 999;
-  padding: 0 20px 10px 20px;
+  padding: 0 60px 10px 60px;
 }
 
 .weather-main-wrap .links-wrap {
@@ -300,19 +495,42 @@ export default {
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol {
-  position: absolute;
   top: -7px;
   font-size: 26px !important;
-  left: 161px;
 }
 
 .weather-search-wrap .temp-value-wrap {
+  position: relative !important;
   color: white;
-  font-size: 32px;
   font-weight: bold;
   position: relative;
   margin-top: 50px;
   font-family: "Poppins-SemiBold";
+  display: flex;
+  justify-content: center;
+}
+
+.weather-search-wrap .temp-value-wrap .temp-symbol-wrap {
+  display: block;
+  text-align: start;
+  position: relative;
+  min-width: 60px;
+}
+
+.weather-search-wrap .temp-value-wrap .temp-symbol-wrap .temp-symbol {
+  position: absolute;
+}
+
+.weather-search-wrap
+  .temp-value-wrap
+  .temp-symbol-wrap
+  .temp-symbol
+  .mode.active {
+  color: #f8c61a;
+}
+.weather-search-wrap .temp-value-wrap .value {
+  display: block;
+  text-align: end;
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol span {
@@ -322,7 +540,7 @@ export default {
   content: "";
   position: absolute;
   width: 2px;
-  height: 20px;
+  height: 23px;
   background-color: white;
   left: 37px;
   top: 7px;
@@ -341,9 +559,6 @@ export default {
   width: 90px;
 }
 
-.weather-search-wrap {
-  padding: 0 40px;
-}
 .weather-search-wrap .close-wrap a {
   width: 18px;
   height: 18px;
@@ -375,12 +590,12 @@ export default {
 }
 
 .weather-search-wrap .text-wrap {
-  margin-top: 80px;
+  margin-top: 40px;
   padding: 0;
   font-family: "Poppins-Regular";
 }
-.weather-search-wrap .text-wrap p {
-  color: #eaeaea;
+.weather-search-wrap .text-wrap .search-result {
+  color: #f8c61a;
 }
 
 .weather-search-wrap .text-wrap p.dropdown {
@@ -388,14 +603,8 @@ export default {
   font-family: initial;
 }
 
-.weather-search-wrap .seacrh-country-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
 .weather-search-wrap .button-wrap {
-  margin-top: 23px;
+  margin-top: 18px;
 }
 
 .weather-search-wrap .country-wrap span {
@@ -407,40 +616,6 @@ export default {
 }
 
 .weather-search-wrap .button-wrap button {
-  width: 242px;
-  height: 48px;
-  background-color: #f8c61a;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.weather-search-wrap .button-wrap button:hover {
-  background-color: #ffe076;
-}
-
-.weather-search-wrap .seacrh-country-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
-.weather-search-wrap .button-wrap {
-  margin-top: 23px;
-}
-
-.weather-search-wrap .country-wrap span {
-  color: #eaeaea;
-  display: block;
-  width: 100%;
-  border-bottom: 1px solid;
-  text-align: start;
-  font-family: "Poppins-Regular";
-}
-
-.weather-search-wrap .button-wrap button {
-  width: 242px;
   height: 48px;
   background-color: #f8c61a;
   border: none;
@@ -449,15 +624,36 @@ export default {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: "Poppins-SemiBold";
+  width: 100%;
+  color: #052962;
 }
 .weather-search-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
 
+.weather-search-wrap .seacrh-country-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 100%;
+}
 
-/* Mob */
+.weather-search-wrap .button-wrap {
+  margin-top: 23px;
+}
+
+.weather-search-wrap .country-wrap span {
+  color: #eaeaea;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid;
+  text-align: start;
+  font-family: "Poppins-Regular";
+}
+
+/* Mob Weater*/
 .modile-side-weather-wrap {
-  /* display: none; */
+  display: none;
   overflow: scroll;
 }
 .weaterDetailsHidden {
@@ -485,7 +681,7 @@ export default {
   text-align: start;
 }
 .temp-info-wrap .info-elem {
-  margin-top: 15px;
+  margin-top: 32px;
   font-size: 13px;
   font-weight: bold;
 }
@@ -566,8 +762,6 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
-
 
 .mobile-weather-main-wrap {
   padding: 0 15px 40px 15px;
@@ -740,5 +934,7 @@ export default {
     bottom: 0;
   }
 }
+
+/* Links More Info weater hidden class='weather-details-wrap' */
 
 </style>

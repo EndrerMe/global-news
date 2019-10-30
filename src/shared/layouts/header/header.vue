@@ -38,6 +38,10 @@
                       <span>Currency Converter</span>
                       <font-awesome-icon icon="caret-down" />
                     </span>
+
+                    <converterDesctop :isShowConverter="isShowConverter"></converterDesctop>
+
+
                   </b-nav-item>
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content"  @click='toggleWeatherModal()'>
@@ -56,7 +60,6 @@
                     <weatherDesctop
                       @closeWeatherModal='closeWeatherModal'
                       :isShowWeatherModal="isShowWeatherModal"
-                      :isShowConverter="isShowConverter"
                     ></weatherDesctop>
                   </b-nav-item>
                   <li class="nav-item search-wrap">
@@ -105,7 +108,6 @@
                 </b-navbar-nav>
               </div>
             </div>
-
           </b-navbar>
         </div>
       </div>
@@ -119,13 +121,15 @@
 import weatherDesctop from "./../../components/weather";
 import subscribeDesctop from "./../../components/subscribe";
 import navigationDesctop from "./../../components/navigation";
+import converterDesctop from "./../../components/converter";
 
 export default {
   name: "HeaderDesctop",
   components: {
     weatherDesctop,
     subscribeDesctop,
-    navigationDesctop
+    navigationDesctop,
+    converterDesctop
   },
   data() {
     return {
@@ -164,6 +168,7 @@ export default {
 </style>
 
 <style scoped>
+/* Header */
 
 .sideMenuActive {
   visibility: visible !important;
@@ -279,12 +284,95 @@ export default {
 #nav-collapse .sub-wrap {
   width: 100%;
 }
+#nav-collapse .sub-wrap .wide-menu {
+  font-family: "Poppins-Regular";
+}
+#nav-collapse .sub-wrap .wide-menu .converter-wrap{
+  position:relative;
+}
+
+#nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
+  height: 100%;
+  width: 100%;
+  transform: rotate(0deg);
+  animation-name: rotate-bell;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  transform-origin: 50% 0%;
+  animation-timing-function: ease-in-out;
+}
+
+#nav-collapse .sub-wrap .wide-menu .search-wrap {
+  display: flex;
+}
+
 #nav-collapse .sub-wrap .mobile-side-menu {
   display: none;
 }
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item.wrap {
   border-top: 1px solid #6d6d6d;
 }
+
+.top-menu-wrap {
+  background-color: #052962;
+}
+.top-menu-wrap .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-menu-wrap .wide-menu li a svg {
+  margin: 0 20px;
+  color: rgb(248, 198, 26);
+}
+.top-menu-wrap .wide-menu li.weather-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
+  position: absolute;
+  top: 25px;
+  right: -46px;
+}
+.top-menu-wrap .navbar-nav .wide-menu li.weather-wrap p {
+  margin-bottom: 0;
+}
+.top-menu-wrap .navbar-nav li .nav-link {
+  padding: 0 !important;
+}
+.top-menu-wrap .navbar-nav li a span {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar-nav li a {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar-nav li .nav-item {
+  color: #f9f9f9;
+}
+.top-menu-wrap .navbar {
+  background-color: #052962 !important;
+  padding: 9px 0;
+}
+.top-menu-wrap .navbar-brand {
+  padding: 0;
+}
+.top-menu-wrap .wide-menu .current-date a {
+  display: flex;
+  flex-direction: column;
+}
+.top-menu-wrap .weather-value {
+  font-family: "Semibold";
+  font-size: 28px;
+}
+.top-menu-wrap .weather-value .celsius-value {
+  font-size: 20px;
+  position: absolute;
+}
+
 
 @media (max-width: 767px) {
   .bottom-menu-wrap {
@@ -365,25 +453,6 @@ export default {
     display: flex;
   }
 }
-/* Header */
-
-
-#nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
-  height: 100%;
-  width: 100%;
-  transform: rotate(0deg);
-  animation-name: rotate-bell;
-  animation-delay: 0.5s;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-direction: alternate;
-  transform-origin: 50% 0%;
-  animation-timing-function: ease-in-out;
-}
-
-#nav-collapse .sub-wrap .wide-menu .search-wrap {
-  display: flex;
-}
 
 @keyframes rotate-bell {
   0% {
@@ -400,63 +469,6 @@ export default {
   }
 }
 
-.top-menu-wrap {
-  background-color: #052962;
-}
-.top-menu-wrap .navbar-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.top-menu-wrap .wide-menu li a svg {
-  margin: 0 20px;
-  color: rgb(248, 198, 26);
-}
-.top-menu-wrap .wide-menu li.weather-wrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
-  position: absolute;
-  top: 25px;
-  right: -46px;
-}
-.top-menu-wrap .navbar-nav .wide-menu li.weather-wrap p {
-  margin-bottom: 0;
-}
-.top-menu-wrap .navbar-nav li .nav-link {
-  padding: 0 !important;
-}
-.top-menu-wrap .navbar-nav li a span {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar-nav li a {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar-nav li .nav-item {
-  color: #f9f9f9;
-}
-.top-menu-wrap .navbar {
-  background-color: #052962 !important;
-  padding: 9px 0;
-}
-.top-menu-wrap .navbar-brand {
-  padding: 0;
-}
-.top-menu-wrap .wide-menu .current-date a {
-  display: flex;
-  flex-direction: column;
-}
-.top-menu-wrap .weather-value {
-  font-family: "Semibold";
-  font-size: 28px;
-}
-.top-menu-wrap .weather-value .celsius-value {
-  font-size: 20px;
-  position: absolute;
-}
 
 @media (min-width: 768px) {
   .modile-side-weather-wrap {
@@ -486,6 +498,9 @@ export default {
 @media (max-width: 1139px) {
   .container {
     max-width: 814px !important;
+  }
+  #nav-collapse .sub-wrap .wide-menu .search-wrap{
+    margin-left:20px;
   }
 }
 </style>
