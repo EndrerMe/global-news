@@ -7,7 +7,7 @@
               <img src="../../../assets/images/logo.svg" alt="logo" />
             </div>
             <div class="center-item">
-              <span class="text">Copyright © 2019 Global New. All rights reserved</span>
+              <span class="text">Created by Anuitex</span>
             </div>
             <div class="right-item">
               <button>Subscribe Us</button>
