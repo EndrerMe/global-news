@@ -109,6 +109,9 @@
               </div>
             </div>
           </b-navbar>
+
+          <moreWeather></moreWeather>
+
         </div>
       </div>
 
@@ -122,6 +125,7 @@ import weatherDesctop from "./../../components/weather";
 import subscribeDesctop from "./../../components/subscribe";
 import navigationDesctop from "./../../components/navigation";
 import converterDesctop from "./../../components/converter";
+import moreWeather from './../../components/more-weather';
 
 export default {
   name: "HeaderDesctop",
@@ -129,7 +133,8 @@ export default {
     weatherDesctop,
     subscribeDesctop,
     navigationDesctop,
-    converterDesctop
+    converterDesctop,
+    moreWeather
   },
   data() {
     return {
