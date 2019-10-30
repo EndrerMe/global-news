@@ -1,4 +1,5 @@
 <template>
+<div class="weather-dark-screen">
  <div class="weather-details-wrap" v-if='isShowMoreWeather'>
     <div class="close-wrap" @click='closeMoreWeather()'>
       <a href="#"></a>
@@ -59,6 +60,8 @@
       </div>
     </div>
   </div>
+
+</div>
 </template>
 
 <script>
@@ -98,6 +101,17 @@ export default {
 </script>
 
 <style scoped>
+.weather-dark-screen.active{
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .weather-details-wrap .right-side {
   position: absolute;
   right: 11%;
@@ -123,7 +137,6 @@ export default {
 }
 .temp-info-wrap .info-elem {
   margin-top: 40px;
-  /* font-weight: bold; */
 }
 .weather-details-wrap .show-info-wrap {
   text-align: start;
@@ -181,7 +194,6 @@ export default {
   display: flex;
   width: 602px;
   position: absolute;
-  top: 500px;
   background-color: #052962;
   border: 1px solid;
   z-index: 1000;
