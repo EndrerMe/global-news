@@ -90,11 +90,7 @@ export default {
         "."
       )[0];
       this.weatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
-      console.log(this.weatherImg)
     }
-  },
-  created() {
-    console.log(this.isShowMoreWeather);
   },
   methods: {
     closeMoreWeather() {
@@ -102,8 +98,14 @@ export default {
     }
   },
   watch: {
-    isShowMoreWeather: function(newVal) {
-      console.log(newVal);
+    weatherData: function() {
+      this.weatherData.main.temp = this.weatherData.main.temp + '';
+      this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
+      this.weatherData.main.temp_max = this.weatherData.main.temp_max + '';
+      this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(".")[0];
+      this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
+      this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
+      this.weatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
   }
 };

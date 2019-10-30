@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="clouds">
-          <span>Broken Clouds</span>
+          <span>{{ currentWeather }}</span>
           <span class="icon">
             <img :src="currentWeatherImg" alt="cloud" />
           </span>
@@ -244,6 +244,7 @@ export default {
       date: "",
       coordinates: null,
       isCelsius: true,
+      currentWeather: null,
       currentWeatherImg: null,
       isShowMoreWeather: false
     };
@@ -277,6 +278,7 @@ export default {
       this.temp = this.temp + "";
       this.temp = this.temp.split(".")[0];
       this.location = this.weatherData.name;
+      this.currentWeather = this.weatherData.weather[0].description;
       this.date = new Date()
         .toJSON()
         .slice(0, 10)
@@ -290,6 +292,7 @@ export default {
       this.temp = this.temp + "";
       this.temp = this.temp.split(".")[0];
       this.location = this.weatherData.name;
+      this.currentWeather = this.weatherData.weather[0].description;
       this.date = new Date()
         .toJSON()
         .slice(0, 10)
