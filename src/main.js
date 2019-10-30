@@ -7,6 +7,7 @@ import Slick from "vue-slick";
 import vWow from "v-wow";
 import AOS from 'aos';
 import VueGeolocation from 'vue-browser-geolocation';
+import * as mapbox from 'mapbox';
 
 // Router
 import routes from "./routes";
@@ -54,6 +55,7 @@ Vue.use(VueRouter);
 Vue.use(Slick);
 Vue.use(vWow);
 Vue.use(VueGeolocation);
+Vue.use(mapbox);
 
 const router = new VueRouter({ routes });
 
