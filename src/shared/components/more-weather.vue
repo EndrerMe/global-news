@@ -122,9 +122,7 @@ export default {
 .weather-details-wrap {
   display: flex;
   width: 602px;
-  /* position: absolute; */
   background-color: #052962;
-  border: 1px solid;
   z-index: 1000;
   padding: 0 50px;
 }

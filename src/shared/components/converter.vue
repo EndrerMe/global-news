@@ -1,320 +1,347 @@
 <template>
-    <div class="currency-converter-wrap" v-if='isShowConverter'>
-      <div class="close-wrap" @click='closeConverterModal()'>
-        <a href="#"></a>
+  <div class="currency-converter-wrap" v-if="isShowConverter">
+    <div class="close-wrap" @click="closeConverterModal()">
+      <a href="#"></a>
+    </div>
+    <div class="from">
+      <div class="dropdown-wrap" selected>
+        <span>from</span>
+        <select class="dropdown" v-on:change="changeCurrentRate($event)">
+          <template v-for="value of ratesName">
+            <option
+              :value="value"
+              v-if="value !== exchangeName"
+              v-bind:selected="value == currentRate"
+              v-bind:key="value"
+            >{{ value }}</option>
+          </template>
+        </select>
       </div>
-      <div class="from">
-        <div class="dropdown-wrap" selected>
-          <span>from</span>
-          <select class="dropdown" v-on:change="changeCurrentRate($event)">
-            <template v-for="value of ratesName">
-              <option :value="value" v-if="value !== exchangeName" v-bind:selected="value == currentRate" v-bind:key='value'>{{ value }}</option>
-            </template>
-          </select>
-        </div>
-        <div class="value-wrap">
-          <input class="value" value="100" v-on:input="changeAmount($event)" type="number" placeholder="Amount" @focus="focusOn" @blur="focusOut"/>
-        </div>
-      </div>
-
-      <div class="convert-icon">
-        <img src="../../assets/images/header/change-arrows.svg" alt="logo" />
-
-      </div>
-      <div class="to">
-        <div class="dropdown-wrap" selected>
-          <span>to</span>
-          <select class="dropdown" v-on:change="changeRateTo($event)">
-            <template v-for="value of ratesName">
-              <option :value="value" v-if="value !== currentRate" v-bind:selected="value == exchangeName" v-bind:key='value'>{{ value }}</option>
-            </template>
-          </select>
-        </div>
-        <div class="value-wrap">
-          <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span> 
-        </div>
-      </div> 
-
-      <div class="rate-wrap">
-        <div>
-          <span>EUR/USD = {{ retesCouples.first.usd[0] }}.{{ retesCouples.first.usd[1] }}</span>
-        </div>
-        <div>
-          <span>USD/JPY = {{ retesCouples.secound.jpy[0] }}.{{ retesCouples.secound.jpy[1] }}</span>
-        </div>
-        <div>
-          <span>GBP/USD = {{ retesCouples.third.usd[0] }}.{{ retesCouples.third.usd[1] }}</span>
-        </div>
+      <div class="value-wrap">
+        <input
+          class="value"
+          value="100"
+          v-on:input="changeAmount($event)"
+          type="number"
+          placeholder="Amount"
+          @focus="focusOn"
+          @blur="focusOut"
+        />
       </div>
     </div>
+
+    <div class="convert-icon">
+      <img src="../../assets/images/header/change-arrows.svg" alt="logo" />
+    </div>
+    <div class="to">
+      <div class="dropdown-wrap" selected>
+        <span>to</span>
+        <select class="dropdown" v-on:change="changeRateTo($event)">
+          <template v-for="value of ratesName">
+            <option
+              :value="value"
+              v-if="value !== currentRate"
+              v-bind:selected="value == exchangeName"
+              v-bind:key="value"
+            >{{ value }}</option>
+          </template>
+        </select>
+      </div>
+      <div class="value-wrap">
+        <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span>
+      </div>
+    </div>
+
+    <div class="rate-wrap">
+      <div>
+        <span>EUR/USD = {{ retesCouples.first.usd[0] }}.{{ retesCouples.first.usd[1] }}</span>
+      </div>
+      <div>
+        <span>USD/JPY = {{ retesCouples.secound.jpy[0] }}.{{ retesCouples.secound.jpy[1] }}</span>
+      </div>
+      <div>
+        <span>GBP/USD = {{ retesCouples.third.usd[0] }}.{{ retesCouples.third.usd[1] }}</span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import ratesService from './../services/rates.service';
-import _ from 'lodash'
+import ratesService from "./../services/rates.service";
+import _ from "lodash";
 
 export default {
-    name: 'converterDesctop',
-    props: ['isShowConverter'],
-    data() {
-      return {
-        ratesName: [],
-        ratesValue: {},
-        currentRate: 'USD',
-        currentRateValue: '',
-        exchangeTo: '',
-        exchangeName: 'EUR',
-        rateAmount: 100,
-        retesCouples: {
-            first: {
-                eur: this.rateAmount,
-                usd: ''
-            },
+  name: "converterDesctop",
+  props: ["isShowConverter"],
+  data() {
+    return {
+      ratesName: [],
+      ratesValue: {},
+      currentRate: "USD",
+      currentRateValue: "",
+      exchangeTo: "",
+      exchangeName: "EUR",
+      rateAmount: 100,
+      retesCouples: {
+        first: {
+          eur: this.rateAmount,
+          usd: ""
+        },
 
-            secound: {
-                usd: this.rateAmount,
-                jpy: '',
-            },
+        secound: {
+          usd: this.rateAmount,
+          jpy: ""
+        },
 
-            third: {
-                gbp: this.rateAmount,
-                usd: '',
-            }
+        third: {
+          gbp: this.rateAmount,
+          usd: ""
         }
       }
-    },
-    created() {
-
-      ratesService.getRates(this.currentRate).then(res => {
-          for (let i in res.data.rates) {
-              this.ratesName.push(i);
+    };
+  },
+  created() {
+    ratesService.getRates(this.currentRate).then(res => {
+      for (let i in res.data.rates) {
+        this.ratesName.push(i);
+      }
+      this.ratesValue = res.data.rates;
+      this.exchangeTo = this.ratesValue[this.exchangeName] * this.rateAmount;
+      this.exchangeTo = this.exchangeTo + "";
+      this.exchangeTo = this.exchangeTo.split(".");
+      let array = this.exchangeTo[0].split("");
+      this.exchangeTo[0] = "";
+      for (let i = 0; i < array.length; i++) {
+        if (array.length > 3) {
+          if (i % 3 == 0) {
+            if (i < array.length - 1) {
+              array[i] = array[i] + ",";
+            } else {
+              continue;
+            }
           }
-          this.ratesValue = res.data.rates;
-          this.exchangeTo = this.ratesValue[this.exchangeName] * this.rateAmount;
-          this.exchangeTo = this.exchangeTo+'';
-          this.exchangeTo = this.exchangeTo.split('.');
-          let array = this.exchangeTo[0].split('');
-          this.exchangeTo[0] = ''; 
-          for (let i = 0; i < array.length; i++) {
-              if (array.length > 3) {
-                  if (i % 3 == 0) { 
-                      if (i < array.length-1) {
-                          array[i] = array[i]+','
-                      } else {
-                          continue;
-                      }
-                  }
-              }
+        }
+      }
+      this.exchangeTo[0] = array.join("");
+      this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+    });
+
+    ratesService.getRates("EUR").then(res => {
+      this.retesCouples.first.usd = res.data.rates.USD;
+      this.retesCouples.first.usd = this.retesCouples.first.usd + "";
+      this.retesCouples.first.usd = this.retesCouples.first.usd.split(".");
+      let array = this.retesCouples.first.usd[0].split("");
+      this.retesCouples.first.usd[0] = "";
+      for (let i = 0; i < array.length; i++) {
+        if (array.length > 3) {
+          if (i % 3 == 0) {
+            if (i < array.length - 1) {
+              array[i] = array[i] + ",";
+            } else {
+              continue;
+            }
           }
-          this.exchangeTo[0] = array.join('')
-          this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
-      });
+        }
+      }
+      this.retesCouples.first.usd[0] = array.join("");
+      this.retesCouples.first.usd[1] = this.retesCouples.first.usd[1].slice(
+        0,
+        4
+      );
+    });
 
-      ratesService.getRates('EUR').then((res) => {
-          this.retesCouples.first.usd = res.data.rates.USD;
-          this.retesCouples.first.usd = this.retesCouples.first.usd + '';
-          this.retesCouples.first.usd = this.retesCouples.first.usd.split(".");
-          let array = this.retesCouples.first.usd[0].split('');
-          this.retesCouples.first.usd[0] = ''; 
-          for (let i = 0; i < array.length; i++) {
-              if (array.length > 3) {
-                  if (i % 3 == 0) { 
-                      if (i < array.length-1) {
-                          array[i] = array[i]+','
-                      } else {
-                          continue;
-                      }
-                  }
-              }
+    ratesService.getRates("USD").then(res => {
+      this.retesCouples.secound.jpy = res.data.rates.JPY;
+      this.retesCouples.secound.jpy = this.retesCouples.secound.jpy + "";
+      this.retesCouples.secound.jpy = this.retesCouples.secound.jpy.split(".");
+      let array = this.retesCouples.secound.jpy[0].split("");
+      this.retesCouples.secound.jpy[0] = "";
+      for (let i = 0; i < array.length; i++) {
+        if (array.length > 3) {
+          if (i % 3 == 0) {
+            if (i < array.length - 1) {
+              array[i] = array[i] + ",";
+            } else {
+              continue;
+            }
           }
-          this.retesCouples.first.usd[0] = array.join('')
-          this.retesCouples.first.usd[1] = this.retesCouples.first.usd[1].slice(0, 4);
-      });
+        }
+      }
+      this.retesCouples.secound.jpy[0] = array.join("");
+      this.retesCouples.secound.jpy[1] = this.retesCouples.secound.jpy[1].slice(
+        0,
+        4
+      );
+    });
 
-      ratesService.getRates('USD').then((res) => {
-          this.retesCouples.secound.jpy = res.data.rates.JPY;
-          this.retesCouples.secound.jpy = this.retesCouples.secound.jpy + '';
-          this.retesCouples.secound.jpy = this.retesCouples.secound.jpy.split(".");
-          let array = this.retesCouples.secound.jpy[0].split('');
-          this.retesCouples.secound.jpy[0] = ''; 
-          for (let i = 0; i < array.length; i++) {
-              if (array.length > 3) {
-                  if (i % 3 == 0) { 
-                      if (i < array.length-1) {
-                          array[i] = array[i]+','
-                      } else {
-                          continue;
-                      }
-                  }
-              }
+    ratesService.getRates("GBP").then(res => {
+      this.retesCouples.third.usd = res.data.rates.USD;
+      this.retesCouples.third.usd = this.retesCouples.third.usd + "";
+      this.retesCouples.third.usd = this.retesCouples.third.usd.split(".");
+      let array = this.retesCouples.third.usd[0].split("");
+      this.retesCouples.third.usd[0] = "";
+      for (let i = 0; i < array.length; i++) {
+        if (array.length > 3) {
+          if (i % 3 == 0) {
+            if (i < array.length - 1) {
+              array[i] = array[i] + ",";
+            } else {
+              continue;
+            }
           }
-          this.retesCouples.secound.jpy[0] = array.join('')
-          this.retesCouples.secound.jpy[1] = this.retesCouples.secound.jpy[1].slice(0, 4);
-      });
-
-      ratesService.getRates('GBP').then((res) => {
-          this.retesCouples.third.usd = res.data.rates.USD;
-          this.retesCouples.third.usd = this.retesCouples.third.usd + '';
-          this.retesCouples.third.usd = this.retesCouples.third.usd.split(".");
-          let array = this.retesCouples.third.usd[0].split('');
-          this.retesCouples.third.usd[0] = ''; 
-          for (let i = 0; i < array.length; i++) {
-              if (array.length > 3) {
-                  if (i % 3 == 0) { 
-                      if (i < array.length-1) {
-                          array[i] = array[i]+','
-                      } else {
-                          continue;
-                      }
-                  }
-              }
-          }
-          this.retesCouples.third.usd[0] = array.join('')
-          this.retesCouples.third.usd[1] = this.retesCouples.third.usd[1].slice(0, 4);
-
-      });
-
+        }
+      }
+      this.retesCouples.third.usd[0] = array.join("");
+      this.retesCouples.third.usd[1] = this.retesCouples.third.usd[1].slice(
+        0,
+        4
+      );
+    });
   },
   methods: {
     closeConverterModal() {
-      this.$emit('closeConverterModal', false)
+      this.$emit("closeConverterModal", false);
       this.isShowConverter = false;
     },
 
-      changeCurrentRate(event) {
-          let target = event.target.value;
-          this.currentRate = target + '';
-          ratesService.getRates(this.currentRate).then(res => {
-            this.rates = res.data.rates;
-            this.currentRateValue = this.rates[this.currentRate];
+    changeCurrentRate(event) {
+      let target = event.target.value;
+      this.currentRate = target + "";
+      ratesService.getRates(this.currentRate).then(res => {
+        this.rates = res.data.rates;
+        this.currentRateValue = this.rates[this.currentRate];
 
-            this.exchangeTo = this.rates[this.exchangeName] * this.rateAmount;
-            console.log(this.exchangeTo)
-            this.exchangeTo = this.exchangeTo+'';
-            this.exchangeTo = this.exchangeTo.split('.');
-            let array = this.exchangeTo[0].split('');
-            this.exchangeTo[0] = ''; 
-            for (let i = 0; i < array.length; i++) {
-                if (array.length > 3) {
-                    if (i % 3 == 0) { 
-                        if (i < array.length-1) {
-                            array[i] = array[i]+','
-                        } else {
-                            continue;
-                        }
-                    }
-                }
-            }
-            this.exchangeTo[0] = array.join('')
-            this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
-            this.isLoaderShow = false;
-        });
-      },
-
-      changeRateTo(event) {
-        this.isLoaderShow = true;
-        let target = event.target.value;
-
-        ratesService.getRates(this.currentRate).then(res => {
-            this.rates = res.data.rates;
-            this.exchangeTo = this.rates[target] * this.rateAmount;
-            this.exchangeTo = this.exchangeTo+'';
-            this.exchangeTo = this.exchangeTo.split('.');
-            let array = this.exchangeTo[0].split('');
-            this.exchangeTo[0] = ''; 
-            for (let i = 0; i < array.length; i++) {
-                    if (array.length > 3) {
-                        if (i % 3 == 0) { 
-                            if (i < array.length-1) {
-                                array[i] = array[i]+','
-                            } else {
-                                continue;
-                            }
-                        }
-                    }
-            }
-            this.exchangeTo[0] = array.join('')
-            this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
-            this.exchangeName = target;
-
-            this.isLoaderShow = false;
-        });
-      },
-
-      changeAmount:_.debounce(async function(event) {
-          const value = event.target.value;
-
-          this.rateAmount = value;
-
-          const res = await ratesService.getRates(this.currentRate);
-
-          if (value) {
-              if (this.exchangeTo === 0) {
-                  this.exchangeTo = res.data.rates[this.exchangeName]
-                  this.exchangeTo = this.exchangeTo * value;
+        this.exchangeTo = this.rates[this.exchangeName] * this.rateAmount;
+        console.log(this.exchangeTo);
+        this.exchangeTo = this.exchangeTo + "";
+        this.exchangeTo = this.exchangeTo.split(".");
+        let array = this.exchangeTo[0].split("");
+        this.exchangeTo[0] = "";
+        for (let i = 0; i < array.length; i++) {
+          if (array.length > 3) {
+            if (i % 3 == 0) {
+              if (i < array.length - 1) {
+                array[i] = array[i] + ",";
               } else {
-                  this.exchangeTo = res.data.rates[this.exchangeName] * value
-                  this.exchangeTo = this.exchangeTo+'';
-                  this.exchangeTo = this.exchangeTo.split('.');
-                  let array = this.exchangeTo[0].split('');
-                  this.exchangeTo[0] = ''; 
-                  for (let i = 0; i < array.length; i++) {
-                      if (array.length > 3) {
-                          if (i % 3 == 0) { 
-                              if (i < array.length-1) {
-                                  array[i] = array[i]+','
-                              } else {
-                                  continue;
-                              }
-                          }
-                      }
-                  }
-                  this.exchangeTo[0] = array.join('')
-                  this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+                continue;
               }
-          } else {
-              this.rateAmount = 100;
-              this.exchangeTo = res.data.rates[this.exchangeName] * this.rateAmount;
-              this.exchangeTo = this.exchangeTo+'';
-              this.exchangeTo = this.exchangeTo.split('.');
-              let array = this.exchangeTo[0].split('');
-              this.exchangeTo[0] = ''; 
-              for (let i = 0; i < array.length; i++) {
-                  if (array.length > 3) {
-                      if (i % 3 == 0) { 
-                          if (i < array.length-1) {
-                              array[i] = array[i]+','
-                          } else {
-                              continue;
-                          }
-                      }
-                  }
+            }
+          }
+        }
+        this.exchangeTo[0] = array.join("");
+        this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+        this.isLoaderShow = false;
+      });
+    },
+
+    changeRateTo(event) {
+      this.isLoaderShow = true;
+      let target = event.target.value;
+
+      ratesService.getRates(this.currentRate).then(res => {
+        this.rates = res.data.rates;
+        this.exchangeTo = this.rates[target] * this.rateAmount;
+        this.exchangeTo = this.exchangeTo + "";
+        this.exchangeTo = this.exchangeTo.split(".");
+        let array = this.exchangeTo[0].split("");
+        this.exchangeTo[0] = "";
+        for (let i = 0; i < array.length; i++) {
+          if (array.length > 3) {
+            if (i % 3 == 0) {
+              if (i < array.length - 1) {
+                array[i] = array[i] + ",";
+              } else {
+                continue;
               }
-              this.exchangeTo[0] = array.join('')
-              this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+            }
           }
-          
-          this.rates = res.data.rates;
+        }
+        this.exchangeTo[0] = array.join("");
+        this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+        this.exchangeName = target;
 
-          for (let item in this.rates) {
-              if (typeof this.rates[item] == 'number') {
-                  this.rates[item] = this.rates[item] * value;
+        this.isLoaderShow = false;
+      });
+    },
+
+    changeAmount: _.debounce(async function(event) {
+      const value = event.target.value;
+
+      this.rateAmount = value;
+
+      const res = await ratesService.getRates(this.currentRate);
+
+      if (value) {
+        if (this.exchangeTo === 0) {
+          this.exchangeTo = res.data.rates[this.exchangeName];
+          this.exchangeTo = this.exchangeTo * value;
+        } else {
+          this.exchangeTo = res.data.rates[this.exchangeName] * value;
+          this.exchangeTo = this.exchangeTo + "";
+          this.exchangeTo = this.exchangeTo.split(".");
+          let array = this.exchangeTo[0].split("");
+          this.exchangeTo[0] = "";
+          for (let i = 0; i < array.length; i++) {
+            if (array.length > 3) {
+              if (i % 3 == 0) {
+                if (i < array.length - 1) {
+                  array[i] = array[i] + ",";
+                } else {
+                  continue;
+                }
               }
-              continue;
+            }
           }
-      }, 1000),
-
-      focusOn() {
-          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-              this.$emit('toggleHeadAndFoot', false);
+          this.exchangeTo[0] = array.join("");
+          this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+        }
+      } else {
+        this.rateAmount = 100;
+        this.exchangeTo = res.data.rates[this.exchangeName] * this.rateAmount;
+        this.exchangeTo = this.exchangeTo + "";
+        this.exchangeTo = this.exchangeTo.split(".");
+        let array = this.exchangeTo[0].split("");
+        this.exchangeTo[0] = "";
+        for (let i = 0; i < array.length; i++) {
+          if (array.length > 3) {
+            if (i % 3 == 0) {
+              if (i < array.length - 1) {
+                array[i] = array[i] + ",";
+              } else {
+                continue;
+              }
+            }
           }
-      },
-
-      focusOut() {
-          this.$emit('toggleHeadAndFoot', true);
+        }
+        this.exchangeTo[0] = array.join("");
+        this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
       }
+
+      this.rates = res.data.rates;
+
+      for (let item in this.rates) {
+        if (typeof this.rates[item] == "number") {
+          this.rates[item] = this.rates[item] * value;
+        }
+        continue;
+      }
+    }, 1000),
+
+    focusOn() {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        this.$emit("toggleHeadAndFoot", false);
+      }
+    },
+
+    focusOut() {
+      this.$emit("toggleHeadAndFoot", true);
+    }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -388,9 +415,9 @@ export default {
   display: block;
   border-bottom: 1px solid #b7b7b7 !important;
   text-align: center;
-    background: transparent;
-    border: none;
-    color:white;
+  background: transparent;
+  border: none;
+  color: white;
 }
 
 .currency-converter-wrap .from .dropdown-wrap {
@@ -429,9 +456,9 @@ export default {
   font-size: 10px;
 }
 
-.currency-converter-wrap .convert-icon{
-  margin-top:20px;
-  text-align:start;
+.currency-converter-wrap .convert-icon {
+  margin-top: 20px;
+  text-align: start;
 }
 
 .currency-converter-wrap {
@@ -441,7 +468,7 @@ export default {
   top: 63px;
   background-color: #052962;
   z-index: 999;
-  padding:0 60px 45px 60px;
+  padding: 0 60px 45px 60px;
   /* padding-bottom: 45px; */
 }
 .currency-converter-wrap .close-wrap a {
@@ -472,5 +499,11 @@ export default {
   top: 7px;
   right: 0px;
   transform: rotate(-45deg);
+}
+
+@media (max-width: 1139px) {
+  .currency-converter-wrap {
+    top: 60px;
+  }
 }
 </style>
