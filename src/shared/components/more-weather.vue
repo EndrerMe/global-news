@@ -2,11 +2,6 @@
   <div class="component-wrap">
     <div class="weather-dark-screen">
       <div class="weather-details-wrap" v-if="isShowMoreWeather">
-        <div class="back-to-home">
-          <a href="#" class="back-to-home-button">
-            <font-awesome-icon icon="angle-left" />
-          </a>
-        </div>
 
         <div class="close-wrap" @click="closeMoreWeather()">
           <a href="#"></a>
@@ -134,24 +129,6 @@ export default {
   padding: 0 50px;
 }
 
-.weather-dark-screen .back-to-home {
-  display: none;
-  position: fixed;
-  font-size: 30px;
-  top: -750px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.weather-dark-screen .back-to-home a {
-  font-size: 100px;
-  background-color: rgba(43, 44, 91, 0.4);
-  background: rgba(43, 44, 91, 0.4);
-  color: rgba(43, 44, 91, 0.4);
-  padding: 0 35px;
-}
-.weather-dark-screen .back-to-home a svg {
-  color: white;
-}
 .weather-details-wrap .right-side {
   position: absolute;
   right: 11%;
