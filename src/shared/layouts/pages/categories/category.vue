@@ -9,7 +9,7 @@
       <div class="top-box-preview row">
         <div class="left-side col-md-6 box-item">
           <div class="hover-link">
-            <button>Read More</button>
+            <button @click='goToCurrentNews(firstBlock)'>Read More</button>
           </div>
           <div class="gradient"></div>
           <div class="image-box">
@@ -24,8 +24,8 @@
         <div class="right-side col-md-6">
           <div class="image-wrap right-side-top">
             <div class="box-item">
-              <div class="hover-link">
-                <button>Read More</button>
+              <div class="hover-link"> 
+                <button @click='goToCurrentNews(secoundBlock)'>Read More</button>
               </div>
               <div class="gradient"></div>
               <div class="image-box">
@@ -41,7 +41,7 @@
           <div class="right-side-bottom row">
             <div class="image-wrap col-md-6 col-sm-6 box-item">
               <div class="hover-link">
-                <button>Read More</button>
+                <button @click='goToCurrentNews(thirdBlock)'>Read More</button>
               </div>
               <div class="gradient"></div>
               <div class="image-box">
@@ -55,7 +55,7 @@
             </div>
             <div class="image-wrap col-md-6 col-sm-6 box-item">
               <div class="hover-link">
-                <button>Read More</button>
+                <button @click='goToCurrentNews(fourthBlock)'>Read More</button>
               </div>
               <div class="gradient"></div>
               <div class="image-box">
