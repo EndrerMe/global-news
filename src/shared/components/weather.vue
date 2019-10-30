@@ -222,7 +222,7 @@
     </div>
 
     <!-- Weater Details -->
-    <moreWeather :isShowMoreWeather='isShowMoreWeather' @closeMoreWeather='closeMoreWeather' :weatherData='weatherData'></moreWeather>
+    <moreWeather :isShowMoreWeather='isShowMoreWeather' @closeMoreWeather='closeMoreWeather' :weatherData='weatherData' :isWeatherMap='false'></moreWeather>
   </div>
 </template>
 

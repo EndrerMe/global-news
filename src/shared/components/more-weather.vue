@@ -1,64 +1,69 @@
 <template>
-<div class="weather-dark-screen">
- <div class="weather-details-wrap" v-if='isShowMoreWeather'>
-    <div class="close-wrap" @click='closeMoreWeather()'>
-      <a href="#"></a>
-    </div>
-    <div class="left-side">
-      <div class="temp-info-wrap">
-        <div class="temp-value-wrap info-elem">
-          <p>
-            <span class="cwitch">Show weather in :</span>
-            <span class="temp-symbol">
-              <span class="switch-mode">F</span>
-              <span class="switch-mode active">&#8451;</span>
-            </span>
-          </p>
-          <p>Place : {{ weatherData.sys.country }}</p>
+  <div>
+    <div class="weather-dark-screen">
+
+    <div class="weather-details-wrap" v-if='isShowMoreWeather'>
+      <div class="close-wrap" @click='closeMoreWeather()'>
+        <a href="#"></a>
+      </div>
+      <div class="left-side">
+        <div class="temp-info-wrap">
+          <div class="temp-value-wrap info-elem">
+            <p>
+              <span class="cwitch">Show weather in :</span>
+              <span class="temp-symbol">
+                <span class="switch-mode">F</span>
+                <span class="switch-mode active">&#8451;</span>
+              </span>
+            </p>
+            <p>Place : {{ weatherData.sys.country }}</p>
+          </div>
+          <div class="show-info-wrap info-elem">
+            <p>
+              Min Temperature :
+              <span class="temp-value">
+                {{ weatherData.main.temp_min }}
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+            <p>
+              Max Temperature :
+              <span class="temp-value">
+                {{ weatherData.main.temp_max }}
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+            <p>
+              Temperature :
+              <span class="temp-value">
+                {{ weatherData.main.temp }}
+                <span class="temp-val-symbol"></span>
+              </span>
+            </p>
+          </div>
+          <div class="additional-info info-elem">
+            <p class>
+              Humidity :
+              <span class="value">{{ weatherData.main.humidity }}</span>
+            </p>
+            <p class>
+              Wind Speed :
+              <span class="value">{{ weatherData.wind.speed }}</span>
+            </p>
+          </div>
         </div>
-        <div class="show-info-wrap info-elem">
-          <p>
-            Min Temperature :
-            <span class="temp-value">
-              {{ weatherData.main.temp_min }}
-              <span class="temp-val-symbol"></span>
-            </span>
-          </p>
-          <p>
-            Max Temperature :
-            <span class="temp-value">
-              {{ weatherData.main.temp_max }}
-              <span class="temp-val-symbol"></span>
-            </span>
-          </p>
-          <p>
-            Temperature :
-            <span class="temp-value">
-              {{ weatherData.main.temp }}
-              <span class="temp-val-symbol"></span>
-            </span>
-          </p>
-        </div>
-        <div class="additional-info info-elem">
-          <p class>
-            Humidity :
-            <span class="value">{{ weatherData.main.humidity }}</span>
-          </p>
-          <p class>
-            Wind Speed :
-            <span class="value">{{ weatherData.wind.speed }}</span>
-          </p>
+      </div>
+      <div class="right-side">
+        <div class="wrap">
+          <span class="icon-wrap">
+            <img :src="weatherImg" alt="" />
+          </span>
+          <span>{{ weatherData.weather[0].description }}</span>
         </div>
       </div>
     </div>
-    <div class="right-side">
-      <div class="wrap">
-        <span class="icon-wrap">
-          <img :src="weatherImg" alt="" />
-        </span>
-        <span>{{ weatherData.weather[0].description }}</span>
-      </div>
-    </div>
+
+    <div class="bg-close" v-if='!isWeatherMap && isShowMoreWeather' @click='closeMoreWeather()'></div>
   </div>
 
 </div>
@@ -66,7 +71,7 @@
 
 <script>
 export default {
-  props: ['isShowMoreWeather', 'weatherData'],
+  props: ['isShowMoreWeather', 'weatherData', 'isWeatherMap'],
   name: 'moreWeather',
   data() {
     return {
@@ -510,5 +515,15 @@ export default {
     left: 0;
     bottom: 0;
   }
+}
+
+.bg-close {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 999;
 }
 </style>

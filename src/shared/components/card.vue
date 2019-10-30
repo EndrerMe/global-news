@@ -57,7 +57,15 @@ export default {
         dots: true,
         draggable: true,
         edgeFriction: 0.3,
-        swipe: true
+        swipe: true,
+        responsive: [
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 1,
+            }
+          },
+        ]
       }
     };
   },
