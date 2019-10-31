@@ -68,7 +68,10 @@
                   <li class="nav-item search-wrap">
                     <div>
                       <a href="#">
-                        <font-awesome-icon icon="search" class="fa-lg" />
+                        <input class="search-input" />
+                        <span class="icon-wrap">
+                          <font-awesome-icon icon="search" class="fa-lg" />
+                        </span>
                       </a>
                     </div>
                     <div class="bell active" @click="showSubscribeFullFun()">
@@ -302,7 +305,13 @@ export default {
   font-size: 13px;
   letter-spacing: 1px;
 }
-#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button:hover{
+#nav-collapse
+  .sub-wrap
+  .mobile-side-menu
+  .nav-item
+  a
+  .bottom-side-wrap
+  button:hover {
   background: #ffe076;
 }
 .top-menu-wrap #nav-collapse .close-link-wrap {
@@ -380,6 +389,21 @@ export default {
 
 #nav-collapse .sub-wrap .wide-menu .search-wrap {
   display: flex;
+}
+
+#nav-collapse .sub-wrap .wide-menu .search-wrap a {
+  position: relative;
+}
+
+#nav-collapse .sub-wrap .wide-menu .search-wrap a .icon-wrap {
+  position: absolute;
+  right: 0;
+}
+
+#nav-collapse .sub-wrap .wide-menu .search-wrap .search-input {
+  background: transparent;
+  color: white;
+  border: none;
 }
 
 #nav-collapse .sub-wrap .mobile-side-menu {
@@ -519,8 +543,7 @@ export default {
   }
 }
 @media (max-width: 1139px) {
-
- #nav-collapse .sub-wrap .wide-menu {
+  #nav-collapse .sub-wrap .wide-menu {
     font-size: 12px;
   }
   /* .bottom-menu-wrap .bottom-menu li a {
@@ -538,10 +561,9 @@ export default {
   .top-menu-wrap .navbar-collapse .search-wrap a svg {
     margin: 0 10px;
   }
- .top-menu-wrap #nav-collapse .search-wrap {
+  .top-menu-wrap #nav-collapse .search-wrap {
     margin-left: 30px !important;
   }
-  
 }
 @media (max-width: 767px) {
   .bottom-menu-wrap .bottom-menu {
