@@ -99,41 +99,19 @@
         </div>
       </b-card-group>
 
-      <div class="pagination-wrap">
-        <button class="double-arrow-left"></button>
-        <button class="arrow-left"></button>
-
-        <div class="numbers-wrap">
-          <button href="#" class="page-number">
-            <span class="value">1</span>
-          </button>
-          <button href="#" class="page-number active">
-            <span class="value">2</span>
-          </button>
-          <button href="#" class="page-number">
-            <span class="value">3</span>
-          </button>
-
-          <div class="separator-wrap">
-            <span class="separator">...</span>
-          </div>
-
-          <button href="#" class="page-number">
-            <span class="value">16</span>
-          </button>
-        </div>
-
-        <button href="#" class="arrow-right"></button>
-        <button href="#" class="double-arrow-right"></button>
-      </div>
+      <categoryPagination :pageNumber='pageNumber' @changePage='changePage'></categoryPagination>
     </div>
 </template>
 
 <script>
 import newsService from './../../../services/news.service';
+import categoryPagination from './../../../components/paginate';
 
 export default {
     name: 'currentCategory',
+    components: {
+      categoryPagination
+    },
     data() {
         return {
             currentNews: [],
@@ -154,10 +132,17 @@ export default {
               title: '',
               urlToImage: ''
             },
+            pageNumber: 0,
         }
     },
     beforeCreate() {
         this.category = this.$route.params.category;
+
+        newsService.getPageCol(this.category).then((res) => {
+          const totalResult = res.data.totalResults;
+          this.pageNumber = Math.ceil(totalResult / 16);
+        })
+
         newsService.getData(this.category, 1).then(res => {
           this.firstBlock = res.data.articles[0];
           this.secoundBlock = res.data.articles[1];
@@ -199,6 +184,25 @@ export default {
         },
     },
     methods: {
+      changePage(e) {
+        newsService.getData(this.category, e).then(res => {
+          this.currentNews = [];
+          this.firstBlock = res.data.articles[0];
+          this.secoundBlock = res.data.articles[1];
+          this.thirdBlock = res.data.articles[2];
+          this.fourthBlock = res.data.articles[3];
+            for (let i = 0; i < 16; i++) {
+              if (res.data.articles[i].urlToImage) {
+                this.currentNews.push(res.data.articles[i])
+              } else {
+                continue;
+              }
+            }
+            }, (err) => {
+                console.log(err);
+            });
+      },
+
         goToCurrentNews(news) {
           const category = this.category;
           this.$router.push({name: 'news-info', params: {news, category}})
