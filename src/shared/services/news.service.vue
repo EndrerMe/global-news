@@ -9,7 +9,7 @@ export default {
     },
 
     getTopNews(someFilter) {
-        return axios.get(`${environment.newsApiUrl}top-headlines?sources=bbc-news&${someFilter}apiKey=${environment.newsApiKey}`);
+        return axios.get(`${environment.newsApiUrl}top-headlines?country=us&${someFilter}apiKey=${environment.newsApiKey}`);
     },
 
     searchByTitle(text) {

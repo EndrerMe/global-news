@@ -9,14 +9,14 @@
       <!-- Slider -->
 
       <div class="slider-wrap">
-        <homeSlider></homeSlider>
+        <homeSlider :slidesNews='slidesNews'></homeSlider>
       </div>
       <!-- Business -->
-      <card :sendedNews='getNews' :title="'Science'" :titleBorder="'c710a2'"></card>
+      <card :sendedNews='scienceNewsHome' :category="'science'" :title="'Science'" :titleBorder="'c710a2'"></card>
       <!-- Entertainmenet -->
-      <card :sendedNews='scienceNewsHome' :title="'Entertainment'" :titleBorder="'ff995e'"></card>
+      <card :sendedNews='entertainmentNewsHome' :category="'entertainment'" :title="'Entertainment'" :titleBorder="'ff995e'"></card>
       <!-- Science -->
-      <card :sendedNews='businessNewsHome' :title="'Business'" :titleBorder="'10c7ba'"></card>
+      <card :sendedNews='businessNewsHome' :category="'business'" :title="'Business'" :titleBorder="'10c7ba'"></card>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@
 import card from './../../../components/card';
 import newsService from './../../../services/news.service';
 import homeSlider from './../../../components/home-slider';
-import {mapGetters, mapActions} from 'vuex'
+import {mapGetters} from 'vuex'
 
 export default {
   components: { 
@@ -36,12 +36,26 @@ export default {
   data() {
     return {
       isShowSideMenu: false,
+      slidesNews: [],
       entertainmentNewsHome: [],
       scienceNewsHome: [],
       businessNewsHome: [],
     };
   },
   beforeCreate() {
+    newsService.getTopNews('pageSize=10&').then((res) => {
+      let newsCol = 3;
+      for (let i = 0; i < newsCol; i++) {
+        if (res.data.articles[i].urlToImage) {
+          this.slidesNews.push(res.data.articles[i]);
+          console.log(this.slidesNews)
+        } else {
+          newsCol += 1;
+          continue;
+        }
+      }
+    })
+
     newsService.getData('entertainment', 1).then((res) => {
       let newsCol = 3;
       for (let i = 0; i < newsCol; i++) {
@@ -78,26 +92,26 @@ export default {
       }
     })
   },
-  methods: mapActions(['getNewsForHomePage']),
-  async mounted () {
-    this.getNewsForHomePage({limit: 3, category: 'science'})
-  },
-  // methods: {
-
-  //   toggleMobileSideMenu() {
-  //     this.isShowSideMenu = !this.isShowSideMenu;
-  //   },
-  //   next() {
-  //     this.$refs.slick.next();
-  //   },
-  //   prev() {
-  //     this.$refs.slick.prev();
-  //   },
-  //   reInit() {
-  //     // Helpful if you have to deal with v-for to update dynamic lists
-  //     this.$refs.slick.reSlick();
-  //   },
+  // methods: mapActions(['getNewsForHomePage']),
+  // async mounted () {
+  //   this.getNewsForHomePage({limit: 3, category: 'science'})
   // },
+  methods: {
+
+    toggleMobileSideMenu() {
+      this.isShowSideMenu = !this.isShowSideMenu;
+    },
+    next() {
+      this.$refs.slick.next();
+    },
+    prev() {
+      this.$refs.slick.prev();
+    },
+    reInit() {
+      // Helpful if you have to deal with v-for to update dynamic lists
+      this.$refs.slick.reSlick();
+    },
+  },
 };
 </script>
 

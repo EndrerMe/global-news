@@ -200,7 +200,8 @@ export default {
     },
     methods: {
         goToCurrentNews(news) {
-            this.$router.push({name: 'news-info', params: {news}})
+          const category = this.category;
+          this.$router.push({name: 'news-info', params: {news, category}})
         }
     },
     filters: {

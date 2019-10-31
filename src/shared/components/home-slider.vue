@@ -9,22 +9,10 @@
     img-height="480"
     style="text-shadow: 1px 1px 2px #333;"
   >
-    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=52">
+    <b-carousel-slide v-for='news of slidesNews' :key='news.title' :img-src="news.urlToImage">
       <div class="slide-title">
-        <span>White House vows to boycott impeachment</span>
-        <span class="slide-category general">CATEGOORY 1</span>
-      </div>
-    </b-carousel-slide>
-    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-      <div class="slide-title">
-        <span>Second Slide</span>
-        <span class="slide-category entertainment">CATEGORY 2</span>
-      </div>
-    </b-carousel-slide>
-    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
-      <div class="slide-title">
-        <span>Third Slide</span>
-        <span class="slide-category science">CATEGOORY 3</span>
+        <span>{{ news.title }}</span>
+        <span class="slide-category general">{{ news.source.name }}</span>
       </div>
     </b-carousel-slide>
   </b-carousel>
@@ -32,7 +20,8 @@
 
 <script>
 export default {
-  name: "homeSlider"
+  props: ['slidesNews'],
+  name: "homeSlider",
 };
 </script>
 <style>
