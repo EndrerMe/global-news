@@ -63,7 +63,7 @@ export default {
         swipe: true,
         responsive: [
           {
-            breakpoint: 767,
+            breakpoint: 768,
             settings: {
               slidesToShow: 1
             }
