@@ -500,6 +500,9 @@ export default {
 
 .content .top-box-preview img {
   width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 
 .left-side {
@@ -510,6 +513,7 @@ export default {
 .right-side .image-box,
 .right-side-bottom .image-box {
   overflow: hidden;
+  height:100%;
 }
 
 .right-side {
@@ -525,6 +529,7 @@ export default {
 .right-side-bottom {
   display: flex;
   justify-content: space-between;
+  margin-top:30px;
 }
 
 .right-side .right-side-top .gradint {
@@ -818,6 +823,11 @@ export default {
 .card-deck {
   margin-bottom: 60px;
 }
+
+.card-deck .card{
+  margin-left: 0;
+  margin-right: 0;
+}
 .card-deck .card-body .image-wrap .gradient {
   margin: 0;
 }
@@ -862,6 +872,10 @@ export default {
   }
   .new-card .title-wrap {
     max-width: 78%;
+  }
+
+  .new-card .image-wrap{
+    height:200px !important;
   }
 }
 @media (max-width: 767px) {
