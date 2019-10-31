@@ -1,11 +1,8 @@
 <template>
   <div class="container">
-    <div class="back-to-home" @click='goBack()'>
-      <a href="#" class="back-to-home-button">
-        <font-awesome-icon icon="angle-left" />
-      </a>
+    <div class="back-to-home" @click="goBack()">
+      <a href="#" class="back-to-home-button"></a>
     </div>
-
     <moreWeather
       :isShowMoreWeather="isShowMoreWeather"
       @closeMoreWeather="closeMoreWeather"
@@ -87,19 +84,27 @@ export default {
 .back-to-home {
   position: fixed;
   font-size: 30px;
-  left: 200px;
-  top: 200px;
+  left: 100px;
+  top: 100px;
   z-index: 99999;
+  width: 56px;
+  height: 56px;
+  background-color: rgba(43, 98, 154, 0.5);
+  background: rgba(43, 98, 154, 0.5);
+  color: rgba(43, 98, 154, 0.5);
 }
-.back-to-home a {
-  font-size: 100px;
-  background-color: rgba(43, 44, 91, 0.4);
-  background: rgba(43, 44, 91, 0.4);
-  color: rgba(43, 44, 91, 0.4);
-  padding: 0 35px;
-}
-.back-to-home a svg {
-  color: white;
+
+.back-to-home::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 19px;
+  left: 20px;
 }
 
 .map {

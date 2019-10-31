@@ -299,60 +299,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
     max-width: 814px !important;
   }
 }
-/* Slider */
-@media (max-width: 1199px) {
-  .carousel-caption .slide-title span {
-    font-size: 34px;
-  }
-}
-@media (max-width: 767px) {
-  .carousel-caption .slide-title span {
-    font-size: 24px !important;
-  }
-}
-@media (max-width: 575px) {
-  .carousel-caption .slide-title span {
-    font-size: 20px !important;
-  }
-}
-/* Content */
-/* @media (max-width: 1199px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 28px;
-  }
-}
-@media (max-width: 1139px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 20px;
-  }
-}
-@media (max-width: 767px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 16px;
-  }
-  .business-wrap,
-  .entertainment-wrap,
-  .science-wrap {
-    margin-top: 30px;
-  }
-}
-@media (max-width: 575px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 12px;
-    letter-spacing: 5px;
-  }
-  .slick-slider {
-    margin-top: 20px;
-  }
-} */
 </style>
 
 <style>
@@ -371,7 +317,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
 }
 
 /* Slider */
-.carousel-caption {
+/* .carousel-caption {
   position: absolute;
   right: unset !important;
   bottom: 22% !important;
@@ -451,7 +397,7 @@ Weather Menu : class = 'modile-side-weather-wrap'
   border-left: 3px solid;
   transform: rotate(223deg);
   left: 12px;
-}
+} */
 
 /* Common for Business, Entertainment, Science */
 .elem-wrap {
