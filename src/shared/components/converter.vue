@@ -212,7 +212,6 @@ export default {
         this.currentRateValue = this.rates[this.currentRate];
 
         this.exchangeTo = this.rates[this.exchangeName] * this.rateAmount;
-        console.log(this.exchangeTo);
         this.exchangeTo = this.exchangeTo + "";
         this.exchangeTo = this.exchangeTo.split(".");
         let array = this.exchangeTo[0].split("");
