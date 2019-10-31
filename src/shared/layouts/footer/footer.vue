@@ -7,7 +7,7 @@
               <img src="../../../assets/images/logo.svg" alt="logo" />
             </div>
             <div class="center-item">
-              <span class="text">Created by Anuitex</span>
+              <span class="text">Created by <a href="http://anuitex.com">Anuitex</a></span>
             </div>
             <div class="right-item">
               <button>Subscribe Us</button>
@@ -59,7 +59,8 @@ footer .right-item {
 footer .center-item {
   display: flex;
 }
-footer .center-item .text {
+footer .center-item .text,
+footer .center-item .text a {
   color: white;
   display: flex;
   align-items: flex-end;
