@@ -138,19 +138,28 @@ export default {
     beforeCreate() {
         this.category = this.$route.params.category;
 
-        newsService.getPageCol(this.category).then((res) => {
+        newsService.getData(this.category, 1).then(res => {
           const totalResult = res.data.totalResults;
           this.pageNumber = Math.ceil(totalResult / 16);
-        })
-
-        newsService.getData(this.category, 1).then(res => {
-          this.firstBlock = res.data.articles[0];
-          this.secoundBlock = res.data.articles[1];
-          this.thirdBlock = res.data.articles[2];
-          this.fourthBlock = res.data.articles[3];
+          let articles = res.data.articles;
+          // this.firstBlock = articles[0];
+          // this.secoundBlock = articles[1];
+          // this.thirdBlock = articles[2];
+          // this.fourthBlock = articles[3];
             for (let i = 0; i < 16; i++) {
-              if (res.data.articles[i].urlToImage) {
-                this.currentNews.push(res.data.articles[i])
+              if (articles[i].urlToImage) {
+                // adding to main articles
+                if(!this.firstBlock.urlToImage) {
+                  this.firstBlock = articles[i];
+                } else if(!this.secoundBlock.urlToImage) {
+                  this.secoundBlock = articles[i];
+                } else if(!this.thirdBlock.urlToImage) {
+                  this.thirdBlock = articles[i];
+                } else if(!this.fourthBlock.urlToImage) {
+                  this.fourthBlock = articles[i];
+                }
+
+                this.currentNews.push(articles[i])
               } else {
                 continue;
               }
@@ -165,14 +174,22 @@ export default {
                 this.currentNews = [];
                 this.category = to.params.category;
                 // let newsCol = 3;
-                newsService.getData(this.category, 1).then(res => {
-                    this.firstBlock = res.data.articles[0];
-                    this.secoundBlock = res.data.articles[1];
-                    this.thirdBlock = res.data.articles[2];
-                    this.fourthBlock = res.data.articles[3];                    
+                newsService.getData(this.category, 1).then(res => {   
+                  let articles = res.data.articles;               
                     for (let i = 0; i < 16; i++) {
-                      if (res.data.articles[i].urlToImage) {
-                        this.currentNews.push(res.data.articles[i])
+                      if (articles[i].urlToImage) {
+                        // adding to main articles
+                        if(!this.firstBlock.urlToImage) {
+                          this.firstBlock = articles[i];
+                        } else if(!this.secoundBlock.urlToImage) {
+                          this.secoundBlock = articles[i];
+                        } else if(!this.thirdBlock.urlToImage) {
+                          this.thirdBlock = articles[i];
+                        } else if(!this.fourthBlock.urlToImage) {
+                          this.fourthBlock = articles[i];
+                        }
+
+                        this.currentNews.push(articles[i])
                       } else {
                         continue;
                       }
@@ -186,14 +203,26 @@ export default {
     methods: {
       changePage(e) {
         newsService.getData(this.category, e).then(res => {
+          let articles = res.data.articles;
           this.currentNews = [];
           this.firstBlock = res.data.articles[0];
           this.secoundBlock = res.data.articles[1];
           this.thirdBlock = res.data.articles[2];
           this.fourthBlock = res.data.articles[3];
             for (let i = 0; i < 16; i++) {
-              if (res.data.articles[i].urlToImage) {
-                this.currentNews.push(res.data.articles[i])
+              if (articles[i].urlToImage) {
+                // adding to main articles
+                if(!this.firstBlock.urlToImage) {
+                  this.firstBlock = articles[i];
+                } else if(!this.secoundBlock.urlToImage) {
+                  this.secoundBlock = articles[i];
+                } else if(!this.thirdBlock.urlToImage) {
+                  this.thirdBlock = articles[i];
+                } else if(!this.fourthBlock.urlToImage) {
+                  this.fourthBlock = articles[i];
+                }
+
+                this.currentNews.push(articles[i])
               } else {
                 continue;
               }
