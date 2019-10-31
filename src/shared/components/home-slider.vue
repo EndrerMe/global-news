@@ -9,7 +9,7 @@
     img-height="480"
     style="text-shadow: 1px 1px 2px #333;"
   >
-    <b-carousel-slide v-for='news of slidesNews' :key='news.title' :img-src="news.urlToImage">
+    <b-carousel-slide v-for="news of slidesNews" :key="news.title" :img-src="news.urlToImage">
       <div class="slide-title">
         <span>{{ news.title }}</span>
         <span class="slide-category general">{{ news.source.name }}</span>
@@ -20,8 +20,8 @@
 
 <script>
 export default {
-  props: ['slidesNews'],
-  name: "homeSlider",
+  props: ["slidesNews"],
+  name: "homeSlider"
 };
 </script>
 <style>
@@ -29,7 +29,7 @@ export default {
 .carousel-caption {
   position: absolute;
   right: unset !important;
-  bottom: 18% !important;
+  bottom: 10% !important;
   left: 30px !important;
   z-index: 10;
   padding-top: 20px;
@@ -40,6 +40,7 @@ export default {
 .carousel-caption .slide-title {
   max-width: 400px;
   text-align: start;
+  font-family: "Amiri-Bold";
 }
 .carousel-caption .slide-title span {
   font-size: 40px;
@@ -146,11 +147,6 @@ export default {
   left: 12px;
 }
 
-@media (max-width: 1199px) {
-  .carousel-caption {
-    bottom: 18% !important;
-  }
-}
 @media (max-width: 1139px) {
   .carousel-caption .slide-title span {
     font-size: 22px !important;
@@ -165,6 +161,27 @@ export default {
   }
   .carousel-caption {
     bottom: 10% !important;
+  }
+  .slider-wrap .carousel-control-prev {
+    width: 30px !important;
+    height: 30px !important;
+    right: 70px !important;
+  }
+  .slider-wrap .carousel-control-next {
+    width: 30px !important;
+    height: 30px !important;
+    right: 25px !important;
+  }
+
+  .carousel .carousel-control-next::after {
+    width: 10px !important;
+    height: 10px !important;
+    left: 8px !important;
+  }
+  .carousel .carousel-control-prev::before {
+    width: 10px !important;
+    height: 10px !important;
+    left: 12px !important;
   }
 }
 @media (max-width: 767px) {

@@ -808,7 +808,7 @@ export default {
   position: relative;
 }
 .card-deck {
-  margin-bottom: 35px;
+  margin-bottom: 60px;
 }
 .card-deck .card-body .image-wrap .gradient {
   margin: 0;
