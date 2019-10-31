@@ -97,6 +97,14 @@ export default {
   border: none;
 }
 
+.notify-prompt-wrap .news-dropdown option{
+  color: black;
+
+}
+.notify-prompt-wrap .news-dropdown option:hover{
+  color:red !important;
+}
+
 .notify-prompt-wrap .text-wrap p.dropdown {
   font-size: 32px;
   font-family: initial;
