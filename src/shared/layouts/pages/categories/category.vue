@@ -1,227 +1,224 @@
 <template>
-  <div class="container content">
-    <!-- Top title -->
-    <div class="main-title-wrap">
-      <span class="text">{{ category | titleToUpperCase }}</span>
+    <div class="container content">
+      <!-- Top title -->
+      <div class="main-title-wrap">
+        <span class="text">{{ category | titleToUpperCase }}</span>
+      </div>
+
+      <!-- Top-box with 4 images -->
+      <div class="top-box-preview row">
+        <div class="left-side col-md-6 box-item">
+          <div class="hover-link">
+            <button @click='goToCurrentNews(firstBlock)'>Read More</button>
+          </div>
+          <div class="gradient"></div>
+          <div class="image-box">
+            <img :src="firstBlock.urlToImage" />
+          </div>
+          <div class="title-wrap">
+            <span class="title">
+              <p>{{firstBlock.title}}</p>
+            </span>
+          </div>
+        </div>
+        <div class="right-side col-md-6">
+          <div class="image-wrap right-side-top">
+            <div class="box-item">
+              <div class="hover-link"> 
+                <button @click='goToCurrentNews(secoundBlock)'>Read More</button>
+              </div>
+              <div class="gradient"></div>
+              <div class="image-box">
+                <img :src="secoundBlock.urlToImage" />
+              </div>
+              <div class="title-wrap">
+                <span class="title">
+                  <p>{{secoundBlock.title}}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="right-side-bottom row">
+            <div class="image-wrap col-md-6 col-sm-6 box-item">
+              <div class="hover-link">
+                <button @click='goToCurrentNews(thirdBlock)'>Read More</button>
+              </div>
+              <div class="gradient"></div>
+              <div class="image-box">
+                <img :src="thirdBlock.urlToImage" />
+              </div>
+              <div class="title-wrap">
+                <span class="title">
+                  <p>{{thirdBlock.title}}</p>
+                </span>
+              </div>
+            </div>
+            <div class="image-wrap col-md-6 col-sm-6 box-item">
+              <div class="hover-link">
+                <button @click='goToCurrentNews(fourthBlock)'>Read More</button>
+              </div>
+              <div class="gradient"></div>
+              <div class="image-box">
+                <img :src="fourthBlock.urlToImage" />
+              </div>
+              <div class="title-wrap">
+                <span class="title">
+                  <p>{{fourthBlock.title}}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- All News -->
+      <b-card-group deck row>
+        <div class="col-md-4" v-for='news of currentNews' v-bind:key='news.title' @click='goToCurrentNews(news)'>
+          <b-card class="mb-2 new-card">
+            <div class="image-wrap">
+              <div class="gradient"></div>
+              <b-card-img
+                :src="news.urlToImage"
+              ></b-card-img>
+              <div class="title-wrap">
+                <span class="title">
+                  <p>{{ news.title }}</p>
+                </span>
+              </div>
+            </div>
+            <div class="text-wrap">
+              <b-card-text>
+                {{ news.content }}
+              </b-card-text>
+            </div>
+            <template v-slot:footer>
+              <small class="text-muted">6 min ago</small>
+              <small class="text-muted">bbc.com</small>
+            </template>
+          </b-card>
+        </div>
+      </b-card-group>
+
+      <categoryPagination :pageNumber='pageNumber' @changePage='changePage'></categoryPagination>
     </div>
-
-    <!-- Top-box with 4 images -->
-    <div class="top-box-preview row">
-      <div class="left-side col-md-6 box-item">
-        <div class="hover-link">
-          <button @click="goToCurrentNews(firstBlock)">Read More</button>
-        </div>
-        <div class="gradient"></div>
-        <div class="image-box">
-          <img :src="firstBlock.urlToImage" />
-        </div>
-        <div class="title-wrap">
-          <span class="title">
-            <p>{{firstBlock.title}}</p>
-          </span>
-        </div>
-      </div>
-      <div class="right-side col-md-6">
-        <div class="image-wrap right-side-top">
-          <div class="box-item">
-            <div class="hover-link">
-              <button @click="goToCurrentNews(secoundBlock)">Read More</button>
-            </div>
-            <div class="gradient"></div>
-            <div class="image-box">
-              <img :src="secoundBlock.urlToImage" />
-            </div>
-            <div class="title-wrap">
-              <span class="title">
-                <p>{{secoundBlock.title}}</p>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="right-side-bottom row">
-          <div class="image-wrap col-md-6 col-sm-6 box-item">
-            <div class="hover-link">
-              <button @click="goToCurrentNews(thirdBlock)">Read More</button>
-            </div>
-            <div class="gradient"></div>
-            <div class="image-box">
-              <img :src="thirdBlock.urlToImage" />
-            </div>
-            <div class="title-wrap">
-              <span class="title">
-                <p>{{thirdBlock.title}}</p>
-              </span>
-            </div>
-          </div>
-          <div class="image-wrap col-md-6 col-sm-6 box-item">
-            <div class="hover-link">
-              <button @click="goToCurrentNews(fourthBlock)">Read More</button>
-            </div>
-            <div class="gradient"></div>
-            <div class="image-box">
-              <img :src="fourthBlock.urlToImage" />
-            </div>
-            <div class="title-wrap">
-              <span class="title">
-                <p>{{fourthBlock.title}}</p>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- All News -->
-    <b-card-group deck row>
-      <div
-        class="col-md-4"
-        v-for="news of currentNews"
-        v-bind:key="news.title"
-        @click="goToCurrentNews(news)"
-      >
-        <b-card class="mb-2 new-card">
-          <div class="image-wrap">
-            <div class="gradient"></div>
-            <b-card-img :src="news.urlToImage"></b-card-img>
-            <div class="title-wrap">
-              <span class="title">
-                <p>{{ news.title }}</p>
-              </span>
-            </div>
-          </div>
-          <div class="text-wrap">
-            <b-card-text>{{ news.content }}</b-card-text>
-          </div>
-          <template v-slot:footer>
-            <small class="text-muted">6 min ago</small>
-            <small class="text-muted">bbc.com</small>
-          </template>
-        </b-card>
-      </div>
-    </b-card-group>
-
-    <div class="pagination-wrap">
-      <button class="double-arrow-left"></button>
-      <button class="arrow-left"></button>
-
-      <div class="numbers-wrap">
-        <button href="#" class="page-number">
-          <span class="value">1</span>
-        </button>
-        <button href="#" class="page-number active">
-          <span class="value">2</span>
-        </button>
-        <button href="#" class="page-number">
-          <span class="value">3</span>
-        </button>
-
-        <div class="separator-wrap">
-          <span class="separator">...</span>
-        </div>
-
-        <button href="#" class="page-number">
-          <span class="value">16</span>
-        </button>
-      </div>
-
-      <button href="#" class="arrow-right"></button>
-      <button href="#" class="double-arrow-right"></button>
-    </div>
-  </div>
 </template>
 
 <script>
-import newsService from "./../../../services/news.service";
+import newsService from './../../../services/news.service';
+import categoryPagination from './../../../components/paginate';
 
 export default {
-  name: "currentCategory",
-  data() {
-    return {
-      currentNews: [],
-      category: null,
-      firstBlock: {
-        title: "",
-        urlToImage: ""
-      },
-      secoundBlock: {
-        title: "",
-        urlToImage: ""
-      },
-      thirdBlock: {
-        title: "",
-        urlToImage: ""
-      },
-      fourthBlock: {
-        title: "",
-        urlToImage: ""
-      }
-    };
-  },
-  beforeCreate() {
-    this.category = this.$route.params.category;
-    newsService.getData(this.category, 1).then(
-      res => {
-        this.firstBlock = res.data.articles[0];
-        this.secoundBlock = res.data.articles[1];
-        this.thirdBlock = res.data.articles[2];
-        this.fourthBlock = res.data.articles[3];
-        for (let i = 0; i < 16; i++) {
-          if (res.data.articles[i].urlToImage) {
-            this.currentNews.push(res.data.articles[i]);
-          } else {
-            continue;
-          }
+    name: 'currentCategory',
+    components: {
+      categoryPagination
+    },
+    data() {
+        return {
+            currentNews: [],
+            category: null,
+            firstBlock: {
+              title: '',
+              urlToImage: ''
+            },
+            secoundBlock: {
+              title: '',
+              urlToImage: ''
+            },
+            thirdBlock: {
+              title: '',
+              urlToImage: ''
+            },
+            fourthBlock: {
+              title: '',
+              urlToImage: ''
+            },
+            pageNumber: 0,
         }
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  },
-  watch: {
-    $route(to) {
-      if (to.params.category) {
-        this.currentNews = [];
-        this.category = to.params.category;
-        // let newsCol = 3;
-        newsService.getData(this.category, 1).then(
-          res => {
-            this.firstBlock = res.data.articles[0];
-            this.secoundBlock = res.data.articles[1];
-            this.thirdBlock = res.data.articles[2];
-            this.fourthBlock = res.data.articles[3];
+    },
+    beforeCreate() {
+        this.category = this.$route.params.category;
+
+        newsService.getPageCol(this.category).then((res) => {
+          const totalResult = res.data.totalResults;
+          this.pageNumber = Math.ceil(totalResult / 16);
+        })
+
+        newsService.getData(this.category, 1).then(res => {
+          this.firstBlock = res.data.articles[0];
+          this.secoundBlock = res.data.articles[1];
+          this.thirdBlock = res.data.articles[2];
+          this.fourthBlock = res.data.articles[3];
             for (let i = 0; i < 16; i++) {
               if (res.data.articles[i].urlToImage) {
-                this.currentNews.push(res.data.articles[i]);
+                this.currentNews.push(res.data.articles[i])
               } else {
                 continue;
               }
             }
-          },
-          err => {
-            console.log(err);
-          }
-        );
+            }, (err) => {
+                console.log(err);
+            });
+    },
+    watch:{
+        $route (to){
+            if (to.params.category) {
+                this.currentNews = [];
+                this.category = to.params.category;
+                // let newsCol = 3;
+                newsService.getData(this.category, 1).then(res => {
+                    this.firstBlock = res.data.articles[0];
+                    this.secoundBlock = res.data.articles[1];
+                    this.thirdBlock = res.data.articles[2];
+                    this.fourthBlock = res.data.articles[3];                    
+                    for (let i = 0; i < 16; i++) {
+                      if (res.data.articles[i].urlToImage) {
+                        this.currentNews.push(res.data.articles[i])
+                      } else {
+                        continue;
+                      }
+                    }
+                }, (err) => {
+                    console.log(err);
+                });
+            } 
+        },
+    },
+    methods: {
+      changePage(e) {
+        newsService.getData(this.category, e).then(res => {
+          this.currentNews = [];
+          this.firstBlock = res.data.articles[0];
+          this.secoundBlock = res.data.articles[1];
+          this.thirdBlock = res.data.articles[2];
+          this.fourthBlock = res.data.articles[3];
+            for (let i = 0; i < 16; i++) {
+              if (res.data.articles[i].urlToImage) {
+                this.currentNews.push(res.data.articles[i])
+              } else {
+                continue;
+              }
+            }
+            }, (err) => {
+                console.log(err);
+            });
+      },
+
+        goToCurrentNews(news) {
+          const category = this.category;
+          this.$router.push({name: 'news-info', params: {news, category}})
+        }
+    },
+    filters: {
+      titleToUpperCase: function(value) {
+        if (!value) return '';
+        value = value.toString().toUpperCase();
+        return value;
       }
+    },
+    mounted() {
+      this.category = this.$route.params.category;
     }
-  },
-  methods: {
-    goToCurrentNews(news) {
-      const category = this.category;
-      this.$router.push({ name: "news-info", params: { news, category } });
-    }
-  },
-  filters: {
-    titleToUpperCase: function(value) {
-      if (!value) return "";
-      value = value.toString().toUpperCase();
-      return value;
-    }
-  },
-  mounted() {
-    this.category = this.$route.params.category;
-  }
-};
+}
 </script>
 
 <style scoped>
@@ -242,10 +239,6 @@ export default {
   .main-title-wrap span::before {
     height: 27px !important;
     width: 95px !important;
-  }
-
-  .new-card .image-wrap {
-    height: 200px !important;
   }
 }
 @media (max-width: 767px) {
@@ -287,7 +280,7 @@ export default {
   }
 
   .top-box-preview .left-side .title-wrap span {
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
 
   .top-box-preview .right-side-top .title-wrap span,
@@ -298,18 +291,12 @@ export default {
 
 @media (max-width: 1139px) {
   .top-box-preview .left-side .title-wrap span {
-    font-size: 22px !important;
+    font-size: 20px !important;
   }
 
   .top-box-preview .right-side-top .title-wrap span,
   .top-box-preview .right-side-bottom .title-wrap span {
-    font-size: 12px !important;
-  }
-  .left-side .title-wrap {
-    max-width: 83% !important;
-  }
-  .top-box-preview .title-wrap {
-    left: 30px !important;
+    font-size: 10px !important;
   }
 }
 
@@ -324,6 +311,9 @@ export default {
 }
 
 @media (max-width: 767px) {
+  .left-side .title-wrap {
+    max-width: 85%;
+  }
   .right-side-top {
     margin: 10px 0;
   }
@@ -408,7 +398,7 @@ export default {
 .content .top-box-preview .hover-link button {
   opacity: 0;
   width: 65%;
-  height: 15%;
+  height: 10%;
   background-color: #f8c61a;
   border: none;
   font-size: 20px;
@@ -428,8 +418,8 @@ export default {
   position: absolute;
   bottom: 0;
   top: 0;
-  left: 10px;
-  right: 10px;
+  left: 15px;
+  right: 15px;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
   background: rgba(0, 0, 0, 0.6);
@@ -481,30 +471,22 @@ export default {
 
 .content .top-box-preview img {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
 }
 
 .left-side {
   position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .left-side .image-box,
 .right-side .image-box,
 .right-side-bottom .image-box {
   overflow: hidden;
-  height: 100%;
 }
 
 .right-side {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .right-side .image-wrap {
@@ -514,16 +496,6 @@ export default {
 .right-side-bottom {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-}
-
-.right-side-bottom .gradient {
-  margin: 0 15px !important;
-}
-
-.right-side-bottom .hover-link {
-  left: 15px !important;
-  right: 15px !important;
 }
 
 .right-side .right-side-top .gradint {
@@ -562,7 +534,7 @@ export default {
     rgba(0, 0, 0, 0.9416141456582633) 0%,
     rgba(255, 255, 255, 0) 30%
   );
-  margin: 0 10px;
+  margin: 0 15px;
 }
 
 .top-box-preview .left-side {
@@ -572,8 +544,6 @@ export default {
   position: absolute;
   bottom: 30px;
   left: 50px;
-  max-width: 83%;
-  font-family: "Amiri-Bold";
 }
 
 .top-box-preview .title-wrap span {
@@ -798,36 +768,18 @@ export default {
 .new-card {
   border: none !important;
 }
-.new-card {
-  margin: 0 auto !important;
-  max-width: 526px !important;
-  border: none !important;
-}
-
 .new-card .text-wrap p {
   max-block-size: 70px;
   overflow: hidden;
 }
 .new-card .card-body {
   padding: 0 !important;
-  height: 408px;
 }
-
 .new-card .image-wrap {
-  height: 330px;
   position: relative;
-}
-.new-card .image-wrap img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
 }
 .card-deck {
   margin-bottom: 60px;
-}
-.card-deck .title-wrap {
-  font-family: "Amiri-Bold";
 }
 .card-deck .card-body .image-wrap .gradient {
   margin: 0;
@@ -852,8 +804,6 @@ export default {
   padding-right: 0;
   display: flex;
   justify-content: space-between;
-  border: none;
-  border-top: 1px solid #b3abab;
 }
 .new-card .card-text {
   padding: 18px 0 13px 0;
@@ -861,7 +811,7 @@ export default {
   border: none;
 }
 .new-card .text-wrap {
-  /* border-bottom: 1px solid #b3abab; */
+  border-bottom: 1px solid #b3abab;
   padding-bottom: 10px;
 }
 @media (max-width: 1199px) {
@@ -875,10 +825,6 @@ export default {
   }
   .new-card .title-wrap {
     max-width: 78%;
-  }
-
-  .new-card .card-body {
-    height: 280px;
   }
 }
 @media (max-width: 767px) {

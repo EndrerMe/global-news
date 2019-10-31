@@ -9,6 +9,7 @@ import AOS from 'aos';
 import VueGeolocation from 'vue-browser-geolocation';
 import SocialSharing from 'vue-social-sharing'
 import VueMoment from 'vue-moment';
+import Paginate from 'vuejs-paginate'
 
 // Router
 import routes from "./routes";
@@ -18,6 +19,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "animate.css";
 import "aos/dist/aos.css";
 import "./assets/css/global/global.css";
+import "./assets/css/components/pagination.css";
 
 // Store
 import store from './store';
@@ -55,6 +57,7 @@ library.add(
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
+Vue.component('paginate', Paginate)
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(Slick);

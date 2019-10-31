@@ -14,6 +14,10 @@ export default {
 
     searchByTitle(text) {
         return axios.get(`${environment.newsApiUrl}everything?qInTitle=${text}&apiKey=${environment.newsApiKey}`);
+    },
+
+    getPageCol(category) {
+        return axios.get(`${environment.newsApiUrl}top-headlines?category=${category}&apiKey=${environment.newsApiKey}`)
     }
 }
 </script>
