@@ -33,7 +33,7 @@
           <span class="value">{{ temp }}</span>
           <span class="temp-symbol-wrap">
             <span class="temp-symbol">
-              <span class="mode active">&#8451;</span>
+              <span class="mode active"><sup class="mode active">o</sup>C</span>
               <span class="mode">F</span>
             </span>
           </span>
@@ -466,7 +466,7 @@ export default {
   top: 106px;
   background-color: #052962;
   padding-bottom: 20px;
-  z-index: 999;
+  z-index: 99999;
   padding: 0 60px 10px 60px;
 }
 
@@ -529,7 +529,7 @@ export default {
   width: 2px;
   height: 23px;
   background-color: white;
-  left: 37px;
+  left: 41px;
   top: 7px;
 }
 

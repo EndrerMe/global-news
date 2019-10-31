@@ -466,9 +466,8 @@ export default {
   right: -70px;
   top: 63px;
   background-color: #052962;
-  z-index: 999;
+  z-index: 99999;
   padding: 0 60px 45px 60px;
-  /* padding-bottom: 45px; */
 }
 .currency-converter-wrap .close-wrap a {
   width: 18px;
