@@ -159,10 +159,12 @@
 
 <script>
 export default {
-  props: ["news"],
-  name: "newsInfo",
-  created() {}
-};
+  props: ['news'],
+  name: 'newsInfo',
+  created() {
+    console.log(this.$router.app._route.params)
+  },
+}
 </script>
 
 <style>
