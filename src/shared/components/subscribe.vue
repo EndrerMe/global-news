@@ -32,7 +32,7 @@
       </div>
       <div class="send-email-wrap">
         <div class="email-wrap">
-          <span>E-mail</span>
+        <input value="E-mail"/>
         </div>
         <div class="button-wrap">
           <button href="#">Subscribe</button>
@@ -102,12 +102,14 @@ export default {
   margin-top: 23px;
 }
 
-.notify-prompt-wrap .email-wrap span {
+.notify-prompt-wrap .email-wrap input {
   color: #eaeaea;
   display: block;
   width: 100%;
-  border-bottom: 1px solid;
   text-align: start;
+  background: transparent;
+  border:none;
+  border-bottom: 1px solid;
 }
 
 .notify-prompt-wrap .button-wrap button {

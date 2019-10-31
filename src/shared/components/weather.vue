@@ -16,7 +16,7 @@
 
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
-            <span>Lond</span>
+            <input value="London"/>
           </div>
           <div class="button-wrap">
             <button href="#">Search</button>
@@ -74,8 +74,8 @@
         <div class="seacrh-country-wrap">
           <div class="text-wrap">
             <p>
-              Did you mean
-              <span class="serch-result">London</span> ?
+              Do you mean
+              <span class="search-result">London</span> ?
             </p>
           </div>
           <div class="country-wrap">
@@ -600,18 +600,20 @@ export default {
   margin-top: 23px;
 }
 
-.weather-search-wrap .country-wrap span {
+.weather-search-wrap .country-wrap input {
   color: #eaeaea;
   display: block;
   width: 100%;
-  border-bottom: 1px solid;
   text-align: start;
   font-family: "Poppins-Regular";
+  border: none;
+  border-bottom: 1px solid;
+  background: transparent;
 }
 
 /* Mob Weater*/
 .modile-side-weather-wrap {
-  display: none;
+  /* display: none; */
   overflow: scroll;
 }
 .weaterDetailsHidden {
@@ -753,7 +755,7 @@ export default {
   margin-top: 45px;
   width: 100%;
 }
-.mobile-weather-main-wrap .seacrh-country-wrap .serch-result {
+.mobile-weather-main-wrap .seacrh-country-wrap .search-result {
   color: rgb(248, 198, 26) !important;
 }
 .mobile-weather-main-wrap .seacrh-country-wrap .text-wrap {
@@ -897,6 +899,9 @@ export default {
     top: 103px;
   }
 }
-/* Links More Info weater hidden class='weather-details-wrap' */
+/* Links More Info weater hidden 
+class='weather-details-wrap'
+
+ */
 
 </style>

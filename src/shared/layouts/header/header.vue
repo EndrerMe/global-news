@@ -302,6 +302,9 @@ export default {
   font-size: 13px;
   letter-spacing: 1px;
 }
+#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button:hover{
+  background: #ffe076;
+}
 .top-menu-wrap #nav-collapse .close-link-wrap {
   display: none;
   position: absolute;
@@ -396,7 +399,7 @@ export default {
   align-items: center;
 }
 .top-menu-wrap .wide-menu li a svg {
-  margin: 0 20px;
+  margin: 0 15px;
   color: rgb(248, 198, 26);
 }
 .top-menu-wrap .wide-menu li.weather-wrap {

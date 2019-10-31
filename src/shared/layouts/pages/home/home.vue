@@ -563,10 +563,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   justify-content: space-between;
   align-items: center;
 }
-.top-menu-wrap .wide-menu li a svg {
-  margin: 0 20px;
-  color: rgb(248, 198, 26);
-}
 .top-menu-wrap .wide-menu li.weather-wrap {
   position: relative;
   display: flex;
