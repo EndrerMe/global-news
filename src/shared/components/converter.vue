@@ -6,7 +6,43 @@
     <div class="from">
       <div class="dropdown-wrap" selected>
         <span>from</span>
-        <select class="dropdown" v-on:change="changeCurrentRate($event)">
+        <div>
+            <span class="first-elem">USD</span>
+            <span class="icon-wrap">
+              <font-awesome-icon icon="caret-down" />
+            </span>
+
+          <ul class="currency-dropdown-from">
+            <li class="hidden-elem">
+              <span>CHF</span>
+            </li>
+            <li class="hidden-elem">
+              <span>TFD</span>
+            </li>
+            <li class="hidden-elem">
+              <span>VDE</span>
+            </li>
+            <li class="hidden-elem">
+              <span>OIO</span>
+            </li>
+            <li class="hidden-elem">
+              <span>TFD</span>
+            </li>
+            <li class="hidden-elem">
+              <span>VDE</span>
+            </li>
+            <li class="hidden-elem">
+              <span>OIO</span>
+            </li>
+            <li class="hidden-elem">
+              <span>TFD</span>
+            </li>
+            <li class="hidden-elem">
+              <span>VDE</span>
+            </li>
+          </ul>
+        </div>
+        <!-- <select class="dropdown" v-on:change="changeCurrentRate($event)">
           <template v-for="value of ratesName">
             <option
               :value="value"
@@ -15,7 +51,7 @@
               v-bind:key="value"
             >{{ value }}</option>
           </template>
-        </select>
+        </select>-->
       </div>
       <div class="value-wrap">
         <input
@@ -36,7 +72,44 @@
     <div class="to">
       <div class="dropdown-wrap" selected>
         <span>to</span>
-        <select class="dropdown" v-on:change="changeRateTo($event)">
+                <div>
+            <span class="first-elem">USD</span>
+            <span class="icon-wrap">
+              <font-awesome-icon icon="caret-down" />
+            </span>
+
+          <ul class="currency-dropdown-to">
+            <li class="hidden-elem">
+              <span>CHF</span>
+            </li>
+            <li class="hidden-elem">
+              <span>TFD</span>
+            </li>
+            <li class="hidden-elem">
+              <span>VDE</span>
+            </li>
+            <li class="hidden-elem">
+              <span>OIO</span>
+            </li>
+            <li class="hidden-elem">
+              <span>TFD</span>
+            </li>
+            <li class="hidden-elem">
+              <span>VDE</span>
+            </li>
+            <li class="hidden-elem">
+              <span>OIO</span>
+            </li>
+            <li class="hidden-elem">
+              <span>TFD</span>
+            </li>
+            <li class="hidden-elem">
+              <span>VDE</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- <select class="dropdown" v-on:change="changeRateTo($event)">
           <template v-for="value of ratesName">
             <option
               :value="value"
@@ -45,7 +118,7 @@
               v-bind:key="value"
             >{{ value }}</option>
           </template>
-        </select>
+        </select> -->
       </div>
       <div class="value-wrap">
         <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span>
@@ -344,8 +417,100 @@ export default {
 </script>
 
 <style scoped>
+/* Scroll */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+background: #959aa0;
+}::-webkit-scrollbar-thumb {
+  background: #052962;
+  border-radius: 10px;
+}
+/* end */
+
+/* Custom Drop Down From */
+.currency-converter-wrap .from .dropdown-wrap .currency-dropdown-from {
+  display: none;
+  position: absolute;
+  list-style: none;
+  width: 80px;
+  padding-left: 0;
+  font-family: "Poppins-Bold";
+  height: 150px;
+  overflow: auto;
+  z-index: 99999;
+}
+.currency-converter-wrap .from .dropdown-wrap .icon-wrap {
+  margin-left: 10px;
+}
+.currency-converter-wrap .from .dropdown-wrap .first-elem{
+  font-size: 28px;
+  font-family: "Poppins-Bold";
+}
+.currency-converter-wrap .from .dropdown-wrap svg {
+  font-size: 14px;
+  color: #f8c61a;
+  margin-bottom: 4px;
+}
+.currency-converter-wrap .from .dropdown-wrap li {
+  display: flex;
+  width: 100%;
+  background: white;
+  padding-left: 8px;
+}
+.currency-converter-wrap .from .dropdown-wrap li:hover {
+  background: #f8c61a;
+}
+.currency-converter-wrap .from .dropdown-wrap li span {
+  color: #3f3f3f;
+  font-size: 16px;
+  padding: 2px 0;
+}
+/* end */
+
+/* Custom Drop Down To */
+.currency-converter-wrap .to .dropdown-wrap .currency-dropdown-to {
+  /* display: none; */
+  position: absolute;
+  list-style: none;
+  width: 80px;
+  padding-left: 0;
+  font-family: "Poppins-Bold";
+  height: 167px;
+  overflow: auto;
+  z-index: 99999;
+}
+.currency-converter-wrap .to .dropdown-wrap .icon-wrap {
+  margin-left: 10px;
+}
+.currency-converter-wrap .to .dropdown-wrap .first-elem{
+  font-size: 28px;
+  font-family: "Poppins-Bold";
+}
+.currency-converter-wrap .to .dropdown-wrap svg {
+  font-size: 14px;
+  color: #f8c61a;
+  margin-bottom: 4px;
+}
+.currency-converter-wrap .to .dropdown-wrap li {
+  display: flex;
+  width: 100%;
+  background: white;
+  padding-left: 8px;
+}
+.currency-converter-wrap .to .dropdown-wrap li:hover {
+  background: #f8c61a;
+}
+.currency-converter-wrap .to .dropdown-wrap li span {
+  color: #3f3f3f;
+  font-size: 16px;
+  padding: 2px 0;
+}
+/* end */
+
 .currency-converter-wrap .rate-wrap {
-  margin-top: 45px;
+  margin-top: 70px;
 }
 .currency-converter-wrap .rate-wrap span {
   color: #e2e1e1;
@@ -467,7 +632,7 @@ export default {
   top: 63px;
   background-color: #052962;
   z-index: 99999;
-  padding: 0 60px 45px 60px;
+  padding: 0 40px 45px 40px;
 }
 .currency-converter-wrap .close-wrap a {
   width: 18px;

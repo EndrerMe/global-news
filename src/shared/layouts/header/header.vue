@@ -13,7 +13,6 @@
                 <font-awesome-icon icon="search" class="fa-lg" />
               </b-nav-item>
             </b-nav>
-
             <div
               id="nav-collapse"
               class="showTest"
@@ -38,7 +37,6 @@
                       <span>Currency Converter</span>
                       <font-awesome-icon icon="caret-down" />
                     </span>
-
                     <converterDesctop :isShowConverter="isShowConverter"></converterDesctop>
                   </b-nav-item>
                   <b-nav-item href="#" class="weather-wrap">
@@ -46,7 +44,6 @@
                       <span class="weather-icon">
                         <img :src="currentWeatherImg" alt />
                       </span>
-
                       <span class="weather-value">
                         {{ temp }}
                         <span class="celsius-value">&#8451;</span>
@@ -54,7 +51,6 @@
                       <span class="weather-dropdown-arrow">
                         <font-awesome-icon icon="caret-down" />
                       </span>
-
                       <div class="location-name">
                         <p>{{ location }}</p>
                       </div>
@@ -115,11 +111,9 @@
               </div>
             </div>
           </b-navbar>
-
           <moreWeather></moreWeather>
         </div>
       </div>
-
       <navigationDesctop></navigationDesctop>
     </div>
   </div>
@@ -374,9 +368,12 @@ export default {
   position: relative;
 }
 
+#nav-collapse .sub-wrap .wide-menu .converter-wrap svg{
+  margin-left: 7px;
+}
+
 #nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
   height: 100%;
-  width: 100%;
   transform: rotate(0deg);
   animation-name: rotate-bell;
   animation-delay: 0.5s;
@@ -404,6 +401,8 @@ export default {
   background: transparent;
   color: white;
   border: none;
+  width: 70%;
+  padding-right: 18px;
 }
 
 #nav-collapse .sub-wrap .mobile-side-menu {
@@ -423,7 +422,6 @@ export default {
   align-items: center;
 }
 .top-menu-wrap .wide-menu li a svg {
-  margin: 0 15px;
   color: rgb(248, 198, 26);
 }
 .top-menu-wrap .wide-menu li.weather-wrap {
