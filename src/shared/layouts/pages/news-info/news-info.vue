@@ -158,6 +158,8 @@
 </template>
 
 <script>
+// import newsService from './../../../services/news.service';
+
 export default {
   props: ['news'],
   name: 'newsInfo',

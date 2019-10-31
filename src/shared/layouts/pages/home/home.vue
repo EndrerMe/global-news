@@ -12,7 +12,7 @@
         <homeSlider></homeSlider>
       </div>
       <!-- Business -->
-      <card :sendedNews='entertainmentNewsHome' :title="'Science'" :titleBorder="'c710a2'"></card>
+      <card :sendedNews='getNews' :title="'Science'" :titleBorder="'c710a2'"></card>
       <!-- Entertainmenet -->
       <card :sendedNews='scienceNewsHome' :title="'Entertainment'" :titleBorder="'ff995e'"></card>
       <!-- Science -->
@@ -25,12 +25,14 @@
 import card from './../../../components/card';
 import newsService from './../../../services/news.service';
 import homeSlider from './../../../components/home-slider';
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
   components: { 
     card,
     homeSlider
   },
+  computed: mapGetters(['getNews']),
   data() {
     return {
       isShowSideMenu: false,
@@ -76,21 +78,26 @@ export default {
       }
     })
   },
-  methods: {
-    toggleMobileSideMenu() {
-      this.isShowSideMenu = !this.isShowSideMenu;
-    },
-    next() {
-      this.$refs.slick.next();
-    },
-    prev() {
-      this.$refs.slick.prev();
-    },
-    reInit() {
-      // Helpful if you have to deal with v-for to update dynamic lists
-      this.$refs.slick.reSlick();
-    },
+  methods: mapActions(['getNewsForHomePage']),
+  async mounted () {
+    this.getNewsForHomePage({limit: 3, category: 'science'})
   },
+  // methods: {
+
+  //   toggleMobileSideMenu() {
+  //     this.isShowSideMenu = !this.isShowSideMenu;
+  //   },
+  //   next() {
+  //     this.$refs.slick.next();
+  //   },
+  //   prev() {
+  //     this.$refs.slick.prev();
+  //   },
+  //   reInit() {
+  //     // Helpful if you have to deal with v-for to update dynamic lists
+  //     this.$refs.slick.reSlick();
+  //   },
+  // },
 };
 </script>
 
