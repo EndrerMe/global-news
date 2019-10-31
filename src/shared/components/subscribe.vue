@@ -12,27 +12,32 @@
         <span>Do you want to receive more news ?</span>
       </div>
       <div class="button-wrap">
-        <button href="#" @click='showFullSubscribe()'>Subscribe Us</button>
+        <button href="#" @click="showFullSubscribe()">Subscribe Us</button>
       </div>
     </div>
 
-    <div class="notify-prompt-wrap" v-if='isShowSubscribeFull'>
-      <div class="close-wrap" @click='closeSubscribeFull()'>
+    <div class="notify-prompt-wrap" v-if="isShowSubscribeFull">
+      <div class="close-wrap" @click="closeSubscribeFull()">
         <a class="close-button" href="#"></a>
       </div>
 
       <div class="text-wrap">
         <p>You subscribe on</p>
         <p class="dropdown">
-          <span>All News</span>
-          <span class="wropdown-arrow">
-            <font-awesome-icon icon="caret-down" />
-          </span>
+          <select class="news-dropdown">
+            <option>All News</option>
+            <option>Business</option>
+            <option>Entertainment</option>
+            <option>General</option>
+            <option>Health</option>
+            <option>Science</option>
+            <option>Sport</option>
+          </select>
         </p>
       </div>
       <div class="send-email-wrap">
         <div class="email-wrap">
-        <input value="E-mail"/>
+          <input value="E-mail" />
         </div>
         <div class="button-wrap">
           <button href="#">Subscribe</button>
@@ -45,11 +50,11 @@
 <script>
 export default {
   name: "subscribeDesctop",
-  props: ['showSubscribeFull'],
+  props: ["showSubscribeFull"],
   data() {
     return {
       isShowSubscribe: true,
-      isShowSubscribeFull: false,
+      isShowSubscribeFull: false
     };
   },
   methods: {
@@ -86,6 +91,20 @@ export default {
   color: #eaeaea;
 }
 
+.notify-prompt-wrap .news-dropdown {
+  background: transparent;
+  color: white;
+  border: none;
+}
+
+.notify-prompt-wrap .news-dropdown option{
+  color: black;
+
+}
+.notify-prompt-wrap .news-dropdown option:hover{
+  color:red !important;
+}
+
 .notify-prompt-wrap .text-wrap p.dropdown {
   font-size: 32px;
   font-family: initial;
@@ -108,7 +127,7 @@ export default {
   width: 100%;
   text-align: start;
   background: transparent;
-  border:none;
+  border: none;
   border-bottom: 1px solid;
 }
 
@@ -121,13 +140,12 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-font-family: 'Poppins-SemiBold';
-color:#052962;
+  font-family: "Poppins-SemiBold";
+  color: #052962;
 }
 .notify-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-
 
 .notify-prompt-wrap {
   width: 355px;
