@@ -806,6 +806,14 @@ export default {
 }
 .new-card .image-wrap {
   position: relative;
+  height:330px;
+}
+
+.new-card .image-wrap img{
+      width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 .card-deck {
   margin-bottom: 60px;
