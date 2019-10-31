@@ -824,7 +824,7 @@ export default {
   object-fit: cover;
 }
 .card-deck {
-  margin-bottom: 35px;
+  margin-bottom: 60px;
 }
 .card-deck .title-wrap {
   font-family: "Amiri-Bold";
