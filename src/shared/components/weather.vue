@@ -33,8 +33,9 @@
           <span class="value">{{ temp }}</span>
           <span class="temp-symbol-wrap">
             <span class="temp-symbol">
-              <span class="mode active">&#8451;</span>
+              <!-- <span class="mode active">&#8451;</span> -->
               <span class="mode">F</span>
+              <span class="mode active"><sup>o</sup>C</span>
             </span>
           </span>
         </div>
@@ -289,6 +290,7 @@ export default {
 
     getWeather() {
       weatherService.getWeatherByCountry(this.userCity).then((res) => {
+        console.log(res.data)
         this.currentWeatherData = res.data;
         this.temp = res.data.main.temp;
         this.temp = this.temp + '';
