@@ -72,9 +72,6 @@ export default {
       }
     };
   },
-  created() {
-    console.log(this.sendedNews);
-  },
   methods: {
     goToCurrentNews(news) {
       let category = this.category;

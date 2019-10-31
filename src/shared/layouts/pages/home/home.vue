@@ -48,7 +48,6 @@ export default {
       for (let i = 0; i < newsCol; i++) {
         if (res.data.articles[i].urlToImage) {
           this.slidesNews.push(res.data.articles[i]);
-          console.log(this.slidesNews)
         } else {
           newsCol += 1;
           continue;

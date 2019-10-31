@@ -45,7 +45,6 @@ export default {
         });
 
         this.map.on("click", function(e) {
-          console.log(e);
           weatherService.getWeather(e.lngLat.lat, e.lngLat.lng).then(res => {
             that.weatherData = res.data;
             that.isShowMoreWeather = true;
