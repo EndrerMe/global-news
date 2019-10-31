@@ -19,6 +19,9 @@ import "animate.css";
 import "aos/dist/aos.css";
 import "./assets/css/global/global.css";
 
+// Store
+import store from './store';
+
 // Fonts
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -63,6 +66,7 @@ Vue.use(SocialSharing);
 const router = new VueRouter({ routes });
 
 new Vue({
+  store,
   created() {
     AOS.init();
   },

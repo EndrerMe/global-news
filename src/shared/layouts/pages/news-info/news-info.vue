@@ -117,36 +117,14 @@
             <div class="title-wrap">
               <span class="text">Latest News</span>
             </div>
-            <div class="item-wrap">
+            <div class="item-wrap" v-for='news of getNews' :key='news.title'>
               <div class="image-wrap">
-                <img src="../../../../assets/images/new-info/img-2.png" />
-                <span class="category-wrap entertainment">Entertainment</span>
+                <img :src="news.urlToImage" />
+                <span class="category-wrap entertainment">{{ category }}</span>
               </div>
               <div class="description-wrap">
                 <span>
-                  Nobel Prize for Literature to name two winners after
-                  scandal-hit year
-                </span>
-              </div>
-            </div>
-            <div class="item-wrap">
-              <div class="image-wrap">
-                <img src="../../../../assets/images/new-info/img-3.png" />
-                <span class="category-wrap business">Business</span>
-              </div>
-              <div class="description-wrap">
-                <span>Goldman Sachs reviews role in Chinese tech firm Megvii</span>
-              </div>
-            </div>
-            <div class="item-wrap">
-              <div class="image-wrap">
-                <img src="../../../../assets/images/new-info/img-4.png" />
-                <span class="category-wrap science">Science</span>
-              </div>
-              <div class="description-wrap">
-                <span>
-                  Badger culls risk increased spread of TB to cattle, study
-                  finds
+                  {{ news.description }}
                 </span>
               </div>
             </div>
@@ -158,12 +136,17 @@
 </template>
 
 <script>
+import {mapGetters, mapActions} from 'vuex'
+
 export default {
-  props: ['news'],
+  props: ['news', 'category'],
   name: 'newsInfo',
-  created() {
-    console.log(this.$router.app._route.params)
-  },
+  computed: mapGetters(['getNews']),
+  methods: mapActions(['getNewsForHomePage']),
+  async mounted () {
+    this.getNewsForHomePage({category: this.category, limit: 3});
+  }
+  
 }
 </script>
 

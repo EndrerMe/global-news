@@ -207,7 +207,8 @@ export default {
   },
   methods: {
     goToCurrentNews(news) {
-      this.$router.push({ name: "news-info", params: { news } });
+      const category = this.category;
+      this.$router.push({ name: "news-info", params: { news, category } });
     }
   },
   filters: {
@@ -572,7 +573,7 @@ export default {
   bottom: 30px;
   left: 50px;
   max-width: 83%;
-  font-family: 'Amiri-Bold';
+  font-family: "Amiri-Bold";
 }
 
 .top-box-preview .title-wrap span {
@@ -825,8 +826,8 @@ export default {
 .card-deck {
   margin-bottom: 35px;
 }
-.card-deck .title-wrap{
-font-family: 'Amiri-Bold';
+.card-deck .title-wrap {
+  font-family: "Amiri-Bold";
 }
 .card-deck .card-body .image-wrap .gradient {
   margin: 0;

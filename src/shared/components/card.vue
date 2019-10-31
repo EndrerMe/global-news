@@ -48,7 +48,7 @@ export default {
     Slick
   },
   name: "card",
-  props: ["sendedNews", "title", "titleBorder"],
+  props: ["sendedNews", "title", "titleBorder", 'category'],
   data() {
     return {
       slickOptions: {
@@ -77,7 +77,8 @@ export default {
   },
   methods: {
     goToCurrentNews(news) {
-      this.$router.push({ name: "news-info", params: { news } });
+      let category = this.category;
+      this.$router.push({ name: "news-info", params: { news, category } });
     }
   }
 };
