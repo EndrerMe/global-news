@@ -7,24 +7,27 @@
     >
       <span class="title-text">{{ title }}</span>
     </div>
-    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length"
-          data-aos="fade-up"
+    <slick
+      ref="slick"
+      :options="slickOptions"
+      class="slick"
+      v-if="sendedNews.length"
+      data-aos="fade-up"
       data-aos-easing="ease-in-out"
       data-aos-mirror="true"
       data-aos-once="false"
->
+    >
       <div
         class="card-wrap"
         v-for="news of sendedNews"
         v-bind:key="news.title"
         @click="goToCurrentNews(news)"
       >
-        <b-card class="mb-2 new-card new-card col-md-12" :title='news.title'>
-          <div>
-                      <b-card-img class="card-image" :src="news.urlToImage">
-
-          </b-card-img>
-                    </div>
+        <b-card class="mb-2 new-card new-card col-md-12">
+          <div class="image-wrap">
+            <b-card-title>{{ news.title }}</b-card-title>
+            <b-card-img class="card-image" :src="news.urlToImage"></b-card-img>
+          </div>
 
           <b-card-text>{{ news.description }}</b-card-text>
           <template v-slot:footer>
@@ -62,15 +65,15 @@ export default {
           {
             breakpoint: 767,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 1
             }
-          },
+          }
         ]
       }
     };
   },
   created() {
-    console.log(this.sendedNews)
+    console.log(this.sendedNews);
   },
   methods: {
     goToCurrentNews(news) {
@@ -89,6 +92,10 @@ export default {
   .science-wrap .title-wrap .title-text {
     font-size: 28px !important;
   }
+
+  .card-title {
+    font-size: 16px !important;
+  }
 }
 @media (max-width: 1139px) {
   .business-wrap .title-wrap .title-text,
@@ -96,15 +103,16 @@ export default {
   .science-wrap .title-wrap .title-text {
     font-size: 20px !important;
   }
-  .card-image-wrap {
-  height: 150px !important;
-}
-
-.new-card .card-body {
-  /* height: 230px !important; */
-}
-
-
+  .image-wrap {
+    width: 245px !important;
+    max-height: 245px !important;
+  }
+  .card-title {
+    font-size: 12px !important;
+  }
+  .card-body {
+    height: 325px !important;
+  }
 }
 @media (max-width: 767px) {
   .business-wrap .title-wrap .title-text,
@@ -116,6 +124,14 @@ export default {
   .entertainment-wrap,
   .science-wrap {
     margin-top: 30px !important;
+  }
+  .card-title {
+    font-size: 16px !important;
+  }
+  .image-wrap {
+    width: unset !important;
+    height: unset !important;
+    max-height: unset !important;
   }
 }
 @media (max-width: 575px) {
@@ -152,11 +168,12 @@ export default {
 .card-deck {
   margin-top: 30px;
 }
-.card-image-wrap {
+.image-wrap {
   height: 330px;
+  position: relative;
 }
 
-.card-image-wrap img {
+.image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -165,19 +182,22 @@ export default {
   padding-bottom: 10px;
 }
 
-.card-title{
-    position: absolute;
+.card-title {
+  position: absolute;
   color: white;
-  font-family: "Amiri-Regular";
+  font-family: "Amiri-Bold";
   font-size: 20px;
   padding: 0 35px;
-
+  bottom: 10px;
+  padding-left: 15px;
 }
 .card-text {
   padding: 19px 0 10px 0;
   max-height: 70px;
   overflow: hidden;
   border-bottom: none;
+  font-family: "Poppins-Regular";
+  font-size: 16px;
 }
 .card-footer {
   padding: 15px 0 0 0 !important;

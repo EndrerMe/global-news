@@ -1,59 +1,46 @@
 <template>
-    <b-carousel
-        id="carousel-1"
-        :interval="4000"
-        controls
-        indicators
-        background="#ababab"
-        img-width="1024"
-        img-height="480"
-        style="text-shadow: 1px 1px 2px #333;"
-    >
-        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=52">
-        <div class="slide-title">
-            <span>White House vows to boycott impeachment</span>
-        </div>
-        </b-carousel-slide>
-        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <div class="slide-title">
-            <span>Second Slide</span>
-        </div>
-        </b-carousel-slide>
-        <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
-        <div class="slide-title">
-            <span>Third Slide</span>
-        </div>
-        </b-carousel-slide>
-    </b-carousel>
+  <b-carousel
+    id="carousel-1"
+    :interval="4000"
+    controls
+    indicators
+    background="#ababab"
+    img-width="1024"
+    img-height="480"
+    style="text-shadow: 1px 1px 2px #333;"
+  >
+    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=52">
+      <div class="slide-title">
+        <span>White House vows to boycott impeachment</span>
+        <span class="slide-category general">CATEGOORY 1</span>
+      </div>
+    </b-carousel-slide>
+    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+      <div class="slide-title">
+        <span>Second Slide</span>
+        <span class="slide-category entertainment">CATEGORY 2</span>
+      </div>
+    </b-carousel-slide>
+    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
+      <div class="slide-title">
+        <span>Third Slide</span>
+        <span class="slide-category science">CATEGOORY 3</span>
+      </div>
+    </b-carousel-slide>
+  </b-carousel>
 </template>
 
 <script>
 export default {
-    name: 'homeSlider'
-}
+  name: "homeSlider"
+};
 </script>
-
-<style scoped>
-@media (max-width: 1199px) {
-  .carousel-caption .slide-title span {
-    font-size: 34px;
-  }
-}
-@media (max-width: 767px) {
-  .carousel-caption .slide-title span {
-    font-size: 24px !important;
-  }
-}
-@media (max-width: 575px) {
-  .carousel-caption .slide-title span {
-    font-size: 20px !important;
-  }
-}
-
+<style>
+/* Slider */
 .carousel-caption {
   position: absolute;
   right: unset !important;
-  bottom: 22% !important;
+  bottom: 18% !important;
   left: 30px !important;
   z-index: 10;
   padding-top: 20px;
@@ -63,10 +50,48 @@ export default {
 }
 .carousel-caption .slide-title {
   max-width: 400px;
+  text-align: start;
 }
 .carousel-caption .slide-title span {
   font-size: 40px;
 }
+
+.carousel-caption .slide-title .slide-category {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  text-align: start;
+  letter-spacing: 5px;
+  font-family: "Poppins-Medium";
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.carousel-caption .slide-title .slide-category.general::before {
+  content: "";
+  width: 3px;
+  height: 23px;
+  background-color: #1bfe85;
+  position: absolute;
+  left: 0px;
+}
+.carousel-caption .slide-title .slide-category.entertainment::before {
+  content: "";
+  width: 3px;
+  height: 23px;
+  background-color: #ff995e;
+  position: absolute;
+  left: 0px;
+}
+.carousel-caption .slide-title .slide-category.science::before {
+  content: "";
+  width: 3px;
+  height: 23px;
+  background-color: #10c7ba;
+  position: absolute;
+  left: 0px;
+}
+
 .carousel-indicators {
   display: flex;
   align-items: center;
@@ -131,4 +156,80 @@ export default {
   transform: rotate(223deg);
   left: 12px;
 }
+
+@media (max-width: 1199px) {
+  .carousel-caption {
+    bottom: 18% !important;
+  }
+}
+@media (max-width: 1139px) {
+  .carousel-caption .slide-title span {
+    font-size: 22px !important;
+  }
+
+  .carousel-caption .slide-title .slide-category {
+    font-size: 12px !important;
+  }
+
+  .carousel-caption .slide-title .slide-category::before {
+    height: 19px !important;
+  }
+  .carousel-caption {
+    bottom: 10% !important;
+  }
+}
+@media (max-width: 767px) {
+  .carousel-caption .slide-title span {
+    font-size: 18px !important;
+  }
+  .carousel-caption {
+    bottom: 10% !important;
+  }
+}
+@media (max-width: 575px) {
+  .carousel-caption .slide-title span {
+    font-size: 16px !important;
+  }
+  .carousel-caption .slide-title .slide-category {
+    font-size: 8px !important;
+    margin-top: 10px !important;
+  }
+  .carousel-caption .slide-title .slide-category::before {
+    height: 10px !important;
+  }
+}
+@media (max-width: 450px) {
+  .carousel-caption .slide-title span {
+    font-size: 12px !important;
+  }
+  .carousel-caption .slide-title .slide-category {
+    font-size: 5px !important;
+  }
+  .carousel-caption .slide-title .slide-category::before {
+    height: 7px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .slider-wrap .carousel-control-prev {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  .slider-wrap .carousel-control-next {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .carousel .carousel-control-next::after {
+    width: 10px !important;
+    height: 10px !important;
+    left: 6px !important;
+  }
+  .carousel .carousel-control-prev::before {
+    width: 10px !important;
+    height: 10px !important;
+    left: 10px !important;
+  }
+}
 </style>
+
