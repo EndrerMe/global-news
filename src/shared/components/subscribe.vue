@@ -90,19 +90,14 @@ export default {
 .notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
-
 .notify-prompt-wrap .news-dropdown {
   background: transparent;
   color: white;
   border: none;
 }
 
-.notify-prompt-wrap .news-dropdown option{
+.notify-prompt-wrap .news-dropdown option {
   color: black;
-
-}
-.notify-prompt-wrap .news-dropdown option:hover{
-  color:red !important;
 }
 
 .notify-prompt-wrap .text-wrap p.dropdown {

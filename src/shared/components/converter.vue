@@ -390,7 +390,6 @@ export default {
   color: white;
   font-size: 26px;
   border: none;
-  font-family: initial;
 }
 
 .currency-converter-wrap .to .dropdown-wrap .dropdown:focus {
@@ -402,6 +401,7 @@ export default {
   text-align: start;
   display: flex;
   justify-content: space-between;
+  font-family: "Amiri-Bold";
 }
 .currency-converter-wrap .from .value-wrap {
   font-size: 19px;
@@ -436,7 +436,6 @@ export default {
   color: white;
   font-size: 26px;
   border: none;
-  font-family: initial;
 }
 
 .currency-converter-wrap .from .dropdown-wrap .dropdown:focus {
@@ -448,6 +447,7 @@ export default {
   text-align: start;
   display: flex;
   justify-content: space-between;
+  font-family: "Amiri-Bold";
 }
 .currency-converter-wrap .from,
 .currency-converter-wrap .to {

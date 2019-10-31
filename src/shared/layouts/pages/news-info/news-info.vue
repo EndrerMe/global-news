@@ -319,6 +319,7 @@ export default {
   color: #c3c3c3;
   font-size: 18px;
   padding-top: 25px;
+  border:none;
 }
 
 .card-wrap .new-info .description-wrap {
@@ -411,5 +412,6 @@ export default {
   align-items: center;
   justify-content: center;
   border-radius: 25px;
+  margin-left: 10px;
 }
 </style>

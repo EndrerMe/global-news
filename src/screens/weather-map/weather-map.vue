@@ -83,8 +83,8 @@ export default {
 .back-to-home {
   position: fixed;
   font-size: 30px;
-  left: 100px;
-  top: 100px;
+  left: 50px;
+  top: 50px;
   z-index: 99999;
   width: 56px;
   height: 56px;
