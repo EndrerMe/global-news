@@ -10,7 +10,7 @@
             </div>
             <div class="description-wrap">
             <span>
-                {{ news.description }}
+                {{ news.title }}
             </span>
             </div>
         </div>

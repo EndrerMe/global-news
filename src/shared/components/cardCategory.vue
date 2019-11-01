@@ -15,8 +15,8 @@
                 <b-card-text>{{ news.content }}</b-card-text>
             </div>
             <template v-slot:footer>
-                <small class="text-muted">6 min ago</small>
-                <small class="text-muted">bbc.com</small>
+                <small class="text-muted">{{ news.publishedAt | moment("from", "now") }}</small>
+                <small class="text-muted">{{ news.source.name }}</small>
             </template>
         </b-card>
     </div>

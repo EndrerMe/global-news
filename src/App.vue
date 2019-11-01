@@ -20,6 +20,7 @@
 import HeaderDesctop from './shared/layouts/header/header';
 import Footer from './shared/layouts/footer/footer';
 import weatherService from './shared/services/weather.service';
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
   name: "app",
@@ -27,6 +28,7 @@ export default {
     HeaderDesctop,
     Footer
   },
+  computed: mapGetters(['getWeatherData']),
   data() {
     return {
       weatherData: null,
@@ -44,5 +46,17 @@ export default {
       });
     }) 
   },
+  async mounted () {
+    this.$getLocation().then(coordinates => {
+      this.getWeather(coordinates.lat, coordinates.lng)       
+    }).catch(function () {
+      this.getWeather(51.51062085840897, -0.12035208720763535)  
+    })
+  },
+  methods: {
+    ...mapActions([
+      'getWeather'
+    ])
+  }
 };
 </script>
