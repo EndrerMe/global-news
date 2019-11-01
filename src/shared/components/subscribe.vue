@@ -23,34 +23,13 @@
         <p>You subscribe on</p>
         <p class="dropdown"></p>
         <div class="dropdown-wrap">
-          <span class="first-elem">All News</span>
+          <span class="first-elem" @click='toggleCategories'>All News</span>
           <span class="icon-wrap">
             <font-awesome-icon icon="caret-down" />
           </span>
-          <ul class="currency-dropdown">
-            <li class="hidden-elem">
-              <span>All News</span>
-            </li>
-            <li class="hidden-elem">
-              <span>Business</span>
-            </li>
-            <li class="hidden-elem">
-              <span>Entertainment</span>
-            </li>
-            <li class="hidden-elem">
-              <span>General</span>
-            </li>
-            <li class="hidden-elem">
-              <span>Health</span>
-            </li>
-            <li class="hidden-elem">
-              <span>Science</span>
-            </li>
-            <li class="hidden-elem">
-              <span>Sport</span>
-            </li>
-            <li class="hidden-elem">
-              <span>Technology</span>
+          <ul class="currency-dropdown" v-if='isShowCatogories'>
+            <li class="hidden-elem" v-for='category of categoriesArray' :key='category'>
+              <span>{{ category }}</span>
             </li>
           </ul>
         </div>
@@ -73,8 +52,10 @@ export default {
   props: ["showSubscribeFull"],
   data() {
     return {
+      isShowCatogories: false,
       isShowSubscribe: true,
-      isShowSubscribeFull: false
+      isShowSubscribeFull: false,
+      categoriesArray: ['All News', 'Business', 'Entertainment', 'General', 'Health', 'Science', 'Sport', 'Technology']
     };
   },
   methods: {
@@ -89,6 +70,10 @@ export default {
 
     closeSubscribeFull() {
       this.isShowSubscribeFull = false;
+    },
+
+    toggleCategories() {
+      this.isShowCatogories = !this.isShowCatogories;
     }
   },
   watch: {

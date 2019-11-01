@@ -3,7 +3,7 @@ import newsService from './../../shared/services/news.service';
 export default {
     actions: {
         async getNewsData(ctx, data) {
-            newsService.getData(data.category, 1).then((res) => {
+            newsService.getData(data.category, data.page).then((res) => {
             let newsCol = data.limit;
             let news = [];
                 for (let i = 0; i < newsCol; i++) {

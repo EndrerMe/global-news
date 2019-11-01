@@ -134,7 +134,7 @@ export default {
   computed: mapGetters(['getNews']),
   methods: mapActions(['getNewsData']),
   async mounted () {
-    this.getNewsData({category: this.category, limit: 3});
+    this.getNewsData({category: this.category, limit: 3, page: 1});
   }
   
 }

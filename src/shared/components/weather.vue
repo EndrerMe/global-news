@@ -48,7 +48,6 @@
 
     <converterDesctop
       :isShowConverterProps="isShowConverterProps"
-      @closeConverterModala="closeConverterModal"
     ></converterDesctop>
 
     <!-- Mobile  Weather -->
@@ -265,11 +264,6 @@ export default {
   methods: {
     closeWeatherModal() {
       this.$emit("closeWeatherModal", false);
-    },
-
-    closeConverterModal() {
-      console.log('awdawd')
-      this.$emit("closeConverterModal", false);
     },
 
     showMoreWeather() {
