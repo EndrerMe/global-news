@@ -34,7 +34,6 @@
           <span class="temp-symbol-wrap">
             <span class="temp-symbol">
               <span class="mode active">
-                <!-- <sup class="mode active">o</sup>C -->
                 <span class="degree"></span>
                 C
               </span>
@@ -339,8 +338,6 @@ export default {
 <style scoped>
 /* Weather Details */
 
-/* font-family: 'Poppins-SemiBold'; */
-
 .weather-details-wrap .right-side {
   position: absolute;
   right: 11%;
@@ -366,7 +363,6 @@ export default {
 }
 .temp-info-wrap .info-elem {
   margin-top: 40px;
-  /* font-weight: bold; */
 }
 .weather-details-wrap .show-info-wrap {
   text-align: start;
@@ -386,11 +382,9 @@ export default {
 .weather-details-wrap .temp-symbol span {
   margin: 0 5px;
 }
-
 .weather-details-wrap .temp-symbol .switch-mode.active {
   color: #f8c61a;
 }
-
 .weather-details-wrap .temp-symbol {
   position: relative;
 }
@@ -406,7 +400,6 @@ export default {
 .weather-details-wrap .temp-value-wrap {
   text-align: start;
 }
-
 .weather-details-wrap .temp-info-wrap p {
   margin-bottom: 10px;
   font-family: "Poppins-Regular";
@@ -428,7 +421,6 @@ export default {
   padding: 0 50px;
   left: -550px;
 }
-
 .weather-details-wrap .close-wrap a {
   width: 18px;
   height: 18px;
@@ -447,7 +439,6 @@ export default {
   right: 0px;
   transform: rotate(45deg);
 }
-
 .weather-details-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -473,7 +464,6 @@ export default {
   top: 6px;
   left: -4px;
 }
-
 .weather-main-wrap {
   position: absolute;
   width: 355px;
@@ -484,7 +474,6 @@ export default {
   z-index: 99999;
   padding-bottom: 20px;
 }
-
 .weather-main-wrap .links-wrap {
   display: flex;
   justify-content: space-between;
@@ -496,37 +485,31 @@ export default {
   text-decoration: none;
   font-family: "Poppins-Regular";
 }
-
 .weather-search-wrap {
   padding: 0 55px;
 }
-
 .weather-search-wrap .temp-value-wrap .temp-symbol {
   font-size: 26px !important;
 }
-
 .weather-search-wrap .temp-value-wrap {
   position: relative !important;
   color: white;
   font-weight: bold;
   position: relative;
-  margin-top: 50px;
+  margin-top: 37px;
   font-family: "Poppins-SemiBold";
   display: flex;
   justify-content: center;
 }
-
 .weather-search-wrap .temp-value-wrap .temp-symbol-wrap {
   display: block;
   text-align: start;
   position: relative;
   min-width: 60px;
 }
-
 .weather-search-wrap .temp-value-wrap .temp-symbol-wrap .temp-symbol {
   position: absolute;
 }
-
 .weather-search-wrap
   .temp-value-wrap
   .temp-symbol-wrap
@@ -540,7 +523,6 @@ export default {
   font-size: 41px;
   font-family: "Poppins-SemiBold";
 }
-
 .weather-search-wrap .temp-value-wrap .temp-symbol span {
   margin: 0 3px;
 }
@@ -553,20 +535,17 @@ export default {
   left: 35px;
   top: 8px;
 }
-
 .weather-search-wrap .clouds {
-  margin-top: 55px;
+  margin-top: 40px;
   color: #eaeaea;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "Poppins-Regular";
 }
-
 .weather-search-wrap .clouds img {
   width: 90px;
 }
-
 .weather-search-wrap .close-wrap {
   width: 18px;
   height: 18px;
@@ -593,7 +572,6 @@ export default {
   right: 2px;
   transform: rotate(45deg);
 }
-
 .weather-search-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -604,7 +582,6 @@ export default {
   right: 2px;
   transform: rotate(-45deg);
 }
-
 .weather-search-wrap .text-wrap {
   margin-top: 40px;
   padding: 0;
@@ -613,16 +590,13 @@ export default {
 .weather-search-wrap .text-wrap .search-result {
   color: #f8c61a;
 }
-
 .weather-search-wrap .text-wrap p.dropdown {
   font-size: 32px;
   font-family: initial;
 }
-
 .weather-search-wrap .button-wrap {
   margin-top: 18px;
 }
-
 .weather-search-wrap .country-wrap span {
   color: #eaeaea;
   display: block;
@@ -630,7 +604,6 @@ export default {
   border-bottom: 1px solid;
   text-align: start;
 }
-
 .weather-search-wrap .button-wrap button {
   height: 48px;
   background-color: #f8c61a;
@@ -646,18 +619,15 @@ export default {
 .weather-search-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-
 .weather-search-wrap .seacrh-country-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 30px;
   width: 100%;
 }
-
 .weather-search-wrap .button-wrap {
   margin-top: 23px;
 }
-
 .weather-search-wrap .country-wrap input {
   color: #eaeaea;
   display: block;
@@ -667,6 +637,7 @@ export default {
   border: none;
   border-bottom: 1px solid;
   background: transparent;
+  font-size:18px;
 }
 
 /* Mob Weater*/
@@ -780,7 +751,6 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
 .mobile-weather-main-wrap {
   padding: 0 15px 40px 15px;
 }
