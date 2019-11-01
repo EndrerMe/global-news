@@ -1,38 +1,37 @@
 <template>
-    <div class="col-md-4"
-    @click="goToCurrentNews(news)">
-        <b-card class="mb-2 new-card">
-            <div class="image-wrap">
-                <div class="gradient"></div>
-                <b-card-img :src="news.urlToImage"></b-card-img>
-                <div class="title-wrap">
-                    <span class="title">
-                    <p>{{ news.title }}</p>
-                    </span>
-                </div>
-            </div>
-            <div class="text-wrap">
-                <b-card-text>{{ news.content }}</b-card-text>
-            </div>
-            <template v-slot:footer>
-                <small class="text-muted">6 min ago</small>
-                <small class="text-muted">bbc.com</small>
-            </template>
-        </b-card>
-    </div>
+  <div class="col-md-4" @click="goToCurrentNews(news)">
+    <b-card class="mb-2 new-card">
+      <div class="image-wrap">
+        <div class="gradient"></div>
+        <b-card-img :src="news.urlToImage"></b-card-img>
+        <div class="title-wrap">
+          <span class="title">
+            <p>{{ news.title }}</p>
+          </span>
+        </div>
+      </div>
+      <div class="text-wrap">
+        <b-card-text>{{ news.content }}</b-card-text>
+      </div>
+      <template v-slot:footer>
+        <small class="text-muted">6 min ago</small>
+        <small class="text-muted">bbc.com</small>
+      </template>
+    </b-card>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'cardCategory',
-    props: ['news', 'category'],
-    methods: {
-        goToCurrentNews(news) {
-            const category = this.category;
-            this.$router.push({ name: "news-info", params: { news, category } });
-        }
+  name: "cardCategory",
+  props: ["news", "category"],
+  methods: {
+    goToCurrentNews(news) {
+      const category = this.category;
+      this.$router.push({ name: "news-info", params: { news, category } });
     }
-}
+  }
+};
 </script>
 
 <style scoped>
