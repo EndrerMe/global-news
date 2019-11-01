@@ -7,14 +7,19 @@
       <div class="dropdown-wrap" selected>
         <span>from</span>
         <div>
-            <span class="first-elem" @click='toggleCurrentRates()'>{{ currentRate }}</span>
-            <span class="icon-wrap">
-              <font-awesome-icon icon="caret-down" />
-            </span>
+          <span class="first-elem" @click="toggleCurrentRates()">{{ currentRate }}</span>
+          <span class="icon-wrap">
+            <font-awesome-icon icon="caret-down" />
+          </span>
 
-          <ul class="currency-dropdown-from" v-if='isShowRatesFrom'>
+          <ul class="currency-dropdown-from" v-if="isShowRatesFrom">
             <template v-for="value of ratesName">
-              <li class="hidden-elem" :key="value" v-if="value !== exchangeName" @click='changeCurrentRate(value)'>
+              <li
+                class="hidden-elem"
+                :key="value"
+                v-if="value !== exchangeName"
+                @click="changeCurrentRate(value)"
+              >
                 <span>{{ value }}</span>
               </li>
             </template>
@@ -50,15 +55,15 @@
     <div class="to">
       <div class="dropdown-wrap" selected>
         <span>to</span>
-                <div>
-            <span class="first-elem" @click='toggleExchangeRates()'>{{ exchangeName }}</span>
-            <span class="icon-wrap">
-              <font-awesome-icon icon="caret-down" />
-            </span>
+        <div>
+          <span class="first-elem" @click="toggleExchangeRates()">{{ exchangeName }}</span>
+          <span class="icon-wrap">
+            <font-awesome-icon icon="caret-down" />
+          </span>
 
-          <ul class="currency-dropdown-to" v-if='isShowRatesTo'>
+          <ul class="currency-dropdown-to" v-if="isShowRatesTo">
             <template v-for="value of ratesName">
-              <li class="hidden-elem" :key='value' v-if="value !== currentRate">
+              <li class="hidden-elem" :key="value" v-if="value !== currentRate">
                 <span>{{ value }}</span>
               </li>
             </template>
@@ -74,7 +79,7 @@
               v-bind:key="value"
             >{{ value }}</option>
           </template>
-        </select> -->
+        </select>-->
       </div>
       <div class="value-wrap">
         <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span>
@@ -377,7 +382,7 @@ export default {
     focusOut() {
       this.$emit("toggleHeadAndFoot", true);
     }
-  },
+  }
 };
 </script>
 
@@ -387,8 +392,9 @@ export default {
   width: 3px;
 }
 ::-webkit-scrollbar-track {
-background: #959aa0;
-}::-webkit-scrollbar-thumb {
+  background: #959aa0;
+}
+::-webkit-scrollbar-thumb {
   background: #052962;
   border-radius: 10px;
 }
@@ -408,7 +414,7 @@ background: #959aa0;
 .currency-converter-wrap .from .dropdown-wrap .icon-wrap {
   margin-left: 10px;
 }
-.currency-converter-wrap .from .dropdown-wrap .first-elem{
+.currency-converter-wrap .from .dropdown-wrap .first-elem {
   font-size: 28px;
   font-family: "Poppins-Bold";
 }
@@ -448,7 +454,7 @@ background: #959aa0;
 .currency-converter-wrap .to .dropdown-wrap .icon-wrap {
   margin-left: 10px;
 }
-.currency-converter-wrap .to .dropdown-wrap .first-elem{
+.currency-converter-wrap .to .dropdown-wrap .first-elem {
   font-size: 28px;
   font-family: "Poppins-Bold";
 }
@@ -598,7 +604,7 @@ background: #959aa0;
   z-index: 99999;
   padding: 0 40px 45px 40px;
 }
-.currency-converter-wrap .close-wrap a {
+.currency-converter-wrap .close-wrap {
   width: 18px;
   height: 18px;
   display: inline-block;
@@ -606,14 +612,22 @@ background: #959aa0;
   top: 24px;
   right: 23px;
 }
+.currency-converter-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
 .currency-converter-wrap .close-wrap a::before {
   position: absolute;
   content: "";
   width: 15px;
   height: 1px;
   background-color: white;
-  top: 7px;
-  right: 0px;
+  top: 8px;
+  right: 2px;
   transform: rotate(45deg);
 }
 
@@ -623,8 +637,8 @@ background: #959aa0;
   width: 15px;
   height: 1px;
   background-color: white;
-  top: 7px;
-  right: 0px;
+  top: 8px;
+  right: 2px;
   transform: rotate(-45deg);
 }
 
