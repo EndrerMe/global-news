@@ -420,26 +420,8 @@ Weather Menu : class = 'modile-side-weather-wrap'
   padding: 6px 30px;
 }
 /* Header */
-.bottom-menu-wrap {
-  height: 120px;
-  display: flex;
-  align-items: center;
-}
 .top-menu-wrap {
   background-color: #052962;
-}
-.bottom-menu {
-  background-color: unset !important;
-  justify-content: center !important;
-}
-.bottom-menu li a a {
-  color: #3f3f3f;
-  font-size: 26px;
-  font-weight: bold;
-  text-decoration: none;
-}
-.bottom-menu li a:hover {
-  color: #f8c61a !important;
 }
 .top-menu-wrap .navbar-nav {
   width: 100%;

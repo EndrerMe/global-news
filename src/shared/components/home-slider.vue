@@ -27,7 +27,7 @@ export default {
 <style>
 /* Slider */
 .carousel-inner {
-  max-height: 766px !important;
+  height: 766px !important;
 }
 
 .carousel-item img {
