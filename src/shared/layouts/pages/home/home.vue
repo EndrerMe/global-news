@@ -12,24 +12,24 @@
         <homeSlider :slidesNews='slidesNews'></homeSlider>
       </div>
       <!-- Business -->
-      <card :sendedNews='scienceNewsHome' :category="'science'" :title="'Science'" :titleBorder="'c710a2'"></card>
+      <cardHome :sendedNews='scienceNewsHome' :category="'science'" :title="'Science'" :titleBorder="'c710a2'"></cardHome>
       <!-- Entertainmenet -->
-      <card :sendedNews='entertainmentNewsHome' :category="'entertainment'" :title="'Entertainment'" :titleBorder="'ff995e'"></card>
+      <cardHome :sendedNews='entertainmentNewsHome' :category="'entertainment'" :title="'Entertainment'" :titleBorder="'ff995e'"></cardHome>
       <!-- Science -->
-      <card :sendedNews='businessNewsHome' :category="'business'" :title="'Business'" :titleBorder="'10c7ba'"></card>
+      <cardHome :sendedNews='businessNewsHome' :category="'business'" :title="'Business'" :titleBorder="'10c7ba'"></cardHome>
     </div>
   </div>
 </template>
 
 <script>
-import card from './../../../components/card';
+import cardHome from './../../../components/cardHome';
 import newsService from './../../../services/news.service';
 import homeSlider from './../../../components/home-slider';
 import {mapGetters} from 'vuex'
 
 export default {
   components: { 
-    card,
+    cardHome,
     homeSlider
   },
   computed: mapGetters(['getNews']),
