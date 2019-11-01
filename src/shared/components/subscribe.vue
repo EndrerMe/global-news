@@ -15,25 +15,45 @@
         <button href="#" @click="showFullSubscribe()">Subscribe Us</button>
       </div>
     </div>
-
     <div class="notify-prompt-wrap" v-if="isShowSubscribeFull">
       <div class="close-wrap" @click="closeSubscribeFull()">
         <a class="close-button" href="#"></a>
       </div>
-
       <div class="text-wrap">
         <p>You subscribe on</p>
-        <p class="dropdown">
-          <select class="news-dropdown">
-            <option>All News</option>
-            <option>Business</option>
-            <option>Entertainment</option>
-            <option>General</option>
-            <option>Health</option>
-            <option>Science</option>
-            <option>Sport</option>
-          </select>
-        </p>
+        <p class="dropdown"></p>
+        <div class="dropdown-wrap">
+          <span class="first-elem">All News</span>
+          <span class="icon-wrap">
+            <font-awesome-icon icon="caret-down" />
+          </span>
+          <ul class="currency-dropdown">
+            <li class="hidden-elem">
+              <span>All News</span>
+            </li>
+            <li class="hidden-elem">
+              <span>Business</span>
+            </li>
+            <li class="hidden-elem">
+              <span>Entertainment</span>
+            </li>
+            <li class="hidden-elem">
+              <span>General</span>
+            </li>
+            <li class="hidden-elem">
+              <span>Health</span>
+            </li>
+            <li class="hidden-elem">
+              <span>Science</span>
+            </li>
+            <li class="hidden-elem">
+              <span>Sport</span>
+            </li>
+            <li class="hidden-elem">
+              <span>Technology</span>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="send-email-wrap">
         <div class="email-wrap">
@@ -85,42 +105,69 @@ export default {
 </script>
 
 <style scoped>
-/* Notify Subscribe*/
+/* Custom Drop Down From */
+.notify-prompt-wrap .currency-dropdown {
+  position: absolute;
+  list-style: none;
+  padding-left: 0;
+  z-index: 99999;
+  top: 40px;
+}
+.notify-prompt-wrap .dropdown-wrap {
+  position: relative;
+  font-family: "Amiri-Bold";
+  display: flex;
+  justify-content: center;
+}
+.notify-prompt-wrap .dropdown-wrap .icon-wrap {
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+}
+.notify-prompt-wrap .dropdown-wrap .first-elem {
+  font-size: 28px;
+}
+.notify-prompt-wrap .dropdown-wrap svg {
+  font-size: 14px;
+  color: #f8c61a;
+}
+.notify-prompt-wrap .dropdown-wrap li {
+  display: flex;
+  width: 100%;
+  background: white;
+  padding: 0 5px;
+}
+.notify-prompt-wrap .dropdown-wrap li:hover {
+  background: #f8c61a;
+  cursor: pointer;
+}
+.notify-prompt-wrap .dropdown-wrap li span {
+  color: #3f3f3f;
+  font-size: 16px;
+  padding: 2px 0;
+}
+/* end */
 
+/* Notify Subscribe*/
 .notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
-
 .notify-prompt-wrap .news-dropdown {
   background: transparent;
   color: white;
   border: none;
 }
-
-.notify-prompt-wrap .news-dropdown option{
+.notify-prompt-wrap .news-dropdown option {
   color: black;
-
 }
-.notify-prompt-wrap .news-dropdown option:hover{
-  color:red !important;
-}
-
-.notify-prompt-wrap .text-wrap p.dropdown {
-  font-size: 32px;
-  font-family: initial;
-  margin-right: 10px;
-}
-
 .notify-prompt-wrap .send-email-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
 }
-
 .notify-prompt-wrap .button-wrap {
   margin-top: 23px;
 }
-
 .notify-prompt-wrap .email-wrap input {
   color: #eaeaea;
   display: block;
@@ -130,7 +177,6 @@ export default {
   border: none;
   border-bottom: 1px solid;
 }
-
 .notify-prompt-wrap .button-wrap button {
   width: 242px;
   height: 48px;
@@ -146,7 +192,6 @@ export default {
 .notify-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-
 .notify-prompt-wrap {
   width: 355px;
   padding-bottom: 56px;
@@ -175,7 +220,6 @@ export default {
   right: 0px;
   transform: rotate(45deg);
 }
-
 .notify-prompt-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -186,13 +230,11 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
 .notify-prompt-wrap .text-wrap {
   margin-top: 86px;
   padding: 0px 90px;
   color: #f8c61a;
 }
-
 .notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
   font-size: 20px;
@@ -201,22 +243,14 @@ export default {
 .notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
-
-.notify-prompt-wrap .text-wrap p.dropdown {
-  font-size: 32px;
-  font-family: initial;
-}
-
 .notify-prompt-wrap .send-email-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
 }
-
 .notify-prompt-wrap .button-wrap {
   margin-top: 23px;
 }
-
 .notify-prompt-wrap .email-wrap span {
   color: #eaeaea;
   display: block;
@@ -236,7 +270,6 @@ export default {
   background-color: #052962;
   z-index: 999;
 }
-
 .subscribe-prompt-wrap .close-wrap a {
   width: 18px;
   height: 18px;
@@ -255,7 +288,6 @@ export default {
   right: 0px;
   transform: rotate(45deg);
 }
-
 .subscribe-prompt-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -266,7 +298,6 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
 .subscribe-prompt-wrap .text-wrap {
   margin-top: 90px;
   padding: 0px 100px;
@@ -276,11 +307,9 @@ export default {
 .subscribe-prompt-wrap .text-wrap span {
   color: #eaeaea;
 }
-
 .subscribe-prompt-wrap .button-wrap {
   margin-top: 37px;
 }
-
 .subscribe-prompt-wrap .button-wrap button {
   width: 242px;
   height: 48px;

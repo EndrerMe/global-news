@@ -1,47 +1,31 @@
 <template>
-    <div>
-      <footer>
-        <div class="container content">
-          <div class="content-wrap">
-            <div class="left-item">
-              <img src="../../../assets/images/logo.svg" alt="logo" />
-            </div>
-            <div class="center-item">
-              <span class="text">Created by <a href="http://anuitex.com">Anuitex</a></span>
-            </div>
-            <div class="right-item">
-              <button>Subscribe Us</button>
-            </div>
+  <div>
+    <footer>
+      <div class="container content">
+        <div class="content-wrap">
+          <div class="left-item">
+            <img src="../../../assets/images/logo.svg" alt="logo" />
+          </div>
+          <div class="center-item">
+            <pre class="text">Created by&#160;<a href="http://anuitex.com">Anuitex</a></pre>
+          </div>
+          <div class="right-item">
+            <button>Subscribe Us</button>
           </div>
         </div>
-      </footer>
-
-      <!-- <footer>
-        <div class="container content">
-          <div class="content-wrap">
-            <div class="left-item">
-              <img src="../../../assets/images/logo.svg" alt="logo" />
-            </div>
-            <div class="center-item">
-              <span class="text">Copyright © 2019 Global New. All rights reserved</span>
-            </div>
-            <div class="right-item">
-              <button>Subscribe Us</button>
-            </div>
-          </div>
-        </div>
-      </footer> -->
-    </div>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Footer'
-}
+  name: "Footer"
+};
 </script>
 
 <style scoped>
-    /* Footer */
+/* Footer */
 footer {
   background-color: #052962;
   margin-top: 72px;
@@ -59,24 +43,19 @@ footer .right-item {
 footer .center-item {
   display: flex;
 }
-footer .center-item .text,
-footer .center-item .text a {
-  color: white;
+footer .center-item pre {
+  margin: 0;
+}
+footer .center-item .text {
+  padding-bottom: 5px;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 5px;
   font-size: 10px;
+  color: white;
 }
-/* footer .right-item button {
-  width: 98% !important;
-  width: 185px !important;
-  height: 35px;
-  font-size: 12px;
-} */
 footer .right-item button:hover {
   background-color: #ffe076 !important;
 }
-
 footer .right-item button {
   width: 242px;
   height: 48px;
