@@ -25,7 +25,7 @@
 <script>
 export default {
     name: 'cardCategory',
-    props: ['news', 'catogory'],
+    props: ['news', 'category'],
     methods: {
         goToCurrentNews(news) {
             const category = this.category;
