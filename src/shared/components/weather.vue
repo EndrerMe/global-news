@@ -16,9 +16,9 @@
 
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
-            <input :value='userCity' v-on:input="changecountry($event)"/>
+            <input :value="userCity" v-on:input="changecountry($event)" />
           </div>
-          <div class="button-wrap" @click='getWeather()'>
+          <div class="button-wrap" @click="getWeather()">
             <button href="#">Search</button>
           </div>
         </div>
@@ -33,18 +33,23 @@
           <span class="value">{{ temp }}</span>
           <span class="temp-symbol-wrap">
             <span class="temp-symbol">
-              <span class="mode active"><sup class="mode active">o</sup>C</span>
+              <span class="mode active">
+                <sup class="mode active">o</sup>C
+              </span>
             </span>
           </span>
         </div>
       </div>
       <div class="links-wrap">
-        <a href="#" @click='showWeatherMap()'>Weather Map</a>
+        <a href="#" @click="showWeatherMap()">Weather Map</a>
         <a href="#" @click="showMoreWeather()">More</a>
       </div>
     </div>
 
-    <converterDesctop :isShowConverterProps="isShowConverterProps" @closeConverterModal="closeConverterModal"></converterDesctop>
+    <converterDesctop
+      :isShowConverterProps="isShowConverterProps"
+      @closeConverterModal="closeConverterModal"
+    ></converterDesctop>
 
     <!-- Mobile  Weather -->
     <div class="modile-side-weather-wrap">
@@ -221,18 +226,23 @@
     </div>
 
     <!-- Weater Details -->
-    <moreWeather :isShowMoreWeather='isShowMoreWeather' @closeMoreWeather='closeMoreWeather' :weatherData='currentWeatherData' :isWeatherMap='false'></moreWeather>
+    <moreWeather
+      :isShowMoreWeather="isShowMoreWeather"
+      @closeMoreWeather="closeMoreWeather"
+      :weatherData="currentWeatherData"
+      :isWeatherMap="false"
+    ></moreWeather>
   </div>
 </template>
 
 <script>
 import converterDesctop from "./converter";
-import weatherService from './../services/weather.service';
-import moreWeather from './../components/more-weather';
-import _ from 'lodash';
+import weatherService from "./../services/weather.service";
+import moreWeather from "./../components/more-weather";
+import _ from "lodash";
 
 export default {
-  props: ["isShowWeatherModalProps", "isShowConverterProps", 'weatherData'],
+  props: ["isShowWeatherModalProps", "isShowConverterProps", "weatherData"],
   name: "weatherDesctop",
   components: {
     converterDesctop,
@@ -241,7 +251,7 @@ export default {
   data() {
     return {
       currentWeatherData: null,
-      userCity: 'London',
+      userCity: "London",
       temp: "",
       location: "",
       date: "",
@@ -272,36 +282,34 @@ export default {
     showWeatherMap() {
       let data = this.weatherData;
       this.$emit("closeWeatherModal", false);
-      this.$router.push({name: 'weatherMap', params: {data}});
+      this.$router.push({ name: "weatherMap", params: { data } });
     },
 
-    changecountry:_.debounce(function(event) {
-        const value = event.target.value;
-        this.userCity = value;
-        // lifeSearchService.getDataForLifeSearch(value).then((res) => {
-        //     this.probablyCity = res.data.data;
-        // }, (err) => {
-        //     console.log(err)
-        // })
-
+    changecountry: _.debounce(function(event) {
+      const value = event.target.value;
+      this.userCity = value;
+      // lifeSearchService.getDataForLifeSearch(value).then((res) => {
+      //     this.probablyCity = res.data.data;
+      // }, (err) => {
+      //     console.log(err)
+      // })
     }, 1000),
 
     getWeather() {
-      weatherService.getWeatherByCountry(this.userCity).then((res) => {
-        console.log(res.data)
+      weatherService.getWeatherByCountry(this.userCity).then(res => {
+        console.log(res.data);
         this.currentWeatherData = res.data;
         this.temp = res.data.main.temp;
-        this.temp = this.temp + '';
+        this.temp = this.temp + "";
         this.temp = this.temp.split(".")[0];
         this.userCity = res.data.name;
         this.location = this.userCity;
-        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`
-        this.currentWeather = res.data.weather[0].description
+        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
+        this.currentWeather = res.data.weather[0].description;
       });
-    },
+    }
   },
   mounted() {
-
     if (this.weatherData) {
       this.currentWeatherData = this.weatherData;
       this.temp = this.weatherData.main.temp;
@@ -328,8 +336,8 @@ export default {
         .slice(0, 10)
         .replace(/-/g, "/");
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -384,22 +392,21 @@ export default {
   margin: 0 5px;
 }
 
-.weather-details-wrap .temp-symbol .switch-mode.active{
-  color: #F8C61A;
+.weather-details-wrap .temp-symbol .switch-mode.active {
+  color: #f8c61a;
 }
-
 
 .weather-details-wrap .temp-symbol {
   position: relative;
 }
 .weather-details-wrap .temp-symbol::before {
-    content: "";
-    position: absolute;
-    width: 1px;
-    height: 26px;
-    background-color: white;
-    left: 22px;
-    top: 2px;
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 26px;
+  background-color: white;
+  left: 22px;
+  top: 2px;
 }
 .weather-details-wrap .temp-value-wrap {
   text-align: start;
@@ -407,9 +414,8 @@ export default {
 
 .weather-details-wrap .temp-info-wrap p {
   margin-bottom: 10px;
-  font-family: 'Poppins-Regular';
-  font-size:24px;
-  
+  font-family: "Poppins-Regular";
+  font-size: 24px;
 }
 .weather-details-wrap .temp-info-wrap {
   color: #f9f9f9;
@@ -457,7 +463,6 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
 
 /* Weather */
 .weather-main-wrap {
@@ -547,13 +552,21 @@ export default {
   width: 90px;
 }
 
-.weather-search-wrap .close-wrap a {
+.weather-search-wrap .close-wrap {
   width: 18px;
   height: 18px;
   display: inline-block;
   position: absolute;
   top: 24px;
   right: 23px;
+}
+.weather-search-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 1px;
+  right: 0px;
 }
 .weather-search-wrap .close-wrap a::before {
   position: absolute;
@@ -925,7 +938,7 @@ export default {
   }
 }
 @media (max-width: 1139px) {
-  .weather-main-wrap{
+  .weather-main-wrap {
     top: 103px;
   }
 }
@@ -933,5 +946,4 @@ export default {
 class='weather-details-wrap'
 
  */
-
 </style>
