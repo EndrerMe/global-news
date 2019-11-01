@@ -218,7 +218,7 @@ export default {
 .notify-prompt-wrap .text-wrap {
   margin-top: 86px;
   padding: 0px 90px;
-  color: #f8c61a;
+  color: white;
 }
 .notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;

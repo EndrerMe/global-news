@@ -8,7 +8,7 @@
         <div class="temp-value-wrap">
           <div class="text-wrap">
             <span>
-              Do you mean
+              Did you mean
               <span class="search-result">{{ userCity }}</span>?
             </span>
           </div>
@@ -34,7 +34,9 @@
           <span class="temp-symbol-wrap">
             <span class="temp-symbol">
               <span class="mode active">
-                <sup class="mode active">o</sup>C
+                <!-- <sup class="mode active">o</sup>C -->
+                <span class="degree"></span>
+                C
               </span>
             </span>
           </span>
@@ -46,9 +48,7 @@
       </div>
     </div>
 
-    <converterDesctop
-      :isShowConverterProps="isShowConverterProps"
-    ></converterDesctop>
+    <converterDesctop :isShowConverterProps="isShowConverterProps"></converterDesctop>
 
     <!-- Mobile  Weather -->
     <div class="modile-side-weather-wrap">
@@ -332,7 +332,7 @@ export default {
         .replace(/-/g, "/");
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
-  },
+  }
 };
 </script>
 
@@ -460,6 +460,20 @@ export default {
 }
 
 /* Weather */
+.weather-main-wrap .temp-symbol .mode {
+  position: relative;
+}
+.weather-main-wrap .temp-symbol .mode .degree::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border: 1px solid white;
+  position: absolute;
+  border-radius: 10px;
+  top: 6px;
+  left: -4px;
+}
+
 .weather-main-wrap {
   position: absolute;
   width: 355px;
@@ -468,13 +482,14 @@ export default {
   background-color: #052962;
   padding-bottom: 20px;
   z-index: 99999;
-  padding: 0 60px 10px 60px;
+  padding-bottom: 20px;
 }
 
 .weather-main-wrap .links-wrap {
   display: flex;
   justify-content: space-between;
   margin-top: 55px;
+    padding: 0 25px;
 }
 .weather-main-wrap .links-wrap a {
   color: #f8c61a !important;
@@ -482,8 +497,11 @@ export default {
   font-family: "Poppins-Regular";
 }
 
+.weather-search-wrap {
+  padding: 0 55px;
+}
+
 .weather-search-wrap .temp-value-wrap .temp-symbol {
-  top: -7px;
   font-size: 26px !important;
 }
 
@@ -519,19 +537,21 @@ export default {
 .weather-search-wrap .temp-value-wrap .value {
   display: block;
   text-align: end;
+  font-size: 41px;
+  font-family: "Poppins-SemiBold";
 }
 
 .weather-search-wrap .temp-value-wrap .temp-symbol span {
-  margin: 0 5px;
+  margin: 0 3px;
 }
 .weather-search-wrap .temp-value-wrap .temp-symbol::before {
   content: "";
   position: absolute;
   width: 2px;
-  height: 23px;
+  height: 21px;
   background-color: white;
-  left: 41px;
-  top: 7px;
+  left: 35px;
+  top: 8px;
 }
 
 .weather-search-wrap .clouds {
