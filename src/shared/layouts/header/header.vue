@@ -193,7 +193,7 @@ export default {
     },
 
     toggleConverterModal() {
-      this.isShowConverter = !this.isShowConverter;
+      this.isShowConverter = true;
     },
 
     closeWeatherModal() {

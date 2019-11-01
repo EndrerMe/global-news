@@ -2,7 +2,6 @@
   <div class="business-wrap">
     <div
       class="title-wrap"
-      data-aos="fade-right"
       v-bind:style="titleBorder ? {borderLeft: '5px solid #' + titleBorder} : {}"
     >
       <span class="title-text">{{ title }}</span>
@@ -12,10 +11,6 @@
       :options="slickOptions"
       class="slick"
       v-if="sendedNews.length"
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-mirror="true"
-      data-aos-once="false"
     >
       <div
         class="card-wrap"
