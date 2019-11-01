@@ -39,8 +39,8 @@
                     </span>
                     <converterDesctop :isShowConverterProps="isShowConverterProps"></converterDesctop>
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap" @click="toggleWeatherModal()">
-                    <span class="weather-content" >
+                  <b-nav-item href="#" class="weather-wrap">
+                    <span class="weather-content" @click="toggleWeatherModal()">
                       <span class="weather-icon">
                         <img :src="currentWeatherImg" alt />
                       </span>
