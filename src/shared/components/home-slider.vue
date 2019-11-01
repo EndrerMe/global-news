@@ -26,6 +26,9 @@ export default {
 </script>
 <style>
 /* Slider */
+.carousel-item img {
+  object-fit: cover;
+}
 .carousel-caption {
   position: absolute;
   right: unset !important;
