@@ -115,13 +115,16 @@ export default {
 </script>
 
 <style scoped>
-.weather-dark-screen {
-  left: 50%;
-  top: 50%;
+/* .weather-dark-screen {
   position: fixed;
-  z-index: 999999;
-  transform: translate(-50%, -50%);
-}
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}  */
+
 .weather-details-wrap {
   display: flex;
   width: 602px;
@@ -167,7 +170,7 @@ export default {
   position: absolute;
   border: 1px solid #a09f9f;
   border-radius: 10px;
-  top:5px;
+  top: 5px;
 }
 .weather-details-wrap .temp-symbol span {
   margin: 0 5px;
@@ -518,14 +521,4 @@ export default {
     bottom: 0;
   }
 }
-
-/* .bg-close {
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-} */
 </style>

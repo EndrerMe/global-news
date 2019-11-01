@@ -13,7 +13,6 @@
             </span>
           </div>
         </div>
-
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" />
@@ -28,7 +27,6 @@
             <img :src="currentWeatherImg" alt="cloud" />
           </span>
         </div>
-
         <div class="temp-value-wrap">
           <span class="value">{{ temp }}</span>
           <span class="temp-symbol-wrap">
