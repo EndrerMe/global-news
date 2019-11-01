@@ -399,7 +399,7 @@ export default {
   color: white;
   border: none;
   width: 70%;
-  padding-right: 18px;
+  padding-right: 25px;
 }
 
 #nav-collapse .sub-wrap .mobile-side-menu {
