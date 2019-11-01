@@ -32,13 +32,13 @@
                     <span>{{currentDate.day}} {{currentDate.month}}, {{currentDate.year}}</span>
                     <span>{{currentDate.weekDay}}</span>
                   </b-nav-item>
-                  <b-nav-item href="#" class="converter-wrap">
-                    <span  @click="toggleConverterModal()">
+                  <li class="converter-wrap nav-item">
+                    <a class="converter-span" @click="toggleConverterModal()">
                       <span>Currency Converter</span>
                       <font-awesome-icon icon="caret-down" />
-                    </span>
+                    </a>
                     <converterDesctop :isShowConverterProps="isShowConverterProps"></converterDesctop>
-                  </b-nav-item>
+                  </li>
                   <b-nav-item href="#" class="weather-wrap">
                     <span class="weather-content" @click="toggleWeatherModal()">
                       <span class="weather-icon">
@@ -62,13 +62,13 @@
                     ></weatherDesctop>
                   </b-nav-item>
                   <li class="nav-item search-wrap">
-                    <div>
-                      <a href="#">
-                        <input class="search-input" />
-                        <span class="icon-wrap">
-                          <font-awesome-icon icon="search" class="fa-lg" />
-                        </span>
-                      </a>
+                    <div class="input-wrap">
+                      <!-- <a href="#"> -->
+                      <label for="search-input" class="icon-wrap">
+                        <font-awesome-icon icon="search" class="fa-lg" />
+                      </label>
+                      <input id="search-input" class="search-input" />
+                      <!-- </a> -->
                     </div>
                     <div class="bell active" @click="showSubscribeFullFun()">
                       <a href="#">
@@ -197,7 +197,7 @@ export default {
 
     goToHomePage() {
       this.$router.push({ name: "Home" });
-    },
+    }
   },
   mounted() {
     EventBus.$on('closeConverterModal', () => {
@@ -236,6 +236,13 @@ export default {
 </style>
 
 <style scoped>
+.converter-wrap a:hover {
+  cursor: default;
+}
+.converter-wrap .converter-span:hover {
+  cursor: pointer;
+}
+
 /* Header */
 .sideMenuActive {
   visibility: visible !important;
@@ -369,7 +376,7 @@ export default {
   position: relative;
 }
 
-#nav-collapse .sub-wrap .wide-menu .converter-wrap svg{
+#nav-collapse .sub-wrap .wide-menu .converter-wrap svg {
   margin-left: 7px;
 }
 
@@ -393,9 +400,12 @@ export default {
   position: relative;
 }
 
-#nav-collapse .sub-wrap .wide-menu .search-wrap a .icon-wrap {
+#nav-collapse .sub-wrap .wide-menu .search-wrap .input-wrap {
+  position: relative;
+}
+#nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap {
   position: absolute;
-  right: 0;
+  right: 34px;
 }
 
 #nav-collapse .sub-wrap .wide-menu .search-wrap .search-input {
@@ -422,7 +432,8 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-.top-menu-wrap .wide-menu li a svg {
+.top-menu-wrap .wide-menu li a svg,
+#nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap svg {
   color: rgb(248, 198, 26);
 }
 .top-menu-wrap .wide-menu li.weather-wrap {

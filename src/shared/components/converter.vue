@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="value-wrap">
-        <input
+        <input 
           class="value"
           value="100"
           v-on:input="changeAmount($event)"
@@ -572,7 +572,7 @@ export default {
 .currency-converter-wrap {
   width: 355px;
   position: absolute;
-  right: -70px;
+  right: -82px;
   top: 63px;
   background-color: #052962;
   z-index: 99999;
