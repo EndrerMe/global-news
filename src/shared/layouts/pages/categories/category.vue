@@ -240,6 +240,18 @@ export default {
 </script>
 
 <style scoped>
+.top-box-preview .title-wrap,
+.card-deck .title-wrap {
+  font-family: "Amiri-Bold";
+}
+
+.card-deck .text-wrap {
+  font-family: "Poppins-Regular";
+  font-size: 16px;
+}
+.card-deck .card-footer {
+  font-size: 14px;
+}
 @media (min-width: 1140px) {
   .container {
     max-width: 1638px !important;
@@ -256,6 +268,13 @@ export default {
   .main-title-wrap span::before {
     height: 27px !important;
     width: 95px !important;
+  }
+  .card-deck .card-footer {
+    font-size: 10px;
+  }
+
+  .card-deck .text-wrap {
+    font-size: 12px;
   }
 }
 @media (max-width: 767px) {
@@ -290,28 +309,28 @@ export default {
   }
 }
 /* Top-box with 4 images*/
+@media (min-width: 1140px) {
+  .top-box-preview .left-side .title-wrap span {
+    font-size: 32px !important;
+  }
+}
+
 @media (max-width: 1199px) {
   .top-box-preview .title-wrap {
     bottom: 15px !important;
   }
-  .top-box-preview .left-side .title-wrap span {
-    font-size: 20px !important;
-  }
-  .top-box-preview .right-side-top .title-wrap span,
-  .top-box-preview .right-side-bottom .title-wrap span {
-    font-size: 15px !important;
-  }
+ 
   .top-box-preview .left-side .title-wrap {
     max-width: 83%;
   }
 }
 @media (max-width: 1139px) {
   .top-box-preview .left-side .title-wrap span {
-    font-size: 20px !important;
+    font-size: 22px !important;
   }
   .top-box-preview .right-side-top .title-wrap span,
   .top-box-preview .right-side-bottom .title-wrap span {
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
   .top-box-preview .left-side .title-wrap {
     max-width: 75%;
@@ -319,8 +338,8 @@ export default {
   .top-box-preview .right-side-top .title-wrap {
     max-width: 84%;
   }
-  .right-side .right-side-bottom button{
-    font-size: 8px  !important;
+  .right-side .right-side-bottom button {
+    font-size: 8px !important;
   }
 }
 
@@ -409,9 +428,8 @@ export default {
   height: 15% !important;
 }
 
-.content .top-box-preview .left-side .hover-link button ,
-.content .top-box-preview .right-side .right-side-top .hover-link button 
-{
+.content .top-box-preview .left-side .hover-link button,
+.content .top-box-preview .right-side .right-side-top .hover-link button {
   opacity: 0;
   width: 65%;
   height: 10%;
@@ -523,8 +541,6 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
-
-
 }
 
 .right-side .right-side-top .gradint {
@@ -540,10 +556,10 @@ export default {
   width: 70%;
   left: 50%;
   transform: translate(-50%);
-    max-height: 125px;
-    overflow: hidden;
+  max-height: 125px;
+  overflow: hidden;
 }
-.right-side .right-side-bottom button{
+.right-side .right-side-bottom button {
   height: 15% !important;
   opacity: 0;
   width: 65%;
@@ -854,8 +870,10 @@ export default {
   color: white;
   font-size: bold;
   text-align: start;
-  left: 25px;
   bottom: 25px;
+  width: 94%;
+  left: 50%;
+  transform: translate(-50%);
 }
 .new-card .title-wrap p {
   margin-bottom: 0;
@@ -877,19 +895,10 @@ export default {
   border-bottom: 1px solid #b3abab;
   padding-bottom: 10px;
 }
-@media (max-width: 1199px) {
-  .new-card .title-wrap {
-    max-width: 86%;
-  }
-}
 @media (max-width: 1139px) {
   .new-card .title-wrap {
     font-size: 12px !important;
   }
-  .new-card .title-wrap {
-    max-width: 78%;
-  }
-
   .new-card .image-wrap {
     height: 200px !important;
   }

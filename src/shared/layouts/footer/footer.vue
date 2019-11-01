@@ -36,6 +36,9 @@ footer .content-wrap {
   display: flex;
   justify-content: space-between;
 }
+footer .left-item img {
+  width: 130px;
+}
 footer .left-item,
 footer .right-item {
   margin: auto 0;
@@ -66,6 +69,7 @@ footer .right-item button {
   font-weight: 900;
   border: none;
   letter-spacing: 1px;
+  font-family: "Poppins-SemiBold";
 }
 @media (max-width: 1199px) {
   footer .right-item button {
@@ -73,11 +77,17 @@ footer .right-item button {
     height: 44px;
   }
 }
+
+@media (max-width: 1139px) {
+  footer .right-item button {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 991px) {
   footer .right-item button {
     width: 222px !important;
     height: 40px;
-    font-size: 14px;
   }
 }
 @media (min-width: 768px) {
@@ -98,14 +108,12 @@ footer .right-item button {
   }
   footer .content-wrap .center-item {
     margin: 0 auto;
+    padding: 20px 0;
   }
   footer .content-wrap :nth-child(2) {
     order: 3;
   }
   footer .content-wrap .left-item {
-    padding: 20px 0;
-  }
-  footer .content-wrap .center-item {
     padding: 20px 0;
   }
 }

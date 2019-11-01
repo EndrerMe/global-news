@@ -85,7 +85,7 @@ export default {
   .science-wrap .title-wrap .title-text {
     font-size: 28px !important;
   }
-
+ 
   .card-title {
     font-size: 16px !important;
   }
