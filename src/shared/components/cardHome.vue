@@ -42,7 +42,7 @@ export default {
   components: {
     Slick
   },
-  name: "card",
+  name: "cardHome",
   props: ["sendedNews", "title", "titleBorder", 'category'],
   data() {
     return {

@@ -268,6 +268,7 @@ export default {
     },
 
     closeConverterModal() {
+      console.log('awdawd')
       this.$emit("closeConverterModal", false);
     },
 

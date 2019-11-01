@@ -73,31 +73,7 @@
 
     <!-- All News -->
     <b-card-group deck row>
-      <div
-        class="col-md-4"
-        v-for="news of currentNews"
-        v-bind:key="news.title"
-        @click="goToCurrentNews(news)"
-      >
-        <b-card class="mb-2 new-card">
-          <div class="image-wrap">
-            <div class="gradient"></div>
-            <b-card-img :src="news.urlToImage"></b-card-img>
-            <div class="title-wrap">
-              <span class="title">
-                <p>{{ news.title }}</p>
-              </span>
-            </div>
-          </div>
-          <div class="text-wrap">
-            <b-card-text>{{ news.content }}</b-card-text>
-          </div>
-          <template v-slot:footer>
-            <small class="text-muted">6 min ago</small>
-            <small class="text-muted">bbc.com</small>
-          </template>
-        </b-card>
-      </div>
+      <cardCategory v-for="news of currentNews" :key="news.title" :news='news' :catogory='category'></cardCategory>
     </b-card-group>
 
     <categoryPagination :pageNumber="pageNumber" @changePage="changePage"></categoryPagination>
@@ -107,11 +83,13 @@
 <script>
 import newsService from "./../../../services/news.service";
 import categoryPagination from "./../../../components/paginate";
+import cardCategory from "./../../../components/cardCategory";
 
 export default {
   name: "currentCategory",
   components: {
-    categoryPagination
+    categoryPagination,
+    cardCategory
   },
   data() {
     return {
