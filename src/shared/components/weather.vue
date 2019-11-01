@@ -561,8 +561,8 @@ export default {
   width: 15px;
   height: 1px;
   background-color: white;
-  top: 7px;
-  right: 0px;
+  top: 8px;
+  right: 2px;
   transform: rotate(45deg);
 }
 
@@ -572,8 +572,8 @@ export default {
   width: 15px;
   height: 1px;
   background-color: white;
-  top: 7px;
-  right: 0px;
+  top: 8px;
+  right: 2px;
   transform: rotate(-45deg);
 }
 
