@@ -152,7 +152,8 @@ export default {
   border-top: 2px solid #b3abab;
 }
 .new-card {
-  margin: 0 auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   max-width: 526px !important;
   border: none !important;
   padding-bottom: 15px;
