@@ -142,9 +142,9 @@ export default {
   props: ['news', 'category'],
   name: 'newsInfo',
   computed: mapGetters(['getNews']),
-  methods: mapActions(['getNewsForHomePage']),
+  methods: mapActions(['getNews']),
   async mounted () {
-    this.getNewsForHomePage({category: this.category, limit: 3});
+    this.getNews({category: this.category, limit: 3});
   }
   
 }
