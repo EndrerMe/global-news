@@ -2,7 +2,7 @@ import newsService from './../../shared/services/news.service';
 
 export default {
     actions: {
-        async getNews(ctx, data) {
+        async getNewsData(ctx, data) {
             newsService.getData(data.category, 1).then((res) => {
             let newsCol = data.limit;
             let news = [];
@@ -15,9 +15,6 @@ export default {
                         continue;
                     }
                 }
-
-                console.log(news)
-
                 ctx.commit('updateNews', news);
             })
         }

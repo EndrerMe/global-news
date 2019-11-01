@@ -73,7 +73,7 @@
 
     <!-- All News -->
     <b-card-group deck row>
-      <cardCategory v-for="news of currentNews" :key="news.title" :news='news' :catogory='category'></cardCategory>
+      <cardCategory v-for="news of currentNews" :key="news.title" :news='news' :category='category'></cardCategory>
     </b-card-group>
 
     <categoryPagination :pageNumber="pageNumber" @changePage="changePage"></categoryPagination>
