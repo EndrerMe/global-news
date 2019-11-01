@@ -29,7 +29,9 @@ export default {
 .carousel-inner {
   height: 766px !important;
 }
-
+.carousel-item{
+  height: 100%;
+}
 .carousel-item img {
   object-fit: cover;
   height: 100%;
