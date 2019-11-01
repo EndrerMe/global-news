@@ -32,8 +32,8 @@
                     <span>{{currentDate.day}} {{currentDate.month}}, {{currentDate.year}}</span>
                     <span>{{currentDate.weekDay}}</span>
                   </b-nav-item>
-                  <b-nav-item href="#" class="converter-wrap" @click="toggleConverterModal()">
-                    <span>
+                  <b-nav-item href="#" class="converter-wrap">
+                    <span  @click="toggleConverterModal()">
                       <span>Currency Converter</span>
                       <font-awesome-icon icon="caret-down" />
                     </span>
