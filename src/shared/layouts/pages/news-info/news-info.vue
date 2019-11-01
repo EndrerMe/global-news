@@ -11,8 +11,8 @@
             <b-card-img :src="news.urlToImage"></b-card-img>
 
             <b-card-text>
-              <span>6 min ago</span>
-              <span><input type="number"></span>
+              <span>{{ news.publishedAt | moment("from", "now") }}</span>
+              <span>{{ news.source.name }}</span>
               
             </b-card-text>
 
