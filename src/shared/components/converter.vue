@@ -7,39 +7,17 @@
       <div class="dropdown-wrap" selected>
         <span>from</span>
         <div>
-            <span class="first-elem">USD</span>
+            <span class="first-elem" @click='toggleCurrentRates()'>{{ currentRate }}</span>
             <span class="icon-wrap">
               <font-awesome-icon icon="caret-down" />
             </span>
 
-          <ul class="currency-dropdown-from">
-            <li class="hidden-elem">
-              <span>CHF</span>
-            </li>
-            <li class="hidden-elem">
-              <span>TFD</span>
-            </li>
-            <li class="hidden-elem">
-              <span>VDE</span>
-            </li>
-            <li class="hidden-elem">
-              <span>OIO</span>
-            </li>
-            <li class="hidden-elem">
-              <span>TFD</span>
-            </li>
-            <li class="hidden-elem">
-              <span>VDE</span>
-            </li>
-            <li class="hidden-elem">
-              <span>OIO</span>
-            </li>
-            <li class="hidden-elem">
-              <span>TFD</span>
-            </li>
-            <li class="hidden-elem">
-              <span>VDE</span>
-            </li>
+          <ul class="currency-dropdown-from" v-if='isShowRatesFrom'>
+            <template v-for="value of ratesName">
+              <li class="hidden-elem" :key="value" v-if="value !== exchangeName" @click='changeCurrentRate(value)'>
+                <span>{{ value }}</span>
+              </li>
+            </template>
           </ul>
         </div>
         <!-- <select class="dropdown" v-on:change="changeCurrentRate($event)">
@@ -73,39 +51,17 @@
       <div class="dropdown-wrap" selected>
         <span>to</span>
                 <div>
-            <span class="first-elem">USD</span>
+            <span class="first-elem" @click='toggleExchangeRates()'>{{ exchangeName }}</span>
             <span class="icon-wrap">
               <font-awesome-icon icon="caret-down" />
             </span>
 
-          <ul class="currency-dropdown-to">
-            <li class="hidden-elem">
-              <span>CHF</span>
-            </li>
-            <li class="hidden-elem">
-              <span>TFD</span>
-            </li>
-            <li class="hidden-elem">
-              <span>VDE</span>
-            </li>
-            <li class="hidden-elem">
-              <span>OIO</span>
-            </li>
-            <li class="hidden-elem">
-              <span>TFD</span>
-            </li>
-            <li class="hidden-elem">
-              <span>VDE</span>
-            </li>
-            <li class="hidden-elem">
-              <span>OIO</span>
-            </li>
-            <li class="hidden-elem">
-              <span>TFD</span>
-            </li>
-            <li class="hidden-elem">
-              <span>VDE</span>
-            </li>
+          <ul class="currency-dropdown-to" v-if='isShowRatesTo'>
+            <template v-for="value of ratesName">
+              <li class="hidden-elem" :key='value' v-if="value !== currentRate">
+                <span>{{ value }}</span>
+              </li>
+            </template>
           </ul>
         </div>
 
@@ -148,6 +104,8 @@ export default {
   props: ["isShowConverterProps"],
   data() {
     return {
+      isShowRatesFrom: false,
+      isShowRatesTo: false,
       ratesName: [],
       ratesValue: {},
       currentRate: "USD",
@@ -272,12 +230,20 @@ export default {
     });
   },
   methods: {
+    toggleCurrentRates() {
+      this.isShowRatesFrom = !this.isShowRatesFrom;
+    },
+
+    toggleExchangeRates() {
+      this.isShowRatesTo = !this.isShowRatesTo;
+    },
+
     closeConverterModal() {
       this.$emit("closeConverterModal", false);
     },
 
-    changeCurrentRate(event) {
-      let target = event.target.value;
+    changeCurrentRate(value) {
+      let target = value;
       this.currentRate = target + "";
       ratesService.getRates(this.currentRate).then(res => {
         this.rates = res.data.rates;
@@ -430,7 +396,6 @@ background: #959aa0;
 
 /* Custom Drop Down From */
 .currency-converter-wrap .from .dropdown-wrap .currency-dropdown-from {
-  display: none;
   position: absolute;
   list-style: none;
   width: 80px;
