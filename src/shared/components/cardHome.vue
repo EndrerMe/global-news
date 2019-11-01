@@ -6,12 +6,7 @@
     >
       <span class="title-text">{{ title }}</span>
     </div>
-    <slick
-      ref="slick"
-      :options="slickOptions"
-      class="slick"
-      v-if="sendedNews.length"
-    >
+    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length">
       <div
         class="card-wrap"
         v-for="news of sendedNews"
@@ -21,6 +16,7 @@
         <b-card class="mb-2 new-card new-card col-md-12">
           <div class="image-wrap">
             <b-card-title>{{ news.title }}</b-card-title>
+            <div class="gradient"></div>
             <b-card-img class="card-image" :src="news.urlToImage"></b-card-img>
           </div>
 
@@ -43,7 +39,7 @@ export default {
     Slick
   },
   name: "cardHome",
-  props: ["sendedNews", "title", "titleBorder", 'category'],
+  props: ["sendedNews", "title", "titleBorder", "category"],
   data() {
     return {
       slickOptions: {
@@ -79,65 +75,21 @@ export default {
 <style scoped>
 @import "../../../node_modules/slick-carousel/slick/slick.css";
 
-@media (max-width: 1199px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 28px !important;
-  }
- 
-  .card-title {
-    font-size: 16px !important;
-  }
+.new-card .gradient {
+  position: absolute;
+  top: 0bott;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9416141456582633) 0%,
+    rgba(255, 255, 255, 0) 30%
+  );
 }
-@media (max-width: 1139px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 20px !important;
-  }
-  .image-wrap {
-    width: 245px !important;
-    max-height: 245px !important;
-  }
-  .card-title {
-    font-size: 12px !important;
-  }
-  .card-body {
-    height: 325px !important;
-  }
-}
-@media (max-width: 767px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 16px !important;
-  }
-  .business-wrap,
-  .entertainment-wrap,
-  .science-wrap {
-    margin-top: 30px !important;
-  }
-  .card-title {
-    font-size: 16px !important;
-  }
-  .image-wrap {
-    width: unset !important;
-    height: unset !important;
-    max-height: unset !important;
-  }
-}
-@media (max-width: 575px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 12px !important;
-    letter-spacing: 5px !important;
-  }
-  .slick-slider {
-    margin-top: 20px;
-  }
-}
+
 
 .elem-wrap {
   max-width: 526px;
@@ -273,5 +225,65 @@ export default {
   transform: rotate(-45deg);
   top: 8px;
   left: 8px;
+}
+
+@media (max-width: 1199px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 28px !important;
+  }
+
+  .card-title {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 1139px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 20px !important;
+  }
+  .image-wrap {
+    width: 245px !important;
+    max-height: 245px !important;
+  }
+  .card-title {
+    font-size: 12px !important;
+  }
+  .card-body {
+    height: 325px !important;
+  }
+}
+@media (max-width: 767px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 16px !important;
+  }
+  .business-wrap,
+  .entertainment-wrap,
+  .science-wrap {
+    margin-top: 30px !important;
+  }
+  .card-title {
+    font-size: 16px !important;
+  }
+  .image-wrap {
+    width: unset !important;
+    height: unset !important;
+    max-height: unset !important;
+  }
+}
+@media (max-width: 575px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 12px !important;
+    letter-spacing: 5px !important;
+  }
+  .slick-slider {
+    margin-top: 20px;
+  }
 }
 </style>

@@ -39,18 +39,18 @@
                     </a>
                     <converterDesctop :isShowConverterProps="isShowConverterProps"></converterDesctop>
                   </li>
-                  <b-nav-item href="#" class="weather-wrap">
+                  <li class="nav-item weather-wrap">
                     <span class="weather-content" @click="toggleWeatherModal()">
-                      <span class="weather-icon">
-                        <img :src="currentWeatherImg" alt />
-                      </span>
-                      <span class="weather-value">
-                        {{ temp }}
-                        <span class="celsius-value">&#8451;</span>
-                      </span>
-                      <span class="weather-dropdown-arrow">
-                        <font-awesome-icon icon="caret-down" />
-                      </span>
+                        <span class="weather-icon">
+                          <img :src="currentWeatherImg" alt />
+                        </span>
+                        <span class="weather-value">
+                          {{ temp }}
+                          <span class="celsius-value">&#8451;</span>
+                        </span>
+                        <span class="weather-dropdown-arrow">
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
                       <div class="location-name">
                         <p>{{ location }}</p>
                       </div>
@@ -60,7 +60,7 @@
                       @closeWeatherModal="toggleWeatherModal"
                       :isShowWeatherModalProps="isShowWeatherModalProps"
                     ></weatherDesctop>
-                  </b-nav-item>
+                  </li>
                   <li class="nav-item search-wrap">
                     <div class="input-wrap">
                       <!-- <a href="#"> -->
@@ -454,8 +454,9 @@ export default {
 .top-menu-wrap .navbar-nav li a {
   color: #f9f9f9;
 }
-.top-menu-wrap .navbar-nav li .nav-item {
+.top-menu-wrap .navbar-nav li.nav-item.weather-wrap {
   color: #f9f9f9;
+  height: 100%;
 }
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
@@ -468,32 +469,30 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
-.nav-item .nav-link .weather-content {
+.top-menu-wrap .wide-menu .nav-item .weather-content {
   position: relative;
 }
-.nav-item .nav-link .weather-content .weather-icon img {
+.top-menu-wrap .wide-menu .nav-item .weather-content .weather-icon img {
   width: 70px;
 }
-
 .top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
   position: absolute;
-  top: 12px;
+  top: 40px;
   right: -55px;
+  color:rgb(248, 198, 26);
 }
-
 .top-menu-wrap .wide-menu li.weather-wrap .location-name {
   text-align: end;
 }
-
 .top-menu-wrap .weather-value {
-  font-family: "Semibold";
+  font-family: "Poppins-Regular";
   font-size: 28px;
 }
 .top-menu-wrap .weather-value .celsius-value {
   font-size: 20px;
   position: absolute;
-  top: -10px;
+  top: 10px;
+  font-family: "Poppins-Regular";
 }
 
 @media (max-width: 767px) {

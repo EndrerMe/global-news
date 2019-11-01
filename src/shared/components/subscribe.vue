@@ -23,12 +23,14 @@
         <p>You subscribe on</p>
         <p class="dropdown"></p>
         <div class="dropdown-wrap">
-          <span class="first-elem" @click='toggleCategories'>All News</span>
-          <span class="icon-wrap">
-            <font-awesome-icon icon="caret-down" />
+          <span class="first-elem" @click="toggleCategories">
+            All News
+            <span class="icon-wrap">
+              <font-awesome-icon icon="caret-down" />
+            </span>
           </span>
-          <ul class="currency-dropdown" v-if='isShowCatogories'>
-            <li class="hidden-elem" v-for='category of categoriesArray' :key='category'>
+          <ul class="currency-dropdown" v-if="isShowCatogories">
+            <li class="hidden-elem" v-for="category of categoriesArray" :key="category">
               <span>{{ category }}</span>
             </li>
           </ul>
@@ -55,7 +57,16 @@ export default {
       isShowCatogories: false,
       isShowSubscribe: true,
       isShowSubscribeFull: false,
-      categoriesArray: ['All News', 'Business', 'Entertainment', 'General', 'Health', 'Science', 'Sport', 'Technology']
+      categoriesArray: [
+        "All News",
+        "Business",
+        "Entertainment",
+        "General",
+        "Health",
+        "Science",
+        "Sport",
+        "Technology"
+      ]
     };
   },
   methods: {
@@ -111,6 +122,11 @@ export default {
 }
 .notify-prompt-wrap .dropdown-wrap .first-elem {
   font-size: 28px;
+  display: flex;
+}
+.notify-prompt-wrap .dropdown-wrap .first-elem:hover{
+  cursor:pointer;
+
 }
 .notify-prompt-wrap .dropdown-wrap svg {
   font-size: 14px;
@@ -218,7 +234,7 @@ export default {
 .notify-prompt-wrap .text-wrap {
   margin-top: 86px;
   padding: 0px 90px;
-  color: #f8c61a;
+  color: white;
 }
 .notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
