@@ -14,22 +14,12 @@
 
           <ul class="currency-dropdown-from" v-if='isShowRatesFrom'>
             <template v-for="value of ratesName">
-              <li class="hidden-elem" :key="value" v-if="value !== exchangeName" @click='changeCurrentRate(value)'>
+              <li class="hidden-elem" :key="value" v-if="value !== exchangeName || value !== currentRate" @click='changeCurrentRate(value)'>
                 <span>{{ value }}</span>
               </li>
             </template>
           </ul>
         </div>
-        <!-- <select class="dropdown" v-on:change="changeCurrentRate($event)">
-          <template v-for="value of ratesName">
-            <option
-              :value="value"
-              v-if="value !== exchangeName"
-              v-bind:selected="value == currentRate"
-              v-bind:key="value"
-            >{{ value }}</option>
-          </template>
-        </select>-->
       </div>
       <div class="value-wrap">
         <input
@@ -58,23 +48,12 @@
 
           <ul class="currency-dropdown-to" v-if='isShowRatesTo'>
             <template v-for="value of ratesName">
-              <li class="hidden-elem" :key='value' v-if="value !== currentRate">
+              <li class="hidden-elem" :key='value' v-if="value !== currentRate || value !== exchangeName">
                 <span>{{ value }}</span>
               </li>
             </template>
           </ul>
         </div>
-
-        <!-- <select class="dropdown" v-on:change="changeRateTo($event)">
-          <template v-for="value of ratesName">
-            <option
-              :value="value"
-              v-if="value !== currentRate"
-              v-bind:selected="value == exchangeName"
-              v-bind:key="value"
-            >{{ value }}</option>
-          </template>
-        </select> -->
       </div>
       <div class="value-wrap">
         <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span>
