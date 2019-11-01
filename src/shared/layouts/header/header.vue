@@ -37,10 +37,10 @@
                       <span>Currency Converter</span>
                       <font-awesome-icon icon="caret-down" />
                     </span>
-                    <converterDesctop :isShowConverter="isShowConverter"></converterDesctop>
+                    <converterDesctop :isShowConverterProps="isShowConverterProps"></converterDesctop>
                   </b-nav-item>
-                  <b-nav-item href="#" class="weather-wrap">
-                    <span class="weather-content" @click="toggleWeatherModal()">
+                  <b-nav-item href="#" class="weather-wrap" @click="toggleWeatherModal()">
+                    <span class="weather-content" >
                       <span class="weather-icon">
                         <img :src="currentWeatherImg" alt />
                       </span>
@@ -57,8 +57,9 @@
                     </span>
                     <weatherDesctop
                       :weatherData="weatherData"
-                      @closeWeatherModal="closeWeatherModal"
-                      :isShowWeatherModal="isShowWeatherModal"
+                      @closeWeatherModal="toggleWeatherModal"
+                      @closeConverterModal='toggleConverterModal'
+                      :isShowWeatherModalProps="isShowWeatherModalProps"
                     ></weatherDesctop>
                   </b-nav-item>
                   <li class="nav-item search-wrap">
@@ -139,8 +140,8 @@ export default {
   data() {
     return {
       isShowSideMenu: false,
-      isShowWeatherModal: false,
-      isShowConverter: false,
+      isShowWeatherModalProps: false,
+      isShowConverterProps: false,
       showSubscribeFull: false,
       temp: "",
       location: "",
@@ -183,15 +184,11 @@ export default {
     },
 
     toggleWeatherModal() {
-      this.isShowWeatherModal = !this.isShowWeatherModal;
+      this.isShowWeatherModalProps = !this.isShowWeatherModalProps;
     },
 
     toggleConverterModal() {
-      this.isShowConverter = !this.isShowConverter;
-    },
-
-    closeWeatherModal() {
-      this.isShowWeatherModal = false;
+      this.isShowConverterProps = !this.isShowConverterProps;
     },
 
     showSubscribeFullFun() {
@@ -200,7 +197,7 @@ export default {
 
     goToHomePage() {
       this.$router.push({ name: "Home" });
-    }
+    },
   },
   mounted() {
     if (this.weatherData) {

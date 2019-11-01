@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="weather-main-wrap" v-if="isShowWeatherModal">
+    <div class="weather-main-wrap" v-if="isShowWeatherModalProps">
       <div class="weather-search-wrap">
         <div class="close-wrap" @click="closeWeatherModal()">
           <a href="#"></a>
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <converterDesctop :isShowConverter="isShowConverter" @closeConverterModal="closeConverterModal"></converterDesctop>
+    <converterDesctop :isShowConverterProps="isShowConverterProps" @closeConverterModal="closeConverterModal"></converterDesctop>
 
     <!-- Mobile  Weather -->
     <div class="modile-side-weather-wrap">
@@ -232,7 +232,7 @@ import moreWeather from './../components/more-weather';
 import _ from 'lodash';
 
 export default {
-  props: ["isShowWeatherModal", "isShowConverter", 'weatherData'],
+  props: ["isShowWeatherModalProps", "isShowConverterProps", 'weatherData'],
   name: "weatherDesctop",
   components: {
     converterDesctop,
@@ -258,7 +258,7 @@ export default {
     },
 
     closeConverterModal() {
-      this.isShowConverter = false;
+      this.$emit("closeConverterModal", false);
     },
 
     showMoreWeather() {
@@ -301,6 +301,7 @@ export default {
     },
   },
   mounted() {
+
     if (this.weatherData) {
       this.currentWeatherData = this.weatherData;
       this.temp = this.weatherData.main.temp;
@@ -327,7 +328,7 @@ export default {
         .slice(0, 10)
         .replace(/-/g, "/");
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
-    }
+    },
   },
 };
 </script>
