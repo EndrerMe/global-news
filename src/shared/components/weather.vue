@@ -470,7 +470,7 @@ export default {
   position: absolute;
   width: 355px;
   right: -150px;
-  top: 106px;
+  top: 101px;
   background-color: #052962;
   padding-bottom: 20px;
   z-index: 99999;
