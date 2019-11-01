@@ -124,7 +124,7 @@ export default {
   }
 }
 
-.gradient {
+.new-card .gradient {
   position: absolute;
   top: 0bott;
   top: 0;
@@ -137,6 +137,5 @@ export default {
     rgba(0, 0, 0, 0.9416141456582633) 0%,
     rgba(255, 255, 255, 0) 30%
   );
-  margin: 0 15px;
 }
 </style>
