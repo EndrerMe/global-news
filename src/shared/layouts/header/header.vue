@@ -58,7 +58,6 @@
                     <weatherDesctop
                       :weatherData="weatherData"
                       @closeWeatherModal="toggleWeatherModal"
-                      @closeConverterModal="toggleConverterModal"
                       :isShowWeatherModalProps="isShowWeatherModalProps"
                     ></weatherDesctop>
                   </li>
@@ -126,6 +125,7 @@ import subscribeDesctop from "./../../components/subscribe";
 import navigationDesctop from "./../../components/navigation";
 import converterDesctop from "./../../components/converter";
 import moreWeather from "./../../components/more-weather";
+import EventBus from './../../../eventBus';
 
 export default {
   name: "HeaderDesctop",
@@ -200,6 +200,10 @@ export default {
     }
   },
   mounted() {
+    EventBus.$on('closeConverterModal', () => {
+      this.isShowConverterProps = !this.isShowConverterProps;
+    })
+    
     if (this.weatherData) {
       this.temp = this.weatherData.main.temp;
       this.temp = this.temp + "";

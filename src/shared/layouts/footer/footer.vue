@@ -56,6 +56,10 @@ footer .center-item .text {
   font-size: 10px;
   color: white;
 }
+
+footer .center-item .text a {
+  color: white;
+}
 footer .right-item button:hover {
   background-color: #ffe076 !important;
 }

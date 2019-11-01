@@ -75,6 +75,7 @@
 
 <script>
 import ratesService from "./../services/rates.service";
+import EventBus from './../../eventBus';
 import _ from "lodash";
 
 export default {
@@ -217,7 +218,7 @@ export default {
     },
 
     closeConverterModal() {
-      this.$emit("closeConverterModal", false);
+      EventBus.$emit('closeConverterModal', {state: false})
     },
 
     changeCurrentRate(value) {
