@@ -12,7 +12,8 @@
 
             <b-card-text>
               <span>6 min ago</span>
-              <span>sourcelink.com</span>
+              <span><input type="number"></span>
+              
             </b-card-text>
 
             <div class="description-wrap">
@@ -113,22 +114,7 @@
           </b-card>
 
           <!-- Latest News -->
-          <b-card class="latest-news" header-tag="header">
-            <div class="title-wrap">
-              <span class="text">Latest News</span>
-            </div>
-            <div class="item-wrap" v-for='news of getNews' :key='news.title'>
-              <div class="image-wrap">
-                <img :src="news.urlToImage" />
-                <span class="category-wrap entertainment">{{ category }}</span>
-              </div>
-              <div class="description-wrap">
-                <span>
-                  {{ news.description }}
-                </span>
-              </div>
-            </div>
-          </b-card>
+          <latestNews :latestNews='getNews'></latestNews>
         </b-card-group>
       </div>
     </div>
@@ -137,14 +123,18 @@
 
 <script>
 import {mapGetters, mapActions} from 'vuex'
+import latestNews from './../../../components/latestNews';
 
 export default {
   props: ['news', 'category'],
+  components: {
+    latestNews
+  },
   name: 'newsInfo',
   computed: mapGetters(['getNews']),
-  methods: mapActions(['getNews']),
+  methods: mapActions(['getNewsData']),
   async mounted () {
-    this.getNews({category: this.category, limit: 3});
+    this.getNewsData({category: this.category, limit: 3});
   }
   
 }

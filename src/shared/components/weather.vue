@@ -48,7 +48,7 @@
 
     <converterDesctop
       :isShowConverterProps="isShowConverterProps"
-      @closeConverterModal="closeConverterModal"
+      @closeConverterModala="closeConverterModal"
     ></converterDesctop>
 
     <!-- Mobile  Weather -->
@@ -338,7 +338,7 @@ export default {
         .replace(/-/g, "/");
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
-  }
+  },
 };
 </script>
 

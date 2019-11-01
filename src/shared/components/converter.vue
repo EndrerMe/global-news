@@ -28,11 +28,10 @@
           v-on:input="changeAmount($event)"
           type="number"
           placeholder="Amount"
-          @focus="focusOn"
-          @blur="focusOut"
         />
       </div>
     </div>
+   
 
     <div class="convert-icon">
       <img src="../../assets/images/header/change-arrows.svg" alt="logo" />
