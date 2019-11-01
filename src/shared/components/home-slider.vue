@@ -26,8 +26,13 @@ export default {
 </script>
 <style>
 /* Slider */
+.carousel-inner {
+  max-height: 766px !important;
+}
+
 .carousel-item img {
   object-fit: cover;
+  height: 100%;
 }
 .carousel-caption {
   position: absolute;
