@@ -1,5 +1,5 @@
 <template>
-  <div class="currency-converter-wrap" v-if="isShowConverter">
+  <div class="currency-converter-wrap" v-if="isShowConverterProps">
     <div class="close-wrap" @click="closeConverterModal()">
       <a href="#"></a>
     </div>
@@ -145,7 +145,7 @@ import _ from "lodash";
 
 export default {
   name: "converterDesctop",
-  props: ["isShowConverter"],
+  props: ["isShowConverterProps"],
   data() {
     return {
       ratesName: [],
@@ -274,7 +274,6 @@ export default {
   methods: {
     closeConverterModal() {
       this.$emit("closeConverterModal", false);
-      this.isShowConverter = false;
     },
 
     changeCurrentRate(event) {
@@ -412,7 +411,7 @@ export default {
     focusOut() {
       this.$emit("toggleHeadAndFoot", true);
     }
-  }
+  },
 };
 </script>
 
