@@ -42,7 +42,7 @@
                   <li class="nav-item weather-wrap">
                     <span class="weather-content" @click="toggleWeatherModal()">
                         <span class="weather-icon">
-                          <img :src="currentWeatherImg" alt />
+                          <img :src="currentWeatherImg" alt /> 
                         </span>
                         <span class="weather-value">
                           {{ temp }}
@@ -56,7 +56,6 @@
                       </div>
                     </span>
                     <weatherDesctop
-                      :weatherData="weatherData"
                       @closeWeatherModal="toggleWeatherModal"
                       :isShowWeatherModalProps="isShowWeatherModalProps"
                     ></weatherDesctop>
@@ -126,10 +125,10 @@ import navigationDesctop from "./../../components/navigation";
 import converterDesctop from "./../../components/converter";
 import moreWeather from "./../../components/more-weather";
 import EventBus from './../../../eventBus';
+import {mapGetters} from 'vuex';
 
 export default {
   name: "HeaderDesctop",
-  props: ["weatherData"],
   components: {
     weatherDesctop,
     subscribeDesctop,
@@ -137,6 +136,7 @@ export default {
     converterDesctop,
     moreWeather
   },
+  computed: mapGetters(['getWeatherData']),
   data() {
     return {
       isShowSideMenu: false,
@@ -204,12 +204,12 @@ export default {
       this.isShowConverterProps = !this.isShowConverterProps;
     })
     
-    if (this.weatherData) {
-      this.temp = this.weatherData.main.temp;
+    if (this.getWeatherData) {
+      this.temp = this.getWeatherData.main.temp;
       this.temp = this.temp + "";
       this.temp = this.temp.split(".")[0];
-      this.location = this.weatherData.name;
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
+      this.location = this.getWeatherData.name;
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
     }
 
     this.date = new Date();
@@ -218,16 +218,6 @@ export default {
     this.currentDate.month = this.months[this.date.getMonth()];
     this.currentDate.year = this.date.getFullYear();
   },
-  watch: {
-    weatherData: function() {
-      this.temp = this.weatherData.main.temp;
-      this.temp = this.temp + "";
-      this.temp = this.temp.split(".")[0];
-      this.location = this.weatherData.name;
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
-    }
-  },
-  create() {}
 };
 </script>
 

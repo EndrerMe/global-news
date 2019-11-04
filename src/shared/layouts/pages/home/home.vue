@@ -41,12 +41,12 @@ export default {
     this.getNewsForHome({limit: 3, category: 'entertainment'});
     this.getNewsForHome({limit: 3, category: 'science'});
     this.getNewsForHome({limit: 3, category: 'business'});
-    this.getTopNews({filter: 'pageSize=6&'})
+    this.getTopNews({filter: 'pageSize=6&'});
   },
   methods: {
     ...mapActions([
       'getNewsForHome',
-      'getTopNews'
+      'getTopNews',
     ]),
 
     toggleMobileSideMenu() {
