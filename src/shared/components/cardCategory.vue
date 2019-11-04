@@ -38,7 +38,6 @@ export default {
 .new-card {
   border: none !important;
 }
-
 .new-card .text-wrap p {
   max-block-size: 70px;
   overflow: hidden;
@@ -50,7 +49,6 @@ export default {
   position: relative;
   height: 330px;
 }
-
 .new-card .image-wrap img {
   width: 100%;
   height: 100%;
@@ -73,13 +71,15 @@ export default {
 }
 .new-card .title-wrap {
   position: absolute;
+  width: 92%;
   bottom: 10px;
   font-size: 20px;
   color: white;
   font-size: bold;
   text-align: start;
-  left: 25px;
   bottom: 25px;
+  left: 50%;
+  transform: translate(-50%);
 }
 .new-card .title-wrap p {
   margin-bottom: 0;
@@ -104,17 +104,9 @@ export default {
   padding-bottom: 10px;
   height: 80px;
 }
-@media (max-width: 1199px) {
-  .new-card .title-wrap {
-    max-width: 86%;
-  }
-}
 @media (max-width: 1139px) {
   .new-card .title-wrap {
     font-size: 12px !important;
-  }
-  .new-card .title-wrap {
-    max-width: 78%;
   }
   .new-card .image-wrap {
     height: 200px !important;
@@ -143,13 +135,31 @@ export default {
   .content .top-box-preview {
     height: unset !important;
   }
+  .new-card .image-wrap {
+    height: unset !important;
+  }
+}
+@media (max-width: 600px) {
+  .new-card .title-wrap {
+    font-size: 20px !important;
+  }
+}
+@media (max-width: 550px) {
+  .new-card .title-wrap {
+    font-size: 18px !important;
+  }
 }
 @media (max-width: 419px) {
-  .left-side .title-wrap span,
-  .right-side-top .title-wrap span,
-  .right-side-bottom .title-wrap span,
-  .new-card .title-wrap span {
+  .left-side .title-wrap,
+  .right-side-top .title-wrap,
+  .right-side-bottom .title-wrap,
+  .new-card .title-wrap {
     font-size: 14px !important;
+  }
+}
+@media (max-width: 375px) {
+  .new-card .title-wrap span {
+    font-size: 12px !important;
   }
 }
 </style>
