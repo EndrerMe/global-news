@@ -112,20 +112,16 @@ export default {
 .card-deck {
   margin-top: 30px;
 }
-.image-wrap {
+.new-card .image-wrap {
   height: 330px;
   position: relative;
 }
 
-.image-wrap img {
+.new-card .image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.card-text-wrap {
-  padding-bottom: 10px;
-}
-
 .card-title {
   width: 92%;
   padding: 0;
@@ -228,14 +224,12 @@ export default {
   top: 8px;
   left: 8px;
 }
-
 @media (max-width: 1199px) {
   .business-wrap .title-wrap .title-text,
   .entertainment-wrap .title-wrap .title-text,
   .science-wrap .title-wrap .title-text {
     font-size: 28px !important;
   }
-
   .card-title {
     font-size: 16px !important;
   }
@@ -248,7 +242,7 @@ export default {
   }
   .image-wrap {
     width: 245px !important;
-    max-height: 245px !important;
+    height: 245px !important;
   }
   .card-title {
     font-size: 12px !important;
@@ -274,8 +268,17 @@ export default {
   }
   .image-wrap {
     width: unset !important;
+    height: 330px !important;
+  }
+  .new-card .card-body {
     height: unset !important;
-    max-height: unset !important;
+  }
+  .slick-list {
+    height: unset !important;
+  }
+  .card-wrap {
+    display: flex !important;
+    justify-content: center !important;
   }
 }
 @media (max-width: 575px) {
@@ -287,6 +290,16 @@ export default {
   }
   .slick-slider {
     margin-top: 20px;
+  }
+}
+@media (max-width: 450px) {
+  .image-wrap {
+    height: 250px !important;
+  }
+}
+@media (max-width: 375px) {
+  .image-wrap {
+    height: 210px !important;
   }
 }
 </style>
