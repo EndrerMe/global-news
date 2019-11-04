@@ -29,7 +29,7 @@ export default {
 .carousel-inner {
   height: 766px !important;
 }
-.carousel-item{
+.carousel-item {
   height: 100%;
 }
 .carousel-item img {
@@ -161,11 +161,9 @@ export default {
   .carousel-caption .slide-title span {
     font-size: 22px !important;
   }
-
   .carousel-caption .slide-title .slide-category {
     font-size: 12px !important;
   }
-
   .carousel-caption .slide-title .slide-category::before {
     height: 19px !important;
   }
@@ -182,7 +180,6 @@ export default {
     height: 30px !important;
     right: 25px !important;
   }
-
   .carousel .carousel-control-next::after {
     width: 10px !important;
     height: 10px !important;
@@ -192,6 +189,9 @@ export default {
     width: 10px !important;
     height: 10px !important;
     left: 12px !important;
+  }
+  .carousel-inner {
+    height: 366px !important;
   }
 }
 @media (max-width: 767px) {
