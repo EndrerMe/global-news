@@ -90,7 +90,6 @@ export default {
   );
 }
 
-
 .elem-wrap {
   max-width: 526px;
 }
@@ -128,13 +127,15 @@ export default {
 }
 
 .card-title {
+  width: 92%;
+  padding: 0;
+  left: 50%;
+  transform: translate(-50%);
   position: absolute;
   color: white;
   font-family: "Amiri-Bold";
   font-size: 20px;
-  padding: 0 35px;
-  bottom: 10px;
-  padding-left: 15px;
+  bottom: 5px;
 }
 .card-text {
   padding: 19px 0 10px 0;
@@ -152,7 +153,8 @@ export default {
   border-top: 2px solid #b3abab;
 }
 .new-card {
-  margin: 0 auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   max-width: 526px !important;
   border: none !important;
   padding-bottom: 15px;
@@ -250,6 +252,7 @@ export default {
   }
   .card-title {
     font-size: 12px !important;
+    bottom: 0;
   }
   .card-body {
     height: 325px !important;

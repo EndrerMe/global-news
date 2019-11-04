@@ -14,7 +14,12 @@
 
           <ul class="currency-dropdown-from" v-if="isShowRatesFrom">
             <template v-for="value of ratesName">
-              <li class="hidden-elem" :key="value" v-if="value !== exchangeName || value !== currentRate" @click='changeCurrentRate(value)'>
+              <li
+                class="hidden-elem"
+                :key="value"
+                v-if="value !== exchangeName || value !== currentRate"
+                @click="changeCurrentRate(value)"
+              >
                 <span>{{ value }}</span>
               </li>
             </template>
@@ -22,7 +27,7 @@
         </div>
       </div>
       <div class="value-wrap">
-        <input 
+        <input
           class="value"
           value="100"
           v-on:input="changeAmount($event)"
@@ -31,7 +36,6 @@
         />
       </div>
     </div>
-   
 
     <div class="convert-icon">
       <img src="../../assets/images/header/change-arrows.svg" alt="logo" />
@@ -47,7 +51,11 @@
 
           <ul class="currency-dropdown-to" v-if="isShowRatesTo">
             <template v-for="value of ratesName">
-              <li class="hidden-elem" :key='value' v-if="value !== currentRate || value !== exchangeName">
+              <li
+                class="hidden-elem"
+                :key="value"
+                v-if="value !== currentRate || value !== exchangeName"
+              >
                 <span>{{ value }}</span>
               </li>
             </template>
@@ -58,7 +66,6 @@
         <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span>
       </div>
     </div>
-
     <div class="rate-wrap">
       <div>
         <span>EUR/USD = {{ retesCouples.first.usd[0] }}.{{ retesCouples.first.usd[1] }}</span>
@@ -75,7 +82,7 @@
 
 <script>
 import ratesService from "./../services/rates.service";
-import EventBus from './../../eventBus';
+import EventBus from "./../../eventBus";
 import _ from "lodash";
 
 export default {
@@ -218,7 +225,7 @@ export default {
     },
 
     closeConverterModal() {
-      EventBus.$emit('closeConverterModal', {state: false})
+      EventBus.$emit("closeConverterModal", { state: false });
     },
 
     changeCurrentRate(value) {
@@ -455,6 +462,7 @@ export default {
 
 .currency-converter-wrap .rate-wrap {
   margin-top: 70px;
+  font-family: "SegoeUIRegular";
 }
 .currency-converter-wrap .rate-wrap span {
   color: #e2e1e1;
@@ -468,20 +476,18 @@ export default {
   );
   margin-top: 10px;
 }
-
 .currency-converter-wrap .to .value-wrap {
-  font-size: 19px;
+  font-size: 18px;
   display: flex;
   align-items: center;
+  font-family: "Poppins-Regular";
 }
-
 .currency-converter-wrap .to .value-wrap .value {
   width: 103px;
   display: block;
   border-bottom: 1px solid #b7b7b7 !important;
   text-align: center;
 }
-
 .currency-converter-wrap .to .dropdown-wrap {
   width: 100px;
   display: flex;
@@ -491,7 +497,6 @@ export default {
   font-size: 16px;
   color: black;
 }
-
 .currency-converter-wrap .to .dropdown-wrap .dropdown {
   background: transparent;
   width: 80px;
@@ -500,11 +505,9 @@ export default {
   font-size: 26px;
   border: none;
 }
-
 .currency-converter-wrap .to .dropdown-wrap .dropdown:focus {
   outline: none;
 }
-
 .currency-converter-wrap .to {
   margin-top: 15px;
   text-align: start;
@@ -513,11 +516,9 @@ export default {
   font-family: "Amiri-Bold";
 }
 .currency-converter-wrap .from .value-wrap {
-  font-size: 19px;
   display: flex;
   align-items: center;
 }
-
 .currency-converter-wrap .from .value-wrap .value {
   width: 103px;
   display: block;
@@ -526,8 +527,9 @@ export default {
   background: transparent;
   border: none;
   color: white;
+  font-family: "Poppins-Regular";
+  font-size: 18px;
 }
-
 .currency-converter-wrap .from .dropdown-wrap {
   width: 100px;
   display: flex;
@@ -537,7 +539,6 @@ export default {
   font-size: 16px;
   color: black;
 }
-
 .currency-converter-wrap .from .dropdown-wrap .dropdown {
   background: transparent;
   width: 80px;
@@ -546,11 +547,9 @@ export default {
   font-size: 26px;
   border: none;
 }
-
 .currency-converter-wrap .from .dropdown-wrap .dropdown:focus {
   outline: none;
 }
-
 .currency-converter-wrap .from {
   margin-top: 70px;
   text-align: start;
@@ -561,14 +560,12 @@ export default {
 .currency-converter-wrap .from,
 .currency-converter-wrap .to {
   color: #eaeaea;
-  font-size: 10px;
+  font-size: 12px;
 }
-
 .currency-converter-wrap .convert-icon {
   margin-top: 20px;
   text-align: start;
 }
-
 .currency-converter-wrap {
   width: 355px;
   position: absolute;
@@ -604,7 +601,6 @@ export default {
   right: 2px;
   transform: rotate(45deg);
 }
-
 .currency-converter-wrap .close-wrap a::after {
   position: absolute;
   content: "";
