@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderDesctop :weatherData='weatherData' ></HeaderDesctop>
+    <HeaderDesctop></HeaderDesctop>
     <router-view />
     <Footer></Footer>
   </div>
@@ -19,8 +19,7 @@
 <script>
 import HeaderDesctop from './shared/layouts/header/header';
 import Footer from './shared/layouts/footer/footer';
-import weatherService from './shared/services/weather.service';
-import {mapGetters, mapActions} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: "app",
@@ -34,24 +33,13 @@ export default {
       weatherData: null,
     }
   },
-  beforeCreate() {
-    this.$getLocation().then(coordinates => {
-      this.coordinates = coordinates;
-      weatherService.getWeather(coordinates.lat, coordinates.lng).then(res => {
-        this.weatherData = res.data;
-      });
-    }).catch(function () {
-      weatherService.getWeather(51.51062085840897, -0.12035208720763535).then(res => {
-        this.weatherData = res.data;
-      });
-    }) 
-  },
   async mounted () {
     this.$getLocation().then(coordinates => {
-      this.getWeather(coordinates.lat, coordinates.lng)       
+      this.getWeather({lat: coordinates.lat, lng: coordinates.lng})       
     }).catch(function () {
-      this.getWeather(51.51062085840897, -0.12035208720763535)  
+      this.getWeather({lat: 51.51062085840897, lng: -0.12035208720763535})  
     })
+    // console.log(this.$store.createPersistedState())
   },
   methods: {
     ...mapActions([

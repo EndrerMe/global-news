@@ -238,15 +238,17 @@
 import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
 import moreWeather from "./../components/more-weather";
+import {mapGetters} from 'vuex'
 import _ from "lodash";
 
 export default {
-  props: ["isShowWeatherModalProps", "isShowConverterProps", "weatherData"],
+  props: ["isShowWeatherModalProps", "isShowConverterProps"],
   name: "weatherDesctop",
   components: {
     converterDesctop,
     moreWeather
   },
+  computed: mapGetters(['getWeatherData']),
   data() {
     return {
       currentWeatherData: null,
@@ -292,7 +294,6 @@ export default {
 
     getWeather() {
       weatherService.getWeatherByCountry(this.userCity).then(res => {
-        console.log(res.data);
         this.currentWeatherData = res.data;
         this.temp = res.data.main.temp;
         this.temp = this.temp + "";
@@ -305,34 +306,20 @@ export default {
     }
   },
   mounted() {
-    if (this.weatherData) {
-      this.currentWeatherData = this.weatherData;
-      this.temp = this.weatherData.main.temp;
+    if (this.getWeatherData) {
+      this.currentWeatherData = this.getWeatherData;
+      this.temp = this.getWeatherData.main.temp;
       this.temp = this.temp + "";
       this.temp = this.temp.split(".")[0];
-      this.location = this.weatherData.name;
-      this.currentWeather = this.weatherData.weather[0].description;
+      this.location = this.getWeatherData.name;
+      this.currentWeather = this.getWeatherData.weather[0].description;
       this.date = new Date()
         .toJSON()
         .slice(0, 10)
         .replace(/-/g, "/");
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
     }
   },
-  watch: {
-    weatherData: function() {
-      this.temp = this.weatherData.main.temp;
-      this.temp = this.temp + "";
-      this.temp = this.temp.split(".")[0];
-      this.location = this.weatherData.name;
-      this.currentWeather = this.weatherData.weather[0].description;
-      this.date = new Date()
-        .toJSON()
-        .slice(0, 10)
-        .replace(/-/g, "/");
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
-    }
-  }
 };
 </script>
 
