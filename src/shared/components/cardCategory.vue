@@ -35,15 +35,6 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 419px) {
-  .left-side .title-wrap span,
-  .right-side-top .title-wrap span,
-  .right-side-bottom .title-wrap span,
-  .new-card .title-wrap span {
-    font-size: 14px !important;
-  }
-}
-
 .new-card {
   border: none !important;
 }
@@ -66,7 +57,20 @@ export default {
   -o-object-fit: cover;
   object-fit: cover;
 }
-
+.new-card .gradient {
+  position: absolute;
+  top: 0bott;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9416141456582633) 0%,
+    rgba(255, 255, 255, 0) 30%
+  );
+}
 .new-card .title-wrap {
   position: absolute;
   bottom: 10px;
@@ -87,15 +91,18 @@ export default {
   padding-right: 0;
   display: flex;
   justify-content: space-between;
+  border-top: 1px solid #b3abab;
 }
 .new-card .card-text {
   padding: 18px 0 13px 0;
   text-align: start;
   border: none;
+  font-family: "Poppins-Regular";
+  font-size: 16px;
 }
 .new-card .text-wrap {
-  border-bottom: 1px solid #b3abab;
   padding-bottom: 10px;
+  height: 80px;
 }
 @media (max-width: 1199px) {
   .new-card .title-wrap {
@@ -109,9 +116,18 @@ export default {
   .new-card .title-wrap {
     max-width: 78%;
   }
-
   .new-card .image-wrap {
     height: 200px !important;
+  }
+  .new-card .card-text {
+    font-size: 12px;
+    max-height: 56px !important;
+  }
+  .new-card .text-wrap {
+    height: 65px !important;
+  }
+  .new-card .title-wrap {
+    bottom: 10px;
   }
 }
 @media (max-width: 767px) {
@@ -121,20 +137,19 @@ export default {
   .new-card {
     margin-bottom: 30px !important;
   }
+  .new-card .image-wrap {
+    height: 450px !important;
+  }
+  .content .top-box-preview {
+    height: unset !important;
+  }
 }
-
-.new-card .gradient {
-  position: absolute;
-  top: 0bott;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.9416141456582633) 0%,
-    rgba(255, 255, 255, 0) 30%
-  );
+@media (max-width: 419px) {
+  .left-side .title-wrap span,
+  .right-side-top .title-wrap span,
+  .right-side-bottom .title-wrap span,
+  .new-card .title-wrap span {
+    font-size: 14px !important;
+  }
 }
 </style>

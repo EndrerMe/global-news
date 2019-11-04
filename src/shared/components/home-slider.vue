@@ -174,11 +174,13 @@ export default {
     width: 30px !important;
     height: 30px !important;
     right: 70px !important;
+    top: 25px !important;
   }
   .slider-wrap .carousel-control-next {
     width: 30px !important;
     height: 30px !important;
     right: 25px !important;
+    top: 25px !important;
   }
   .carousel .carousel-control-next::after {
     width: 10px !important;
