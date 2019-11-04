@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderDesctop></HeaderDesctop>
-    <router-view />
+    <router-view/>
     <Footer></Footer>
   </div>
 </template>
@@ -33,17 +33,19 @@ export default {
       weatherData: null,
     }
   },
-  async mounted () {
+  async beforeMount () {
     this.$getLocation().then(coordinates => {
       this.getWeather({lat: coordinates.lat, lng: coordinates.lng})       
     }).catch(function () {
       this.getWeather({lat: 51.51062085840897, lng: -0.12035208720763535})  
     })
-    // console.log(this.$store.createPersistedState())
+
+    this.getRates('USD', 'EUR');
   },
   methods: {
     ...mapActions([
-      'getWeather'
+      'getWeather',
+      'getRates'
     ])
   }
 };

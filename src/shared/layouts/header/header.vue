@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap">
+  <div class="header-wrap" v-if='getWeatherData.main'>
     <div class="header-content">
       <div class="top-menu-wrap">
         <div class="container">
@@ -197,6 +197,14 @@ export default {
 
     goToHomePage() {
       this.$router.push({ name: "Home" });
+    },
+
+    changeTemplateWeather(weather) {
+      this.temp = weather.main.temp;
+      this.temp = this.temp + "";
+      this.temp = this.temp.split(".")[0];
+      this.location = weather.name;
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
     }
   },
   mounted() {
@@ -204,12 +212,8 @@ export default {
       this.isShowConverterProps = !this.isShowConverterProps;
     })
     
-    if (this.getWeatherData) {
-      this.temp = this.getWeatherData.main.temp;
-      this.temp = this.temp + "";
-      this.temp = this.temp.split(".")[0];
-      this.location = this.getWeatherData.name;
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
+    if (this.getWeatherData.main) {
+      this.changeTemplateWeather(this.getWeatherData)
     }
 
     this.date = new Date();
@@ -218,6 +222,11 @@ export default {
     this.currentDate.month = this.months[this.date.getMonth()];
     this.currentDate.year = this.date.getFullYear();
   },
+  watch: {
+    getWeatherData: function(newVal) {
+      this.changeTemplateWeather(newVal)
+    }
+  }
 };
 </script>
 

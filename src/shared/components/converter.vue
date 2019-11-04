@@ -13,7 +13,7 @@
           </span>
 
           <ul class="currency-dropdown-from" v-if="isShowRatesFrom">
-            <template v-for="value of ratesName">
+            <template v-for="value of getRatesName">
               <li
                 class="hidden-elem"
                 :key="value"
@@ -50,7 +50,7 @@
           </span>
 
           <ul class="currency-dropdown-to" v-if="isShowRatesTo">
-            <template v-for="value of ratesName">
+            <template v-for="value of getRatesName">
               <li
                 class="hidden-elem"
                 :key="value"
@@ -84,10 +84,12 @@
 import ratesService from "./../services/rates.service";
 import EventBus from "./../../eventBus";
 import _ from "lodash";
+import {mapGetters} from 'vuex'
 
 export default {
   name: "converterDesctop",
   props: ["isShowConverterProps"],
+  computed: mapGetters(['getRatesName', 'getRatesValue', 'getMainRates']),
   data() {
     return {
       isShowRatesFrom: false,
@@ -117,103 +119,123 @@ export default {
       }
     };
   },
+  async mounted () {
+    this.exchangeTo = this.getRatesValue[this.exchangeName] * this.rateAmount;
+    this.exchangeTo = this.exchangeTo + "";
+    this.exchangeTo = this.exchangeTo.split(".");
+    let array = this.exchangeTo[0].split("");
+    this.exchangeTo[0] = "";
+    for (let i = 0; i < array.length; i++) {
+      if (array.length > 3) {
+        if (i % 3 == 0) {
+          if (i < array.length - 1) {
+            array[i] = array[i] + ",";
+          } else {
+            continue;
+          }
+        }
+      }
+    }
+    this.exchangeTo[0] = array.join("");
+    this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+  },  
   created() {
-    ratesService.getRates(this.currentRate).then(res => {
-      for (let i in res.data.rates) {
-        this.ratesName.push(i);
-      }
-      this.ratesValue = res.data.rates;
-      this.exchangeTo = this.ratesValue[this.exchangeName] * this.rateAmount;
-      this.exchangeTo = this.exchangeTo + "";
-      this.exchangeTo = this.exchangeTo.split(".");
-      let array = this.exchangeTo[0].split("");
-      this.exchangeTo[0] = "";
-      for (let i = 0; i < array.length; i++) {
-        if (array.length > 3) {
-          if (i % 3 == 0) {
-            if (i < array.length - 1) {
-              array[i] = array[i] + ",";
-            } else {
-              continue;
-            }
-          }
-        }
-      }
-      this.exchangeTo[0] = array.join("");
-      this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
-    });
+    // ratesService.getRates(this.currentRate).then(res => {
+    //   for (let i in res.data.rates) {
+    //     this.ratesName.push(i);
+    //   }
+    //   this.ratesValue = res.data.rates;
+    //   this.exchangeTo = this.ratesValue[this.exchangeName] * this.rateAmount;
+    //   this.exchangeTo = this.exchangeTo + "";
+    //   this.exchangeTo = this.exchangeTo.split(".");
+    //   let array = this.exchangeTo[0].split("");
+    //   this.exchangeTo[0] = "";
+    //   for (let i = 0; i < array.length; i++) {
+    //     if (array.length > 3) {
+    //       if (i % 3 == 0) {
+    //         if (i < array.length - 1) {
+    //           array[i] = array[i] + ",";
+    //         } else {
+    //           continue;
+    //         }
+    //       }
+    //     }
+    //   }
+    //   this.exchangeTo[0] = array.join("");
+    //   this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+    // });
 
-    ratesService.getRates("EUR").then(res => {
-      this.retesCouples.first.usd = res.data.rates.USD;
-      this.retesCouples.first.usd = this.retesCouples.first.usd + "";
-      this.retesCouples.first.usd = this.retesCouples.first.usd.split(".");
-      let array = this.retesCouples.first.usd[0].split("");
-      this.retesCouples.first.usd[0] = "";
-      for (let i = 0; i < array.length; i++) {
-        if (array.length > 3) {
-          if (i % 3 == 0) {
-            if (i < array.length - 1) {
-              array[i] = array[i] + ",";
-            } else {
-              continue;
-            }
-          }
-        }
-      }
-      this.retesCouples.first.usd[0] = array.join("");
-      this.retesCouples.first.usd[1] = this.retesCouples.first.usd[1].slice(
-        0,
-        4
-      );
-    });
+    // ratesService.getRates("EUR").then(res => {
+    //   this.retesCouples.first.usd = res.data.rates.USD;
+    //   this.retesCouples.first.usd = this.retesCouples.first.usd + "";
+    //   this.retesCouples.first.usd = this.retesCouples.first.usd.split(".");
+    //   let array = this.retesCouples.first.usd[0].split("");
+    //   this.retesCouples.first.usd[0] = "";
+    //   for (let i = 0; i < array.length; i++) {
+    //     if (array.length > 3) {
+    //       if (i % 3 == 0) {
+    //         if (i < array.length - 1) {
+    //           array[i] = array[i] + ",";
+    //         } else {
+    //           continue;
+    //         }
+    //       }
+    //     }
+    //   }
+    //   this.retesCouples.first.usd[0] = array.join("");
+    //   this.retesCouples.first.usd[1] = this.retesCouples.first.usd[1].slice(
+    //     0,
+    //     4
+    //   );
+    // });
 
-    ratesService.getRates("USD").then(res => {
-      this.retesCouples.secound.jpy = res.data.rates.JPY;
-      this.retesCouples.secound.jpy = this.retesCouples.secound.jpy + "";
-      this.retesCouples.secound.jpy = this.retesCouples.secound.jpy.split(".");
-      let array = this.retesCouples.secound.jpy[0].split("");
-      this.retesCouples.secound.jpy[0] = "";
-      for (let i = 0; i < array.length; i++) {
-        if (array.length > 3) {
-          if (i % 3 == 0) {
-            if (i < array.length - 1) {
-              array[i] = array[i] + ",";
-            } else {
-              continue;
-            }
-          }
-        }
-      }
-      this.retesCouples.secound.jpy[0] = array.join("");
-      this.retesCouples.secound.jpy[1] = this.retesCouples.secound.jpy[1].slice(
-        0,
-        4
-      );
-    });
+    // ratesService.getRates("USD").then(res => {
+    //   this.retesCouples.secound.jpy = res.data.rates.JPY;
+    //   this.retesCouples.secound.jpy = this.retesCouples.secound.jpy + "";
+    //   this.retesCouples.secound.jpy = this.retesCouples.secound.jpy.split(".");
+    //   let array = this.retesCouples.secound.jpy[0].split("");
+    //   this.retesCouples.secound.jpy[0] = "";
+    //   for (let i = 0; i < array.length; i++) {
+    //     if (array.length > 3) {
+    //       if (i % 3 == 0) {
+    //         if (i < array.length - 1) {
+    //           array[i] = array[i] + ",";
+    //         } else {
+    //           continue;
+    //         }
+    //       }
+    //     }
+    //   }
+    //   this.retesCouples.secound.jpy[0] = array.join("");
+    //   this.retesCouples.secound.jpy[1] = this.retesCouples.secound.jpy[1].slice(
+    //     0,
+    //     4
+    //   );
+    // });
 
-    ratesService.getRates("GBP").then(res => {
-      this.retesCouples.third.usd = res.data.rates.USD;
-      this.retesCouples.third.usd = this.retesCouples.third.usd + "";
-      this.retesCouples.third.usd = this.retesCouples.third.usd.split(".");
-      let array = this.retesCouples.third.usd[0].split("");
-      this.retesCouples.third.usd[0] = "";
-      for (let i = 0; i < array.length; i++) {
-        if (array.length > 3) {
-          if (i % 3 == 0) {
-            if (i < array.length - 1) {
-              array[i] = array[i] + ",";
-            } else {
-              continue;
-            }
-          }
-        }
-      }
-      this.retesCouples.third.usd[0] = array.join("");
-      this.retesCouples.third.usd[1] = this.retesCouples.third.usd[1].slice(
-        0,
-        4
-      );
-    });
+    // ratesService.getRates("GBP").then(res => {
+    //   this.retesCouples.third.usd = res.data.rates.USD;
+    //   this.retesCouples.third.usd = this.retesCouples.third.usd + "";
+    //   this.retesCouples.third.usd = this.retesCouples.third.usd.split(".");
+    //   let array = this.retesCouples.third.usd[0].split("");
+    //   this.retesCouples.third.usd[0] = "";
+    //   for (let i = 0; i < array.length; i++) {
+    //     if (array.length > 3) {
+    //       if (i % 3 == 0) {
+    //         if (i < array.length - 1) {
+    //           array[i] = array[i] + ",";
+    //         } else {
+    //           continue;
+    //         }
+    //       }
+    //     }
+    //   }
+    //   this.retesCouples.third.usd[0] = array.join("");
+    //   this.retesCouples.third.usd[1] = this.retesCouples.third.usd[1].slice(
+    //     0,
+    //     4
+    //   );
+    // });
   },
   methods: {
     toggleCurrentRates() {

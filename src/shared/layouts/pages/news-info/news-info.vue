@@ -114,7 +114,7 @@
           </b-card>
 
           <!-- Latest News -->
-          <latestNews :latestNews='getNews'></latestNews>
+          <latestNews :latestNews='getNewsFromState'></latestNews>
         </b-card-group>
       </div>
     </div>
@@ -131,7 +131,7 @@ export default {
     latestNews
   },
   name: 'newsInfo',
-  computed: mapGetters(['getNews']),
+  computed: mapGetters(['getNewsFromState']),
   methods: mapActions(['getNewsData']),
   async mounted () {
     this.getNewsData({category: this.category, limit: 3, page: 1});

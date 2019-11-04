@@ -7,13 +7,15 @@ import * as Cookies from 'js-cookie'
 // Store modules
 import news from './modules/news';
 import weather from './modules/weather';
+import rates from './modules/rates';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
         news,
-        weather
+        weather,
+        rates
     },
     plugins: [
         createPersistedState({

@@ -317,6 +317,21 @@ export default {
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
     }
   },
+  watch: {
+    getWeatherData: function(newVal) {
+      this.currentWeatherData = newVal;
+      this.temp = newVal.main.temp;
+      this.temp = this.temp + "";
+      this.temp = this.temp.split(".")[0];
+      this.location = newVal.name;
+      this.currentWeather = newVal.weather[0].description;
+      this.date = new Date()
+        .toJSON()
+        .slice(0, 10)
+        .replace(/-/g, "/");
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${newVal.weather[0].icon}@2x.png`;
+    }
+  }
 };
 </script>
 

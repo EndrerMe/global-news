@@ -1,5 +1,5 @@
 import weatherService from './../../shared/services/weather.service';
-const weather = JSON.parse(window.localStorage.getItem('vuex'));
+
 export default {
     actions: {
         async getWeather(ctx, coord) {
@@ -16,7 +16,7 @@ export default {
     },
 
     state: {
-        weatherData: weather ? weather.weather.weatherData : [],
+        weatherData: {},
     },
 
     getters: {
