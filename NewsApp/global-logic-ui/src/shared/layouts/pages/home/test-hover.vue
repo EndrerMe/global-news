@@ -625,7 +625,7 @@
 }
 .modile-side-weather-wrap {
   position: absolute;
-  top: 58px;
+  top: 0px;
   bottom: 0;
   left: 0;
   right: 0;
