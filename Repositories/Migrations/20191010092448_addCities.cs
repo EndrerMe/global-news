@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Migrations;
+using NewsApp.DataAccess.Interfaces;
+using NewsApp.Entities;
+using Newtonsoft.Json;
 
 namespace Repositories.Migrations
 {
     public partial class addCities : Migration
-    {
+    { 
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(

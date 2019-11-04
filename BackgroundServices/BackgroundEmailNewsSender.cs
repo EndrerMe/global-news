@@ -3,20 +3,20 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Services.Interfaces;
 using NewsAPI.Constants;
 using System.Collections.Generic;
 using System.Linq;
 using NewsAPI.Models;
-using Entities;
+using NewsApp.Entities;
 using Microsoft.Extensions.DependencyInjection;
+using NewsApp.BusinessLogic.Services;
 
-namespace BackgroundServices
+namespace NewsApp.BackgroundServices
 {
     public class BackgroundEmailNewsSender : BackgroundService //Background tast to send emails with news
     {
         private readonly ILogger<BackgroundEmailNewsSender> _logger;
-        private readonly IServiceScopeFactory _serviceScopeFactory; //DI container
+        private readonly IServiceScopeFactory _serviceScopeFactory; 
 
         public BackgroundEmailNewsSender(ILogger<BackgroundEmailNewsSender> logger, IServiceScopeFactory serviceScopeFactory)
         {
@@ -30,7 +30,7 @@ namespace BackgroundServices
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-                SendNewsletter(); // should not been awaited
+               await SendNewsletter(); // should not been awaited
 
                 await Task.Delay((int)TimeSpan.FromMinutes(1).TotalMilliseconds, stoppingToken);
             }
@@ -38,7 +38,7 @@ namespace BackgroundServices
 
         private async Task SendNewsletter()
         {
-            using (var scope = _serviceScopeFactory.CreateScope())
+            using (IServiceScope scope = _serviceScopeFactory.CreateScope())
             {
                 var emailSubscriptionService = scope.ServiceProvider.GetService<IEmailSubscriptionService>();//get from DI container
                 List<Categories> categories = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();

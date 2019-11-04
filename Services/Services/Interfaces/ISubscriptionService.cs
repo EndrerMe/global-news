@@ -1,10 +1,10 @@
 ﻿using Models;
 using System.Threading.Tasks;
 
-namespace Services.Interfaces
+namespace NewsApp.BusinessLogic.Services
 {
     public interface ISubscriptionService
     {
-        Task<bool> AddSubscription(SubcsriptionModel model);
+        Task<bool> AddSubscription(SubcsriptionViewModel model);
     }
 }

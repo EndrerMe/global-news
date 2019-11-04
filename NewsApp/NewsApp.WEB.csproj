@@ -27,9 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
-    <ProjectReference Include="..\Repositories\Repositories.csproj" />
-    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Models\NewsApp.ViewModels.csproj" />
+    <ProjectReference Include="..\Repositories\NewsApp.DataAccess.csproj" />
+    <ProjectReference Include="..\Services\NewsApp.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

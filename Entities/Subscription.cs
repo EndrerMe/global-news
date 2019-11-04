@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using NewsAPI.Constants;
+﻿using NewsAPI.Constants;
 
-namespace Entities
+namespace NewsApp.Entities
 {
     public class Subscription : BaseEntity
     {

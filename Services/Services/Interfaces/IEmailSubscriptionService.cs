@@ -1,10 +1,10 @@
-﻿using Entities;
-using NewsAPI.Constants;
+﻿using NewsAPI.Constants;
 using NewsAPI.Models;
+using NewsApp.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Services.Interfaces
+namespace NewsApp.BusinessLogic.Services
 {
     public interface IEmailSubscriptionService
     {

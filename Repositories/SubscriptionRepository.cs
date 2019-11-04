@@ -1,34 +1,32 @@
-﻿using Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using NewsAPI.Constants;
-using Repositories.Interfaces;
+using NewsApp.DataAccess.Interfaces;
+using NewsApp.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Repositories
+namespace NewsApp.DataAccess
 {
-    public class SubscriptionRepository : ISubscriptionRepository
+    public class SubscriptionRepository : BaseRepository<Subscription>, ISubscriptionRepository
     {
-        private NewsAppContext _context;
-        private DbSet<Subscription> _set;
-
-        public SubscriptionRepository(NewsAppContext context)
+        #region Constructors
+        public SubscriptionRepository(NewsAppContext context) : base(context)
         {
-            _context = context;
-            _set = _context.Set<Subscription>();
         }
+        #endregion Constructors
 
         public async Task<bool> InsertSubscriptionAsync(Subscription subscription)
         {
-            Subscription oldRecord = await _set.FirstOrDefaultAsync(x => x.Email == subscription.Email && x.Category == subscription.Category);
+
+            Subscription oldRecord = await _dbSet.FirstOrDefaultAsync(x => x.Email == subscription.Email && x.Category == subscription.Category);
             if (oldRecord != null)
             {
                 return false;
             }
 
-            var result = await _set.AddAsync(subscription);
+            var result = await _dbSet.AddAsync(subscription);
 
             if (result.State == EntityState.Added)
             {
@@ -41,7 +39,7 @@ namespace Repositories
 
         public async Task<List<Subscription>> GetSubscriptionsByCategoryAsync(Categories category)
         {
-            List<Subscription> result = await _set.Where(x => x.Category == category).ToListAsync();
+            List<Subscription> result = await _dbSet.Where(x => x.Category == category).ToListAsync();
             return result;
         }
     }

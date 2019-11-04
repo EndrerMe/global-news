@@ -1,10 +1,9 @@
 ﻿using Models;
-using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Services.Interfaces;
+using NewsApp.BusinessLogic.Services;
 
-namespace NewsApp.Controller
+namespace NewsApp.WEB.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -19,7 +18,7 @@ namespace NewsApp.Controller
 
         [Route("/addSubscription")]
         [HttpPost]
-        public async Task<ActionResult> AddSubsctiption(SubcsriptionModel model)
+        public async Task<ActionResult> AddSubsctiption(SubcsriptionViewModel model)
         {
             if (string.IsNullOrWhiteSpace(model.Email))
             {

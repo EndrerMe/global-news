@@ -1,9 +1,9 @@
-﻿using Entities;
+﻿using NewsApp.Entities;
 using NewsAPI.Constants;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Repositories.Interfaces
+namespace NewsApp.DataAccess.Interfaces
 {
     public interface ISubscriptionRepository : IBaseRepository<Subscription>
     {

@@ -2,7 +2,7 @@
 
 namespace Models
 {
-    public class SubcsriptionModel
+    public class SubcsriptionViewModel
     {
         public string Email { get; set; }
         public Categories Category { get; set; }

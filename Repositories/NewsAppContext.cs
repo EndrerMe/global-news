@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Entities;
+using NewsApp.Entities;
 
-namespace Repositories
+namespace NewsApp.DataAccess
 {
     public class NewsAppContext : DbContext
     {

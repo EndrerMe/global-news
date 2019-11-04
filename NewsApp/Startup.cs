@@ -5,10 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Repositories;
-using Services;
-using Repositories.Interfaces;
-using Entities;
+using NewsApp.DataAccess;
+using NewsApp.BusinessLogic;
+using NewsApp.DataAccess.Interfaces;
 
 namespace NewsApp
 {
@@ -26,7 +25,7 @@ namespace NewsApp
             services.AddDbContext<NewsAppContext>(options =>
             {
                 options.UseLazyLoadingProxies();
-                options.UseMySql(Configuration.GetConnectionString("MySqlDB"));
+                options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"));
             });
 
             services.Scan(scan => scan
@@ -35,8 +34,7 @@ namespace NewsApp
                                                              type.Name.EndsWith("Provider") ||
                                                              type.Name.EndsWith("Helper")))
                 .AsImplementedInterfaces()
-                .WithTransientLifetime()
-            );
+                .WithTransientLifetime());
 
             services.Scan(scan => scan
                 .FromAssemblyOf<SubscriptionRepository>()
@@ -64,17 +62,7 @@ namespace NewsApp
             app.UseHttpsRedirection();
             app.UseFileServer();
             app.UseMvc();
-            //app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            //app.UseSpa(spa =>
-            //{
-            //    spa.Options.SourcePath = "";
-
-            //    if (env.IsDevelopment())
-            //    {
-            //        spa.use(npmScript: "start");
-            //    }
-            //});
         }
     }
 }

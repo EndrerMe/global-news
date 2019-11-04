@@ -1,13 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Repositories;
-using Repositories.Interfaces;
-using Services;
-using Services.Interfaces;
-using System.Configuration;
+using NewsApp.BusinessLogic.Services;
+using NewsApp.DataAccess;
+using NewsApp.DataAccess.Interfaces;
 
-namespace BackgroundServices
+namespace NewsApp.BackgroundServices
 {
     public class Program
     {
@@ -23,9 +21,8 @@ namespace BackgroundServices
                     services.AddDbContext<NewsAppContext>(options =>
                     {
                         options.UseLazyLoadingProxies();
-                        options.UseMySql("server=127.0.0.1;port=3306;database=newsapp;UserId=root; Password=password;");
+                        options.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=Test1;Integrated Security=True");
                     });
-
 
                     services.AddScoped<IEmailSubscriptionService, EmailSubscriptionService>();
                     services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();

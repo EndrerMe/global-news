@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -10,12 +10,14 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="2.3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
     <PackageReference Include="NewsAPI" Version="0.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
-    <ProjectReference Include="..\Repositories\Repositories.csproj" />
+    <ProjectReference Include="..\Models\NewsApp.ViewModels.csproj" />
+    <ProjectReference Include="..\NewsApp.Shared\NewsApp.Shared.csproj" />
+    <ProjectReference Include="..\Repositories\NewsApp.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

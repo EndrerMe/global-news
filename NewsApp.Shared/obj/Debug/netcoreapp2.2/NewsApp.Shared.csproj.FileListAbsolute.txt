@@ -1,0 +1,7 @@
+C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\bin\Debug\netcoreapp2.2\NewsApp.Shared.deps.json
+C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\bin\Debug\netcoreapp2.2\NewsApp.Shared.dll
+C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\bin\Debug\netcoreapp2.2\NewsApp.Shared.pdb
+C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.AssemblyInfoInputs.cache
+C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.AssemblyInfo.cs
+C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.dll
+C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.pdb

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Entities
+namespace NewsApp.Entities
 {
     public class BaseEntity
     {

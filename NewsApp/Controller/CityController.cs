@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Models;
-using Services.Interfaces;
+using NewsApp.BusinessLogic.Services;
+using NewsApp.ViewModels;
 
-namespace NewsApp.Controller
+namespace NewsApp.WEB.Controller
 {
     [ApiController]
     public class CityController : BaseController
@@ -23,7 +19,7 @@ namespace NewsApp.Controller
         [Route("/searchCity")]
         public async Task<ActionResult> FindCityByName(string name)
         {
-            SearchCityResultModel result = await _cityService.FindCityByNameAsync(name);
+            FindCityByNameCityViewModel result = await _cityService.FindCityByNameAsync(name);
             return Ok(result);
         }
     }

@@ -4,29 +4,48 @@ using NewsAPI;
 using NewsAPI.Models;
 using NewsAPI.Constants;
 using System.Threading.Tasks;
-using Entities;
-using Services.Interfaces;
 using System;
-using Repositories.Interfaces;
 using MimeKit;
 using MailKit.Net.Smtp;
 using System.IO;
+using NewsApp.DataAccess.Interfaces;
+using NewsApp.Entities;
+using Microsoft.Extensions.Options;
+using NewsApp.Shared.Configuration;
 
-namespace Services
+namespace NewsApp.BusinessLogic.Services
 {
     public class EmailSubscriptionService : IEmailSubscriptionService
     {
-        private ISubscriptionRepository _subscriptionRepository;
+        #region Properties & Variables
+        private readonly string _smptServer;
+        private readonly string _smptpLogin;
+        private readonly string _smtpPassword;
 
-        public EmailSubscriptionService(ISubscriptionRepository subscriptionRepository)
+        private readonly string _newsApiClient;
+
+        private readonly ISubscriptionRepository _subscriptionRepository;
+        #endregion Properties & Variables
+
+        #region Constructors
+        public EmailSubscriptionService(ISubscriptionRepository subscriptionRepository, 
+                                        IOptions<AppConfiguration> configurationOptions)
         {
             _subscriptionRepository = subscriptionRepository;
-        }
 
+            _smptServer = configurationOptions.Value.SMTPOptions.Server;
+            _smptpLogin = configurationOptions.Value.SMTPOptions.Login;
+            _smtpPassword = configurationOptions.Value.SMTPOptions.Password;
+
+            _newsApiClient = configurationOptions.Value.NewsClient.Id;
+        }
+        #endregion Constructors
+
+        #region Public Methods
         public async Task<List<Article>> GetLatestNewsInCategory(Categories category)
         {
-            List<Article> newsArticles = new List<Article>();
-            bool isChecked = false;
+            var newsArticles = new List<Article>();
+            bool isChecked = default(bool);
             int pageCount = 1;
 
             do
@@ -50,10 +69,6 @@ namespace Services
 
         public async Task SendNewsToSubscribers(List<Article> news, List<Subscription> subscriptions)
         {
-            string smptServer = "smtp.gmail.com";
-            string smplLogin = "CampaTstPrereq@gmail.com"; //TODO: Change creds
-            string smtpPassword = "Yrq3AwZAtMTY";
-
             try
             {
                 var emailMessage = await PrepareEmailMessage(news);
@@ -62,8 +77,8 @@ namespace Services
                 {
                     using (var client = new SmtpClient())
                     {
-                        await client.ConnectAsync(smptServer, 465, true);
-                        await client.AuthenticateAsync(smplLogin, smtpPassword);
+                        await client.ConnectAsync(_smptServer, 465, true);
+                        await client.AuthenticateAsync(_smptpLogin, _smtpPassword);
                         emailMessage.To.Add(new MailboxAddress(string.Empty, sub.Email));
 
                         await client.SendAsync(emailMessage);
@@ -76,10 +91,12 @@ namespace Services
                 Console.WriteLine(ex.Message);
             }
         }
+        #endregion Public Methods
 
+        #region Private Methods
         private async Task<ArticlesResult> GetLatestNewsFromApi(Categories category, int page = 1)
         {
-            var newsApiClient = new NewsApiClient("8a4d40be944c4dbeb2d365c05cfe3eab");
+            var newsApiClient = new NewsApiClient(_newsApiClient);
             const int pageSize = 10;
 
             ArticlesResult newsResponse = await newsApiClient.GetTopHeadlinesAsync(new TopHeadlinesRequest
@@ -137,5 +154,7 @@ namespace Services
 
             return emailBoby;
         }
+        #endregion Private Methods
+
     }
 }
