@@ -104,7 +104,7 @@
                 <div class="temp-info-wrap">
                   <div class="temp-value-wrap info-elem">
                     <p>
-                      <span class="cwitch">Show weather in :</span>
+                      <span class="switch">Show weather in :</span>
                       <span class="temp-symbol">
                         <span>F</span>
                         <span>&#8451;</span>
@@ -166,7 +166,7 @@
             <div class="temp-info-wrap">
               <div class="temp-value-wrap info-elem">
                 <p>
-                  <span class="cwitch">Show weather in :</span>
+                  <span class="switch">Show weather in :</span>
                   <span class="temp-symbol">
                     <span>F</span>
                     <span>&#8451;</span>
@@ -235,7 +235,7 @@
 import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
 import moreWeather from "./../components/more-weather";
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 import _ from "lodash";
 
 export default {
@@ -245,7 +245,7 @@ export default {
     converterDesctop,
     moreWeather
   },
-  computed: mapGetters(['getWeatherData']),
+  computed: mapGetters(["getWeatherData"]),
   data() {
     return {
       currentWeatherData: null,
@@ -316,7 +316,7 @@ export default {
         .replace(/-/g, "/");
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
     }
-  },
+  }
 };
 </script>
 
@@ -463,7 +463,7 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 55px;
-    padding: 0 25px;
+  padding: 0 25px;
 }
 .weather-main-wrap .links-wrap a {
   color: #f8c61a !important;
@@ -622,7 +622,7 @@ export default {
   border: none;
   border-bottom: 1px solid;
   background: transparent;
-  font-size:18px;
+  font-size: 18px;
 }
 
 /* Mob Weater*/

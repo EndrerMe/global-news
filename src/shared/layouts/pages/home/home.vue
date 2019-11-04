@@ -434,10 +434,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   .bottom-menu ul li a span {
     font-size: 17px;
   }
-
-  /* .bottom-menu li a a{
-    font-size:12px !important;
-  } */
 }
 </style>
 

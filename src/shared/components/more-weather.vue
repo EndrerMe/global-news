@@ -9,7 +9,7 @@
           <div class="temp-info-wrap">
             <div class="temp-value-wrap info-elem">
               <p>
-                <span class="cwitch">Show weather in :</span>
+                <span class="switch">Show weather in :</span>
                 <span class="temp-symbol">
                   <span class="switch-mode active">F</span>
                   <span class="degree"></span>
