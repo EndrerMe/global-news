@@ -5,3 +5,12 @@ C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\obj\Debug\netcorea
 C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.AssemblyInfo.cs
 C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.dll
 C:\Users\Anuitex-103\source\repos\Global-News2\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.pdb
+C:\prod\news-app\global-news\NewsApp.Shared\bin\Debug\netcoreapp2.2\NewsApp.Shared.deps.json
+C:\prod\news-app\global-news\NewsApp.Shared\bin\Debug\netcoreapp2.2\NewsApp.Shared.dll
+C:\prod\news-app\global-news\NewsApp.Shared\bin\Debug\netcoreapp2.2\NewsApp.Shared.pdb
+C:\prod\news-app\global-news\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.csprojAssemblyReference.cache
+C:\prod\news-app\global-news\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.csproj.CoreCompileInputs.cache
+C:\prod\news-app\global-news\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.AssemblyInfoInputs.cache
+C:\prod\news-app\global-news\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.AssemblyInfo.cs
+C:\prod\news-app\global-news\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.dll
+C:\prod\news-app\global-news\NewsApp.Shared\obj\Debug\netcoreapp2.2\NewsApp.Shared.pdb

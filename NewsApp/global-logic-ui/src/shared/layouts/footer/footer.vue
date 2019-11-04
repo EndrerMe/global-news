@@ -1,47 +1,31 @@
 <template>
-    <div>
-      <footer>
-        <div class="container content">
-          <div class="content-wrap">
-            <div class="left-item">
-              <img src="../../../assets/images/logo.svg" alt="logo" />
-            </div>
-            <div class="center-item">
-              <span class="text">Created by Anuitex</span>
-            </div>
-            <div class="right-item">
-              <button>Subscribe Us</button>
-            </div>
+  <div>
+    <footer>
+      <div class="container content">
+        <div class="content-wrap">
+          <div class="left-item">
+            <img src="../../../assets/images/logo.svg" alt="logo" />
+          </div>
+          <div class="center-item">
+            <pre class="text">Created by&#160;<a href="http://anuitex.com">Anuitex</a></pre>
+          </div>
+          <div class="right-item">
+            <button>Subscribe Us</button>
           </div>
         </div>
-      </footer>
-
-      <!-- <footer>
-        <div class="container content">
-          <div class="content-wrap">
-            <div class="left-item">
-              <img src="../../../assets/images/logo.svg" alt="logo" />
-            </div>
-            <div class="center-item">
-              <span class="text">Copyright © 2019 Global New. All rights reserved</span>
-            </div>
-            <div class="right-item">
-              <button>Subscribe Us</button>
-            </div>
-          </div>
-        </div>
-      </footer> -->
-    </div>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Footer'
-}
+  name: "Footer"
+};
 </script>
 
 <style scoped>
-    /* Footer */
+/* Footer */
 footer {
   background-color: #052962;
   margin-top: 72px;
@@ -52,6 +36,9 @@ footer .content-wrap {
   display: flex;
   justify-content: space-between;
 }
+footer .left-item img {
+  width: 130px;
+}
 footer .left-item,
 footer .right-item {
   margin: auto 0;
@@ -59,23 +46,23 @@ footer .right-item {
 footer .center-item {
   display: flex;
 }
+footer .center-item pre {
+  margin: 0;
+}
 footer .center-item .text {
-  color: white;
+  padding-bottom: 5px;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 5px;
   font-size: 10px;
+  color: white;
 }
-/* footer .right-item button {
-  width: 98% !important;
-  width: 185px !important;
-  height: 35px;
-  font-size: 12px;
-} */
+
+footer .center-item .text a {
+  color: white;
+}
 footer .right-item button:hover {
   background-color: #ffe076 !important;
 }
-
 footer .right-item button {
   width: 242px;
   height: 48px;
@@ -86,6 +73,7 @@ footer .right-item button {
   font-weight: 900;
   border: none;
   letter-spacing: 1px;
+  font-family: "Poppins-SemiBold";
 }
 @media (max-width: 1199px) {
   footer .right-item button {
@@ -93,11 +81,17 @@ footer .right-item button {
     height: 44px;
   }
 }
+
+@media (max-width: 1139px) {
+  footer .right-item button {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 991px) {
   footer .right-item button {
     width: 222px !important;
     height: 40px;
-    font-size: 14px;
   }
 }
 @media (min-width: 768px) {
@@ -118,14 +112,12 @@ footer .right-item button {
   }
   footer .content-wrap .center-item {
     margin: 0 auto;
+    padding: 20px 0;
   }
   footer .content-wrap :nth-child(2) {
     order: 3;
   }
   footer .content-wrap .left-item {
-    padding: 20px 0;
-  }
-  footer .content-wrap .center-item {
     padding: 20px 0;
   }
 }

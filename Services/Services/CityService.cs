@@ -26,6 +26,11 @@ namespace NewsApp.BusinessLogic.Services
         {
             var result = new FindCityByNameCityViewModel();
             City searchResult = await _cityRepository.FindCityByNAmeAsync(namefilter);
+            
+            if(searchResult == default(City))
+            {
+                return result;
+            }
 
             var cityModel = new FindCityByNameCityViewItem();
 

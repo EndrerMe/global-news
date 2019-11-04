@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="weather-main-wrap" v-if="isShowWeatherModal">
+    <div class="weather-main-wrap" v-if="isShowWeatherModalProps">
       <div class="weather-search-wrap">
         <div class="close-wrap" @click="closeWeatherModal()">
           <a href="#"></a>
@@ -8,17 +8,16 @@
         <div class="temp-value-wrap">
           <div class="text-wrap">
             <span>
-              Do you mean
+              Did you mean
               <span class="search-result">{{ userCity }}</span>?
             </span>
           </div>
         </div>
-
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
-            <input :value='userCity' v-on:input="changecountry($event)"/>
+            <input :value="userCity" v-on:input="changecountry($event)" />
           </div>
-          <div class="button-wrap" @click='getWeather()'>
+          <div class="button-wrap" @click="getWeather()">
             <button href="#">Search</button>
           </div>
         </div>
@@ -28,23 +27,25 @@
             <img :src="currentWeatherImg" alt="cloud" />
           </span>
         </div>
-
         <div class="temp-value-wrap">
           <span class="value">{{ temp }}</span>
           <span class="temp-symbol-wrap">
             <span class="temp-symbol">
-              <span class="mode active"><sup class="mode active">o</sup>C</span>
+              <span class="mode active">
+                <span class="degree"></span>
+                C
+              </span>
             </span>
           </span>
         </div>
       </div>
       <div class="links-wrap">
-        <a href="#" @click='showWeatherMap()'>Weather Map</a>
+        <a href="#" @click="showWeatherMap()">Weather Map</a>
         <a href="#" @click="showMoreWeather()">More</a>
       </div>
     </div>
 
-    <converterDesctop :isShowConverter="isShowConverter" @closeConverterModal="closeConverterModal"></converterDesctop>
+    <converterDesctop :isShowConverterProps="isShowConverterProps"></converterDesctop>
 
     <!-- Mobile  Weather -->
     <div class="modile-side-weather-wrap">
@@ -103,7 +104,7 @@
                 <div class="temp-info-wrap">
                   <div class="temp-value-wrap info-elem">
                     <p>
-                      <span class="cwitch">Show weather in :</span>
+                      <span class="switch">Show weather in :</span>
                       <span class="temp-symbol">
                         <span>F</span>
                         <span>&#8451;</span>
@@ -165,7 +166,7 @@
             <div class="temp-info-wrap">
               <div class="temp-value-wrap info-elem">
                 <p>
-                  <span class="cwitch">Show weather in :</span>
+                  <span class="switch">Show weather in :</span>
                   <span class="temp-symbol">
                     <span>F</span>
                     <span>&#8451;</span>
@@ -221,28 +222,35 @@
     </div>
 
     <!-- Weater Details -->
-    <moreWeather :isShowMoreWeather='isShowMoreWeather' @closeMoreWeather='closeMoreWeather' :weatherData='currentWeatherData' :isWeatherMap='false'></moreWeather>
+    <moreWeather
+      :isShowMoreWeather="isShowMoreWeather"
+      @closeMoreWeather="closeMoreWeather"
+      :weatherData="currentWeatherData"
+      :isWeatherMap="false"
+    ></moreWeather>
   </div>
 </template>
 
 <script>
 import converterDesctop from "./converter";
-import weatherService from './../services/weather.service';
-import moreWeather from './../components/more-weather';
+import weatherService from "./../services/weather.service";
 import lifeSearchService from './../services/lifesearch.service';
-import _ from 'lodash';
+import moreWeather from "./../components/more-weather";
+import { mapGetters } from "vuex";
+import _ from "lodash";
 
 export default {
-  props: ["isShowWeatherModal", "isShowConverter", 'weatherData'],
+  props: ["isShowWeatherModalProps", "isShowConverterProps"],
   name: "weatherDesctop",
   components: {
     converterDesctop,
     moreWeather
   },
+  computed: mapGetters(["getWeatherData"]),
   data() {
     return {
       currentWeatherData: null,
-      userCity: 'London',
+      userCity: "London",
       temp: "",
       location: "",
       date: "",
@@ -258,10 +266,6 @@ export default {
       this.$emit("closeWeatherModal", false);
     },
 
-    closeConverterModal() {
-      this.isShowConverter = false;
-    },
-
     showMoreWeather() {
       this.isShowMoreWeather = true;
     },
@@ -273,70 +277,67 @@ export default {
     showWeatherMap() {
       let data = this.weatherData;
       this.$emit("closeWeatherModal", false);
-      this.$router.push({name: 'weatherMap', params: {data}});
+      this.$router.push({ name: "weatherMap", params: { data } });
     },
 
-    changecountry:_.debounce(function(event) {
-        const value = event.target.value;
-        this.userCity = value;
-        lifeSearchService.getDataForLifeSearch(value).then((res) => {
-            this.userCity = res.data.data;
-        }, (err) => {
-            console.log(err)
-        })
-
+    changecountry: _.debounce(function(event) {
+      const value = event.target.value;
+      this.userCity = value;
+      lifeSearchService.getDataForLifeSearch(value).then((res) => {
+        this.userCity = res.data.data.name;
+      }, (err) => {
+        console.log(err)
+      })
     }, 1000),
 
     getWeather() {
-      weatherService.getWeatherByCountry(this.userCity).then((res) => {
-        console.log(res.data)
+      weatherService.getWeatherByCountry(this.userCity).then(res => {
         this.currentWeatherData = res.data;
         this.temp = res.data.main.temp;
-        this.temp = this.temp + '';
+        this.temp = this.temp + "";
         this.temp = this.temp.split(".")[0];
         this.userCity = res.data.name;
         this.location = this.userCity;
-        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`
-        this.currentWeather = res.data.weather[0].description
+        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
+        this.currentWeather = res.data.weather[0].description;
       });
-    },
+    }
   },
   mounted() {
-    if (this.weatherData) {
-      this.currentWeatherData = this.weatherData;
-      this.temp = this.weatherData.main.temp;
+    if (this.getWeatherData) {
+      this.currentWeatherData = this.getWeatherData;
+      this.temp = this.getWeatherData.main.temp;
       this.temp = this.temp + "";
       this.temp = this.temp.split(".")[0];
-      this.location = this.weatherData.name;
-      this.currentWeather = this.weatherData.weather[0].description;
+      this.location = this.getWeatherData.name;
+      this.currentWeather = this.getWeatherData.weather[0].description;
       this.date = new Date()
         .toJSON()
         .slice(0, 10)
         .replace(/-/g, "/");
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
     }
   },
   watch: {
-    weatherData: function() {
-      this.temp = this.weatherData.main.temp;
+    getWeatherData: function(newVal) {
+      this.currentWeatherData = newVal;
+      this.temp = newVal.main.temp;
       this.temp = this.temp + "";
       this.temp = this.temp.split(".")[0];
-      this.location = this.weatherData.name;
-      this.currentWeather = this.weatherData.weather[0].description;
+      this.location = newVal.name;
+      this.currentWeather = newVal.weather[0].description;
       this.date = new Date()
         .toJSON()
         .slice(0, 10)
         .replace(/-/g, "/");
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${newVal.weather[0].icon}@2x.png`;
     }
-  },
+  }
 };
 </script>
 
 <style scoped>
 /* Weather Details */
-
-/* font-family: 'Poppins-SemiBold'; */
 
 .weather-details-wrap .right-side {
   position: absolute;
@@ -363,7 +364,6 @@ export default {
 }
 .temp-info-wrap .info-elem {
   margin-top: 40px;
-  /* font-weight: bold; */
 }
 .weather-details-wrap .show-info-wrap {
   text-align: start;
@@ -383,33 +383,28 @@ export default {
 .weather-details-wrap .temp-symbol span {
   margin: 0 5px;
 }
-
-.weather-details-wrap .temp-symbol .switch-mode.active{
-  color: #F8C61A;
+.weather-details-wrap .temp-symbol .switch-mode.active {
+  color: #f8c61a;
 }
-
-
 .weather-details-wrap .temp-symbol {
   position: relative;
 }
 .weather-details-wrap .temp-symbol::before {
-    content: "";
-    position: absolute;
-    width: 1px;
-    height: 26px;
-    background-color: white;
-    left: 22px;
-    top: 2px;
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 26px;
+  background-color: white;
+  left: 22px;
+  top: 2px;
 }
 .weather-details-wrap .temp-value-wrap {
   text-align: start;
 }
-
 .weather-details-wrap .temp-info-wrap p {
   margin-bottom: 10px;
-  font-family: 'Poppins-Regular';
-  font-size:24px;
-  
+  font-family: "Poppins-Regular";
+  font-size: 24px;
 }
 .weather-details-wrap .temp-info-wrap {
   color: #f9f9f9;
@@ -427,7 +422,6 @@ export default {
   padding: 0 50px;
   left: -550px;
 }
-
 .weather-details-wrap .close-wrap a {
   width: 18px;
   height: 18px;
@@ -446,7 +440,6 @@ export default {
   right: 0px;
   transform: rotate(45deg);
 }
-
 .weather-details-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -458,57 +451,66 @@ export default {
   transform: rotate(-45deg);
 }
 
-
 /* Weather */
+.weather-main-wrap .temp-symbol .mode {
+  position: relative;
+}
+.weather-main-wrap .temp-symbol .mode .degree::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border: 1px solid white;
+  position: absolute;
+  border-radius: 10px;
+  top: 6px;
+  left: -4px;
+}
 .weather-main-wrap {
   position: absolute;
   width: 355px;
   right: -150px;
-  top: 106px;
+  top: 101px;
   background-color: #052962;
   padding-bottom: 20px;
   z-index: 99999;
-  padding: 0 60px 10px 60px;
+  padding-bottom: 20px;
 }
-
 .weather-main-wrap .links-wrap {
   display: flex;
   justify-content: space-between;
   margin-top: 55px;
+  padding: 0 25px;
 }
 .weather-main-wrap .links-wrap a {
   color: #f8c61a !important;
   text-decoration: none;
   font-family: "Poppins-Regular";
 }
-
+.weather-search-wrap {
+  padding: 0 55px;
+}
 .weather-search-wrap .temp-value-wrap .temp-symbol {
-  top: -7px;
   font-size: 26px !important;
 }
-
 .weather-search-wrap .temp-value-wrap {
   position: relative !important;
   color: white;
   font-weight: bold;
   position: relative;
-  margin-top: 50px;
+  margin-top: 37px;
   font-family: "Poppins-SemiBold";
   display: flex;
   justify-content: center;
 }
-
 .weather-search-wrap .temp-value-wrap .temp-symbol-wrap {
   display: block;
   text-align: start;
   position: relative;
   min-width: 60px;
 }
-
 .weather-search-wrap .temp-value-wrap .temp-symbol-wrap .temp-symbol {
   position: absolute;
 }
-
 .weather-search-wrap
   .temp-value-wrap
   .temp-symbol-wrap
@@ -519,35 +521,33 @@ export default {
 .weather-search-wrap .temp-value-wrap .value {
   display: block;
   text-align: end;
+  font-size: 41px;
+  font-family: "Poppins-SemiBold";
 }
-
 .weather-search-wrap .temp-value-wrap .temp-symbol span {
-  margin: 0 5px;
+  margin: 0 3px;
 }
 .weather-search-wrap .temp-value-wrap .temp-symbol::before {
   content: "";
   position: absolute;
   width: 2px;
-  height: 23px;
+  height: 21px;
   background-color: white;
-  left: 41px;
-  top: 7px;
+  left: 35px;
+  top: 8px;
 }
-
 .weather-search-wrap .clouds {
-  margin-top: 55px;
+  margin-top: 40px;
   color: #eaeaea;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "Poppins-Regular";
 }
-
 .weather-search-wrap .clouds img {
   width: 90px;
 }
-
-.weather-search-wrap .close-wrap a {
+.weather-search-wrap .close-wrap {
   width: 18px;
   height: 18px;
   display: inline-block;
@@ -555,28 +555,34 @@ export default {
   top: 24px;
   right: 23px;
 }
+.weather-search-wrap .close-wrap a {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 1px;
+  right: 0px;
+}
 .weather-search-wrap .close-wrap a::before {
   position: absolute;
   content: "";
   width: 15px;
   height: 1px;
   background-color: white;
-  top: 7px;
-  right: 0px;
+  top: 8px;
+  right: 2px;
   transform: rotate(45deg);
 }
-
 .weather-search-wrap .close-wrap a::after {
   position: absolute;
   content: "";
   width: 15px;
   height: 1px;
   background-color: white;
-  top: 7px;
-  right: 0px;
+  top: 8px;
+  right: 2px;
   transform: rotate(-45deg);
 }
-
 .weather-search-wrap .text-wrap {
   margin-top: 40px;
   padding: 0;
@@ -585,16 +591,13 @@ export default {
 .weather-search-wrap .text-wrap .search-result {
   color: #f8c61a;
 }
-
 .weather-search-wrap .text-wrap p.dropdown {
   font-size: 32px;
   font-family: initial;
 }
-
 .weather-search-wrap .button-wrap {
   margin-top: 18px;
 }
-
 .weather-search-wrap .country-wrap span {
   color: #eaeaea;
   display: block;
@@ -602,7 +605,6 @@ export default {
   border-bottom: 1px solid;
   text-align: start;
 }
-
 .weather-search-wrap .button-wrap button {
   height: 48px;
   background-color: #f8c61a;
@@ -618,18 +620,15 @@ export default {
 .weather-search-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-
 .weather-search-wrap .seacrh-country-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 30px;
   width: 100%;
 }
-
 .weather-search-wrap .button-wrap {
   margin-top: 23px;
 }
-
 .weather-search-wrap .country-wrap input {
   color: #eaeaea;
   display: block;
@@ -639,6 +638,7 @@ export default {
   border: none;
   border-bottom: 1px solid;
   background: transparent;
+  font-size: 18px;
 }
 
 /* Mob Weater*/
@@ -752,7 +752,6 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
 .mobile-weather-main-wrap {
   padding: 0 15px 40px 15px;
 }
@@ -925,7 +924,7 @@ export default {
   }
 }
 @media (max-width: 1139px) {
-  .weather-main-wrap{
+  .weather-main-wrap {
     top: 103px;
   }
 }
@@ -933,5 +932,4 @@ export default {
 class='weather-details-wrap'
 
  */
-
 </style>

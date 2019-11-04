@@ -2,7 +2,6 @@
   <div class="component-wrap">
     <div class="weather-dark-screen">
       <div class="weather-details-wrap" v-if="isShowMoreWeather">
-
         <div class="close-wrap" @click="closeMoreWeather()">
           <a href="#"></a>
         </div>
@@ -10,10 +9,11 @@
           <div class="temp-info-wrap">
             <div class="temp-value-wrap info-elem">
               <p>
-                <span class="cwitch">Show weather in :</span>
+                <span class="switch">Show weather in :</span>
                 <span class="temp-symbol">
-                  <span class="switch-mode">F</span>
-                  <span class="switch-mode active">&#8451;</span>
+                  <span class="switch-mode active">F</span>
+                  <span class="degree"></span>
+                  C
                 </span>
               </p>
               <p>Place : {{ weatherData.sys.country }}</p>
@@ -62,7 +62,6 @@
           </div>
         </div>
       </div>
-
       <div class="bg-close" v-if="!isWeatherMap && isShowMoreWeather" @click="closeMoreWeather()"></div>
     </div>
   </div>
@@ -99,12 +98,16 @@ export default {
   },
   watch: {
     weatherData: function() {
-      this.weatherData.main.temp = this.weatherData.main.temp + '';
+      this.weatherData.main.temp = this.weatherData.main.temp + "";
       this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
-      this.weatherData.main.temp_max = this.weatherData.main.temp_max + '';
-      this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(".")[0];
-      this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
-      this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
+      this.weatherData.main.temp_max = this.weatherData.main.temp_max + "";
+      this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(
+        "."
+      )[0];
+      this.weatherData.main.temp_min = this.weatherData.main.temp_min + "";
+      this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(
+        "."
+      )[0];
       this.weatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
   }
@@ -112,30 +115,30 @@ export default {
 </script>
 
 <style scoped>
-.weather-dark-screen {
-  left: 50%;
-  top: 50%;
+/* .weather-dark-screen {
   position: fixed;
-  z-index: 999999;
-  transform: translate(-50%, -50%);
-}
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}  */
+
 .weather-details-wrap {
   display: flex;
   width: 602px;
   background-color: #052962;
   z-index: 1000;
-  padding: 0 50px;
+  padding: 50px 50px 36px 50px;
 }
-
 .weather-details-wrap .right-side {
   position: absolute;
   right: 11%;
-  top: 35%;
+  top: 31%;
   font-size: 24px;
   font-weight: bold;
-}
-.weather-details-wrap .right-side .wrap span {
-  margin: 10px 0;
+  font-family: "SegoeUIRegular";
 }
 .weather-details-wrap .right-side .wrap {
   display: flex;
@@ -167,43 +170,49 @@ export default {
   position: absolute;
   border: 1px solid #a09f9f;
   border-radius: 10px;
+  top: 5px;
 }
 .weather-details-wrap .temp-symbol span {
   margin: 0 5px;
 }
-
 .weather-details-wrap .temp-symbol .switch-mode.active {
   color: #f8c61a;
 }
-
+.weather-details-wrap .temp-symbol .degree::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: 1px solid #a09f9f;
+  position: absolute;
+  border-radius: 10px;
+  top: 6px;
+  left: 29px;
+}
 .weather-details-wrap .temp-symbol {
   position: relative;
+  margin-left: 10px;
 }
 .weather-details-wrap .temp-symbol::before {
   content: "";
   position: absolute;
   width: 1px;
-  height: 26px;
+  height: 24px;
   background-color: white;
-  left: 22px;
-  top: 2px;
+  left: 24px;
+  top: 5px;
 }
 .weather-details-wrap .temp-value-wrap {
   text-align: start;
 }
-
 .weather-details-wrap .temp-info-wrap p {
   margin-bottom: 10px;
-  font-family: "Poppins-Regular";
+  font-family: "SegoeUIRegular";
   font-size: 24px;
 }
 .weather-details-wrap .temp-info-wrap {
   color: #f9f9f9;
   font-size: 24px;
-  margin-top: 95px;
-  margin-bottom: 44px;
 }
-
 .weather-details-wrap .close-wrap a {
   width: 18px;
   height: 18px;
@@ -222,7 +231,6 @@ export default {
   right: 0px;
   transform: rotate(45deg);
 }
-
 .weather-details-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -233,7 +241,6 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
 .modile-side-weather-wrap {
   overflow: scroll;
 }
@@ -343,7 +350,6 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
 .mobile-weather-main-wrap {
   padding: 0 15px 40px 15px;
 }
@@ -515,14 +521,4 @@ export default {
     bottom: 0;
   }
 }
-
-/* .bg-close {
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-} */
 </style>

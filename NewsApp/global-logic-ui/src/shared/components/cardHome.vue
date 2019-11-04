@@ -2,21 +2,11 @@
   <div class="business-wrap">
     <div
       class="title-wrap"
-      data-aos="fade-right"
       v-bind:style="titleBorder ? {borderLeft: '5px solid #' + titleBorder} : {}"
     >
       <span class="title-text">{{ title }}</span>
     </div>
-    <slick
-      ref="slick"
-      :options="slickOptions"
-      class="slick"
-      v-if="sendedNews.length"
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-mirror="true"
-      data-aos-once="false"
-    >
+    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length">
       <div
         class="card-wrap"
         v-for="news of sendedNews"
@@ -26,6 +16,7 @@
         <b-card class="mb-2 new-card new-card col-md-12">
           <div class="image-wrap">
             <b-card-title>{{ news.title }}</b-card-title>
+            <div class="gradient"></div>
             <b-card-img class="card-image" :src="news.urlToImage"></b-card-img>
           </div>
 
@@ -47,8 +38,8 @@ export default {
   components: {
     Slick
   },
-  name: "card",
-  props: ["sendedNews", "title", "titleBorder", 'category'],
+  name: "cardHome",
+  props: ["sendedNews", "title", "titleBorder", "category"],
   data() {
     return {
       slickOptions: {
@@ -84,64 +75,19 @@ export default {
 <style scoped>
 @import "../../../node_modules/slick-carousel/slick/slick.css";
 
-@media (max-width: 1199px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 28px !important;
-  }
-
-  .card-title {
-    font-size: 16px !important;
-  }
-}
-@media (max-width: 1139px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 20px !important;
-  }
-  .image-wrap {
-    width: 245px !important;
-    max-height: 245px !important;
-  }
-  .card-title {
-    font-size: 12px !important;
-  }
-  .card-body {
-    height: 325px !important;
-  }
-}
-@media (max-width: 767px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 16px !important;
-  }
-  .business-wrap,
-  .entertainment-wrap,
-  .science-wrap {
-    margin-top: 30px !important;
-  }
-  .card-title {
-    font-size: 16px !important;
-  }
-  .image-wrap {
-    width: unset !important;
-    height: unset !important;
-    max-height: unset !important;
-  }
-}
-@media (max-width: 575px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 12px !important;
-    letter-spacing: 5px !important;
-  }
-  .slick-slider {
-    margin-top: 20px;
-  }
+.new-card .gradient {
+  position: absolute;
+  top: 0bott;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9416141456582633) 0%,
+    rgba(255, 255, 255, 0) 30%
+  );
 }
 
 .elem-wrap {
@@ -166,28 +112,26 @@ export default {
 .card-deck {
   margin-top: 30px;
 }
-.image-wrap {
+.new-card .image-wrap {
   height: 330px;
   position: relative;
 }
 
-.image-wrap img {
+.new-card .image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.card-text-wrap {
-  padding-bottom: 10px;
-}
-
 .card-title {
+  width: 92%;
+  padding: 0;
+  left: 50%;
+  transform: translate(-50%);
   position: absolute;
   color: white;
   font-family: "Amiri-Bold";
   font-size: 20px;
-  padding: 0 35px;
-  bottom: 10px;
-  padding-left: 15px;
+  bottom: 5px;
 }
 .card-text {
   padding: 19px 0 10px 0;
@@ -205,7 +149,8 @@ export default {
   border-top: 2px solid #b3abab;
 }
 .new-card {
-  margin: 0 auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   max-width: 526px !important;
   border: none !important;
   padding-bottom: 15px;
@@ -278,5 +223,83 @@ export default {
   transform: rotate(-45deg);
   top: 8px;
   left: 8px;
+}
+@media (max-width: 1199px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 28px !important;
+  }
+  .card-title {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 1139px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 20px !important;
+  }
+  .image-wrap {
+    width: 245px !important;
+    height: 245px !important;
+  }
+  .card-title {
+    font-size: 12px !important;
+    bottom: 0;
+  }
+  .card-body {
+    height: 325px !important;
+  }
+}
+@media (max-width: 767px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 16px !important;
+  }
+  .business-wrap,
+  .entertainment-wrap,
+  .science-wrap {
+    margin-top: 30px !important;
+  }
+  .card-title {
+    font-size: 16px !important;
+  }
+  .image-wrap {
+    width: unset !important;
+    height: 330px !important;
+  }
+  .new-card .card-body {
+    height: unset !important;
+  }
+  .slick-list {
+    height: unset !important;
+  }
+  .card-wrap {
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+@media (max-width: 575px) {
+  .business-wrap .title-wrap .title-text,
+  .entertainment-wrap .title-wrap .title-text,
+  .science-wrap .title-wrap .title-text {
+    font-size: 12px !important;
+    letter-spacing: 5px !important;
+  }
+  .slick-slider {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 450px) {
+  .image-wrap {
+    height: 250px !important;
+  }
+}
+@media (max-width: 375px) {
+  .image-wrap {
+    height: 210px !important;
+  }
 }
 </style>

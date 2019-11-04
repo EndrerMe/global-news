@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <HeaderDesctop :weatherData='weatherData' ></HeaderDesctop>
-    <router-view />
+    <HeaderDesctop></HeaderDesctop>
+    <router-view/>
     <Footer></Footer>
   </div>
 </template>
@@ -19,7 +19,7 @@
 <script>
 import HeaderDesctop from './shared/layouts/header/header';
 import Footer from './shared/layouts/footer/footer';
-import weatherService from './shared/services/weather.service';
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: "app",
@@ -27,22 +27,26 @@ export default {
     HeaderDesctop,
     Footer
   },
+  computed: mapGetters(['getWeatherData']),
   data() {
     return {
       weatherData: null,
     }
   },
-  beforeCreate() {
+  async mounted () {
     this.$getLocation().then(coordinates => {
-      this.coordinates = coordinates;
-      weatherService.getWeather(coordinates.lat, coordinates.lng).then(res => {
-        this.weatherData = res.data;
-      });
+      this.getWeather({lat: coordinates.lat, lng: coordinates.lng})       
     }).catch(function () {
-      weatherService.getWeather(51.51062085840897, -0.12035208720763535).then(res => {
-        this.weatherData = res.data;
-      });
-    }) 
+      this.getWeather({lat: 51.51062085840897, lng: -0.12035208720763535})  
+    })
+
+    this.getRates('USD', 'EUR');
   },
+  methods: {
+    ...mapActions([
+      'getWeather',
+      'getRates'
+    ])
+  }
 };
 </script>

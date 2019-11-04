@@ -26,6 +26,16 @@ export default {
 </script>
 <style>
 /* Slider */
+.carousel-inner {
+  height: 766px !important;
+}
+.carousel-item {
+  height: 100%;
+}
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+}
 .carousel-caption {
   position: absolute;
   right: unset !important;
@@ -146,16 +156,13 @@ export default {
   transform: rotate(223deg);
   left: 12px;
 }
-
 @media (max-width: 1139px) {
   .carousel-caption .slide-title span {
     font-size: 22px !important;
   }
-
   .carousel-caption .slide-title .slide-category {
     font-size: 12px !important;
   }
-
   .carousel-caption .slide-title .slide-category::before {
     height: 19px !important;
   }
@@ -166,13 +173,14 @@ export default {
     width: 30px !important;
     height: 30px !important;
     right: 70px !important;
+    top: 25px !important;
   }
   .slider-wrap .carousel-control-next {
     width: 30px !important;
     height: 30px !important;
     right: 25px !important;
+    top: 25px !important;
   }
-
   .carousel .carousel-control-next::after {
     width: 10px !important;
     height: 10px !important;
@@ -182,6 +190,9 @@ export default {
     width: 10px !important;
     height: 10px !important;
     left: 12px !important;
+  }
+  .carousel-inner {
+    height: 366px !important;
   }
 }
 @media (max-width: 767px) {
@@ -203,6 +214,9 @@ export default {
   .carousel-caption .slide-title .slide-category::before {
     height: 10px !important;
   }
+  .carousel-inner {
+    height: 300px !important;
+  }
 }
 @media (max-width: 450px) {
   .carousel-caption .slide-title span {
@@ -214,8 +228,10 @@ export default {
   .carousel-caption .slide-title .slide-category::before {
     height: 7px !important;
   }
+  .carousel-inner {
+    height: 260px !important;
+  }
 }
-
 @media (max-width: 375px) {
   .slider-wrap .carousel-control-prev {
     width: 25px !important;
@@ -235,6 +251,9 @@ export default {
     width: 10px !important;
     height: 10px !important;
     left: 10px !important;
+  }
+  .carousel-inner {
+    height: 210px !important;
   }
 }
 </style>

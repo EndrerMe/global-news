@@ -9,30 +9,24 @@
       <!-- Slider -->
 
       <div class="slider-wrap">
-        <homeSlider :slidesNews='slidesNews'></homeSlider>
+        <homeSlider :slidesNews='getTopNewsFromState'></homeSlider>
       </div>
-      <!-- Business -->
-      <card :sendedNews='scienceNewsHome' :category="'science'" :title="'Science'" :titleBorder="'c710a2'"></card>
-      <!-- Entertainmenet -->
-      <card :sendedNews='entertainmentNewsHome' :category="'entertainment'" :title="'Entertainment'" :titleBorder="'ff995e'"></card>
-      <!-- Science -->
-      <card :sendedNews='businessNewsHome' :category="'business'" :title="'Business'" :titleBorder="'10c7ba'"></card>
+      <cardHome v-for='news of getNewsFromState' :key='news.category' :sendedNews='news' :category="news.category" :title="news.category" :titleBorder="'c710a2'"></cardHome>
     </div>
   </div>
 </template>
 
 <script>
-import card from './../../../components/card';
-import newsService from './../../../services/news.service';
+import cardHome from './../../../components/cardHome';
 import homeSlider from './../../../components/home-slider';
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
   components: { 
-    card,
+    cardHome,
     homeSlider
   },
-  computed: mapGetters(['getNews']),
+  computed: mapGetters(['getNewsFromState', 'getTopNewsFromState']),
   data() {
     return {
       isShowSideMenu: false,
@@ -42,60 +36,18 @@ export default {
       businessNewsHome: [],
     };
   },
-  beforeCreate() {
-    newsService.getTopNews('pageSize=10&').then((res) => {
-      let newsCol = 3;
-      for (let i = 0; i < newsCol; i++) {
-        if (res.data.articles[i].urlToImage) {
-          this.slidesNews.push(res.data.articles[i]);
-        } else {
-          newsCol += 1;
-          continue;
-        }
-      }
-    })
-
-    newsService.getData('entertainment', 1).then((res) => {
-      let newsCol = 3;
-      for (let i = 0; i < newsCol; i++) {
-        if (res.data.articles[i].urlToImage) {
-          this.entertainmentNewsHome.push(res.data.articles[i]);
-        } else {
-          newsCol += 1;
-          continue;
-        }
-      }
-    })
-
-    newsService.getData('science', 1).then((res) => {
-      let newsCol = 3;
-      for (let i = 0; i < newsCol; i++) {
-        if (res.data.articles[i].urlToImage) {
-          this.scienceNewsHome.push(res.data.articles[i]);
-        } else {
-          newsCol += 1;
-          continue;
-        }
-      }
-    })
-
-    newsService.getData('business', 1).then((res) => {
-      let newsCol = 3;
-      for (let i = 0; i < newsCol; i++) {
-        if (res.data.articles[i].urlToImage) {
-          this.businessNewsHome.push(res.data.articles[i]);
-        } else {
-          newsCol += 1;
-          continue;
-        }
-      }
-    })
-  },
   // methods: mapActions(['getNewsForHomePage']),
-  // async mounted () {
-  //   this.getNewsForHomePage({limit: 3, category: 'science'})
-  // },
+  async mounted () {
+    this.getNewsForHome({limit: 3, category: 'entertainment'});
+    this.getNewsForHome({limit: 3, category: 'science'});
+    this.getNewsForHome({limit: 3, category: 'business'});
+    this.getTopNews({filter: 'pageSize=6&'});
+  },
   methods: {
+    ...mapActions([
+      'getNewsForHome',
+      'getTopNews',
+    ]),
 
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
@@ -420,26 +372,8 @@ Weather Menu : class = 'modile-side-weather-wrap'
   padding: 6px 30px;
 }
 /* Header */
-.bottom-menu-wrap {
-  height: 120px;
-  display: flex;
-  align-items: center;
-}
 .top-menu-wrap {
   background-color: #052962;
-}
-.bottom-menu {
-  background-color: unset !important;
-  justify-content: center !important;
-}
-.bottom-menu li a a {
-  color: #3f3f3f;
-  font-size: 26px;
-  font-weight: bold;
-  text-decoration: none;
-}
-.bottom-menu li a:hover {
-  color: #f8c61a !important;
 }
 .top-menu-wrap .navbar-nav {
   width: 100%;
@@ -500,10 +434,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   .bottom-menu ul li a span {
     font-size: 17px;
   }
-
-  /* .bottom-menu li a a{
-    font-size:12px !important;
-  } */
 }
 </style>
 

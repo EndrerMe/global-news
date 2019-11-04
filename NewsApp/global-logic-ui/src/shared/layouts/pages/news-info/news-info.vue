@@ -11,8 +11,9 @@
             <b-card-img :src="news.urlToImage"></b-card-img>
 
             <b-card-text>
-              <span>6 min ago</span>
-              <span>sourcelink.com</span>
+              <span>{{ news.publishedAt | moment("from", "now") }}</span>
+              <span>{{ news.source.name }}</span>
+              
             </b-card-text>
 
             <div class="description-wrap">
@@ -113,22 +114,7 @@
           </b-card>
 
           <!-- Latest News -->
-          <b-card class="latest-news" header-tag="header">
-            <div class="title-wrap">
-              <span class="text">Latest News</span>
-            </div>
-            <div class="item-wrap" v-for='news of getNews' :key='news.title'>
-              <div class="image-wrap">
-                <img :src="news.urlToImage" />
-                <span class="category-wrap entertainment">{{ category }}</span>
-              </div>
-              <div class="description-wrap">
-                <span>
-                  {{ news.description }}
-                </span>
-              </div>
-            </div>
-          </b-card>
+          <latestNews :latestNews='getNewsFromState'></latestNews>
         </b-card-group>
       </div>
     </div>
@@ -137,14 +123,18 @@
 
 <script>
 import {mapGetters, mapActions} from 'vuex'
+import latestNews from './../../../components/latestNews';
 
 export default {
   props: ['news', 'category'],
+  components: {
+    latestNews
+  },
   name: 'newsInfo',
-  computed: mapGetters(['getNews']),
-  methods: mapActions(['getNewsForHomePage']),
+  computed: mapGetters(['getNewsFromState']),
+  methods: mapActions(['getNewsData']),
   async mounted () {
-    this.getNewsForHomePage({category: this.category, limit: 3});
+    this.getNewsData({category: this.category, limit: 3, page: 1});
   }
   
 }
@@ -319,6 +309,7 @@ export default {
   color: #c3c3c3;
   font-size: 18px;
   padding-top: 25px;
+  border:none;
 }
 
 .card-wrap .new-info .description-wrap {
@@ -411,5 +402,6 @@ export default {
   align-items: center;
   justify-content: center;
   border-radius: 25px;
+  margin-left: 10px;
 }
 </style>
