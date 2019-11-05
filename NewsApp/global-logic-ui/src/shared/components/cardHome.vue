@@ -33,6 +33,7 @@
 
 <script>
 import Slick from "vue-slick";
+import { mapActions } from "vuex";
 
 export default {
   components: {
@@ -64,9 +65,14 @@ export default {
     };
   },
   methods: {
+    ...mapActions([
+      'changeCurrentNews'
+    ]),
+    
     goToCurrentNews(news) {
       let category = this.category;
-      this.$router.push({ name: "news-info", params: { news, category } });
+      this.changeCurrentNews({news: news, category: category});
+      this.$router.push({ name: "news-info", params: { news: news, category: category } });
     }
   }
 };

@@ -22,15 +22,22 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "cardCategory",
   props: ["news", "category"],
   methods: {
+    ...mapActions([
+      'changeCurrentNews'
+    ]),
+
     goToCurrentNews(news) {
       const category = this.category;
+      this.changeCurrentNews({news: news, category: category});
       this.$router.push({ name: "news-info", params: { news, category } });
     }
-  }
+  },
 };
 </script>
 

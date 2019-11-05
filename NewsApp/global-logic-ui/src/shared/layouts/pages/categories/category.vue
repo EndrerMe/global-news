@@ -116,19 +116,13 @@ export default {
   },
   beforeCreate() {
     this.category = this.$route.params.category;
-
     newsService.getData(this.category, 1).then(
       res => {
         const totalResult = res.data.totalResults;
         this.pageNumber = Math.ceil(totalResult / 16);
         let articles = res.data.articles;
-        // this.firstBlock = articles[0];
-        // this.secoundBlock = articles[1];
-        // this.thirdBlock = articles[2];
-        // this.fourthBlock = articles[3];
         for (let i = 0; i < 16; i++) {
           if (articles[i].urlToImage) {
-            // adding to main articles
             if (!this.firstBlock.urlToImage) {
               this.firstBlock = articles[i];
             } else if (!this.secoundBlock.urlToImage) {
@@ -154,8 +148,12 @@ export default {
     $route(to) {
       if (to.params.category) {
         this.currentNews = [];
+        this.firstBlock = [];
+        this.secoundBlock = [];
+        this.thirdBlock = [];
+        this.fourthBlock = [];
         this.category = to.params.category;
-        // let newsCol = 3;
+
         newsService.getData(this.category, 1).then(
           res => {
             let articles = res.data.articles;
@@ -171,7 +169,6 @@ export default {
                 } else if (!this.fourthBlock.urlToImage) {
                   this.fourthBlock = articles[i];
                 }
-
                 this.currentNews.push(articles[i]);
               } else {
                 continue;
@@ -235,7 +232,7 @@ export default {
   },
   mounted() {
     this.category = this.$route.params.category;
-  }
+  },
 };
 </script>
 

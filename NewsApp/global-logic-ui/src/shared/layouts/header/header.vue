@@ -110,7 +110,10 @@
               </div>
             </div>
           </b-navbar>
-          <moreWeather></moreWeather>
+          <moreWeather
+          :weatherData="currentWeatherData"
+          :isShowMoreWeather="isShowMoreWeather"
+          :isWeatherMap="false"></moreWeather>
         </div>
       </div>
       <navigationDesctop></navigationDesctop>
@@ -139,8 +142,10 @@ export default {
   computed: mapGetters(['getWeatherData']),
   data() {
     return {
+      currentWeatherData: null,
       isShowSideMenu: false,
       isShowWeatherModalProps: false,
+      isShowMoreWeather: false,
       isShowConverterProps: false,
       showSubscribeFull: false,
       temp: "",
@@ -210,6 +215,12 @@ export default {
   mounted() {
     EventBus.$on('closeConverterModal', () => {
       this.isShowConverterProps = !this.isShowConverterProps;
+    })
+
+    EventBus.$on('toggleMoreWeather', (state) => {
+      this.currentWeatherData = state.weatherData;
+      console.log(this.currentWeatherData)
+      this.isShowMoreWeather = state.state;
     })
     
     if (this.getWeatherData.main) {
