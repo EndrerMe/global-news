@@ -77,7 +77,7 @@ export default {
     };
   },
   async mounted() {
-    console.log(this.weatherData)
+    console.log(this.weatherData);
     if (this.weatherData) {
       this.weatherData.main.temp = this.weatherData.main.temp + "";
       this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
@@ -116,23 +116,26 @@ export default {
 </script>
 
 <style scoped>
-/* .weather-dark-screen {
+.weather-dark-screen.active {
   position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}  */
+  z-index: 99999;
+}
 
 .weather-details-wrap {
-  /* position: absolute; */
+  position: absolute;
   display: flex;
   width: 602px;
   background-color: #052962;
   z-index: 99999;
   padding: 50px 50px 36px 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .weather-details-wrap .right-side {
   position: absolute;
