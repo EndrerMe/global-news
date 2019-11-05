@@ -11,8 +11,8 @@
               <p>
                 <span class="switch">Show weather in :</span>
                 <span class="temp-symbol">
-                  <span class="switch-mode active" @click='changeTemp("f")'>F</span>
-                  <span @click='changeTemp("c")'>
+                  <span class="switch-mode" v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
+                  <span @click='changeTemp("c")' v-bind:class="{ active: isCelsius }">
                     <span class="degree"></span>
                     C
                   </span>
@@ -78,7 +78,8 @@ export default {
   name: "moreWeather",
   data() {
     return {
-      weatherImg: ""
+      weatherImg: "",
+      isCelsius: true,
     };
   },
   computed: mapGetters(['getWeatherData']),

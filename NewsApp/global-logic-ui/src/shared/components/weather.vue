@@ -31,11 +31,11 @@
           <span class="value">{{ temp }}</span>
           <span class="temp-symbol-wrap">
             <span class="temp-symbol">
-              <span class="mode active">
+              <span class="mode" v-bind:class="{ active: isCelsius }" @click='changeTemp("c")'>
                 <span class="degree"></span>
                 C
               </span>
-              <span>F</span>
+              <span v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
             </span>
           </span>
         </div>
@@ -229,7 +229,7 @@ import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
 import lifeSearchService from './../services/lifesearch.service';
 import EventBus from "./../../eventBus";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
 
 export default {
@@ -254,6 +254,10 @@ export default {
     };
   },
   methods: {
+    ...mapActions([
+      'getWeatherByCountry'
+    ]),
+
     closeWeatherModal() {
       this.$emit("closeWeatherModal", false);
     },
@@ -290,7 +294,24 @@ export default {
         this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
         this.currentWeather = res.data.weather[0].description;
       });
-    }
+    },
+
+    changeTemp(temp) {
+      let value = this.currentWeatherData.name;
+      if (temp === 'f') {
+        this.isCelsius = false;
+        this.getWeatherByCountry(value);
+        this.temp = this.getWeatherData.main.temp * 1.8 + 32;
+        this.temp = this.temp + '';
+        this.temp = this.temp.split(".")[0];
+      } else {
+        this.isCelsius = true;
+        this.getWeatherByCountry(value);
+        this.temp = this.getWeatherData.main.temp;
+        this.temp = this.temp + '';
+        this.temp = this.temp.split(".")[0];
+      }
+    },
   },
   mounted() {
     if (this.getWeatherData) {
@@ -307,21 +328,21 @@ export default {
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
     }
   },
-  watch: {
-    getWeatherData: function(newVal) {
-      this.currentWeatherData = newVal;
-      this.temp = newVal.main.temp;
-      this.temp = this.temp + "";
-      this.temp = this.temp.split(".")[0];
-      this.location = newVal.name;
-      this.currentWeather = newVal.weather[0].description;
-      this.date = new Date()
-        .toJSON()
-        .slice(0, 10)
-        .replace(/-/g, "/");
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${newVal.weather[0].icon}@2x.png`;
-    }
-  }
+  // watch: {
+  //   getWeatherData: function(newVal) {
+  //     this.currentWeatherData = newVal;
+  //     this.temp = newVal.main.temp;
+  //     this.temp = this.temp + "";
+  //     this.temp = this.temp.split(".")[0];
+  //     this.location = newVal.name;
+  //     this.currentWeather = newVal.weather[0].description;
+  //     this.date = new Date()
+  //       .toJSON()
+  //       .slice(0, 10)
+  //       .replace(/-/g, "/");
+  //     this.currentWeatherImg = `http://openweathermap.org/img/wn/${newVal.weather[0].icon}@2x.png`;
+  //   }
+  // }
 };
 </script>
 
