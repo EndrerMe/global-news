@@ -9,7 +9,7 @@
           <div class="text-wrap">
             <span>
               Did you mean
-              <span class="search-result">{{ userCity }}</span>?
+              <span class="search-result" @click='getWeather()'>{{ userCity }}</span>?
             </span>
           </div>
         </div>

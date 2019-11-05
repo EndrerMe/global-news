@@ -52,6 +52,10 @@ export default {
             ctx.commit('updateTopNews', news);
             })
         },
+
+        async changeCurrentNews() {
+            
+        }
     },
     mutations: {
         updateNews(state, news) {
@@ -73,6 +77,7 @@ export default {
     state: {
         newsHome: [],
         topNews: [],
+        currentNews: null,
     },
     getters: {
         getNewsFromState(state) {

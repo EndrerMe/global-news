@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap">
+  <div class="header-wrap" v-if='getWeatherData.main'>
     <div class="header-content">
       <div class="top-menu-wrap">
         <div class="container">

@@ -40,7 +40,7 @@ export default {
       this.getWeather({lat: 51.51062085840897, lng: -0.12035208720763535})  
     })
 
-    this.getRates('USD', 'EUR');
+    this.getRates({currentRate: 'USD', exchangeName: 'EUR', rateAmount: 100});
   },
   methods: {
     ...mapActions([
