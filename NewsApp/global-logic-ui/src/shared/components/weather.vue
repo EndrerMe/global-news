@@ -35,6 +35,7 @@
                 <span class="degree"></span>
                 C
               </span>
+              <span>F</span>
             </span>
           </span>
         </div>
@@ -521,7 +522,7 @@ export default {
   width: 2px;
   height: 21px;
   background-color: white;
-  left: 35px;
+  left: 34px;
   top: 8px;
 }
 .weather-search-wrap .clouds {
@@ -911,13 +912,4 @@ export default {
     bottom: 0;
   }
 }
-@media (max-width: 1139px) {
-  .weather-main-wrap {
-    top: 103px;
-  }
-}
-/* Links More Info weater hidden 
-class='weather-details-wrap'
-
- */
 </style>
