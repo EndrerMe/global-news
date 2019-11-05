@@ -339,7 +339,7 @@ export default {
 <style scoped>
 /* Weather Details */
 
-.weather-details-wrap .right-side {
+/* .weather-details-wrap .right-side {
   position: absolute;
   right: 11%;
   top: 35%;
@@ -358,8 +358,8 @@ export default {
 }
 .weather-details-wrap .right-side .icon-wrap img {
   width: 130px;
-}
-.temp-info-wrap .additional-info {
+} */
+/* .temp-info-wrap .additional-info {
   text-align: start;
 }
 .temp-info-wrap .info-elem {
@@ -449,7 +449,7 @@ export default {
   top: 7px;
   right: 0px;
   transform: rotate(-45deg);
-}
+} */
 
 /* Weather */
 .weather-main-wrap .temp-symbol .mode {

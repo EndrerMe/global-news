@@ -41,16 +41,16 @@
                   </li>
                   <li class="nav-item weather-wrap">
                     <span class="weather-content" @click="toggleWeatherModal()">
-                        <span class="weather-icon">
-                          <img :src="currentWeatherImg" alt /> 
-                        </span>
-                        <span class="weather-value">
-                          {{ temp }}
-                          <span class="celsius-value">&#8451;</span>
-                        </span>
-                        <span class="weather-dropdown-arrow">
-                          <font-awesome-icon icon="caret-down" />
-                        </span>
+                      <span class="weather-icon">
+                        <img :src="currentWeatherImg" alt />
+                      </span>
+                      <span class="weather-value">
+                        {{ temp }}
+                        <span class="celsius-value">&#8451;</span>
+                      </span>
+                      <span class="weather-dropdown-arrow">
+                        <font-awesome-icon icon="caret-down" />
+                      </span>
                       <div class="location-name">
                         <p>{{ location }}</p>
                       </div>
@@ -62,12 +62,10 @@
                   </li>
                   <li class="nav-item search-wrap">
                     <div class="input-wrap">
-                      <!-- <a href="#"> -->
                       <label for="search-input" class="icon-wrap">
                         <font-awesome-icon icon="search" class="fa-lg" />
                       </label>
                       <input id="search-input" class="search-input" />
-                      <!-- </a> -->
                     </div>
                     <div class="bell active" @click="showSubscribeFullFun()">
                       <a href="#">
@@ -124,8 +122,8 @@ import subscribeDesctop from "./../../components/subscribe";
 import navigationDesctop from "./../../components/navigation";
 import converterDesctop from "./../../components/converter";
 import moreWeather from "./../../components/more-weather";
-import EventBus from './../../../eventBus';
-import {mapGetters} from 'vuex';
+import EventBus from "./../../../eventBus";
+import { mapGetters } from "vuex";
 
 export default {
   name: "HeaderDesctop",
@@ -136,7 +134,7 @@ export default {
     converterDesctop,
     moreWeather
   },
-  computed: mapGetters(['getWeatherData']),
+  computed: mapGetters(["getWeatherData"]),
   data() {
     return {
       isShowSideMenu: false,
@@ -208,12 +206,12 @@ export default {
     }
   },
   mounted() {
-    EventBus.$on('closeConverterModal', () => {
+    EventBus.$on("closeConverterModal", () => {
       this.isShowConverterProps = !this.isShowConverterProps;
-    })
-    
+    });
+
     if (this.getWeatherData.main) {
-      this.changeTemplateWeather(this.getWeatherData)
+      this.changeTemplateWeather(this.getWeatherData);
     }
 
     this.date = new Date();
@@ -224,7 +222,7 @@ export default {
   },
   watch: {
     getWeatherData: function(newVal) {
-      this.changeTemplateWeather(newVal)
+      this.changeTemplateWeather(newVal);
     }
   }
 };
@@ -478,7 +476,7 @@ export default {
   position: absolute;
   top: 40px;
   right: -55px;
-  color:rgb(248, 198, 26);
+  color: rgb(248, 198, 26);
 }
 .top-menu-wrap .wide-menu li.weather-wrap .location-name {
   text-align: end;

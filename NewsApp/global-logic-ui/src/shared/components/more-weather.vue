@@ -126,10 +126,11 @@ export default {
 }  */
 
 .weather-details-wrap {
+  /* position: absolute; */
   display: flex;
   width: 602px;
   background-color: #052962;
-  z-index: 1000;
+  z-index: 99999;
   padding: 50px 50px 36px 50px;
 }
 .weather-details-wrap .right-side {
