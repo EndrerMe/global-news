@@ -5,27 +5,27 @@
         <b-card-group deck>
           <b-card class="new-info" header-tag="header">
             <div class="title-wrap">
-              <span class="text">{{news.title}}</span>
+              <span class="text">{{currentNews.title}}</span>
             </div>
 
-            <b-card-img :src="news.urlToImage"></b-card-img>
+            <b-card-img v-if='currentNews.urlToImage' :src="currentNews.urlToImage"></b-card-img>
 
             <b-card-text>
-              <span>{{ news.publishedAt | moment("from", "now") }}</span>
-              <span>{{ news.source.name }}</span>
+              <span>{{ currentNews.publishedAt | moment("from", "now") }}</span>
+              <span v-if='currentNews.source'>{{ currentNews.source.name }}</span>
             </b-card-text>
 
             <div class="description-wrap">
-              <p>{{ news.content }}</p>
+              <p>{{ currentNews.content }}</p>
             </div>
 
             <div class="social-networks-wrap">
               <social-sharing
                 url
-                :title="news.title"
-                :description="news.description"
-                :media="news.urlToImage"
-                :quote="news.description"
+                :title="currentNews.title"
+                :description="currentNews.description"
+                :media="currentNews.urlToImage"
+                :quote="currentNews.description"
                 hashtags="news"
                 inline-template
                 class="shared"
@@ -113,7 +113,7 @@
           </b-card>
 
           <!-- Latest News -->
-          <latestNews :latestNews="getNewsFromState"></latestNews>
+          <latestNews :latestNews="getNews"></latestNews>
         </b-card-group>
       </div>
     </div>
@@ -125,16 +125,35 @@ import { mapGetters, mapActions } from "vuex";
 import latestNews from "./../../../components/latestNews";
 
 export default {
-  props: ["news", "category"],
   components: {
     latestNews
   },
+  data() {
+    return {
+      news: [],
+      category: '',
+      currentNews: [],
+      currentCategory: '',
+    }
+  },
   name: "newsInfo",
-  computed: mapGetters(["getNewsFromState"]),
-  methods: mapActions(["getNewsData"]),
+  computed: mapGetters(["getNews"]),
+  methods: {
+    ...mapActions(["getNewsData"])
+  },
   async mounted() {
-    this.getNewsData({ category: this.category, limit: 3, page: 1 });
-  }
+    this.news = this.$route.params.news;
+    this.category = this.$route.params.category;
+    if (this.news) {
+      this.currentNews = this.news;
+      this.currentCategory = this.category;
+    } else {
+      this.currentNews = JSON.parse(localStorage.getItem('currentNews')).news;
+      this.currentCategory = JSON.parse(localStorage.getItem('currentNews')).category;
+    }
+    const category = this.currentCategory;
+    this.getNewsData({ category: category, limit: 3, page: 1 });
+  },
 };
 </script>
 

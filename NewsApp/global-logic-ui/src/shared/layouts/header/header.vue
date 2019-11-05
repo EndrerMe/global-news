@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap">
+  <div class="header-wrap" v-if='getWeatherData.main'>
     <div class="header-content">
       <div class="top-menu-wrap">
         <div class="container">
@@ -108,7 +108,10 @@
               </div>
             </div>
           </b-navbar>
-          <moreWeather></moreWeather>
+          <moreWeather
+          :weatherData="currentWeatherData"
+          :isShowMoreWeather="isShowMoreWeather"
+          :isWeatherMap="false"></moreWeather>
         </div>
       </div>
       <navigationDesctop></navigationDesctop>
@@ -137,8 +140,10 @@ export default {
   computed: mapGetters(["getWeatherData"]),
   data() {
     return {
+      currentWeatherData: null,
       isShowSideMenu: false,
       isShowWeatherModalProps: false,
+      isShowMoreWeather: false,
       isShowConverterProps: false,
       showSubscribeFull: false,
       temp: "",
@@ -208,8 +213,14 @@ export default {
   mounted() {
     EventBus.$on("closeConverterModal", () => {
       this.isShowConverterProps = !this.isShowConverterProps;
-    });
+    })
 
+    EventBus.$on('toggleMoreWeather', (state) => {
+      this.currentWeatherData = state.weatherData;
+      console.log(this.currentWeatherData)
+      this.isShowMoreWeather = state.state;
+    })
+    
     if (this.getWeatherData.main) {
       this.changeTemplateWeather(this.getWeatherData);
     }

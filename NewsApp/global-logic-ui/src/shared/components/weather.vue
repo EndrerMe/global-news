@@ -9,7 +9,7 @@
           <div class="text-wrap">
             <span>
               Did you mean
-              <span class="search-result">{{ userCity }}</span>?
+              <span class="search-result" @click='getWeather()'>{{ userCity }}</span>?
             </span>
           </div>
         </div>
@@ -220,14 +220,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Weater Details -->
-    <moreWeather
-      :isShowMoreWeather="isShowMoreWeather"
-      @closeMoreWeather="closeMoreWeather"
-      :weatherData="currentWeatherData"
-      :isWeatherMap="false"
-    ></moreWeather>
   </div>
 </template>
 
@@ -235,7 +227,7 @@
 import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
 import lifeSearchService from './../services/lifesearch.service';
-import moreWeather from "./../components/more-weather";
+import EventBus from "./../../eventBus";
 import { mapGetters } from "vuex";
 import _ from "lodash";
 
@@ -244,7 +236,6 @@ export default {
   name: "weatherDesctop",
   components: {
     converterDesctop,
-    moreWeather
   },
   computed: mapGetters(["getWeatherData"]),
   data() {
@@ -267,11 +258,8 @@ export default {
     },
 
     showMoreWeather() {
-      this.isShowMoreWeather = true;
-    },
-
-    closeMoreWeather() {
-      this.isShowMoreWeather = false;
+      const weather = this.currentWeatherData;
+      EventBus.$emit("toggleMoreWeather", { state: true, weatherData: weather });
     },
 
     showWeatherMap() {

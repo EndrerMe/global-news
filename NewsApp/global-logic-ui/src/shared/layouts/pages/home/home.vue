@@ -3,8 +3,6 @@
     <div class="dark-screen"></div>
     <!-- Header -->
 
-      
-
     <div class="container content">
       <!-- Slider -->
 
@@ -36,7 +34,6 @@ export default {
       businessNewsHome: [],
     };
   },
-  // methods: mapActions(['getNewsForHomePage']),
   async mounted () {
     this.getNewsForHome({limit: 3, category: 'entertainment'});
     this.getNewsForHome({limit: 3, category: 'science'});

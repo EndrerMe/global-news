@@ -76,7 +76,8 @@ export default {
       weatherImg: ""
     };
   },
-  mounted() {
+  async mounted() {
+    console.log(this.weatherData)
     if (this.weatherData) {
       this.weatherData.main.temp = this.weatherData.main.temp + "";
       this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
