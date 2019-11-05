@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap" v-if='getWeatherData.main'>
+  <div class="header-wrap" v-if="getWeatherData.main">
     <div class="header-content">
       <div class="top-menu-wrap">
         <div class="container">
@@ -109,9 +109,9 @@
             </div>
           </b-navbar>
           <moreWeather
-          :weatherData="currentWeatherData"
-          :isShowMoreWeather="isShowMoreWeather"
-          :isWeatherMap="false"></moreWeather>
+            :weatherData="currentWeatherData"
+            :isShowMoreWeather="isShowMoreWeather"
+            :isWeatherMap="false"></moreWeather>
         </div>
       </div>
       <navigationDesctop></navigationDesctop>
@@ -213,14 +213,14 @@ export default {
   mounted() {
     EventBus.$on("closeConverterModal", () => {
       this.isShowConverterProps = !this.isShowConverterProps;
-    })
+    });
 
-    EventBus.$on('toggleMoreWeather', (state) => {
+    EventBus.$on("toggleMoreWeather", state => {
       this.currentWeatherData = state.weatherData;
-      console.log(this.currentWeatherData)
+      console.log(this.currentWeatherData);
       this.isShowMoreWeather = state.state;
-    })
-    
+    });
+
     if (this.getWeatherData.main) {
       this.changeTemplateWeather(this.getWeatherData);
     }
@@ -413,7 +413,8 @@ export default {
 }
 #nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap {
   position: absolute;
-  right: 34px;
+  right: 37px;
+  top: 2px;
 }
 
 #nav-collapse .sub-wrap .wide-menu .search-wrap .search-input {

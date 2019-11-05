@@ -83,7 +83,6 @@ export default {
 
 .new-card .gradient {
   position: absolute;
-  top: 0bott;
   top: 0;
   bottom: 0;
   left: 0;
@@ -248,7 +247,6 @@ export default {
     font-size: 20px !important;
   }
   .image-wrap {
-    width: 245px !important;
     height: 245px !important;
   }
   .card-title {

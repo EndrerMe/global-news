@@ -305,25 +305,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   padding: 19px 0 10px 0;
   border-bottom: 2px solid #b3abab;
 }
-/* .card-footer {
-  padding: 15px 0 0 0 !important;
-  background-color: unset !important;
-  display: flex;
-  justify-content: space-between;
-} */
-
-/* .new-card {
-  margin: 0 auto !important;
-  max-width: 526px !important;
-  border: none !important;
-} */
-/* .new-card img {
-  width: 100%;
-} */
-
-/* .new-card .card-body {
-  padding: 0 !important;
-} */
 
 /* Business */
 .business-wrap {
