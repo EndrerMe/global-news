@@ -13,7 +13,6 @@
             <b-card-text>
               <span>{{ news.publishedAt | moment("from", "now") }}</span>
               <span>{{ news.source.name }}</span>
-              
             </b-card-text>
 
             <div class="description-wrap">
@@ -48,7 +47,7 @@
                       />
                     </svg>
                   </network>
-                  <network network="linkedin" class="social">
+                  <network network="linkedin" class="social linkedin">
                     <svg
                       id="linkedin"
                       xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +113,7 @@
           </b-card>
 
           <!-- Latest News -->
-          <latestNews :latestNews='getNewsFromState'></latestNews>
+          <latestNews :latestNews="getNewsFromState"></latestNews>
         </b-card-group>
       </div>
     </div>
@@ -122,33 +121,46 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
-import latestNews from './../../../components/latestNews';
+import { mapGetters, mapActions } from "vuex";
+import latestNews from "./../../../components/latestNews";
 
 export default {
-  props: ['news', 'category'],
+  props: ["news", "category"],
   components: {
     latestNews
   },
-  name: 'newsInfo',
-  computed: mapGetters(['getNewsFromState']),
-  methods: mapActions(['getNewsData']),
-  async mounted () {
-    this.getNewsData({category: this.category, limit: 3, page: 1});
+  name: "newsInfo",
+  computed: mapGetters(["getNewsFromState"]),
+  methods: mapActions(["getNewsData"]),
+  async mounted() {
+    this.getNewsData({ category: this.category, limit: 3, page: 1 });
   }
-  
-}
+};
 </script>
 
 <style>
+@media (max-width: 1139px) {
+  .card-wrap .new-info .social-networks-wrap span {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
 </style>
-
 
 <style scoped>
 /* Common */
 @media (max-width: 1139px) {
   .container {
     max-width: 814px !important;
+  }
+  .card-wrap .new-info .social-networks-wrap span {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
+@media (max-width: 575px) {
+  .card-deck {
+    flex-flow: wrap;
   }
 }
 
@@ -157,9 +169,11 @@ export default {
   .card-wrap .new-info .title-wrap .text {
     font-size: 22px !important;
   }
-
   .card-wrap .new-info .description-wrap {
     font-size: 14px !important;
+  }
+  .card-wrap .new-info .card-text {
+    font-size: 12px !important;
   }
 }
 @media (max-width: 812px) {
@@ -167,48 +181,23 @@ export default {
     font-size: 18px !important;
   }
 }
-
+@media (max-width: 725px) {
+  .card-wrap .new-info .social-networks-wrap .icons-wrap {
+    margin-bottom: 10px;
+  }
+}
 @media (max-width: 575px) {
   .new-info {
     max-width: unset !important;
   }
-
   .description-wrap {
     margin-top: 0 !important;
   }
   .social-networks-wrap {
     margin-top: 0 !important;
   }
-}
-
-/* Latest News */
-@media (max-width: 1139px) {
-  .card-wrap .latest-news .text {
-    font-size: 22px !important;
-  }
-  .card-wrap .latest-news .description-wrap span {
-    font-size: 16px !important;
-  }
-}
-@media (max-width: 812px) {
-  .card-wrap .latest-news .text {
-    font-size: 18px !important;
-  }
-}
-@media (max-width: 690px) {
-  .card-wrap .latest-news .text {
-    font-size: 16px !important;
-  }
-}
-@media (max-width: 610px) {
-  .card-wrap .latest-news .text {
-    font-size: 14px !important;
-  }
-}
-
-@media (max-width: 575px) {
-  .latest-news {
-    max-width: unset !important;
+  .card-wrap .new-info{
+    margin-bottom: 0;
   }
 }
 </style>
@@ -255,7 +244,6 @@ export default {
 .card-wrap .latest-news .item-wrap img {
   width: 100%;
 }
-
 .card-wrap .latest-news .item-wrap .category-wrap {
   position: absolute;
   font-size: 14px;
@@ -309,62 +297,15 @@ export default {
   color: #c3c3c3;
   font-size: 18px;
   padding-top: 25px;
-  border:none;
+  border: none;
 }
 
 .card-wrap .new-info .description-wrap {
   text-align: start;
-  margin-top: 34px;
   max-width: 1082px;
   font-size: 22px;
   border-bottom: none;
-}
-
-/* Latest News */
-.latest-news .card-body .title-wrap {
-  display: flex;
-  align-items: center;
-}
-.latest-news .card-body .title-wrap span {
-  display: block;
-}
-
-.latest-news .card-body .title-wrap::after {
-  content: "";
-  width: 32%;
-  height: 2px;
-  background-color: #052962;
-  display: inline-block;
-  margin-left: 15px;
-}
-
-.card-wrap .latest-news .title-wrap {
-  position: relative;
-  text-align: start;
-  padding: 37px 0;
-}
-
-.card-wrap .latest-news .title-wrap .text {
-  font-size: 32px;
-  color: #052962;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.card-wrap .latest-news .item-wrap img {
-  width: 100%;
-}
-.card-wrap .latest-news .description-wrap {
-  text-align: start;
-  max-width: 526px;
-  padding-top: 15px;
-  color: black;
-  padding-bottom: 27px;
-  border-bottom: none;
-}
-.card-wrap .latest-news .description-wrap span {
-  font-size: 20px;
-  font-family: "Amiri-Bold";
+  font-family: "Poppins-Regular";
 }
 </style>
 
@@ -380,12 +321,16 @@ export default {
 }
 
 .card-wrap .new-info .social-networks-wrap .icons-wrap span {
-  outline:none;
-  }
+  outline: none;
+}
 
 .card-wrap .new-info .social-networks-wrap span svg {
   fill: #052962;
 }
+.card-wrap .new-info .social-networks-wrap span.linkedin svg {
+  width: 15px;
+}
+
 .card-wrap .new-info .social-networks-wrap span:hover {
   background-color: #052962;
 }
@@ -394,8 +339,8 @@ export default {
 }
 
 .card-wrap .new-info .social-networks-wrap span {
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
   display: block;
   border: 2px solid #052962;
   display: flex;

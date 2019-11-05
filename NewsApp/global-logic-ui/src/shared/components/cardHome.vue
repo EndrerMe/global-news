@@ -132,6 +132,7 @@ export default {
   font-family: "Amiri-Bold";
   font-size: 20px;
   bottom: 5px;
+  z-index: 1;
 }
 .card-text {
   padding: 19px 0 10px 0;
