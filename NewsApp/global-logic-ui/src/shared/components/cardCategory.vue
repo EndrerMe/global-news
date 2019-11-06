@@ -61,6 +61,7 @@ export default {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+  border-radius: unset !important;
 }
 .new-card .gradient {
   position: absolute;
