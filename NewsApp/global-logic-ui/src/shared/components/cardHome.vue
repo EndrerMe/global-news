@@ -40,7 +40,7 @@ export default {
     Slick
   },
   name: "cardHome",
-  props: ["sendedNews", "title", "category", 'titleBorder'],
+  props: ["sendedNews", "title", "category", "titleBorder"],
   data() {
     return {
       slickOptions: {
@@ -65,16 +65,17 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
-      'changeCurrentNews'
-    ]),
-    
+    ...mapActions(["changeCurrentNews"]),
+
     goToCurrentNews(news) {
       let category = this.category;
-      this.changeCurrentNews({news: news, category: category});
-      this.$router.push({ name: "news-info", params: { news: news, category: category } });
+      this.changeCurrentNews({ news: news, category: category });
+      this.$router.push({
+        name: "news-info",
+        params: { news: news, category: category }
+      });
     }
-  },
+  }
 };
 </script>
 
@@ -154,6 +155,8 @@ export default {
   display: flex;
   justify-content: space-between;
   border-top: 2px solid #b3abab;
+  font-family: "Poppins-Regular";
+  font-size: 14px;
 }
 .new-card {
   max-width: 526px !important;
@@ -255,7 +258,14 @@ export default {
     bottom: 0;
   }
   .card-body {
-    height: 325px !important;
+    height: 310px !important;
+  }
+  .card-footer {
+    font-size: 10px;
+  }
+  .card-text {
+    font-size: 12px;
+    max-height: 55px;
   }
 }
 @media (max-width: 767px) {
@@ -277,7 +287,7 @@ export default {
     height: 330px !important;
   }
   .new-card .card-body {
-    height: unset !important;
+    height: 395px !important;
   }
   .slick-list {
     height: unset !important;
@@ -286,7 +296,7 @@ export default {
     display: flex !important;
     justify-content: center !important;
   }
-  .new-card{
+  .new-card {
     padding-right: 0;
   }
 }
@@ -305,10 +315,16 @@ export default {
   .image-wrap {
     height: 250px !important;
   }
+  .new-card .card-body {
+    height: 315px !important;
+  }
 }
 @media (max-width: 375px) {
   .image-wrap {
     height: 210px !important;
+  }
+  .new-card .card-body {
+    height: 275px !important;
   }
 }
 </style>
