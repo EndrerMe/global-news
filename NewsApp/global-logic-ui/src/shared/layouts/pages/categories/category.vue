@@ -309,7 +309,7 @@ export default {
   background-color: #c710a2;
   left: 0;
   top: 0;
-}
+}     
 .top-box-preview {
   margin-top: 42px;
   margin-bottom: 62px;
