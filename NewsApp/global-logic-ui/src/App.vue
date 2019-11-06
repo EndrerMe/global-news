@@ -33,19 +33,21 @@ export default {
       weatherData: null,
     }
   },
-  async mounted () {
+  async mounted() {
     this.$getLocation().then(coordinates => {
-      this.getWeather({lat: coordinates.lat, lng: coordinates.lng})       
+      this.$store.dispatch('getWeather', {lat: coordinates.lat, lng: coordinates.lng})
     }).catch(function () {
-      this.getWeather({lat: 51.51062085840897, lng: -0.12035208720763535})  
+      this.$store.dispatch('getWeather', {lat: 51.51062085840897, lng: -0.12035208720763535})
     })
-
-    this.getRates({currentRate: 'USD', exchangeName: 'EUR', rateAmount: 100});
+    this.$store.dispatch('getTopNews', {filter: 'pageSize=6&'});
+    this.$store.dispatch('getRates', {currentRate: 'USD', exchangeName: 'EUR', rateAmount: 100});
   },
   methods: {
     ...mapActions([
       'getWeather',
-      'getRates'
+      'getRates',
+      'getNewsForHome',
+      'getTopNews',
     ])
   }
 };
