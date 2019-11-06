@@ -6,7 +6,7 @@
     >
       <span class="title-text">{{ title }}</span>
     </div>
-    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length">
+    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length" @beforeChange='test($event)'>
       <div
         class="card-wrap"
         v-for="news of sendedNews"
@@ -73,6 +73,10 @@ export default {
       let category = this.category;
       this.changeCurrentNews({news: news, category: category});
       this.$router.push({ name: "news-info", params: { news: news, category: category } });
+    },
+
+    test(e) {
+      console.log(e.target.slick.currentSlide)
     }
   },
 };

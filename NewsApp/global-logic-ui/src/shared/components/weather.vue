@@ -227,8 +227,10 @@
 <script>
 import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
-import lifeSearchService from './../services/lifesearch.service';
+// import lifeSearchService from './../services/lifesearch.service';
 import EventBus from "./../../eventBus";
+// import * as cities from 'all-the-cities';
+import cities from 'cities.json';
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
 
@@ -276,11 +278,15 @@ export default {
     changecountry: _.debounce(function(event) {
       const value = event.target.value;
       this.userCity = value;
-      lifeSearchService.getDataForLifeSearch(value).then((res) => {
-        this.userCity = res.data.data.name;
-      }, (err) => {
-        console.log(err)
+      const res = cities.filter(city => {
+        return city.name.match('Albuquerque')
       })
+      console.log(res)
+      // lifeSearchService.getDataForLifeSearch(value).then((res) => {
+      //   this.userCity = res.data.data.name;
+      // }, (err) => {
+      //   console.log(err)
+      // })
     }, 1000),
 
     getWeather() {
