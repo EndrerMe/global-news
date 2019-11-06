@@ -1,6 +1,6 @@
 <template>
   <div class="component-wrap">
-    <div class="weather-dark-screen">
+    <div class="weather-dark-screen" v-bind:class="{ active: isShowMoreWeather }">
       <div class="weather-details-wrap" v-if="isShowMoreWeather">
         <div class="close-wrap" @click="closeMoreWeather()">
           <a href="#"></a>
@@ -11,9 +11,11 @@
               <p>
                 <span class="switch">Show weather in :</span>
                 <span class="temp-symbol">
-                  <span class="switch-mode active">F</span>
-                  <span class="degree"></span>
-                  C
+                  <span class="switch-mode" v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
+                  <span @click='changeTemp("c")' v-bind:class="{ active: isCelsius }">
+                    <span class="degree"></span>
+                    C
+                  </span>
                 </span>
               </p>
               <p>Place : {{ weatherData.sys.country }}</p>
@@ -68,16 +70,20 @@
 </template>
 
 <script>
+import EventBus from "./../../eventBus";
+import {mapActions, mapGetters} from 'vuex'
+
 export default {
   props: ["isShowMoreWeather", "weatherData", "isWeatherMap"],
   name: "moreWeather",
   data() {
     return {
-      weatherImg: ""
+      weatherImg: "",
+      isCelsius: true,
     };
   },
+  computed: mapGetters(['getWeatherData']),
   async mounted() {
-    console.log(this.weatherData);
     if (this.weatherData) {
       this.weatherData.main.temp = this.weatherData.main.temp + "";
       this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
@@ -93,9 +99,43 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'getWeatherByCountry'
+    ]),
+
     closeMoreWeather() {
-      this.$emit("closeMoreWeather", false);
-    }
+      const weather = this.weatherData;
+      EventBus.$emit("toggleMoreWeather", { state: false, weatherData: weather });
+    },
+
+    changeTemp(temp) {
+      let value = this.weatherData.name;
+      if (temp === 'f') {
+        this.isCelsius = false;
+        this.getWeatherByCountry(value);
+        this.weatherData.main.temp_min = this.getWeatherData.main.temp_min * 1.8 + 32;
+        this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
+        this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
+        this.weatherData.main.temp_max = this.getWeatherData.main.temp_max * 1.8 + 32;
+        this.weatherData.main.temp_max = this.weatherData.main.temp_max + '';
+        this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(".")[0];
+        this.weatherData.main.temp = this.getWeatherData.main.temp * 1.8 + 32;
+        this.weatherData.main.temp = this.weatherData.main.temp + '';
+        this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
+      } else {
+        this.isCelsius = true;
+        this.getWeatherByCountry(value);
+        this.weatherData.main.temp_min = this.getWeatherData.main.temp_min;
+        this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
+        this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
+        this.weatherData.main.temp_max = this.getWeatherData.main.temp_max;
+        this.weatherData.main.temp_max = this.weatherData.main.temp_max + '';
+        this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(".")[0];
+        this.weatherData.main.temp = this.getWeatherData.main.temp;
+        this.weatherData.main.temp = this.weatherData.main.temp + '';
+        this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
+      }
+    },
   },
   watch: {
     weatherData: function() {
@@ -111,7 +151,7 @@ export default {
       )[0];
       this.weatherImg = `http://openweathermap.org/img/wn/${this.weatherData.weather[0].icon}@2x.png`;
     }
-  }
+  },
 };
 </script>
 

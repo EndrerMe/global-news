@@ -6,6 +6,12 @@ export default {
             weatherService.getWeather(coord.lat, coord.lng).then(res => {
                 ctx.commit('updateWeatherData', res.data)
             });            
+        },
+
+        async getWeatherByCountry(ctx, place) {
+            weatherService.getWeatherByCountry(place).then(res => {
+                ctx.commit('updateWeatherData', res.data);
+            })
         }
     },
 

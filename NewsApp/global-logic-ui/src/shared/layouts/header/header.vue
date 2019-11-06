@@ -217,7 +217,6 @@ export default {
 
     EventBus.$on("toggleMoreWeather", state => {
       this.currentWeatherData = state.weatherData;
-      console.log(this.currentWeatherData);
       this.isShowMoreWeather = state.state;
     });
 
