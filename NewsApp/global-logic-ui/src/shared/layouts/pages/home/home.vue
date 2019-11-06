@@ -53,16 +53,22 @@ export default {
       for (let i = 0; i < 3; i++) {
         this.entertainmentNewsHome.push(res.data.articles[i]);
       }
+
+      this.entertainmentNewsHome[1].isCenter = true;
     })
     newsService.getData('science', 1).then((res) => {
       for (let i = 0; i < 3; i++) {
         this.scienceNewsHome.push(res.data.articles[i]);
       }
+
+      this.scienceNewsHome[1].isCenter = true;
     })
     newsService.getData('business', 1).then((res) => {
       for (let i = 0; i < 3; i++) {
         this.businessNewsHome.push(res.data.articles[i]);
       }
+
+      this.businessNewsHome[1].isCenter = true;
     })
   },
   created() {

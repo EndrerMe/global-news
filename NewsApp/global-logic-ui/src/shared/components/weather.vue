@@ -9,7 +9,7 @@
           <div class="text-wrap">
             <span>
               Did you mean
-              <span class="search-result" @click='getWeather()'>{{ userCity }}</span>?
+              <span class="search-result" @click='getWeather()'>{{ probablyCity }}</span>?
             </span>
           </div>
         </div>
@@ -252,7 +252,8 @@ export default {
       isCelsius: true,
       currentWeather: null,
       currentWeatherImg: null,
-      isShowMoreWeather: false
+      isShowMoreWeather: false,
+      probablyCity: "London"
     };
   },
   methods: {
@@ -279,9 +280,9 @@ export default {
       const value = event.target.value;
       this.userCity = value;
       const res = cities.filter(city => {
-        return city.name.match('Albuquerque')
+        return city.name.match(value)
       })
-      console.log(res)
+      this.probablyCity = res[0].name;
       // lifeSearchService.getDataForLifeSearch(value).then((res) => {
       //   this.userCity = res.data.data.name;
       // }, (err) => {
