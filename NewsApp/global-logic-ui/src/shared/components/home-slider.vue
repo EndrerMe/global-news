@@ -4,6 +4,7 @@
     :interval="4000"
     controls
     indicators
+    v-model='currentSlide'
     background="#ababab"
     img-width="1024"
     img-height="480"
@@ -22,7 +23,20 @@
 <script>
 export default {
   props: ["slidesNews"],
-  name: "homeSlider"
+  name: "homeSlider",
+  data() {
+    return {
+      currentSlide: null,
+    }
+  },
+  created() {
+    console.log(this.currentSlide)
+  },
+  watch: {
+    currentSlide(newVal) {
+      console.log(newVal)
+    }
+  }
 };
 </script>
 <style>

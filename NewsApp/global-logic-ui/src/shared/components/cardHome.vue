@@ -6,9 +6,10 @@
     >
       <span class="title-text">{{ title }}</span>
     </div>
-    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length">
+    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length" @beforeChange='test($event)'>
       <div
         class="card-wrap"
+        v-bind:class="{ 'center-element': !isCenterSlide }"
         v-for="news of sendedNews"
         v-bind:key="news.title"
         @click="goToCurrentNews(news)"
@@ -43,6 +44,7 @@ export default {
   props: ["sendedNews", "title", "category", "titleBorder"],
   data() {
     return {
+      isCenterSlide: false,
       slickOptions: {
         slidesToShow: 3,
         infinite: true,
@@ -69,11 +71,16 @@ export default {
 
     goToCurrentNews(news) {
       let category = this.category;
-      this.changeCurrentNews({ news: news, category: category });
-      this.$router.push({
-        name: "news-info",
-        params: { news: news, category: category }
-      });
+      this.changeCurrentNews({news: news, category: category});
+      this.$router.push({ name: "news-info", params: { news: news, category: category } });
+    },
+
+    test(e) {
+      if (e.target.slick.currentSlide === 1) {
+        this.isCenterSlide = true;
+      } else {
+        this.isCenterSlide = false;
+      }
     }
   }
 };

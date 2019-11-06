@@ -20,6 +20,18 @@ export default {
             })
         },
 
+        async search(ctx, data) {
+            return new Promise((resolve, reject) => {
+                newsService.searchByTitle(data.value).then((res) => {
+                    let news = res.data.articles;
+                    ctx.commit('updateSearchRes', news);
+                    resolve(news)
+                }).catch(res => {
+                    reject(res)
+                })
+            })
+        },
+
         async getNewsForHome(ctx, data) {
             newsService.getData(data.category, data.page).then((res) => {
             let newsCol = data.limit;
@@ -87,8 +99,13 @@ export default {
             localStorage.setItem('currentNews', JSON.stringify(data));
             state.currentNews = data;
         },
+
+        updateSearchRes(state, data) {
+            state.searchRes = data;
+        }
     },
     state: {
+        searchRes: [],
         newsHome: [],
         news: [],
         topNews: [],
@@ -113,6 +130,10 @@ export default {
 
         getNews(state) {
             return state.news;
+        },
+
+        getSearchRes(state) {
+            return state.searchRes;
         }
     },
 }
