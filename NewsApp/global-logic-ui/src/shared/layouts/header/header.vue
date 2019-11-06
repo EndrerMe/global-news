@@ -65,7 +65,12 @@
                       <label for="search-input" class="icon-wrap">
                         <font-awesome-icon icon="search" class="fa-lg" />
                       </label>
-                      <input id="search-input" class="search-input" v-on:input="searchBytitle($event)" v-model='searchValue'/>
+                      <input
+                        id="search-input"
+                        class="search-input"
+                        v-on:input="searchBytitle($event)"
+                        v-model="searchValue"
+                      />
                     </div>
                     <div class="bell active" @click="showSubscribeFullFun()">
                       <a href="#">
@@ -111,11 +116,61 @@
           <moreWeather
             :weatherData="currentWeatherData"
             :isShowMoreWeather="isShowMoreWeather"
-            :isWeatherMap="false"></moreWeather>
+            :isWeatherMap="false"
+          ></moreWeather>
         </div>
       </div>
       <navigationDesctop></navigationDesctop>
     </div>
+
+    <!-- <div class="loader-wrapper">
+      <div class="loader loader--style7" title="6">
+        <svg
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="54px"
+          height="80px"
+          viewBox="0 0 24 30"
+          style="enable-background:new 0 0 50 50;"
+          xml:space="preserve"
+        >
+          <rect x="0" y="0" width="4" height="20" fill="#333">
+            <animate
+              attributeName="opacity"
+              attributeType="XML"
+              values="1; .2; 1"
+              begin="0s"
+              dur="1s"
+              repeatCount="indefinite"
+            />
+          </rect>
+          <rect x="7" y="0" width="4" height="20" fill="#333">
+            <animate
+              attributeName="opacity"
+              attributeType="XML"
+              values="1; .2; 1"
+              begin="0.2s"
+              dur="1s"
+              repeatCount="indefinite"
+            />
+          </rect>
+          <rect x="14" y="0" width="4" height="20" fill="#333">
+            <animate
+              attributeName="opacity"
+              attributeType="XML"
+              values="1; .2; 1"
+              begin="0.4s"
+              dur="1s"
+              repeatCount="indefinite"
+            />
+          </rect>
+        </svg>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -127,7 +182,7 @@ import converterDesctop from "./../../components/converter";
 import moreWeather from "./../../components/more-weather";
 import EventBus from "./../../../eventBus";
 import { mapGetters, mapActions } from "vuex";
-import _ from 'lodash';
+import _ from "lodash";
 
 export default {
   name: "HeaderDesctop",
@@ -138,10 +193,10 @@ export default {
     converterDesctop,
     moreWeather
   },
-  computed: mapGetters(["getWeatherData", 'getSearchRes']),
+  computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
     return {
-      searchValue: '',
+      searchValue: "",
       currentWeatherData: null,
       isShowSideMenu: false,
       isShowWeatherModalProps: false,
@@ -184,9 +239,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
-      'search'
-    ]),
+    ...mapActions(["search"]),
 
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
@@ -216,40 +269,40 @@ export default {
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
     },
 
-    searchBytitle:_.debounce(function(event) {
+    searchBytitle: _.debounce(function(event) {
       this.searchValue = event.target.value;
       const value = event.target.value;
-          if (this.searchValue.length > 0) {
-            this.search({value: value}).then((res) => {
-              console.log(res)
-            })
-              // newsService.searchByTitle(this.searchValue).then((res) => {
-              //     this.currentNews = res.data.articles;
-              //     this.isLoaderShow = false;
-              //     if (this.currentNews.length === 0) {
-              //         this.isNothingFind = true;
-              //     }
-              //     this.isOverRequest = false;
-              // }, (err) => {
-              //     if (err) {
-              //         this.isOverRequest = true;
-              //         this.isLoaderShow = false;
-              //     }
-              // })
-          } else if (this.searchValue.length === 0) {
-              // newsService.getData(this.category, 1).then(res => {
-              //     this.currentNews = res.data.articles;
-              //     this.isLoaderShow = false;
-              //     this.isNothingFind = false;
-              //     this.isOverRequest = false
-              // }, (err) => {
-              //     if (err) {
-              //         this.isOverRequest = true;
-              //         this.isLoaderShow = false;
-              //     }
-              // });
-          }
-      }, 1000),
+      if (this.searchValue.length > 0) {
+        this.search({ value: value }).then(res => {
+          console.log(res);
+        });
+        // newsService.searchByTitle(this.searchValue).then((res) => {
+        //     this.currentNews = res.data.articles;
+        //     this.isLoaderShow = false;
+        //     if (this.currentNews.length === 0) {
+        //         this.isNothingFind = true;
+        //     }
+        //     this.isOverRequest = false;
+        // }, (err) => {
+        //     if (err) {
+        //         this.isOverRequest = true;
+        //         this.isLoaderShow = false;
+        //     }
+        // })
+      } else if (this.searchValue.length === 0) {
+        // newsService.getData(this.category, 1).then(res => {
+        //     this.currentNews = res.data.articles;
+        //     this.isLoaderShow = false;
+        //     this.isNothingFind = false;
+        //     this.isOverRequest = false
+        // }, (err) => {
+        //     if (err) {
+        //         this.isOverRequest = true;
+        //         this.isLoaderShow = false;
+        //     }
+        // });
+      }
+    }, 1000)
   },
   mounted() {
     EventBus.$on("closeConverterModal", () => {
@@ -288,6 +341,39 @@ export default {
 </style>
 
 <style scoped>
+/* Loader */
+/* .loader {
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+svg path,
+svg rect {
+  fill: #ff6700;
+}
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.4822303921568627) 100%
+  );
+  z-index: 999;
+} */
+/* end */
+
 .converter-wrap a:hover {
   cursor: default;
 }
