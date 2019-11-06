@@ -29,14 +29,6 @@ export default {
       currentSlide: null,
     }
   },
-  created() {
-    console.log(this.currentSlide)
-  },
-  watch: {
-    currentSlide(newVal) {
-      console.log(newVal)
-    }
-  }
 };
 </script>
 <style>

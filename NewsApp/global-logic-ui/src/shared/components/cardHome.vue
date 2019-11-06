@@ -9,8 +9,8 @@
     <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length" @beforeChange='test($event)'>
       <div
         class="card-wrap"
-        v-bind:class="{ 'center-element': !isCenterSlide }"
         v-for="news of sendedNews"
+        v-bind:class="{ 'center-element': !isCenterSlide || news.isCenter }"
         v-bind:key="news.title"
         @click="goToCurrentNews(news)"
       >
