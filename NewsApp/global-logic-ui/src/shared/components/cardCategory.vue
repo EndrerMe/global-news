@@ -52,9 +52,12 @@ export default {
 }
 .new-card .image-wrap {
   position: relative;
-  height: 330px;
+  padding-bottom: 100%;
+  width: 100%;
 }
 .new-card .image-wrap img {
+  position: absolute;
+  left: 0;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -116,7 +119,7 @@ export default {
 }
 .card-deck {
   margin-bottom: 60px;
-} 
+}
 .card-deck .card {
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -126,9 +129,6 @@ export default {
 @media (max-width: 1139px) {
   .new-card .title-wrap {
     font-size: 12px !important;
-  }
-  .new-card .image-wrap {
-    height: 200px !important;
   }
   .new-card .card-text {
     font-size: 12px;
@@ -150,12 +150,6 @@ export default {
   }
   .new-card {
     margin-bottom: 30px !important;
-  }
-  .new-card .image-wrap {
-    height: 450px !important;
-  }
-  .new-card .image-wrap {
-    height: unset !important;
   }
 }
 @media (max-width: 600px) {
