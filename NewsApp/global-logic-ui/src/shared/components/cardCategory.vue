@@ -77,6 +77,7 @@ export default {
     rgba(0, 0, 0, 0.9416141456582633) 0%,
     rgba(255, 255, 255, 0) 30%
   );
+  z-index: 1;
 }
 .new-card .title-wrap {
   position: absolute;
@@ -90,6 +91,7 @@ export default {
   left: 50%;
   transform: translate(-50%);
   font-family: "Amiri-Bold";
+  z-index: 2;
 }
 .new-card .title-wrap p {
   margin-bottom: 0;

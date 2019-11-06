@@ -101,6 +101,7 @@ export default {
     rgba(0, 0, 0, 0.9416141456582633) 0%,
     rgba(255, 255, 255, 0) 30%
   );
+  z-index: 1;
 }
 
 .elem-wrap {
@@ -149,7 +150,7 @@ export default {
   font-family: "Amiri-Bold";
   font-size: 20px;
   bottom: 5px;
-  z-index: 1;
+  z-index: 2;
 }
 .card-text {
   padding: 19px 0 10px 0;
