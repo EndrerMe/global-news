@@ -49,7 +49,7 @@ export default {
         slidesToShow: 3,
         infinite: true,
         accessibility: true,
-        adaptiveHeight: true,
+        adaptiveHeight: false,
         arrows: true,
         dots: true,
         draggable: true,
@@ -126,11 +126,14 @@ export default {
   margin-top: 30px;
 }
 .new-card .image-wrap {
-  height: 330px;
-  position: relative;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    height: 0;
 }
 
 .new-card .image-wrap img {
+  position:absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -166,7 +169,6 @@ export default {
   font-size: 14px;
 }
 .new-card {
-  max-width: 526px !important;
   border: none !important;
   padding-bottom: 15px;
   padding-left: 0;
@@ -175,7 +177,6 @@ export default {
 
 .new-card .card-body {
   padding: 0 !important;
-  height: 408px;
 }
 
 .entertainment-wrap {
@@ -306,6 +307,10 @@ export default {
   .new-card {
     padding-right: 0;
   }
+  .new-card .image-wrap{
+    padding-bottom: 0;
+  }
+
 }
 @media (max-width: 575px) {
   .business-wrap .title-wrap .title-text,
