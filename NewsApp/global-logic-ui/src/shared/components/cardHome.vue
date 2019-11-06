@@ -10,7 +10,7 @@
       <div
         class="card-wrap"
         v-for="news of sendedNews"
-        v-bind:class="{ 'center-element': !isCenterSlide || news.isCenter }"
+        v-bind:class="{ 'center-element': news.isCenter }"
         v-bind:key="news.title"
         @click="goToCurrentNews(news)"
       >
