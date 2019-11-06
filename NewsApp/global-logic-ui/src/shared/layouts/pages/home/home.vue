@@ -9,7 +9,12 @@
       <div class="slider-wrap">
         <homeSlider :slidesNews='getTopNewsFromState'></homeSlider>
       </div>
-      <cardHome v-for='news of getNewsFromState' :key='news.category' :sendedNews='news' :category="news.category" :title="news.category" :titleBorder="'c710a2'"></cardHome>
+      <!-- <cardHome :sendedNews='businessNewsHome' :category="'business'" :title="'business'" :titleBorder="'c710a2'"></cardHome>
+      <cardHome :key='entertainmentNews.title' :sendedNews='entertainmentNewsHome' :category="'entertainment'" :title="'entertainment'" :titleBorder="'ff995e'"></cardHome>
+      <cardHome :sendedNews='scienceNewsHome' :category="'science'" :title="'science'" :titleBorder="'10c7ba'"></cardHome> -->
+      <cardHome :sendedNews='businessNewsHome' :title="'Business'" :category="'science'" :titleBorder="'10c7ba'"></cardHome>
+      <cardHome :sendedNews='scienceNewsHome' :title="'Entertainment'" :category="'entertainment'" :titleBorder="'ff995e'"></cardHome>
+      <cardHome :sendedNews='entertainmentNewsHome' :title="'Science'" :category="'business'" :titleBorder="'c710a2'"></cardHome>
     </div>
   </div>
 </template>
@@ -17,16 +22,25 @@
 <script>
 import cardHome from './../../../components/cardHome';
 import homeSlider from './../../../components/home-slider';
-import {mapGetters, mapActions} from 'vuex'
+import newsService from './../../../services/news.service';
+import {mapGetters, mapState } from 'vuex'
 
 export default {
   components: { 
     cardHome,
     homeSlider
   },
-  computed: mapGetters(['getNewsFromState', 'getTopNewsFromState']),
+  computed: {
+    ...mapGetters(['getTopNewsFromState', 'getNewsFromState']),
+    ...mapState({
+      newsHome: (state) => {
+        this.currentNews = state.news.newsHome;
+      },
+    }),
+  },
   data() {
     return {
+      currentNews: [],
       isShowSideMenu: false,
       slidesNews: [],
       entertainmentNewsHome: [],
@@ -34,18 +48,32 @@ export default {
       businessNewsHome: [],
     };
   },
+  beforeCreate() {
+    newsService.getData('entertainment', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.entertainmentNewsHome.push(res.data.articles[i]);
+      }
+    })
+    newsService.getData('science', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.scienceNewsHome.push(res.data.articles[i]);
+      }
+    })
+    newsService.getData('business', 1).then((res) => {
+      for (let i = 0; i < 3; i++) {
+        this.businessNewsHome.push(res.data.articles[i]);
+      }
+    })
+  },
+  created() {
+    this.$store.subscribe((mutation, state) => {    
+      this.currentNews = state.news.newsHome;
+    })
+  },
   async mounted () {
-    this.getNewsForHome({limit: 3, category: 'entertainment'});
-    this.getNewsForHome({limit: 3, category: 'science'});
-    this.getNewsForHome({limit: 3, category: 'business'});
-    this.getTopNews({filter: 'pageSize=6&'});
+    this.currentNews = this.getNewsFromState;
   },
   methods: {
-    ...mapActions([
-      'getNewsForHome',
-      'getTopNews',
-    ]),
-
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
     },

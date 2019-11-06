@@ -69,7 +69,15 @@ export default {
 
         updateNewsForHome(state, data) {
             data.news.category = data.category;
-            state.newsHome.push(data.news);
+
+            if (data.category === 'business') {
+                state.newsHome[0] = data.news;
+            } else if (data.category === 'entertainment') {
+                state.newsHome[1] = data.news;
+            } else if (data.category === 'science') {
+                state.newsHome[2] = data.news;
+            }
+
             if (state.newsHome.length > 3) {
                 state.newsHome.splice(3, state.newsHome.length - 3);
             }
