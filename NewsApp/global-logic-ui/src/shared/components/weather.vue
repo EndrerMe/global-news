@@ -35,7 +35,7 @@
                 <span class="degree"></span>
                 C
               </span>
-              <span v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
+              <span class="mode" v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
             </span>
           </span>
         </div>

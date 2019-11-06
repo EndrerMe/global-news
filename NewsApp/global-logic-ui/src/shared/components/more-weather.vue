@@ -11,8 +11,8 @@
               <p>
                 <span class="switch">Show weather in :</span>
                 <span class="temp-symbol">
-                  <span class="switch-mode" v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
-                  <span @click='changeTemp("c")' v-bind:class="{ active: isCelsius }">
+                  <span class="mode" v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
+                  <span class="mode" @click='changeTemp("c")' v-bind:class="{ active: isCelsius }">
                     <span class="degree"></span>
                     C
                   </span>
@@ -220,7 +220,7 @@ export default {
 .weather-details-wrap .temp-symbol span {
   margin: 0 5px;
 }
-.weather-details-wrap .temp-symbol .switch-mode.active {
+.weather-details-wrap .temp-symbol .mode.active {
   color: #f8c61a;
 }
 .weather-details-wrap .temp-symbol .degree::before {
