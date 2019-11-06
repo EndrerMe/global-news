@@ -28,16 +28,14 @@ export default {
   name: "cardCategory",
   props: ["news", "category"],
   methods: {
-    ...mapActions([
-      'changeCurrentNews'
-    ]),
+    ...mapActions(["changeCurrentNews"]),
 
     goToCurrentNews(news) {
       const category = this.category;
-      this.changeCurrentNews({news: news, category: category});
+      this.changeCurrentNews({ news: news, category: category });
       this.$router.push({ name: "news-info", params: { news, category } });
     }
-  },
+  }
 };
 </script>
 
@@ -46,7 +44,7 @@ export default {
   border: none !important;
 }
 .new-card .text-wrap p {
-  max-block-size: 70px;
+  max-height: 70px;
   overflow: hidden;
 }
 .new-card .card-body {
@@ -88,6 +86,7 @@ export default {
   bottom: 25px;
   left: 50%;
   transform: translate(-50%);
+  font-family: "Amiri-Bold";
 }
 .new-card .title-wrap p {
   margin-bottom: 0;
@@ -100,9 +99,12 @@ export default {
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #b3abab;
+  font-size: 14px;
+  font-family: "Poppins-Regular";
 }
+
 .new-card .card-text {
-  padding: 18px 0 13px 0;
+  padding: 20px 0 13px 0;
   text-align: start;
   border: none;
   font-family: "Poppins-Regular";
@@ -112,6 +114,15 @@ export default {
   padding-bottom: 10px;
   height: 80px;
 }
+.card-deck {
+  margin-bottom: 60px;
+} 
+.card-deck .card {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 50px !important;
+}
+
 @media (max-width: 1139px) {
   .new-card .title-wrap {
     font-size: 12px !important;
@@ -129,6 +140,9 @@ export default {
   .new-card .title-wrap {
     bottom: 10px;
   }
+  .card-deck .card-footer {
+    font-size: 10px;
+  }
 }
 @media (max-width: 767px) {
   .new-card .title-wrap {
@@ -139,9 +153,6 @@ export default {
   }
   .new-card .image-wrap {
     height: 450px !important;
-  }
-  .content .top-box-preview {
-    height: unset !important;
   }
   .new-card .image-wrap {
     height: unset !important;
@@ -158,9 +169,6 @@ export default {
   }
 }
 @media (max-width: 419px) {
-  .left-side .title-wrap,
-  .right-side-top .title-wrap,
-  .right-side-bottom .title-wrap,
   .new-card .title-wrap {
     font-size: 14px !important;
   }
