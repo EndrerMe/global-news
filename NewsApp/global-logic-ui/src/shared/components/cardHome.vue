@@ -156,11 +156,11 @@ export default {
   border-top: 2px solid #b3abab;
 }
 .new-card {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
   max-width: 526px !important;
   border: none !important;
   padding-bottom: 15px;
+  padding-left: 0;
+  padding-right: 10;
 }
 
 .new-card .card-body {
@@ -285,6 +285,9 @@ export default {
   .card-wrap {
     display: flex !important;
     justify-content: center !important;
+  }
+  .new-card{
+    padding-right: 0;
   }
 }
 @media (max-width: 575px) {
