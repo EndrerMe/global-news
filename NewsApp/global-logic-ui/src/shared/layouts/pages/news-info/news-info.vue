@@ -8,18 +8,17 @@
               <span class="text">{{currentNews.title}}</span>
             </div>
 
-            <b-card-img v-if='currentNews.urlToImage' :src="currentNews.urlToImage"></b-card-img>
-
-            <b-card-text>
-              <span>{{ currentNews.publishedAt | moment("from", "now") }}</span>
-              <span v-if='currentNews.source'>{{ currentNews.source.name }}</span>
-            </b-card-text>
+            <b-card-img v-if="currentNews.urlToImage" :src="currentNews.urlToImage"></b-card-img>
 
             <div class="description-wrap">
               <p>{{ currentNews.content }}</p>
             </div>
 
             <div class="social-networks-wrap">
+              <div class="news-published">
+                <span>{{ currentNews.publishedAt | moment("from", "now") }}</span>
+              </div>
+
               <social-sharing
                 url
                 :title="currentNews.title"
@@ -131,10 +130,10 @@ export default {
   data() {
     return {
       news: [],
-      category: '',
+      category: "",
       currentNews: [],
-      currentCategory: '',
-    }
+      currentCategory: ""
+    };
   },
   name: "newsInfo",
   computed: mapGetters(["getNews"]),
@@ -148,12 +147,14 @@ export default {
       this.currentNews = this.news;
       this.currentCategory = this.category;
     } else {
-      this.currentNews = JSON.parse(localStorage.getItem('currentNews')).news;
-      this.currentCategory = JSON.parse(localStorage.getItem('currentNews')).category;
+      this.currentNews = JSON.parse(localStorage.getItem("currentNews")).news;
+      this.currentCategory = JSON.parse(
+        localStorage.getItem("currentNews")
+      ).category;
     }
     const category = this.currentCategory;
     this.getNewsData({ category: category, limit: 3, page: 1 });
-  },
+  }
 };
 </script>
 
@@ -215,7 +216,7 @@ export default {
   .social-networks-wrap {
     margin-top: 0 !important;
   }
-  .card-wrap .new-info{
+  .card-wrap .new-info {
     margin-bottom: 0;
   }
 }
@@ -310,13 +311,12 @@ export default {
   text-transform: uppercase;
 }
 
-.card-wrap .new-info .card-text {
+.card-wrap .new-info .news-published {
   display: flex;
-  justify-content: space-between;
   color: #c3c3c3;
   font-size: 18px;
-  padding-top: 25px;
   border: none;
+  font-family: "Poppins-Regular";
 }
 
 .card-wrap .new-info .description-wrap {
@@ -333,6 +333,8 @@ export default {
 .card-wrap .new-info .social-networks-wrap {
   position: relative;
   margin-top: 90px;
+  display: flex;
+  justify-content: space-between;
 }
 .card-wrap .new-info .social-networks-wrap .icons-wrap {
   display: flex;
@@ -343,21 +345,21 @@ export default {
   outline: none;
 }
 
-.card-wrap .new-info .social-networks-wrap span svg {
+.card-wrap .new-info .social-networks-wrap span.social svg {
   fill: #052962;
 }
 .card-wrap .new-info .social-networks-wrap span.linkedin svg {
   width: 15px;
 }
 
-.card-wrap .new-info .social-networks-wrap span:hover {
+.card-wrap .new-info .social-networks-wrap span.social:hover {
   background-color: #052962;
 }
 .card-wrap .new-info .social-networks-wrap span:hover svg {
   fill: #f8c61a;
 }
 
-.card-wrap .new-info .social-networks-wrap span {
+.card-wrap .new-info .social-networks-wrap span.social {
   width: 40px;
   height: 40px;
   display: block;

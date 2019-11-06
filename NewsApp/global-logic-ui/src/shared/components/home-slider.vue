@@ -10,9 +10,10 @@
     img-height="480"
     style="text-shadow: 1px 1px 2px #333;"
   >
+    <div class="gradient"></div>
     <b-carousel-slide v-for="news of slidesNews" :key="news.title" :img-src="news.urlToImage">
       <div class="slide-title">
-        <span>{{ news.title }}</span>
+        <span class="title-text">{{ news.title }}</span>
         <span class="slide-category general">{{ news.source.name }}</span>
       </div>
     </b-carousel-slide>
@@ -40,6 +41,22 @@ export default {
 </script>
 <style>
 /* Slider */
+
+.carousel-inner .gradient {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 0) 61%
+  );
+}
+
 .carousel-inner {
   height: 766px !important;
 }
@@ -51,10 +68,11 @@ export default {
   height: 100%;
 }
 .carousel-caption {
+  width: 100%;
   position: absolute;
   right: unset !important;
+  left: unset !important;
   bottom: 10% !important;
-  left: 30px !important;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -62,22 +80,27 @@ export default {
   text-align: center;
 }
 .carousel-caption .slide-title {
-  max-width: 400px;
+  padding-left: 30px;
+  max-width: 30%;
   text-align: start;
   font-family: "Amiri-Bold";
 }
-.carousel-caption .slide-title span {
+.carousel-caption .slide-title .title-text {
+  display: inline-block;
+  max-height: 500px;
+  overflow: hidden;
   font-size: 40px;
 }
 
 .carousel-caption .slide-title .slide-category {
+  position: relative;
   display: flex;
   flex-direction: column;
   font-size: 16px;
   text-align: start;
   letter-spacing: 5px;
   font-family: "Poppins-Medium";
-  margin-left: 15px;
+  padding-left: 15px;
   margin-top: 20px;
 }
 

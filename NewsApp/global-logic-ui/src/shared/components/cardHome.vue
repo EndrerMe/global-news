@@ -40,7 +40,7 @@ export default {
     Slick
   },
   name: "cardHome",
-  props: ["sendedNews", "title", "category", 'titleBorder'],
+  props: ["sendedNews", "title", "category", "titleBorder"],
   data() {
     return {
       slickOptions: {
@@ -65,10 +65,8 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
-      'changeCurrentNews'
-    ]),
-    
+    ...mapActions(["changeCurrentNews"]),
+
     goToCurrentNews(news) {
       let category = this.category;
       this.changeCurrentNews({news: news, category: category});
@@ -78,7 +76,7 @@ export default {
     test(e) {
       console.log(e.target.slick.currentSlide)
     }
-  },
+  }
 };
 </script>
 
@@ -158,13 +156,15 @@ export default {
   display: flex;
   justify-content: space-between;
   border-top: 2px solid #b3abab;
+  font-family: "Poppins-Regular";
+  font-size: 14px;
 }
 .new-card {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
   max-width: 526px !important;
   border: none !important;
   padding-bottom: 15px;
+  padding-left: 0;
+  padding-right: 10;
 }
 
 .new-card .card-body {
@@ -259,7 +259,14 @@ export default {
     bottom: 0;
   }
   .card-body {
-    height: 325px !important;
+    height: 310px !important;
+  }
+  .card-footer {
+    font-size: 10px;
+  }
+  .card-text {
+    font-size: 12px;
+    max-height: 55px;
   }
 }
 @media (max-width: 767px) {
@@ -281,7 +288,7 @@ export default {
     height: 330px !important;
   }
   .new-card .card-body {
-    height: unset !important;
+    height: 395px !important;
   }
   .slick-list {
     height: unset !important;
@@ -289,6 +296,9 @@ export default {
   .card-wrap {
     display: flex !important;
     justify-content: center !important;
+  }
+  .new-card {
+    padding-right: 0;
   }
 }
 @media (max-width: 575px) {
@@ -306,10 +316,16 @@ export default {
   .image-wrap {
     height: 250px !important;
   }
+  .new-card .card-body {
+    height: 315px !important;
+  }
 }
 @media (max-width: 375px) {
   .image-wrap {
     height: 210px !important;
+  }
+  .new-card .card-body {
+    height: 275px !important;
   }
 }
 </style>
