@@ -15,7 +15,7 @@
             </b-nav>
             <div
               id="nav-collapse"
-              class="showTest"
+              class="showTest" 
               v-bind:class="{ sideMenuActive: isShowSideMenu }"
             >
               <div class="sub-wrap">
