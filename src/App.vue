@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <HeaderDesctop></HeaderDesctop>
+    <router-view/>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -15,9 +17,38 @@
 </style>
 
 <script>
-import loader from './shared/layouts/pages/home/home';
+import HeaderDesctop from './shared/layouts/header/header';
+import Footer from './shared/layouts/footer/footer';
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
-  name: "app"
+  name: "app",
+  components: {
+    HeaderDesctop,
+    Footer
+  },
+  computed: mapGetters(['getWeatherData']),
+  data() {
+    return {
+      weatherData: null,
+    }
+  },
+  async mounted() {
+    this.$getLocation().then(coordinates => {
+      this.$store.dispatch('getWeather', {lat: coordinates.lat, lng: coordinates.lng})
+    }).catch(function () {
+      this.$store.dispatch('getWeather', {lat: 51.51062085840897, lng: -0.12035208720763535})
+    })
+    this.$store.dispatch('getTopNews', {filter: 'pageSize=6&'});
+    this.$store.dispatch('getRates', {currentRate: 'USD', exchangeName: 'EUR', rateAmount: 100});
+  },
+  methods: {
+    ...mapActions([
+      'getWeather',
+      'getRates',
+      'getNewsForHome',
+      'getTopNews',
+    ])
+  }
 };
 </script>
