@@ -9,6 +9,7 @@
     <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length" @beforeChange='test($event)'>
       <div
         class="card-wrap"
+        v-bind:class="{ 'center-element': !isCenterSlide }"
         v-for="news of sendedNews"
         v-bind:key="news.title"
         @click="goToCurrentNews(news)"
@@ -43,6 +44,7 @@ export default {
   props: ["sendedNews", "title", "category", "titleBorder"],
   data() {
     return {
+      isCenterSlide: false,
       slickOptions: {
         slidesToShow: 3,
         infinite: true,
@@ -74,7 +76,11 @@ export default {
     },
 
     test(e) {
-      console.log(e.target.slick.currentSlide)
+      if (e.target.slick.currentSlide === 1) {
+        this.isCenterSlide = true;
+      } else {
+        this.isCenterSlide = false;
+      }
     }
   }
 };
