@@ -75,8 +75,9 @@ export default {
 
 svg path,
 svg rect {
-  fill: #ff6700;
+  fill: #f8c61a;
 }
+
 .loader-wrapper {
   position: fixed;
   top: 0;

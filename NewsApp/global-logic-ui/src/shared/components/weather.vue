@@ -336,12 +336,17 @@ export default {
         this.temp = Math.round(this.temp);
         this.temp = this.temp + '';
         this.temp = this.temp.split(".")[0];
+
+        EventBus.$emit('changeWeatherAndType', {type: 'f', temp: this.temp});
+
       } else if (temp === 'c' && !this.isCelsius) {
         this.isCelsius = true;
         this.temp = (this.temp - 32) / 1.8;
         this.temp = Math.round(this.temp);
         this.temp = this.temp + '';
         this.temp = this.temp.split(".")[0];
+
+        EventBus.$emit('changeWeatherAndType', {type: 'с', temp: this.temp});
       }
     },
   },

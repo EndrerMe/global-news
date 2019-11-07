@@ -52,8 +52,8 @@
                             <div class="temp-symbol">
                               <span class="degree"></span>
 
-                              <span class="mode active">C</span>
-                              <span class="mode">F</span>
+                              <span class="mode" v-bind:class="{ active: isCelsius }">C</span>
+                              <span class="mode" v-bind:class="{ active: !isCelsius }">F</span>
                             </div>
                           </div>
                         </div>
@@ -158,6 +158,7 @@ export default {
   computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
     return {
+      isCelsius: true,
       searchValue: "",
       currentWeatherData: null,
       isShowSideMenu: false,
@@ -269,6 +270,16 @@ export default {
   mounted() {
     EventBus.$on("closeConverterModal", () => {
       this.isShowConverterProps = !this.isShowConverterProps;
+    });
+
+    EventBus.$on("changeWeatherAndType", (data) => {
+      this.temp = data.temp;
+
+      if (data.type === 'f') {
+        this.isCelsius = false;
+      } else {
+        this.isCelsius = true;
+      }
     });
 
     EventBus.$on("toggleMoreWeather", state => {
