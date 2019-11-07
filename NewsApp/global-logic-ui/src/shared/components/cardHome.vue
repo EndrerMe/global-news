@@ -6,7 +6,7 @@
     >
       <span class="title-text">{{ title }}</span>
     </div>
-    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length" @beforeChange='test($event)'>
+    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length" @init='test2($event)'>
       <div
         class="card-wrap"
         v-for="news of sendedNews"
@@ -44,6 +44,10 @@ export default {
   props: ["sendedNews", "title", "category", "titleBorder"],
   data() {
     return {
+      window: {
+        width: 0,
+        height: 0
+      },
       isCenterSlide: false,
       slickOptions: {
         slidesToShow: 3,
@@ -66,7 +70,19 @@ export default {
       }
     };
   },
+  created() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
+  },
   methods: {
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    },
+
     ...mapActions(["changeCurrentNews"]),
 
     goToCurrentNews(news) {
@@ -75,11 +91,11 @@ export default {
       this.$router.push({ name: "news-info", params: { news: news, category: category } });
     },
 
-    test(e) {
-      if (e.target.slick.currentSlide === 1) {
-        this.isCenterSlide = true;
+    test2(e) {
+      if (this.window.width >= 767) {
+        e.target.firstChild.firstChild.children[1].classList.add('center-element')
       } else {
-        this.isCenterSlide = false;
+        e.target.children[1].children[0].children[2].classList.add('center-element')
       }
     }
   }

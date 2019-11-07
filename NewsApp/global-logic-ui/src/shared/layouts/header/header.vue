@@ -201,7 +201,7 @@ export default {
     },
 
     showSubscribeFullFun() {
-      this.showSubscribeFull = !this.showSubscribeFull;
+      EventBus.$emit("ShowSubscribe");
     },
 
     goToHomePage() {
@@ -256,8 +256,8 @@ export default {
       this.isShowConverterProps = !this.isShowConverterProps;
     });
 
-    EventBus.$on("openSubscribe", () => {
-      this.showSubscribeFull = true;
+    EventBus.$on("toggleSubscribeFull", () => {
+      this.showSubscribeFull = !this.showSubscribeFull;
     });
 
     EventBus.$on("toggleMoreWeather", state => {
