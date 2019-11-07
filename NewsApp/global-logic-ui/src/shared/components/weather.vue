@@ -8,8 +8,7 @@
         <div class="temp-value-wrap">
           <div class="text-wrap">
             <span>
-              Did you mean
-              <span class="search-result">{{ probablyCity }}</span>?
+              Weather In
             </span>
           </div>
         </div>
@@ -17,7 +16,7 @@
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" />
           <ul class="location-dropdown" v-if='ifShowCityHint'>
-            <li class="hidden-elem" v-for='city of probablyCityList' :key='city.name' @click='getWeather(city.name)'>
+            <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
               <span>{{ city.name }}, {{ city.country }}</span>
             </li>
           </ul>
@@ -286,17 +285,19 @@ export default {
     changecountry: _.debounce(function(event) {
       const value = event.target.value;
       this.userCity = value;
-      const res = cities.filter(city => {
-        return city.name.match(value)
-      })
-      this.ifShowCityHint = true;
-      this.probablyCityList = res;
-      this.probablyCity = res[0].name;
-      // lifeSearchService.getDataForLifeSearch(value).then((res) => {
-      //   this.userCity = res.data.data.name;
-      // }, (err) => {
-      //   console.log(err)
-      // })
+      if (value.length > 2) {
+        const res = cities.filter(city => {
+          return city.name.match(value)
+        })
+        if (res.length > 0) {
+          this.ifShowCityHint = true;
+          this.probablyCityList = res;
+          this.probablyCity = res[0].name;
+        } else {
+          this.ifShowCityHint = false;
+          this.userCity = 'Error';
+        }
+      }
     }, 1000),
 
     getWeather(city) { 
