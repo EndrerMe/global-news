@@ -291,6 +291,7 @@ export default {
   top: 101px;
   background-color: #052962;
   z-index: 9999;
+  text-align: center;
 }
 .subscribe-prompt-wrap .close-wrap a {
   width: 18px;
