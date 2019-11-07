@@ -9,7 +9,7 @@
           <div class="text-wrap">
             <span>
               Did you mean
-              <span class="search-result" @click='getWeather()'>{{ probablyCity }}</span>?
+              <span class="search-result">{{ probablyCity }}</span>?
             </span>
           </div>
         </div>
@@ -17,7 +17,7 @@
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" />
           <ul class="location-dropdown" v-if='ifShowCityHint'>
-            <li class="hidden-elem" v-for='city of probablyCityList' :key='city.name'>
+            <li class="hidden-elem" v-for='city of probablyCityList' :key='city.name' @click='getWeather(city.name)'>
               <span>{{ city.name }}, {{ city.country }}</span>
             </li>
           </ul>
@@ -299,7 +299,13 @@ export default {
       // })
     }, 1000),
 
-    getWeather() {
+    getWeather(city) { 
+
+      if (city) {
+        this.userCity = city;
+        this.ifShowCityHint = false;
+      }
+
       weatherService.getWeatherByCountry(this.userCity).then(res => {
         this.currentWeatherData = res.data;
         this.temp = res.data.main.temp;
