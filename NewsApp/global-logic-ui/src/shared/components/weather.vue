@@ -14,8 +14,8 @@
         </div>
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
-            <input :value="userCity" v-on:input="changecountry($event)" />
-          <ul class="location-dropdown" v-if='ifShowCityHint'>
+            <input :value="userCity" v-on:input="changecountry($event)" @click='toggleHint()'/>
+          <ul class="location-dropdown" v-if='isShowCityHint'>
             <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
               <span>{{ city.name }}, {{ city.country }}</span>
             </li>
@@ -248,7 +248,7 @@ export default {
   data() {
     return {
       probablyCityList: [],
-      ifShowCityHint: false,
+      isShowCityHint: false,
       currentWeatherData: null,
       userCity: "London",
       temp: "",
@@ -266,6 +266,12 @@ export default {
     ...mapActions([
       'getWeatherByCountry'
     ]),
+
+    toggleHint() {
+      if (this.probablyCityList && this.userCity !== 'Error') {
+        this.isShowCityHint = !this.isShowCityHint;
+      }
+    },
 
     closeWeatherModal() {
       this.$emit("closeWeatherModal", false);
@@ -290,11 +296,11 @@ export default {
           return city.name.match(value)
         })
         if (res.length > 0) {
-          this.ifShowCityHint = true;
+          this.isShowCityHint = true;
           this.probablyCityList = res;
           this.probablyCity = res[0].name;
         } else {
-          this.ifShowCityHint = false;
+          this.isShowCityHint = false;
           this.userCity = 'Error';
         }
       }
@@ -304,10 +310,11 @@ export default {
 
       if (city) {
         this.userCity = city;
-        this.ifShowCityHint = false;
+        this.isShowCityHint = false;
       }
 
       weatherService.getWeatherByCountry(this.userCity).then(res => {
+        res.data.weather[0].description = res.data.weather[0].description.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
         this.currentWeatherData = res.data;
         this.temp = res.data.main.temp;
         this.temp = this.temp + "";
@@ -343,6 +350,7 @@ export default {
       this.temp = this.temp.split(".")[0];
       this.location = this.getWeatherData.name;
       this.currentWeather = this.getWeatherData.weather[0].description;
+      this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
       this.date = new Date()
         .toJSON()
         .slice(0, 10)

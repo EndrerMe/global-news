@@ -86,7 +86,10 @@ export default {
     },
 
     closeSubscribeFull() {
-      EventBus.$emit("toggleSubscribeFull");
+      this.isShowSubscribeFull = !this.isShowSubscribeFull;
+      if (this.isShowCatogories) {
+        this.isShowCatogories = !this.isShowCatogories;
+      }
     },
 
     toggleCategories() {

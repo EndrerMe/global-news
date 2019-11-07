@@ -33,6 +33,9 @@ export default {
       weatherData: null
     };
   },
+  created() {
+    EventBus.$emit("showLoader");
+  },
   mounted() {
     let that = this;
     mapboxgl.accessToken = environment.mapboxKey;
