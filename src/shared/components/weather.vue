@@ -8,14 +8,18 @@
         <div class="temp-value-wrap">
           <div class="text-wrap">
             <span>
-              Did you mean
-              <span class="search-result" @click='getWeather()'>{{ userCity }}</span>?
+              Weather In
             </span>
           </div>
         </div>
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
-            <input :value="userCity" v-on:input="changecountry($event)" />
+            <input :value="userCity" v-on:input="changecountry($event)" @click='toggleHint()'/>
+          <ul class="location-dropdown" v-if='isShowCityHint'>
+            <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
+              <span>{{ city.name }}, {{ city.country }}</span>
+            </li>
+          </ul>
           </div>
           <div class="button-wrap" @click="getWeather()">
             <button href="#">Search</button>
@@ -227,8 +231,10 @@
 <script>
 import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
-import lifeSearchService from './../services/lifesearch.service';
+// import lifeSearchService from './../services/lifesearch.service';
 import EventBus from "./../../eventBus";
+// import * as cities from 'all-the-cities';
+import cities from 'cities.json';
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
 
@@ -241,6 +247,8 @@ export default {
   computed: mapGetters(["getWeatherData"]),
   data() {
     return {
+      probablyCityList: [],
+      isShowCityHint: false,
       currentWeatherData: null,
       userCity: "London",
       temp: "",
@@ -250,13 +258,20 @@ export default {
       isCelsius: true,
       currentWeather: null,
       currentWeatherImg: null,
-      isShowMoreWeather: false
+      isShowMoreWeather: false,
+      probablyCity: "London"
     };
   },
   methods: {
     ...mapActions([
       'getWeatherByCountry'
     ]),
+
+    toggleHint() {
+      if (this.probablyCityList && this.userCity !== 'Error') {
+        this.isShowCityHint = !this.isShowCityHint;
+      }
+    },
 
     closeWeatherModal() {
       this.$emit("closeWeatherModal", false);
@@ -276,14 +291,28 @@ export default {
     changecountry: _.debounce(function(event) {
       const value = event.target.value;
       this.userCity = value;
-      lifeSearchService.getDataForLifeSearch(value).then((res) => {
-        this.userCity = res.data.data.name;
-      }, (err) => {
-        console.log(err)
-      })
+      if (value.length > 2) {
+        const res = cities.filter(city => {
+          return city.name.match(value)
+        })
+        if (res.length > 0) {
+          this.isShowCityHint = true;
+          this.probablyCityList = res;
+          this.probablyCity = res[0].name;
+        } else {
+          this.isShowCityHint = false;
+          this.userCity = 'Error';
+        }
+      }
     }, 1000),
 
-    getWeather() {
+    getWeather(city) { 
+
+      if (city) {
+        this.userCity = city;
+        this.isShowCityHint = false;
+      }
+
       weatherService.getWeatherByCountry(this.userCity).then(res => {
         this.currentWeatherData = res.data;
         this.temp = res.data.main.temp;
@@ -293,21 +322,21 @@ export default {
         this.location = this.userCity;
         this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
         this.currentWeather = res.data.weather[0].description;
+        this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
       });
     },
 
     changeTemp(temp) {
-      let value = this.currentWeatherData.name;
-      if (temp === 'f') {
+      if (temp === 'f' && this.isCelsius) {
         this.isCelsius = false;
-        this.getWeatherByCountry(value);
-        this.temp = this.getWeatherData.main.temp * 1.8 + 32;
+        this.temp = this.temp * 1.8 + 32;
+        this.temp = Math.round(this.temp);
         this.temp = this.temp + '';
         this.temp = this.temp.split(".")[0];
-      } else {
+      } else if (temp === 'c' && !this.isCelsius) {
         this.isCelsius = true;
-        this.getWeatherByCountry(value);
-        this.temp = this.getWeatherData.main.temp;
+        this.temp = (this.temp - 32) / 1.8;
+        this.temp = Math.round(this.temp);
         this.temp = this.temp + '';
         this.temp = this.temp.split(".")[0];
       }
@@ -321,6 +350,7 @@ export default {
       this.temp = this.temp.split(".")[0];
       this.location = this.getWeatherData.name;
       this.currentWeather = this.getWeatherData.weather[0].description;
+      this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
       this.date = new Date()
         .toJSON()
         .slice(0, 10)
@@ -347,6 +377,52 @@ export default {
 </script>
 
 <style scoped>
+/* Scroll */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #959aa0;
+}
+::-webkit-scrollbar-thumb {
+  background: #052962;
+  border-radius: 10px;
+}
+/* end */
+ 
+/* Custom Drop Down From */
+.weather-search-wrap .country-wrap{
+  position: relative;
+}
+.seacrh-country-wrap .location-dropdown {
+  width: 100%;
+  position: absolute;
+  list-style: none;
+  padding-left: 0;
+  z-index: 99999;
+  top: 31px;
+  font-family: 'Poppins-Bold';
+  max-height: 85px;
+  overflow: auto;
+}
+.seacrh-country-wrap .location-dropdown li {
+  display: flex;
+  width: 100%;
+  background: white;
+  padding: 0 10px;
+}
+.seacrh-country-wrap .location-dropdown li:hover {
+  background: #f8c61a;
+  cursor: pointer;
+}
+.seacrh-country-wrap .location-dropdown li span {
+  color: #3f3f3f;
+  font-size: 16px;
+  padding: 2px 0;
+  border:none;
+}
+/* end */
+
 /* Weather Details */
 
 /* .weather-details-wrap .right-side {
@@ -624,7 +700,7 @@ export default {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: "Poppins-SemiBold";
-  width: 100%;
+  width: 98%;
   color: #052962;
 }
 .weather-search-wrap .button-wrap button:hover {
@@ -649,6 +725,7 @@ export default {
   border-bottom: 1px solid;
   background: transparent;
   font-size: 18px;
+  padding-left: 5px;
 }
 
 /* Mob Weater*/

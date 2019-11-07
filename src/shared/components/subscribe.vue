@@ -50,6 +50,7 @@
 
 <script>
 import subscriptionService from './../services/subscription.service';
+import EventBus from './../../eventBus';
 
 export default {
   name: "subscribeDesctop",
@@ -85,7 +86,7 @@ export default {
     },
 
     closeSubscribeFull() {
-      this.isShowSubscribeFull = false;
+      EventBus.$emit("toggleSubscribeFull");
     },
 
     toggleCategories() {
@@ -101,6 +102,11 @@ export default {
     subscribe() {
       subscriptionService.addSubscroption(this.email, this.category);  
     }
+  },
+  mounted() {
+    EventBus.$on("ShowSubscribe", () => {
+      this.isShowSubscribeFull = !this.isShowSubscribeFull;
+    });
   },
   watch: {
     showSubscribeFull: function(newValue) {

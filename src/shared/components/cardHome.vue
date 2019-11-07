@@ -6,10 +6,17 @@
     >
       <span class="title-text">{{ title }}</span>
     </div>
-    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length">
+    <slick
+      ref="slick"
+      :options="slickOptions"
+      class="slick"
+      v-if="sendedNews.length"
+      @init="test2($event)"
+    >
       <div
         class="card-wrap"
         v-for="news of sendedNews"
+        v-bind:class="{ 'center-element': news.isCenter }"
         v-bind:key="news.title"
         @click="goToCurrentNews(news)"
       >
@@ -40,14 +47,19 @@ export default {
     Slick
   },
   name: "cardHome",
-  props: ["sendedNews", "title", "category", 'titleBorder'],
+  props: ["sendedNews", "title", "category", "titleBorder"],
   data() {
     return {
+      window: {
+        width: 0,
+        height: 0
+      },
+      isCenterSlide: false,
       slickOptions: {
         slidesToShow: 3,
         infinite: true,
         accessibility: true,
-        adaptiveHeight: true,
+        adaptiveHeight: false,
         arrows: true,
         dots: true,
         draggable: true,
@@ -64,19 +76,53 @@ export default {
       }
     };
   },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.handleResize);
+  },
   methods: {
-    ...mapActions([
-      'changeCurrentNews'
-    ]),
-    
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    },
+
+    ...mapActions(["changeCurrentNews"]),
+
     goToCurrentNews(news) {
       let category = this.category;
-      this.changeCurrentNews({news: news, category: category});
-      this.$router.push({ name: "news-info", params: { news: news, category: category } });
+      this.changeCurrentNews({ news: news, category: category });
+      this.$router.push({
+        name: "news-info",
+        params: { news: news, category: category }
+      });
+    },
+
+    test2(e) {
+      if (this.window.width >= 767) {
+        e.target.firstChild.firstChild.children[1].classList.add(
+          "center-element"
+        );
+      } else {
+        e.target.children[1].children[0].children[2].classList.add(
+          "center-element"
+        );
+      }
     }
-  },
+  }
 };
 </script>
+
+<style>
+.slick-slide.center-element {
+  margin: 0 10px;
+}
+.slick-track {
+  display: flex !important;
+}
+</style>
 
 <style scoped>
 @import "../../../node_modules/slick-carousel/slick/slick.css";
@@ -93,6 +139,7 @@ export default {
     rgba(0, 0, 0, 0.9416141456582633) 0%,
     rgba(255, 255, 255, 0) 30%
   );
+  z-index: 1;
 }
 
 .elem-wrap {
@@ -118,11 +165,13 @@ export default {
   margin-top: 30px;
 }
 .new-card .image-wrap {
-  height: 330px;
   position: relative;
+  width: 100%;
+  padding-bottom: 100%;
 }
 
 .new-card .image-wrap img {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -138,7 +187,7 @@ export default {
   font-family: "Amiri-Bold";
   font-size: 20px;
   bottom: 5px;
-  z-index: 1;
+  z-index: 2;
 }
 .card-text {
   padding: 19px 0 10px 0;
@@ -154,18 +203,18 @@ export default {
   display: flex;
   justify-content: space-between;
   border-top: 2px solid #b3abab;
+  font-family: "Poppins-Regular";
+  font-size: 14px;
 }
 .new-card {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  max-width: 526px !important;
   border: none !important;
   padding-bottom: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .new-card .card-body {
   padding: 0 !important;
-  height: 408px;
 }
 
 .entertainment-wrap {
@@ -180,7 +229,6 @@ export default {
   letter-spacing: 10px;
   padding: 6px 30px;
 }
-
 .slick-slider {
   margin-top: 30px;
 }
@@ -255,7 +303,14 @@ export default {
     bottom: 0;
   }
   .card-body {
-    height: 325px !important;
+    height: 310px !important;
+  }
+  .card-footer {
+    font-size: 10px;
+  }
+  .card-text {
+    font-size: 12px;
+    max-height: 55px;
   }
 }
 @media (max-width: 767px) {
@@ -277,7 +332,7 @@ export default {
     height: 330px !important;
   }
   .new-card .card-body {
-    height: unset !important;
+    height: 395px !important;
   }
   .slick-list {
     height: unset !important;
@@ -285,6 +340,12 @@ export default {
   .card-wrap {
     display: flex !important;
     justify-content: center !important;
+  }
+  .new-card {
+    padding-right: 0;
+  }
+  .new-card .image-wrap {
+    padding-bottom: 0;
   }
 }
 @media (max-width: 575px) {
@@ -302,10 +363,16 @@ export default {
   .image-wrap {
     height: 250px !important;
   }
+  .new-card .card-body {
+    height: 315px !important;
+  }
 }
 @media (max-width: 375px) {
   .image-wrap {
     height: 210px !important;
+  }
+  .new-card .card-body {
+    height: 275px !important;
   }
 }
 </style>

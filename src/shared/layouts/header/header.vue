@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap">
+  <div class="header-wrap" v-if="getWeatherData.main">
     <div class="header-content">
       <div class="top-menu-wrap">
         <div class="container">
@@ -15,7 +15,7 @@
             </b-nav>
             <div
               id="nav-collapse"
-              class="showTest" 
+              class="showTest"
               v-bind:class="{ sideMenuActive: isShowSideMenu }"
             >
               <div class="sub-wrap">
@@ -65,7 +65,12 @@
                       <label for="search-input" class="icon-wrap">
                         <font-awesome-icon icon="search" class="fa-lg" />
                       </label>
-                      <input id="search-input" class="search-input" />
+                      <input
+                        id="search-input"
+                        class="search-input"
+                        v-on:input="searchBytitle($event)"
+                        v-model="searchValue"
+                      />
                     </div>
                     <div class="bell active" @click="showSubscribeFullFun()">
                       <a href="#">
@@ -100,7 +105,7 @@
                         <span>Tuesday</span>
                       </div>
                       <div class="sub-item">
-                        <button>Subscribe Us</button>
+                        <button @click='showSubscribeFullFun()'>Subscribe Us</button>
                       </div>
                     </div>
                   </b-nav-item>
@@ -111,7 +116,8 @@
           <moreWeather
             :weatherData="currentWeatherData"
             :isShowMoreWeather="isShowMoreWeather"
-            :isWeatherMap="false"></moreWeather>
+            :isWeatherMap="false"
+          ></moreWeather>
         </div>
       </div>
       <navigationDesctop></navigationDesctop>
@@ -126,7 +132,8 @@ import navigationDesctop from "./../../components/navigation";
 import converterDesctop from "./../../components/converter";
 import moreWeather from "./../../components/more-weather";
 import EventBus from "./../../../eventBus";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+import _ from "lodash";
 
 export default {
   name: "HeaderDesctop",
@@ -137,9 +144,10 @@ export default {
     converterDesctop,
     moreWeather
   },
-  computed: mapGetters(["getWeatherData"]),
+  computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
     return {
+      searchValue: "",
       currentWeatherData: null,
       isShowSideMenu: false,
       isShowWeatherModalProps: false,
@@ -182,6 +190,8 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["search"]),
+
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
     },
@@ -195,7 +205,7 @@ export default {
     },
 
     showSubscribeFullFun() {
-      this.showSubscribeFull = !this.showSubscribeFull;
+      EventBus.$emit("ShowSubscribe");
     },
 
     goToHomePage() {
@@ -208,11 +218,50 @@ export default {
       this.temp = this.temp.split(".")[0];
       this.location = weather.name;
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
-    }
+    },
+
+    searchBytitle: _.debounce(function(event) {
+      this.searchValue = event.target.value;
+      const value = event.target.value;
+      if (this.searchValue.length > 0) {
+        this.search({ value: value }).then(res => {
+          console.log(res);
+        });
+        // newsService.searchByTitle(this.searchValue).then((res) => {
+        //     this.currentNews = res.data.articles;
+        //     this.isLoaderShow = false;
+        //     if (this.currentNews.length === 0) {
+        //         this.isNothingFind = true;
+        //     }
+        //     this.isOverRequest = false;
+        // }, (err) => {
+        //     if (err) {
+        //         this.isOverRequest = true;
+        //         this.isLoaderShow = false;
+        //     }
+        // })
+      } else if (this.searchValue.length === 0) {
+        // newsService.getData(this.category, 1).then(res => {
+        //     this.currentNews = res.data.articles;
+        //     this.isLoaderShow = false;
+        //     this.isNothingFind = false;
+        //     this.isOverRequest = false
+        // }, (err) => {
+        //     if (err) {
+        //         this.isOverRequest = true;
+        //         this.isLoaderShow = false;
+        //     }
+        // });
+      }
+    }, 1000)
   },
   mounted() {
     EventBus.$on("closeConverterModal", () => {
       this.isShowConverterProps = !this.isShowConverterProps;
+    });
+
+    EventBus.$on("toggleSubscribeFull", () => {
+      this.showSubscribeFull = !this.showSubscribeFull;
     });
 
     EventBus.$on("toggleMoreWeather", state => {

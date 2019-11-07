@@ -10,7 +10,7 @@
             <pre class="text">Created by&#160;<a href="http://anuitex.com">Anuitex</a></pre>
           </div>
           <div class="right-item">
-            <button>Subscribe Us</button>
+            <button @click='openSubcribePopu()'>Subscribe Us</button>
           </div>
         </div>
       </div>
@@ -19,8 +19,15 @@
 </template>
 
 <script>
+import EventBus from './../../../eventBus';
+
 export default {
-  name: "Footer"
+  name: "Footer",
+  methods: {
+    openSubcribePopu() {
+      EventBus.$emit("toggleSubscribeFull");
+    }
+  }
 };
 </script>
 
