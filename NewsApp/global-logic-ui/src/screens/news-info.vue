@@ -112,7 +112,7 @@
           </b-card>
 
           <!-- Latest News -->
-          <latestNews :latestNews="getNews"></latestNews>
+          <latestNews :latestNews="getNews" :category='category'></latestNews>
         </b-card-group>
       </div>
     </div>

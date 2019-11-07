@@ -109,29 +109,36 @@ export default {
     },
 
     changeTemp(temp) {
-      let value = this.weatherData.name;
-      if (temp === 'f') {
+      if (temp === 'f' && this.isCelsius) {
         this.isCelsius = false;
-        this.getWeatherByCountry(value);
-        this.weatherData.main.temp_min = this.getWeatherData.main.temp_min * 1.8 + 32;
+        this.weatherData.main.temp_min = this.weatherData.main.temp_min * 1.8 + 32;
+        this.weatherData.main.temp_min = Math.round(this.weatherData.main.temp_min);
         this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
         this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
-        this.weatherData.main.temp_max = this.getWeatherData.main.temp_max * 1.8 + 32;
+
+        this.weatherData.main.temp_max = this.weatherData.main.temp_max * 1.8 + 32;
+        this.weatherData.main.temp_max = Math.round(this.weatherData.main.temp_max);
         this.weatherData.main.temp_max = this.weatherData.main.temp_max + '';
         this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(".")[0];
-        this.weatherData.main.temp = this.getWeatherData.main.temp * 1.8 + 32;
+
+        this.weatherData.main.temp = this.weatherData.main.temp * 1.8 + 32;
+        this.weatherData.main.temp = Math.round(this.weatherData.main.temp);
         this.weatherData.main.temp = this.weatherData.main.temp + '';
         this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
-      } else {
+      } else if (temp === 'c' && !this.isCelsius) {
         this.isCelsius = true;
-        this.getWeatherByCountry(value);
-        this.weatherData.main.temp_min = this.getWeatherData.main.temp_min;
+        this.weatherData.main.temp_min = (this.weatherData.main.temp_min - 32) / 1.8;
+        this.weatherData.main.temp_min = Math.round(this.weatherData.main.temp_min);
         this.weatherData.main.temp_min = this.weatherData.main.temp_min + '';
         this.weatherData.main.temp_min = this.weatherData.main.temp_min.split(".")[0];
-        this.weatherData.main.temp_max = this.getWeatherData.main.temp_max;
+
+        this.weatherData.main.temp_max = (this.weatherData.main.temp_max - 32) / 1.8;
+        this.weatherData.main.temp_max = Math.round(this.weatherData.main.temp_max);
         this.weatherData.main.temp_max = this.weatherData.main.temp_max + '';
         this.weatherData.main.temp_max = this.weatherData.main.temp_max.split(".")[0];
-        this.weatherData.main.temp = this.getWeatherData.main.temp;
+
+        this.weatherData.main.temp = (this.weatherData.main.temp - 32) / 1.8;
+        this.weatherData.main.temp = Math.round(this.weatherData.main.temp);
         this.weatherData.main.temp = this.weatherData.main.temp + '';
         this.weatherData.main.temp = this.weatherData.main.temp.split(".")[0];
       }
