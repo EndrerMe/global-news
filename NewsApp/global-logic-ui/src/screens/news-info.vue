@@ -121,7 +121,8 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import latestNews from "./../../../components/latestNews";
+import EventBus from './../eventBus';
+import latestNews from "./../shared/components/latestNews";
 
 export default {
   components: {
@@ -139,6 +140,9 @@ export default {
   computed: mapGetters(["getNews"]),
   methods: {
     ...mapActions(["getNewsData"])
+  },
+  updated() {
+    EventBus.$emit("closeLoader");
   },
   async mounted() {
     this.news = this.$route.params.news;

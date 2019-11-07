@@ -199,7 +199,7 @@
         <div class="weather-data-wrap section-elem">
           <div class="clouds">
             <span class="icon">
-              <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+              <img src="./../assets/images/cloud.svg" alt="cloud" />
             </span>
             <span class="cloud-state">Broken Clouds</span>
           </div>
@@ -298,7 +298,7 @@
               <div class="right-side">
                 <div class="wrap">
                   <span class="icon-wrap">
-                    <img src="../../../../assets/images/cloud.svg" alt="cloud" />
+                    <img src="./../assets/images/cloud.svg" alt="cloud" />
                   </span>
                   <span class="text">Broken Clouds</span>
                 </div>

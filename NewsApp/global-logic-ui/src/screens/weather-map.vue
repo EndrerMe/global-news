@@ -14,10 +14,11 @@
 </template>
 
 <script>
-import { environment } from "./../../environment/environment";
+import { environment } from "./../environment/environment";
 import mapboxgl from "mapbox-gl";
-import moreWeather from "./../../shared/components/more-weather";
-import weatherService from "./../../shared/services/weather.service";
+import EventBus from './../eventBus';
+import moreWeather from "./../shared/components/more-weather";
+import weatherService from "./../shared/services/weather.service";
 
 export default {
   props: ["data"],
@@ -50,6 +51,10 @@ export default {
             that.isShowMoreWeather = true;
           });
         });
+
+        this.map.on('load', function() {
+          EventBus.$emit("closeLoader");
+        })
       })
       .catch(function() {
         this.map = new mapboxgl.Map({

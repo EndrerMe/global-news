@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <loader :isShowLoader='isShowLoader'></loader>
     <HeaderDesctop></HeaderDesctop>
     <router-view/>
     <Footer></Footer>
@@ -19,21 +20,29 @@
 <script>
 import HeaderDesctop from './shared/layouts/header/header';
 import Footer from './shared/layouts/footer/footer';
+import loader from './components/loader/loader';
 import {mapActions, mapGetters} from 'vuex'
+import EventBus from './eventBus';
 
 export default {
   name: "app",
   components: {
     HeaderDesctop,
-    Footer
+    Footer,
+    loader
   },
   computed: mapGetters(['getWeatherData']),
   data() {
     return {
+      isShowLoader: true,
       weatherData: null,
     }
   },
-  async mounted() {
+  mounted() {
+    this.isShowLoader = false;
+    EventBus.$on("closeLoader", () => {
+      this.isShowLoader = false;
+    });
     this.$getLocation().then(coordinates => {
       this.$store.dispatch('getWeather', {lat: coordinates.lat, lng: coordinates.lng})
     }).catch(function () {
@@ -49,6 +58,11 @@ export default {
       'getNewsForHome',
       'getTopNews',
     ])
+  },
+  watch: {
+    $route() {
+      this.isShowLoader = true;
+    }
   }
 };
 </script>
