@@ -9,11 +9,11 @@
               <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
                 <img src="../../../assets/images/logo.svg" alt="logo" />
               </b-nav-item>
-              <b-nav-item class="mobnile-search-wrap">
+              <b-nav-item class="mobnile-search-wrap"> 
                 <font-awesome-icon icon="search" class="fa-lg" />
               </b-nav-item>
             </b-nav>
-            <div 
+            <div  
               id="nav-collapse"
               class="showTest"
               v-bind:class="{ sideMenuActive: isShowSideMenu }"
@@ -225,7 +225,7 @@ export default {
       const value = event.target.value;
       if (this.searchValue.length > 0) {
         this.search({ value: value }).then(res => {
-          console.log(res);
+          console.log(res + 'awdawd');
         });
         // newsService.searchByTitle(this.searchValue).then((res) => {
         //     this.currentNews = res.data.articles;
