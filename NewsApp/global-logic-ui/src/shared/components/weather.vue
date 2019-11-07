@@ -395,7 +395,7 @@ export default {
   z-index: 99999;
   top: 31px;
   font-family: 'Poppins-Bold';
-  max-height: 110px;
+  max-height: 85px;
   overflow: auto;
 }
 .seacrh-country-wrap .location-dropdown li {
