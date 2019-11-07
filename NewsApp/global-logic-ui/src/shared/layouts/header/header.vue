@@ -40,21 +40,32 @@
                     <converterDesctop :isShowConverterProps="isShowConverterProps"></converterDesctop>
                   </li>
                   <li class="nav-item weather-wrap">
-                    <span class="weather-content" @click="toggleWeatherModal()">
-                      <span class="weather-icon">
-                        <img :src="currentWeatherImg" alt />
-                      </span>
-                      <span class="weather-value">
-                        {{ temp }}
-                        <span class="celsius-value">&#8451;</span>
-                      </span>
-                      <span class="weather-dropdown-arrow">
-                        <font-awesome-icon icon="caret-down" />
-                      </span>
+                    <div class="weather-content" @click="toggleWeatherModal()">
+                      <div class="top-part">
+                        <div class="weather-icon">
+                          <img :src="currentWeatherImg" alt />
+                        </div>
+                        <div class="weather-value-wrap">
+                          <div class="weather-value">{{ temp }}</div>
+
+                          <div class="temp-symbol-wrap">
+                            <div class="temp-symbol">
+                              <span class="degree"></span>
+
+                              <span class="mode active">C</span>
+                              <span class="mode">F</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <span class="weather-dropdown-arrow">
+                          <font-awesome-icon icon="caret-down" />
+                        </span>
+                      </div>
                       <div class="location-name">
                         <p>{{ location }}</p>
                       </div>
-                    </span>
+                    </div>
                     <weatherDesctop
                       @closeWeatherModal="toggleWeatherModal"
                       :isShowWeatherModalProps="isShowWeatherModalProps"
@@ -288,6 +299,74 @@ export default {
 </style>
 
 <style scoped>
+.top-menu-wrap .wide-menu .weather-content .top-part {
+  display: flex;
+}
+.top-menu-wrap .wide-menu .weather-content .top-part .weather-value-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.top-menu-wrap
+  .wide-menu
+  .weather-content
+  .top-part
+  .weather-value-wrap
+  .temp-symbol-wrap {
+  position: relative;
+}
+
+.top-menu-wrap
+  .wide-menu
+  .weather-content
+  .top-part
+  .weather-value-wrap
+  .temp-symbol-wrap
+  .temp-symbol {
+  position: absolute;
+  font-size: 20px;
+  top: -22px;
+  left: 10px;
+}
+.top-menu-wrap
+  .wide-menu
+  .weather-content
+  .top-part
+  .weather-value-wrap
+  .temp-symbol-wrap
+  .temp-symbol
+  .mode{
+    display: none;
+  }
+  .top-menu-wrap
+  .wide-menu
+  .weather-content
+  .top-part
+  .weather-value-wrap
+  .temp-symbol-wrap
+  .temp-symbol
+  .mode.active{
+    display: block;
+  }
+
+.top-menu-wrap
+  .wide-menu
+  .weather-content
+  .top-part
+  .weather-value-wrap
+  .temp-symbol-wrap
+  .temp-symbol
+  .degree::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border: 1px solid white;
+  position: absolute;
+  border-radius: 10px;
+  top: 6px;
+  left: -7px;
+}
+
 .converter-wrap a:hover {
   cursor: default;
 }
@@ -537,12 +616,6 @@ export default {
   font-family: "Poppins-Regular";
   font-size: 28px;
 }
-.top-menu-wrap .weather-value .celsius-value {
-  font-size: 20px;
-  position: absolute;
-  top: 10px;
-  font-family: "Poppins-Regular";
-}
 
 @media (max-width: 767px) {
   .bottom-menu-wrap {
@@ -615,9 +688,6 @@ export default {
   }
   .top-menu-wrap .navbar-collapse .search-wrap a svg {
     margin: 0 10px;
-  }
-  .top-menu-wrap #nav-collapse .search-wrap {
-    margin-left: 30px !important;
   }
 }
 @media (max-width: 767px) {
