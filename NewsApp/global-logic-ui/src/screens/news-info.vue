@@ -316,7 +316,7 @@ export default {
 }
 
 .card-wrap .new-info .news-published {
-  display: flex;
+  display: inline-block;
   color: #c3c3c3;
   font-size: 18px;
   border: none;

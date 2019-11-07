@@ -141,7 +141,7 @@ export default {
 .latest-news .description-wrap span {
   font-size: 20px;
   font-family: "Amiri-Bold";
-  max-height: 51px;
+  max-height: 55px;
   display: inline-block;
   overflow: hidden;
 }
