@@ -427,11 +427,9 @@ export default {
 #nav-collapse .sub-wrap .wide-menu .converter-wrap {
   position: relative;
 }
-
 #nav-collapse .sub-wrap .wide-menu .converter-wrap svg {
   margin-left: 7px;
 }
-
 #nav-collapse .sub-wrap .wide-menu .search-wrap .bell.active {
   height: 100%;
   transform: rotate(0deg);
@@ -443,15 +441,13 @@ export default {
   transform-origin: 50% 0%;
   animation-timing-function: ease-in-out;
 }
-
 #nav-collapse .sub-wrap .wide-menu .search-wrap {
   display: flex;
+  text-align: start;
 }
-
 #nav-collapse .sub-wrap .wide-menu .search-wrap a {
   position: relative;
 }
-
 #nav-collapse .sub-wrap .wide-menu .search-wrap .input-wrap {
   position: relative;
 }
@@ -460,22 +456,23 @@ export default {
   right: 37px;
   top: 2px;
 }
-
 #nav-collapse .sub-wrap .wide-menu .search-wrap .search-input {
   background: transparent;
   color: white;
   border: none;
   width: 70%;
-  padding-right: 25px;
+  padding: 0 5px 3px 5px;
+  border-bottom: 2px solid transparent;
 }
-
+#nav-collapse .sub-wrap .wide-menu .search-wrap .search-input:focus {
+  border-bottom: 2px solid rgb(248, 198, 26);
+}
 #nav-collapse .sub-wrap .mobile-side-menu {
   display: none;
 }
 #nav-collapse .sub-wrap .mobile-side-menu .nav-item.wrap {
   border-top: 1px solid #6d6d6d;
 }
-
 .top-menu-wrap {
   background-color: #052962;
 }
@@ -494,7 +491,6 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
 .top-menu-wrap .navbar-nav .wide-menu li.weather-wrap p {
   margin-bottom: 0;
 }
@@ -608,9 +604,6 @@ export default {
   #nav-collapse .sub-wrap .wide-menu {
     font-size: 12px;
   }
-  /* .bottom-menu-wrap .bottom-menu li a {
-    font-size: 12px;
-  } */
 }
 
 @media (max-width: 991px) {
@@ -636,7 +629,6 @@ export default {
     display: flex;
   }
 }
-
 @keyframes rotate-bell {
   0% {
     transform: rotate(0deg);
@@ -651,7 +643,6 @@ export default {
     transform: rotate(0deg);
   }
 }
-
 @media (min-width: 768px) {
   .modile-side-weather-wrap {
     display: none;
@@ -671,7 +662,6 @@ export default {
     bottom: 0;
   }
 }
-
 @media (min-width: 1140px) {
   .container {
     max-width: 1638px !important;
@@ -682,7 +672,7 @@ export default {
     max-width: 814px !important;
   }
   #nav-collapse .sub-wrap .wide-menu .search-wrap {
-    margin-left: 20px;
+    margin-left: 55px;
   }
 }
 </style>

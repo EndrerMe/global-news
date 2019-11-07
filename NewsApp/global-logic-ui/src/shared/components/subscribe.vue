@@ -293,7 +293,8 @@ export default {
   right: 0px;
   top: 101px;
   background-color: #052962;
-  z-index: 999;
+  z-index: 9999;
+  text-align: center;
 }
 .subscribe-prompt-wrap .close-wrap a {
   width: 18px;
