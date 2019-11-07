@@ -16,33 +16,9 @@
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" />
-          <ul class="location-dropdown">
-            <li class="hidden-elem">
-              <span>London, GB</span>
-            </li>
-            <li class="hidden-elem">
-              <span>London, GB</span>
-            </li>
-            <li class="hidden-elem">
-              <span>London, GB</span>
-            </li>
-            <li class="hidden-elem">
-              <span>London, GB</span>
-            </li>
-            <li class="hidden-elem">
-              <span>London, GB</span>
-            </li>
-            <li class="hidden-elem">
-              <span>London, GB</span>
-            </li>
-            <li class="hidden-elem">
-              <span>London, GB</span>
-            </li>
-            <li class="hidden-elem">
-              <span>London, GB</span>
-            </li>
-            <li class="hidden-elem">
-              <span>London, GB</span>
+          <ul class="location-dropdown" v-if='ifShowCityHint'>
+            <li class="hidden-elem" v-for='city of probablyCityList' :key='city.name'>
+              <span>{{ city.name }}, {{ city.country }}</span>
             </li>
           </ul>
           </div>
@@ -272,6 +248,8 @@ export default {
   computed: mapGetters(["getWeatherData"]),
   data() {
     return {
+      probablyCityList: [],
+      ifShowCityHint: false,
       currentWeatherData: null,
       userCity: "London",
       temp: "",
@@ -311,6 +289,8 @@ export default {
       const res = cities.filter(city => {
         return city.name.match(value)
       })
+      this.ifShowCityHint = true;
+      this.probablyCityList = res;
       this.probablyCity = res[0].name;
       // lifeSearchService.getDataForLifeSearch(value).then((res) => {
       //   this.userCity = res.data.data.name;
