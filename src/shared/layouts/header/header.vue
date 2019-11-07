@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap" v-if="getWeatherData.main">
+  <div class="header-wrap">
     <div class="header-content">
       <div class="top-menu-wrap">
         <div class="container">
@@ -13,7 +13,7 @@
                 <font-awesome-icon icon="search" class="fa-lg" />
               </b-nav-item>
             </b-nav>
-            <div
+            <div 
               id="nav-collapse"
               class="showTest"
               v-bind:class="{ sideMenuActive: isShowSideMenu }"
