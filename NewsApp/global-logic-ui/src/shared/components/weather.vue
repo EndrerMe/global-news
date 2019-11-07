@@ -16,6 +16,35 @@
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" />
+          <ul class="location-dropdown">
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+            <li class="hidden-elem">
+              <span>London, GB</span>
+            </li>
+          </ul>
           </div>
           <div class="button-wrap" @click="getWeather()">
             <button href="#">Search</button>
@@ -354,6 +383,52 @@ export default {
 </script>
 
 <style scoped>
+/* Scroll */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #959aa0;
+}
+::-webkit-scrollbar-thumb {
+  background: #052962;
+  border-radius: 10px;
+}
+/* end */
+
+/* Custom Drop Down From */
+.weather-search-wrap .country-wrap{
+  position: relative;
+}
+.seacrh-country-wrap .location-dropdown {
+  width: 100%;
+  position: absolute;
+  list-style: none;
+  padding-left: 0;
+  z-index: 99999;
+  top: 31px;
+  font-family: 'Poppins-Bold';
+  max-height: 110px;
+  overflow: auto;
+}
+.seacrh-country-wrap .location-dropdown li {
+  display: flex;
+  width: 100%;
+  background: white;
+  padding: 0 10px;
+}
+.seacrh-country-wrap .location-dropdown li:hover {
+  background: #f8c61a;
+  cursor: pointer;
+}
+.seacrh-country-wrap .location-dropdown li span {
+  color: #3f3f3f;
+  font-size: 16px;
+  padding: 2px 0;
+  border:none;
+}
+/* end */
+
 /* Weather Details */
 
 /* .weather-details-wrap .right-side {
@@ -631,7 +706,7 @@ export default {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: "Poppins-SemiBold";
-  width: 100%;
+  width: 98%;
   color: #052962;
 }
 .weather-search-wrap .button-wrap button:hover {
@@ -656,6 +731,7 @@ export default {
   border-bottom: 1px solid;
   background: transparent;
   font-size: 18px;
+  padding-left: 5px;
 }
 
 /* Mob Weater*/
