@@ -320,17 +320,16 @@ export default {
     },
 
     changeTemp(temp) {
-      let value = this.currentWeatherData.name;
-      if (temp === 'f') {
+      if (temp === 'f' && this.isCelsius) {
         this.isCelsius = false;
-        this.getWeatherByCountry(value);
-        this.temp = this.getWeatherData.main.temp * 1.8 + 32;
+        this.temp = this.temp * 1.8 + 32;
+        this.temp = Math.round(this.temp);
         this.temp = this.temp + '';
         this.temp = this.temp.split(".")[0];
-      } else {
+      } else if (temp === 'c' && !this.isCelsius) {
         this.isCelsius = true;
-        this.getWeatherByCountry(value);
-        this.temp = this.getWeatherData.main.temp;
+        this.temp = (this.temp - 32) / 1.8;
+        this.temp = Math.round(this.temp);
         this.temp = this.temp + '';
         this.temp = this.temp.split(".")[0];
       }

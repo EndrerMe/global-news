@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  props: ["latestNews"],
+  props: ["latestNews", 'category'],
   name: "latestNews"
 };
 </script>

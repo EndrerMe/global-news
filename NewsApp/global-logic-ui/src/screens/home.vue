@@ -12,9 +12,9 @@
       <!-- <cardHome :sendedNews='businessNewsHome' :category="'business'" :title="'business'" :titleBorder="'c710a2'"></cardHome>
       <cardHome :key='entertainmentNews.title' :sendedNews='entertainmentNewsHome' :category="'entertainment'" :title="'entertainment'" :titleBorder="'ff995e'"></cardHome>
       <cardHome :sendedNews='scienceNewsHome' :category="'science'" :title="'science'" :titleBorder="'10c7ba'"></cardHome> -->
-      <cardHome :sendedNews='businessNewsHome' :title="'Business'" :category="'science'" :titleBorder="'10c7ba'"></cardHome>
-      <cardHome :sendedNews='scienceNewsHome' :title="'Entertainment'" :category="'entertainment'" :titleBorder="'ff995e'"></cardHome>
-      <cardHome :sendedNews='entertainmentNewsHome' :title="'Science'" :category="'business'" :titleBorder="'c710a2'"></cardHome>
+      <cardHome :sendedNews='businessNewsHome' :title="'Business'" :category="'business'" :titleBorder="'10c7ba'"></cardHome>
+      <cardHome :sendedNews='entertainmentNewsHome' :title="'Entertainment'" :category="'entertainment'" :titleBorder="'ff995e'"></cardHome>
+      <cardHome :sendedNews='scienceNewsHome' :title="'Science'" :category="'science'" :titleBorder="'c710a2'"></cardHome>
     </div>
   </div>
 </template>
@@ -52,24 +52,39 @@ export default {
   },
   beforeCreate() {
     newsService.getData('entertainment', 1).then((res) => {
-      for (let i = 0; i < 3; i++) {
-        this.entertainmentNewsHome.push(res.data.articles[i]);
+      let newsCol = 3;
+      for (let i = 0; i < newsCol; i++) {
+        if (res.data.articles[i].urlToImage) {
+          this.entertainmentNewsHome.push(res.data.articles[i]);
+        } else {
+          newsCol += 1;
+          continue;
+        }
       }
-
       this.entertainmentNewsHome[1].isCenter = true;
     })
     newsService.getData('science', 1).then((res) => {
-      for (let i = 0; i < 3; i++) {
-        this.scienceNewsHome.push(res.data.articles[i]);
+      let newsCol = 3;
+      for (let i = 0; i < newsCol; i++) {
+        if (res.data.articles[i].urlToImage) {
+          this.scienceNewsHome.push(res.data.articles[i]);
+        } else {
+          newsCol += 1;
+          continue;
+        }
       }
-
       this.scienceNewsHome[1].isCenter = true;
     })
     newsService.getData('business', 1).then((res) => {
-      for (let i = 0; i < 3; i++) {
-        this.businessNewsHome.push(res.data.articles[i]);
+      let newsCol = 3;
+      for (let i = 0; i < newsCol; i++) {
+        if (res.data.articles[i].urlToImage) {
+          this.businessNewsHome.push(res.data.articles[i]);
+        } else {
+          newsCol += 1;
+          continue;
+        }
       }
-
       this.businessNewsHome[1].isCenter = true;
     })
   },
