@@ -689,9 +689,6 @@ export default {
   .top-menu-wrap .navbar-collapse .search-wrap a svg {
     margin: 0 10px;
   }
-  .top-menu-wrap #nav-collapse .search-wrap {
-    margin-left: 30px !important;
-  }
 }
 @media (max-width: 767px) {
   .bottom-menu-wrap .bottom-menu {
