@@ -81,9 +81,10 @@
 </template>
 
 <script>
-import newsService from "./../../../services/news.service";
-import categoryPagination from "./../../../components/paginate";
-import cardCategory from "./../../../components/cardCategory";
+import newsService from "./../shared/services/news.service";
+import categoryPagination from "./../shared/components/paginate";
+import cardCategory from "./../shared/components/cardCategory";
+import EventBus from './../eventBus';
 
 export default {
   name: "currentCategory",
@@ -229,6 +230,9 @@ export default {
       value = value.toString().toUpperCase();
       return value;
     }
+  },
+  updated() {
+    EventBus.$emit("closeLoader");
   },
   mounted() {
     this.category = this.$route.params.category;

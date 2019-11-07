@@ -1,37 +1,35 @@
-import home from "./shared/layouts/pages/home/home";
-import newsinfo from "./shared/layouts/pages/news-info/news-info";
-import testhover from "./shared/layouts/pages/home/test-hover";
-import currentCategory from './shared/layouts/pages/categories/category';
-import weatherMap from './screens/weather-map/weather-map';
+function lazyLoad(view){
+  return() => import(`./screens/${view}.vue`)
+}
 
 const routes = [
   {
     path: "/",
-    component: home,
+    component: lazyLoad('home'),
     name: "Home",
     alias: "/Home"
   },
   {
     path: "/news-info",
     name: "news-info",
-    component: newsinfo,
+    component: lazyLoad('news-info'),
     props: true
   },
   {
     path: "/test-hover",
     name: "testHover",
-    component: testhover
+    component: lazyLoad('test-hover')
   },
   {
     path: '/category/:category',
     name: 'category',
-    component: currentCategory,
+    component: lazyLoad('category'),
     props: true
   },
   {
     path: '/weather-map',
     name: 'weatherMap',
-    component: weatherMap,
+    component: lazyLoad('weather-map'),
     props: true,
   }
 ];
