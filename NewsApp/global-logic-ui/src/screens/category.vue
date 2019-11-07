@@ -13,7 +13,97 @@
         </div>
         <div class="gradient"></div>
         <div class="image-box">
-          <img :src="firstBlock.urlToImage" />
+          <vue-load-image>
+            <img slot='image' :src="firstBlock.urlToImage" />
+            <svg slot='preloader'
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="54px"
+              height="80px"
+              viewBox="0 0 24 30"
+              style="enable-background:new 0 0 50 50;"
+              xml:space="preserve"
+            >
+              <rect x="0" y="0" width="4" height="20" fill="#333">
+                <animate
+                  attributeName="opacity"
+                  attributeType="XML"
+                  values="1; .2; 1"
+                  begin="0s"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </rect>
+              <rect x="7" y="0" width="4" height="20" fill="#333">
+                <animate
+                  attributeName="opacity"
+                  attributeType="XML"
+                  values="1; .2; 1"
+                  begin="0.2s"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </rect>
+              <rect x="14" y="0" width="4" height="20" fill="#333">
+                <animate
+                  attributeName="opacity"
+                  attributeType="XML"
+                  values="1; .2; 1"
+                  begin="0.4s"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </rect>
+            </svg>
+            <svg slot='error'
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="54px"
+              height="80px"
+              viewBox="0 0 24 30"
+              style="enable-background:new 0 0 50 50;"
+              xml:space="preserve"
+            >
+              <rect x="0" y="0" width="4" height="20" fill="#333">
+                <animate
+                  attributeName="opacity"
+                  attributeType="XML"
+                  values="1; .2; 1"
+                  begin="0s"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </rect>
+              <rect x="7" y="0" width="4" height="20" fill="#333">
+                <animate
+                  attributeName="opacity"
+                  attributeType="XML"
+                  values="1; .2; 1"
+                  begin="0.2s"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </rect>
+              <rect x="14" y="0" width="4" height="20" fill="#333">
+                <animate
+                  attributeName="opacity"
+                  attributeType="XML"
+                  values="1; .2; 1"
+                  begin="0.4s"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </rect>
+            </svg>
+          </vue-load-image>
         </div>
         <div class="title-wrap">
           <span class="title">
@@ -29,7 +119,97 @@
             </div>
             <div class="gradient"></div>
             <div class="image-box">
-              <img :src="secoundBlock.urlToImage" />
+              <vue-load-image>
+                <img slot='image' :src="secoundBlock.urlToImage" />
+                <svg slot='preloader'
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="54px"
+                  height="80px"
+                  viewBox="0 0 24 30"
+                  style="enable-background:new 0 0 50 50;"
+                  xml:space="preserve"
+                >
+                  <rect x="0" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="7" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.2s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="14" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.4s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                </svg>
+                <svg slot='error'
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="54px"
+                  height="80px"
+                  viewBox="0 0 24 30"
+                  style="enable-background:new 0 0 50 50;"
+                  xml:space="preserve"
+                >
+                  <rect x="0" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="7" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.2s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="14" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.4s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                </svg>
+              </vue-load-image>
             </div>
             <div class="title-wrap">
               <span class="title">
@@ -45,7 +225,97 @@
             </div>
             <div class="gradient"></div>
             <div class="image-box">
-              <img :src="thirdBlock.urlToImage" />
+              <vue-load-image>
+                <img slot='image' :src="thirdBlock.urlToImage" />
+                <svg slot='preloader'
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="54px"
+                  height="80px"
+                  viewBox="0 0 24 30"
+                  style="enable-background:new 0 0 50 50;"
+                  xml:space="preserve"
+                >
+                  <rect x="0" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="7" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.2s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="14" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.4s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                </svg>
+                <svg slot='error'
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="54px"
+                  height="80px"
+                  viewBox="0 0 24 30"
+                  style="enable-background:new 0 0 50 50;"
+                  xml:space="preserve"
+                >
+                  <rect x="0" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="7" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.2s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="14" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.4s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                </svg>
+              </vue-load-image>
             </div>
             <div class="title-wrap">
               <span class="title">
@@ -59,7 +329,97 @@
             </div>
             <div class="gradient"></div>
             <div class="image-box">
-              <img :src="fourthBlock.urlToImage" />
+              <vue-load-image>
+                <img slot='image' :src="fourthBlock.urlToImage" />
+                <svg slot='preloader'
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="54px"
+                  height="80px"
+                  viewBox="0 0 24 30"
+                  style="enable-background:new 0 0 50 50;"
+                  xml:space="preserve"
+                >
+                  <rect x="0" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="7" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.2s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="14" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.4s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                </svg>
+                <svg slot='error'
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="54px"
+                  height="80px"
+                  viewBox="0 0 24 30"
+                  style="enable-background:new 0 0 50 50;"
+                  xml:space="preserve"
+                >
+                  <rect x="0" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="7" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.2s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect x="14" y="0" width="4" height="20" fill="#333">
+                    <animate
+                      attributeName="opacity"
+                      attributeType="XML"
+                      values="1; .2; 1"
+                      begin="0.4s"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                </svg>
+              </vue-load-image>
             </div>
             <div class="title-wrap">
               <span class="title">
@@ -81,16 +441,17 @@
 </template>
 
 <script>
+import VueLoadImage from 'vue-load-image';
 import newsService from "./../shared/services/news.service";
 import categoryPagination from "./../shared/components/paginate";
 import cardCategory from "./../shared/components/cardCategory";
-import EventBus from "./../eventBus";
 
 export default {
   name: "currentCategory",
   components: {
     categoryPagination,
-    cardCategory
+    cardCategory,
+    'vue-load-image': VueLoadImage,
   },
   data() {
     return {
@@ -230,9 +591,6 @@ export default {
       value = value.toString().toUpperCase();
       return value;
     }
-  },
-  updated() {
-    EventBus.$emit("closeLoader");
   },
   mounted() {
     this.category = this.$route.params.category;
@@ -659,5 +1017,10 @@ export default {
   .top-box-preview .right-side-bottom .title-wrap span p {
     max-height: 70px;
   }
+}
+
+svg path,
+svg rect {
+  fill: #ff6700;
 }
 </style>

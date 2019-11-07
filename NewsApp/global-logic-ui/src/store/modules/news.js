@@ -51,7 +51,7 @@ export default {
 
         async getTopNews(ctx, data) {            
             newsService.getTopNews(data.filter).then((res) => {
-                let newsCol = 3;
+                let newsCol = 4;
                 let news = [];
                 for (let i = 0; i < newsCol; i++) {
                     if (res.data.articles[i].urlToImage) {

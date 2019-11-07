@@ -23,7 +23,6 @@
 import cardHome from './../shared/components/cardHome';
 import homeSlider from './../shared/components/home-slider';
 import newsService from './../shared/services/news.service';
-import EventBus from './../eventBus';
 import {mapGetters, mapState } from 'vuex'
 
 export default {
@@ -92,9 +91,6 @@ export default {
     this.$store.subscribe((mutation, state) => {    
       this.currentNews = state.news.newsHome;
     })
-  },
-  updated() {
-    EventBus.$emit("closeLoader");
   },
   mounted () {
     this.currentNews = this.getNewsFromState;

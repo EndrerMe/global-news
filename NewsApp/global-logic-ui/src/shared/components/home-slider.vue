@@ -29,6 +29,9 @@ export default {
       currentSlide: null,
     }
   },
+  created() {
+    console.log(this.slidesNews)
+  }
 };
 </script>
 <style>

@@ -40,15 +40,23 @@ export default {
   },
   mounted() {
     this.isShowLoader = false;
+
     EventBus.$on("closeLoader", () => {
       this.isShowLoader = false;
     });
+
+    EventBus.$on("showLoader", () => {
+      this.isShowLoader = true;
+    });
+
     this.$getLocation().then(coordinates => {
       this.$store.dispatch('getWeather', {lat: coordinates.lat, lng: coordinates.lng})
     }).catch(function () {
       this.$store.dispatch('getWeather', {lat: 51.51062085840897, lng: -0.12035208720763535})
     })
+
     this.$store.dispatch('getTopNews', {filter: 'pageSize=6&'});
+
     this.$store.dispatch('getRates', {currentRate: 'USD', exchangeName: 'EUR', rateAmount: 100});
   },
   methods: {
@@ -59,10 +67,5 @@ export default {
       'getTopNews',
     ])
   },
-  watch: {
-    $route() {
-      this.isShowLoader = true;
-    }
-  }
 };
 </script>

@@ -116,7 +116,7 @@
                         <span>Tuesday</span>
                       </div>
                       <div class="sub-item">
-                        <button>Subscribe Us</button>
+                        <button @click='showSubscribeFullFun()'>Subscribe Us</button>
                       </div>
                     </div>
                   </b-nav-item>
@@ -269,10 +269,6 @@ export default {
   mounted() {
     EventBus.$on("closeConverterModal", () => {
       this.isShowConverterProps = !this.isShowConverterProps;
-    });
-
-    EventBus.$on("toggleSubscribeFull", () => {
-      this.showSubscribeFull = !this.showSubscribeFull;
     });
 
     EventBus.$on("toggleMoreWeather", state => {

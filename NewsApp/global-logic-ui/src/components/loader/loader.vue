@@ -57,11 +57,6 @@ export default {
         return {
         }
     },
-    watch: {
-        isShowLoader(newVal) {
-            console.log(newVal)
-        }
-    }
 }
 </script>
 
