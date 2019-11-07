@@ -364,12 +364,9 @@ svg rect {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.4822303921568627) 100%
-  );
+  background-color: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.9);
   z-index: 999;
 } */
 /* end */
