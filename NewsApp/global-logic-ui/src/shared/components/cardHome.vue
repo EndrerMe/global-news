@@ -168,7 +168,6 @@ export default {
   position: relative;
   width: 100%;
   padding-bottom: 100%;
-  height: 0;
 }
 
 .new-card .image-wrap img {
