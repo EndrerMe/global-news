@@ -676,7 +676,7 @@ export default {
     max-width: 814px !important;
   }
   #nav-collapse .sub-wrap .wide-menu .search-wrap {
-    margin-left: 20px;
+    margin-left: 55px;
   }
 }
 </style>
