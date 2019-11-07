@@ -6,7 +6,13 @@
     >
       <span class="title-text">{{ title }}</span>
     </div>
-    <slick ref="slick" :options="slickOptions" class="slick" v-if="sendedNews.length" @init='test2($event)'>
+    <slick
+      ref="slick"
+      :options="slickOptions"
+      class="slick"
+      v-if="sendedNews.length"
+      @init="test2($event)"
+    >
       <div
         class="card-wrap"
         v-for="news of sendedNews"
@@ -71,11 +77,11 @@ export default {
     };
   },
   created() {
-    window.addEventListener('resize', this.handleResize);
+    window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },
   destroyed() {
-    window.removeEventListener('resize', this.handleResize)
+    window.removeEventListener("resize", this.handleResize);
   },
   methods: {
     handleResize() {
@@ -87,20 +93,36 @@ export default {
 
     goToCurrentNews(news) {
       let category = this.category;
-      this.changeCurrentNews({news: news, category: category});
-      this.$router.push({ name: "news-info", params: { news: news, category: category } });
+      this.changeCurrentNews({ news: news, category: category });
+      this.$router.push({
+        name: "news-info",
+        params: { news: news, category: category }
+      });
     },
 
     test2(e) {
       if (this.window.width >= 767) {
-        e.target.firstChild.firstChild.children[1].classList.add('center-element')
+        e.target.firstChild.firstChild.children[1].classList.add(
+          "center-element"
+        );
       } else {
-        e.target.children[1].children[0].children[2].classList.add('center-element')
+        e.target.children[1].children[0].children[2].classList.add(
+          "center-element"
+        );
       }
     }
   }
 };
 </script>
+
+<style>
+.slick-slide.center-element {
+  margin: 0 10px;
+}
+.slick-track {
+  display: flex !important;
+}
+</style>
 
 <style scoped>
 @import "../../../node_modules/slick-carousel/slick/slick.css";
@@ -143,14 +165,14 @@ export default {
   margin-top: 30px;
 }
 .new-card .image-wrap {
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    height: 0;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  height: 0;
 }
 
 .new-card .image-wrap img {
-  position:absolute;
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -189,7 +211,7 @@ export default {
   border: none !important;
   padding-bottom: 15px;
   padding-left: 0;
-  padding-right: 10;
+  padding-right: 0;
 }
 
 .new-card .card-body {
@@ -208,7 +230,6 @@ export default {
   letter-spacing: 10px;
   padding: 6px 30px;
 }
-
 .slick-slider {
   margin-top: 30px;
 }
@@ -324,10 +345,9 @@ export default {
   .new-card {
     padding-right: 0;
   }
-  .new-card .image-wrap{
+  .new-card .image-wrap {
     padding-bottom: 0;
   }
-
 }
 @media (max-width: 575px) {
   .business-wrap .title-wrap .title-text,
