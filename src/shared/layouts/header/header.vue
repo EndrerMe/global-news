@@ -13,7 +13,7 @@
               <b-navbar-toggle target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
               <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
                 <img src="../../../assets/images/logo.svg" alt="logo" />
-              </b-nav-item>
+              </b-nav-item> 
               <b-nav-item class="mobnile-search-wrap">
                 <font-awesome-icon icon="search" class="fa-lg" />
               </b-nav-item>
