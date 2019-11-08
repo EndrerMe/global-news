@@ -563,18 +563,6 @@ export default {
   #nav-collapse .sub-wrap .wide-menu {
     display: none;
   }
-  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu {
-    display: flex;
-    height: 100%;
-  }
-  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu .nav-item {
-    display: flex;
-    width: 100%;
-    font-family: "Poppins-Regular";
-  }
-  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu .nav-item a {
-    width: 100%;
-  }
   .top-menu-wrap #nav-collapse .close-link-wrap {
     display: block;
   }
@@ -647,17 +635,6 @@ export default {
   }
   #nav-collapse {
     width: 100%;
-  }
-}
-@media (max-width: 767px) {
-  .mobile-side-menu-wrap {
-    visibility: hidden;
-    position: absolute;
-    background: #052962;
-    z-index: 9999;
-    top: 0px;
-    left: 0;
-    bottom: 0;
   }
 }
 @media (min-width: 1140px) {
