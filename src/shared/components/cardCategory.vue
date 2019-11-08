@@ -3,7 +3,54 @@
     <b-card class="mb-2 new-card">
       <div class="image-wrap">
         <div class="gradient"></div>
-        <b-card-img :src="news.urlToImage"></b-card-img>
+        <vue-load-image>
+          <b-card-img slot='image' :src="news.urlToImage"></b-card-img>
+          <svg slot='preloader'
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="54px"
+            height="80px"
+            viewBox="0 0 24 30"
+            style="enable-background:new 0 0 50 50;"
+            xml:space="preserve"
+          >
+            <rect x="0" y="0" width="4" height="20" fill="#333">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+            <rect x="7" y="0" width="4" height="20" fill="#333">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0.2s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+            <rect x="14" y="0" width="4" height="20" fill="#333">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0.4s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+          </svg>
+          <div slot="error">error message</div>
+        </vue-load-image>
         <div class="title-wrap">
           <span class="title">
             <p>{{ news.title }}</p>
@@ -23,10 +70,14 @@
 
 <script>
 import { mapActions } from "vuex";
+import VueLoadImage from 'vue-load-image';
 
 export default {
   name: "cardCategory",
   props: ["news", "category"],
+  components: {
+    'vue-load-image': VueLoadImage,
+  },
   methods: {
     ...mapActions(["changeCurrentNews"]),
 
@@ -173,5 +224,10 @@ export default {
   .new-card .title-wrap span {
     font-size: 12px !important;
   }
+}
+
+svg path,
+svg rect {
+  fill: #ff6700;
 }
 </style>

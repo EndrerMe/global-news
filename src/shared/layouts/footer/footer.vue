@@ -25,7 +25,8 @@ export default {
   name: "Footer",
   methods: {
     openSubcribePopu() {
-      EventBus.$emit("toggleSubscribeFull");
+      EventBus.$emit("ShowSubscribe");
+      window.scrollTo(0, 0);
     }
   }
 };

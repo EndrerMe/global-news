@@ -16,9 +16,9 @@ const routes = [
     props: true
   },
   {
-    path: "/test-hover",
-    name: "testHover",
-    component: lazyLoad('test-hover')
+    path: "/weather-mobile",
+    name: "weather-mobile",
+    component: lazyLoad('weather-mobile')
   },
   {
     path: '/category/:category',

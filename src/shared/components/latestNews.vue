@@ -5,7 +5,54 @@
     </div>
     <div class="item-wrap" v-for="news of latestNews" :key="news.title">
       <div class="image-wrap">
-        <img :src="news.urlToImage" />
+        <vue-load-image>
+          <img slot=image :src="news.urlToImage" />
+          <svg slot='preloader'
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="54px"
+            height="80px"
+            viewBox="0 0 24 30"
+            style="enable-background:new 0 0 50 50;"
+            xml:space="preserve"
+          >
+            <rect x="0" y="0" width="4" height="20" fill="#333">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+            <rect x="7" y="0" width="4" height="20" fill="#333">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0.2s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+            <rect x="14" y="0" width="4" height="20" fill="#333">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0.4s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+          </svg>
+          <div slot="error">error message</div>
+        </vue-load-image>
         <span class="category-wrap entertainment">{{ category }}</span>
       </div>
       <div class="description-wrap">
@@ -16,13 +63,23 @@
 </template>
 
 <script>
+import VueLoadImage from 'vue-load-image'
+
 export default {
   props: ["latestNews", 'category'],
-  name: "latestNews"
+  name: "latestNews",
+  components: {
+    'vue-load-image': VueLoadImage,
+  },
 };
 </script>
 
 <style scoped>
+svg path,
+svg rect {
+  fill: #ff6700;
+}
+
 @media (max-width: 1139px) {
   .latest-news .text {
     font-size: 22px !important;
@@ -141,7 +198,7 @@ export default {
 .latest-news .description-wrap span {
   font-size: 20px;
   font-family: "Amiri-Bold";
-  max-height: 51px;
+  max-height: 55px;
   display: inline-block;
   overflow: hidden;
 }

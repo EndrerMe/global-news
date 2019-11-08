@@ -86,7 +86,10 @@ export default {
     },
 
     closeSubscribeFull() {
-      EventBus.$emit("toggleSubscribeFull");
+      this.isShowSubscribeFull = !this.isShowSubscribeFull;
+      if (this.isShowCatogories) {
+        this.isShowCatogories = !this.isShowCatogories;
+      }
     },
 
     toggleCategories() {
@@ -223,6 +226,7 @@ export default {
   top: 101px;
   background-color: #052962;
   z-index: 999;
+  text-align: center;
 }
 .notify-prompt-wrap .close-wrap a {
   width: 18px;
@@ -290,7 +294,8 @@ export default {
   right: 0px;
   top: 101px;
   background-color: #052962;
-  z-index: 999;
+  z-index: 9999;
+  text-align: center;
 }
 .subscribe-prompt-wrap .close-wrap a {
   width: 18px;

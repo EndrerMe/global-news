@@ -7,8 +7,54 @@
             <div class="title-wrap">
               <span class="text">{{currentNews.title}}</span>
             </div>
-
-            <b-card-img v-if="currentNews.urlToImage" :src="currentNews.urlToImage"></b-card-img>
+            <vue-load-image>
+              <b-card-img slot='image' v-if="currentNews.urlToImage" :src="currentNews.urlToImage"></b-card-img>
+              <svg slot='preloader'
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="54px"
+                height="80px"
+                viewBox="0 0 24 30"
+                style="enable-background:new 0 0 50 50;"
+                xml:space="preserve"
+              >
+                <rect x="0" y="0" width="4" height="20" fill="#333">
+                  <animate
+                    attributeName="opacity"
+                    attributeType="XML"
+                    values="1; .2; 1"
+                    begin="0s"
+                    dur="1s"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="7" y="0" width="4" height="20" fill="#333">
+                  <animate
+                    attributeName="opacity"
+                    attributeType="XML"
+                    values="1; .2; 1"
+                    begin="0.2s"
+                    dur="1s"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="14" y="0" width="4" height="20" fill="#333">
+                  <animate
+                    attributeName="opacity"
+                    attributeType="XML"
+                    values="1; .2; 1"
+                    begin="0.4s"
+                    dur="1s"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+              </svg>
+              <div slot="error">error message</div>
+            </vue-load-image>
 
             <div class="description-wrap">
               <p>{{ currentNews.content }}</p>
@@ -121,12 +167,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import EventBus from './../eventBus';
 import latestNews from "./../shared/components/latestNews";
+import VueLoadImage from 'vue-load-image';
 
 export default {
   components: {
-    latestNews
+    latestNews,
+    'vue-load-image': VueLoadImage,
   },
   data() {
     return {
@@ -140,11 +187,6 @@ export default {
   computed: mapGetters(["getNews"]),
   methods: {
     ...mapActions(["getNewsData"])
-  },
-  updated() {
-    this.$nextTick(function () {
-      EventBus.$emit("closeLoader");
-    })
   },
   async mounted() {
     this.news = this.$route.params.news;
@@ -226,6 +268,11 @@ export default {
     margin-bottom: 0;
   }
 }
+
+svg path,
+svg rect {
+  fill: #ff6700;
+}
 </style>
 
 <style scoped>
@@ -255,6 +302,9 @@ export default {
 .card-wrap .new-info .card-body,
 .card-wrap .latest-news .card-body {
   padding: 0;
+}
+.card-wrap .new-info .card-body .vue-load-image img{
+  border-radius: unset;
 }
 .blue-text {
   color: blue;
@@ -318,7 +368,7 @@ export default {
 }
 
 .card-wrap .new-info .news-published {
-  display: flex;
+  display: inline-block;
   color: #c3c3c3;
   font-size: 18px;
   border: none;

@@ -12,14 +12,18 @@
             </span>
           </div>
         </div>
+        <div class="error-message" v-if='isShowErroeMessage'>
+          <span>Location is incorrect. Please, try again.</span>
+          <img src="./../../assets/images/close-error.png" @click='closeErrorMessage()'>
+        </div>
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" @click='toggleHint()'/>
-          <ul class="location-dropdown" v-if='isShowCityHint'>
-            <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
-              <span>{{ city.name }}, {{ city.country }}</span>
-            </li>
-          </ul>
+              <ul class="location-dropdown" v-if='isShowCityHint'>
+                <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
+                  <span>{{ city.name }}, {{ city.country }}</span>
+                </li>
+              </ul>
           </div>
           <div class="button-wrap" @click="getWeather()">
             <button href="#">Search</button>
@@ -231,9 +235,7 @@
 <script>
 import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
-// import lifeSearchService from './../services/lifesearch.service';
 import EventBus from "./../../eventBus";
-// import * as cities from 'all-the-cities';
 import cities from 'cities.json';
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
@@ -247,6 +249,7 @@ export default {
   computed: mapGetters(["getWeatherData"]),
   data() {
     return {
+      isShowErroeMessage: false,
       probablyCityList: [],
       isShowCityHint: false,
       currentWeatherData: null,
@@ -263,6 +266,10 @@ export default {
     };
   },
   methods: {
+    closeErrorMessage() {
+      this.isShowErroeMessage = false;
+    },
+    
     ...mapActions([
       'getWeatherByCountry'
     ]),
@@ -297,11 +304,12 @@ export default {
         })
         if (res.length > 0) {
           this.isShowCityHint = true;
+          this.isShowErroeMessage = false;
           this.probablyCityList = res;
           this.probablyCity = res[0].name;
         } else {
           this.isShowCityHint = false;
-          this.userCity = 'Error';
+          this.isShowErroeMessage = true;
         }
       }
     }, 1000),
@@ -314,15 +322,16 @@ export default {
       }
 
       weatherService.getWeatherByCountry(this.userCity).then(res => {
+        res.data.weather[0].description = res.data.weather[0].description.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
         this.currentWeatherData = res.data;
         this.temp = res.data.main.temp;
         this.temp = this.temp + "";
         this.temp = this.temp.split(".")[0];
         this.userCity = res.data.name;
         this.location = this.userCity;
+        EventBus.$emit('changeWeatherCity', {city: this.location});
         this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
         this.currentWeather = res.data.weather[0].description;
-        this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
       });
     },
 
@@ -333,12 +342,17 @@ export default {
         this.temp = Math.round(this.temp);
         this.temp = this.temp + '';
         this.temp = this.temp.split(".")[0];
+
+        EventBus.$emit('changeWeatherAndType', {type: 'f', temp: this.temp});
+
       } else if (temp === 'c' && !this.isCelsius) {
         this.isCelsius = true;
         this.temp = (this.temp - 32) / 1.8;
         this.temp = Math.round(this.temp);
         this.temp = this.temp + '';
         this.temp = this.temp.split(".")[0];
+
+        EventBus.$emit('changeWeatherAndType', {type: 'с', temp: this.temp});
       }
     },
   },
@@ -421,6 +435,18 @@ export default {
   padding: 2px 0;
   border:none;
 }
+.seacrh-country-wrap .city-message-wrap{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.seacrh-country-wrap .city-message-wrap .city-message{
+  font-family: "Amiri-Bold";
+  font-size: 12px;
+  color:#daa901;
+}
+
 /* end */
 
 /* Weather Details */
@@ -538,6 +564,15 @@ export default {
 } */
 
 /* Weather */
+.error-message {
+  width: 100%;
+  background-color: rgba(210, 55, 55, .5);
+}
+
+.error-message span {
+  font-size: 12px;
+}
+
 .weather-main-wrap .temp-symbol .mode {
   position: relative;
 }
@@ -681,16 +716,6 @@ export default {
   font-size: 32px;
   font-family: initial;
 }
-.weather-search-wrap .button-wrap {
-  margin-top: 18px;
-}
-.weather-search-wrap .country-wrap span {
-  color: #eaeaea;
-  display: block;
-  width: 100%;
-  border-bottom: 1px solid;
-  text-align: start;
-}
 .weather-search-wrap .button-wrap button {
   height: 48px;
   background-color: #f8c61a;
@@ -712,8 +737,8 @@ export default {
   margin-top: 30px;
   width: 100%;
 }
-.weather-search-wrap .button-wrap {
-  margin-top: 23px;
+.weather-search-wrap .country-wrap{
+  padding-bottom: 23px;
 }
 .weather-search-wrap .country-wrap input {
   color: #eaeaea;
