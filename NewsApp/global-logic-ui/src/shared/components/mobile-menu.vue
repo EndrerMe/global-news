@@ -56,6 +56,18 @@ export default {
 </script>
 
 <style scoped>
+.mobile-side-menu-wrap .nav-item a .top-side-wrap .sub-item {
+  display: flex;
+  opacity: 0;
+  justify-content: space-between;
+  padding: 0 15px;
+  margin-top: 20px;
+}
+.show-sub-item {
+  opacity: 1 !important;
+  transition: opacity 0.5s;
+}
+
 .sideMenuActive {
   visibility: visible !important;
   width: 82% !important;
@@ -75,12 +87,7 @@ export default {
   border-top: 1px solid #6d6d6d;
 }
 
-.mobile-side-menu-wrap
-  .mobile-side-menu
-  .nav-item
-  a
-  .bottom-side-wrap
-  button:hover {
+.mobile-side-menu-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button:hover {
   background: #ffe076;
 }
 
@@ -193,7 +200,6 @@ export default {
 
 @media (max-width: 767px) {
   .mobile-side-menu-wrap {
-    /* visibility: hidden; */
     position: absolute;
     background: #052962;
     z-index: 9999;

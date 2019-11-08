@@ -483,11 +483,6 @@ export default {
   background-color: #ffe076;
 }
 .modile-side-weather-wrap {
-  position: absolute;
-  top: 0px;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background-color: #052962;
   z-index: 999;
   border-top: 1px solid;
