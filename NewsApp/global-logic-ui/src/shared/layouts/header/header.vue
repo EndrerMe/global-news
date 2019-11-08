@@ -5,7 +5,46 @@
         <div class="container">
           <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
             <b-nav class="mobile-top-menu">
-              <b-navbar-toggle target="nav-collapse" @click="toggleMobileSideMenu()"></b-navbar-toggle>
+              <!-- Side Menu -->
+              <div
+                id="mobile-side-menu-wrap"
+                class="mobile-side-menu-wrap"
+                v-bind:class="{ sideMenuActive: isShowSideMenu }"
+              >
+                <b-navbar-nav id="mobile-side-menu" class="mobile-side-menu"
+                >
+                  <b-nav-item class="close-link-wrap">
+                    <div class="close-wrap" @click="toggleMobileSideMenu()">
+                      <a class="close-button" href="#"></a>
+                    </div>
+                  </b-nav-item>
+                  <b-nav-item href="#" class="wrap">
+                    <div class="top-side-wrap">
+                      <span class="sub-item">
+                        Currency Converter
+                        <font-awesome-icon icon="caret-down" />
+                      </span>
+                      <span class="sub-item">
+                        Weather
+                        <font-awesome-icon icon="caret-down" />
+                      </span>
+                    </div>
+                  </b-nav-item>
+                  <b-nav-item href="#">
+                    <div class="bottom-side-wrap">
+                      <div class="sub-item date">
+                        <span>October 8, 2019</span>
+                        <span>Tuesday</span>
+                      </div>
+                      <div class="sub-item">
+                        <button @click="showSubscribeFullFun()">Subscribe Us</button>
+                      </div>
+                    </div>
+                  </b-nav-item>
+                </b-navbar-nav>
+              </div>
+              <!-- end -->
+              <b-navbar-toggle target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
               <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
                 <img src="../../../assets/images/logo.svg" alt="logo" />
               </b-nav-item>
@@ -13,11 +52,7 @@
                 <font-awesome-icon icon="search" class="fa-lg" />
               </b-nav-item>
             </b-nav>
-            <div
-              id="nav-collapse"
-              class="showTest"
-              v-bind:class="{ sideMenuActive: isShowSideMenu }"
-            >
+            <div id="nav-collapse">
               <div class="sub-wrap">
                 <b-navbar-nav class="wide-menu">
                   <b-nav-item class="close-link-wrap">
@@ -90,36 +125,6 @@
                     </div>
                     <subscribeDesctop :showSubscribeFull="showSubscribeFull"></subscribeDesctop>
                   </li>
-                </b-navbar-nav>
-                <b-navbar-nav class="mobile-side-menu">
-                  <b-nav-item class="close-link-wrap">
-                    <div class="close-wrap" @click="toggleMobileSideMenu()">
-                      <a class="close-button" href="#"></a>
-                    </div>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="wrap">
-                    <div class="top-side-wrap">
-                      <span class="sub-item">
-                        Currency Converter
-                        <font-awesome-icon icon="caret-down" />
-                      </span>
-                      <span class="sub-item">
-                        Weather
-                        <font-awesome-icon icon="caret-down" />
-                      </span>
-                    </div>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <div class="bottom-side-wrap">
-                      <div class="sub-item date">
-                        <span>October 8, 2019</span>
-                        <span>Tuesday</span>
-                      </div>
-                      <div class="sub-item">
-                        <button @click='showSubscribeFullFun()'>Subscribe Us</button>
-                      </div>
-                    </div>
-                  </b-nav-item>
                 </b-navbar-nav>
               </div>
             </div>
@@ -272,15 +277,15 @@ export default {
       this.isShowConverterProps = !this.isShowConverterProps;
     });
 
-    EventBus.$on("changeWeatherCity", (data) => {
-      console.log(data)
+    EventBus.$on("changeWeatherCity", data => {
+      console.log(data);
       this.location = data.city;
     });
 
-    EventBus.$on("changeWeatherAndType", (data) => {
+    EventBus.$on("changeWeatherAndType", data => {
       this.temp = data.temp;
 
-      if (data.type === 'f') {
+      if (data.type === "f") {
         this.isCelsius = false;
       } else {
         this.isCelsius = true;
@@ -315,6 +320,126 @@ export default {
 </style>
 
 <style scoped>
+/* mobile side */
+.mobile-top-menu .mobile-side-menu-wrap{
+  visibility: hidden;
+}
+
+.mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu {
+  /* display: none; */
+  padding-top: 57px;
+}
+.mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu .nav-item.wrap {
+  border-top: 1px solid #6d6d6d;
+}
+.mobile-top-menu
+  .mobile-side-menu-wrap
+  .mobile-side-menu
+  .nav-item
+  a
+  .bottom-side-wrap
+  button:hover {
+  background: #ffe076;
+}
+.mobile-top-menu
+  .mobile-side-menu-wrap
+  .mobile-side-menu
+  .nav-item
+  a
+  .bottom-side-wrap
+  button {
+  text-transform: none;
+  background: #f8c61a;
+  border: none;
+  height: 30px;
+  color: #052962;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.mobile-top-menu
+  .mobile-side-menu-wrap
+  .mobile-side-menu
+  .nav-item
+  a
+  .bottom-side-wrap
+  .sub-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+}
+.mobile-top-menu
+  .mobile-side-menu-wrap
+  .nav-item
+  a
+  .bottom-side-wrap
+  .sub-item.date {
+  padding-bottom: 35px;
+}
+.mobile-top-menu .mobile-side-menu-wrap .nav-item a .bottom-side-wrap {
+  padding-bottom: 20px;
+}
+.mobile-top-menu
+  .mobile-side-menu-wrap
+  .nav-item
+  a
+  .top-side-wrap
+  .sub-item
+  svg {
+  color: rgb(248, 198, 26);
+  transform: rotate(-90deg);
+}
+.mobile-top-menu .mobile-side-menu-wrap .nav-item a .top-side-wrap .sub-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  margin-top: 20px;
+}
+.mobile-top-menu .mobile-side-menu-wrap .close-link-wrap {
+  display: none;
+  position: absolute;
+}
+.mobile-top-menu .mobile-side-menu-wrap .close-link-wrap .close-wrap a {
+  position: absolute;
+  width: 30px !important;
+  height: 30px;
+  top: -44px;
+  right: 30px;
+}
+.mobile-top-menu .mobile-side-menu-wrap .close-link-wrap .close-wrap a::after {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: rgb(248, 198, 26);
+  top: 14px;
+  right: 0px;
+  transform: rotate(-45deg);
+}
+.mobile-top-menu .mobile-side-menu-wrap .close-link-wrap .close-wrap a::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: rgb(248, 198, 26);
+  top: 14px;
+  right: 0px;
+  transform: rotate(45deg);
+}
+/* old */
+.sideMenuActive {
+  visibility: visible !important;
+  width: 82% !important;
+  transition: all 0.2s;
+}
+#nav-collapse {
+  width: 0;
+  margin: 0 auto;
+}
+
+/* end */
+
 .top-menu-wrap .wide-menu .weather-content .top-part {
   display: flex;
 }
@@ -351,19 +476,19 @@ export default {
   .weather-value-wrap
   .temp-symbol-wrap
   .temp-symbol
-  .mode{
-    display: none;
-  }
-  .top-menu-wrap
+  .mode {
+  display: none;
+}
+.top-menu-wrap
   .wide-menu
   .weather-content
   .top-part
   .weather-value-wrap
   .temp-symbol-wrap
   .temp-symbol
-  .mode.active{
-    display: block;
-  }
+  .mode.active {
+  display: block;
+}
 
 .top-menu-wrap
   .wide-menu
@@ -390,84 +515,11 @@ export default {
   cursor: pointer;
 }
 
-/* Header */
-.sideMenuActive {
-  visibility: visible !important;
-  width: 82% !important;
-  transition: all 0.2s;
-}
-#nav-collapse {
-  width: 0;
-  margin: 0 auto;
-}
-#nav-collapse .sub-wrap .mobile-side-menu .nav-item .top-side-wrap {
-  display: flex;
-  flex-direction: column;
-}
-#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .top-side-wrap .sub-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 15px;
-  margin-top: 20px;
-}
-#nav-collapse
-  .sub-wrap
-  .mobile-side-menu
-  .nav-item
-  a
-  .top-side-wrap
-  .sub-item
-  svg {
-  color: rgb(248, 198, 26);
-}
-#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap {
-  padding-bottom: 20px;
-}
-#nav-collapse
-  .sub-wrap
-  .mobile-side-menu
-  .nav-item
-  a
-  .bottom-side-wrap
-  .sub-item.date {
-  padding-bottom: 35px;
-}
-#nav-collapse
-  .sub-wrap
-  .mobile-side-menu
-  .nav-item
-  a
-  .bottom-side-wrap
-  .sub-item {
-  display: flex;
-  flex-direction: column;
-  padding: 0 15px;
-}
-#nav-collapse .sub-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button {
-  text-transform: none;
-  background: #f8c61a;
-  border: none;
-  height: 30px;
-  color: #052962;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 13px;
-  letter-spacing: 1px;
-}
-#nav-collapse
-  .sub-wrap
-  .mobile-side-menu
-  .nav-item
-  a
-  .bottom-side-wrap
-  button:hover {
-  background: #ffe076;
-}
-.top-menu-wrap #nav-collapse .close-link-wrap {
+/* .top-menu-wrap #nav-collapse .close-link-wrap {
   display: none;
   position: absolute;
-}
-.top-menu-wrap #nav-collapse .close-wrap a {
+} */
+/* .top-menu-wrap #nav-collapse .close-wrap a {
   position: absolute;
   width: 30px !important;
   height: 30px;
@@ -493,7 +545,7 @@ export default {
   top: 14px;
   right: 0px;
   transform: rotate(45deg);
-}
+} */
 .top-menu-wrap .mobile-top-menu {
   display: none;
   width: 100%;
@@ -561,12 +613,6 @@ export default {
 }
 #nav-collapse .sub-wrap .wide-menu .search-wrap .search-input:focus {
   border-bottom: 2px solid rgb(248, 198, 26);
-}
-#nav-collapse .sub-wrap .mobile-side-menu {
-  display: none;
-}
-#nav-collapse .sub-wrap .mobile-side-menu .nav-item.wrap {
-  border-top: 1px solid #6d6d6d;
 }
 .top-menu-wrap {
   background-color: #052962;
@@ -650,16 +696,16 @@ export default {
   #nav-collapse .sub-wrap .wide-menu {
     display: none;
   }
-  #nav-collapse .sub-wrap .mobile-side-menu {
+  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu {
     display: flex;
     height: 100%;
   }
-  #nav-collapse .sub-wrap .mobile-side-menu .nav-item {
+  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu .nav-item {
     display: flex;
     width: 100%;
     font-family: "Poppins-Regular";
   }
-  #nav-collapse .sub-wrap .mobile-side-menu .nav-item a {
+  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu .nav-item a {
     width: 100%;
   }
   .top-menu-wrap #nav-collapse .close-link-wrap {
@@ -738,14 +784,23 @@ export default {
   }
 }
 @media (max-width: 767px) {
-  #nav-collapse {
-    visibility: hidden;
+  .mobile-side-menu-wrap {
+    /* visibility: hidden; */
     position: absolute;
     background: #052962;
     z-index: 9999;
     top: 0px;
     left: 0;
     bottom: 0;
+  }
+  #nav-collapse {
+    /* visibility: hidden;
+    position: absolute; */
+    /* background: #052962;
+    z-index: 9999;
+    top: 0px;
+    left: 0;
+    bottom: 0; */
   }
 }
 @media (min-width: 1140px) {
