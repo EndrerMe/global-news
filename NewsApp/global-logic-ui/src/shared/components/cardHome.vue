@@ -75,9 +75,9 @@
             </vue-load-image>
           </div>
 
-          <!-- <div class="card-text-wrap"> -->
+          <div class="card-text-wrap">
             <b-card-text>{{ news.description }}</b-card-text>
-          <!-- </div> -->
+          </div>
 
           <template v-slot:footer>
             <small class="text-muted">{{ news.publishedAt | moment("from", "now") }}</small>
@@ -247,9 +247,12 @@ svg rect {
   bottom: 5px;
   z-index: 2;
 }
+.card-text-wrap {
+  padding: 20px 0 16px 0;
+}
 .card-text {
-  padding: 19px 0 16px 0;
-  height: 70px;
+  padding: 0;
+  height: 45px;
   overflow: hidden;
   border-bottom: none;
   font-family: "Poppins-Regular";
@@ -360,16 +363,16 @@ svg rect {
     font-size: 12px !important;
     bottom: 0;
   }
-  .card-body {
-    height: 310px !important;
-  }
   .card-footer {
     font-size: 10px;
   }
   .card-text {
     font-size: 12px;
-    height: 55px;
+    height: 35px;
   }
+  .card-text-wrap {
+  padding: 18px 0 10px 0;
+}
 }
 @media (max-width: 767px) {
   .business-wrap .title-wrap .title-text,
@@ -388,9 +391,6 @@ svg rect {
   .image-wrap {
     width: unset !important;
     height: 330px !important;
-  }
-  .new-card .card-body {
-    height: 395px !important;
   }
   .slick-list {
     height: unset !important;
@@ -421,16 +421,10 @@ svg rect {
   .image-wrap {
     height: 250px !important;
   }
-  .new-card .card-body {
-    height: 315px !important;
-  }
 }
 @media (max-width: 375px) {
   .image-wrap {
     height: 210px !important;
-  }
-  .new-card .card-body {
-    height: 275px !important;
   }
 }
 </style>
