@@ -3,7 +3,7 @@
     id="mobile-side-menu-wrap"
     class="mobile-side-menu-wrap"
     v-bind:class="{ sideMenuActive: isShowSideMenu }"
-    >
+    > 
         <b-navbar-nav id="mobile-side-menu" class="mobile-side-menu"
         >
             <b-nav-item class="close-link-wrap">
