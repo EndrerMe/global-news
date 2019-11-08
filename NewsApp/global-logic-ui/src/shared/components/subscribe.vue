@@ -226,6 +226,7 @@ export default {
   top: 101px;
   background-color: #052962;
   z-index: 999;
+  text-align: center;
 }
 .notify-prompt-wrap .close-wrap a {
   width: 18px;
