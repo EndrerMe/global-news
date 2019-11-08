@@ -12,6 +12,10 @@
             </span>
           </div>
         </div>
+        <div class="error-message" v-if='isShowErroeMessage'>
+          <span>Location is incorrect. Please, try again.</span>
+          <img src="./../../assets/images/close-error.png" @click='closeErrorMessage()'>
+        </div>
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" @click='toggleHint()'/>
@@ -20,9 +24,6 @@
                   <span>{{ city.name }}, {{ city.country }}</span>
                 </li>
               </ul>
-              <div class="city-message-wrap">
-                <span class="city-message">Incorrect location</span>
-              </div>
           </div>
           <div class="button-wrap" @click="getWeather()">
             <button href="#">Search</button>
@@ -250,6 +251,7 @@ export default {
   computed: mapGetters(["getWeatherData"]),
   data() {
     return {
+      isShowErroeMessage: false,
       probablyCityList: [],
       isShowCityHint: false,
       currentWeatherData: null,
@@ -266,6 +268,10 @@ export default {
     };
   },
   methods: {
+    closeErrorMessage() {
+      this.isShowErroeMessage = false;
+    },
+    
     ...mapActions([
       'getWeatherByCountry'
     ]),
@@ -300,11 +306,12 @@ export default {
         })
         if (res.length > 0) {
           this.isShowCityHint = true;
+          this.isShowErroeMessage = false;
           this.probablyCityList = res;
           this.probablyCity = res[0].name;
         } else {
           this.isShowCityHint = false;
-          this.userCity = 'Error';
+          this.isShowErroeMessage = true;
         }
       }
     }, 1000),
@@ -559,6 +566,15 @@ export default {
 } */
 
 /* Weather */
+.error-message {
+  width: 100%;
+  background-color: rgba(210, 55, 55, .5);
+}
+
+.error-message span {
+  font-size: 12px;
+}
+
 .weather-main-wrap .temp-symbol .mode {
   position: relative;
 }
