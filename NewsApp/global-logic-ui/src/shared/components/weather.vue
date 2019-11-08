@@ -20,8 +20,9 @@
                   <span>{{ city.name }}, {{ city.country }}</span>
                 </li>
               </ul>
-              <div class="city-message-wrap">
-                <span class="city-message">Incorrect location</span>
+              <div class="error-message">
+                <span>Location is incorrect. Please, try again.</span>
+                <img src="./../../assets/images/close-error.png">
               </div>
           </div>
           <div class="button-wrap" @click="getWeather()">
