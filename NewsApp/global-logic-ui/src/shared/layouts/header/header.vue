@@ -286,7 +286,7 @@ export default {
     },
 
     $route (to) {
-      if (to.name === 'weather-mobile') {
+      if (to.name === 'weather-mobile' || to.name === 'converter-mobile') {
         this.isShowNavigation = false;
       }
     }
