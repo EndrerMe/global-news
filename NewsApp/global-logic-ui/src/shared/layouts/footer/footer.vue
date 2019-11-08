@@ -45,7 +45,7 @@ footer .content-wrap {
   justify-content: space-between;
 }
 footer .left-item img {
-  width: 130px;
+  width: 90px;
 }
 footer .left-item,
 footer .right-item {
@@ -127,6 +127,9 @@ footer .right-item button {
   }
   footer .content-wrap .left-item {
     padding: 20px 0;
+  }
+  footer{
+    border-top: 1px solid #1f3a6b;
   }
 }
 </style>
