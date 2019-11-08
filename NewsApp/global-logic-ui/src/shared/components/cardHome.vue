@@ -25,8 +25,9 @@
             <b-card-title>{{ news.title }}</b-card-title>
             <div class="gradient"></div>
             <vue-load-image>
-              <b-card-img slot='image' class="card-image" :src="news.urlToImage"></b-card-img>
-              <svg slot='preloader'
+              <b-card-img slot="image" class="card-image" :src="news.urlToImage"></b-card-img>
+              <svg
+                slot="preloader"
                 version="1.1"
                 id="Layer_1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +75,10 @@
             </vue-load-image>
           </div>
 
-          <b-card-text>{{ news.description }}</b-card-text>
+          <!-- <div class="card-text-wrap"> -->
+            <b-card-text>{{ news.description }}</b-card-text>
+          <!-- </div> -->
+
           <template v-slot:footer>
             <small class="text-muted">{{ news.publishedAt | moment("from", "now") }}</small>
             <small class="text-muted">{{ news.source.name }}</small>
@@ -88,12 +92,12 @@
 <script>
 import Slick from "vue-slick";
 import { mapActions } from "vuex";
-import VueLoadImage from 'vue-load-image'
+import VueLoadImage from "vue-load-image";
 
 export default {
   components: {
     Slick,
-    'vue-load-image': VueLoadImage,
+    "vue-load-image": VueLoadImage
   },
   name: "cardHome",
   props: ["sendedNews", "title", "category", "titleBorder"],
@@ -244,8 +248,8 @@ svg rect {
   z-index: 2;
 }
 .card-text {
-  padding: 19px 0 10px 0;
-  max-height: 70px;
+  padding: 19px 0 16px 0;
+  height: 70px;
   overflow: hidden;
   border-bottom: none;
   font-family: "Poppins-Regular";
@@ -364,7 +368,7 @@ svg rect {
   }
   .card-text {
     font-size: 12px;
-    max-height: 55px;
+    height: 55px;
   }
 }
 @media (max-width: 767px) {
