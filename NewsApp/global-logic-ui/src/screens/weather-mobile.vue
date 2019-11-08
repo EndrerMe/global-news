@@ -124,6 +124,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  
+}
+</script>
+
 <style scoped>
 /* Mob Weater*/
 .mobile-weather-main-wrap .temp-value-wrap .temp-symbol-wrap {

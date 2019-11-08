@@ -6,43 +6,9 @@
           <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
             <b-nav class="mobile-top-menu">
               <!-- Side Menu -->
-              <div
-                id="mobile-side-menu-wrap"
-                class="mobile-side-menu-wrap"
-                v-bind:class="{ sideMenuActive: isShowSideMenu }"
-              >
-                <b-navbar-nav id="mobile-side-menu" class="mobile-side-menu"
-                >
-                  <b-nav-item class="close-link-wrap">
-                    <div class="close-wrap" @click="toggleMobileSideMenu()">
-                      <a class="close-button" href="#"></a>
-                    </div>
-                  </b-nav-item>
-                  <b-nav-item href="#" class="wrap">
-                    <div class="top-side-wrap">
-                      <span class="sub-item">
-                        Currency Converter
-                        <font-awesome-icon icon="caret-down" />
-                      </span>
-                      <span class="sub-item">
-                        Weather
-                        <font-awesome-icon icon="caret-down" />
-                      </span>
-                    </div>
-                  </b-nav-item>
-                  <b-nav-item href="#">
-                    <div class="bottom-side-wrap">
-                      <div class="sub-item date">
-                        <span>October 8, 2019</span>
-                        <span>Tuesday</span>
-                      </div>
-                      <div class="sub-item">
-                        <button @click="showSubscribeFullFun()">Subscribe Us</button>
-                      </div>
-                    </div>
-                  </b-nav-item>
-                </b-navbar-nav>
-              </div>
+              <mobileMenu 
+              :isShowSideMenu='isShowSideMenu'
+              @toggleMobileSideMenu='toggleMobileSideMenu'></mobileMenu>
               <!-- end -->
               <b-navbar-toggle target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
               <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
@@ -148,6 +114,7 @@ import navigationDesctop from "./../../components/navigation";
 import converterDesctop from "./../../components/converter";
 import moreWeather from "./../../components/more-weather";
 import EventBus from "./../../../eventBus";
+import mobileMenu from './../../components/mobile-menu';
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
 
@@ -158,7 +125,8 @@ export default {
     subscribeDesctop,
     navigationDesctop,
     converterDesctop,
-    moreWeather
+    moreWeather,
+    mobileMenu,
   },
   computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
