@@ -54,7 +54,7 @@
                 </a>
               </div>
               <div class="right-link">
-                <a href="#">Weather Map</a>
+                <a href="#" @click='goToWeatherMap()'>Weather Map</a>
               </div>
             </div>
             <div class="sides-wrap" v-if='isShowMoreMobile'>
@@ -149,23 +149,31 @@ export default {
 
     showMobileMore() {
       this.isShowMoreMobile = !this.isShowMoreMobile;
+    },
+
+    goToWeatherMap() {
+      const data = this.currentWeatherData;
+      this.$router.push({name: "weatherMap", params: { data }});
     }
   },
-  mounted() {
-    if (this.getWeatherData) {
+  created() {
+    if (this.getWeatherData.main) {
       this.currentWeatherData = this.getWeatherData;
-      this.temp = this.getWeatherData.main.temp;
-      this.temp = this.temp + "";
-      this.temp = this.temp.split(".")[0];
-      this.location = this.getWeatherData.name;
-      this.currentWeather = this.getWeatherData.weather[0].description;
-      this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
-      this.date = new Date()
-        .toJSON()
-        .slice(0, 10)
-        .replace(/-/g, "/");
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
+    } else {
+      this.currentWeatherData = JSON.parse(localStorage.getItem("currentWeather"));
     }
+
+    this.temp = this.currentWeatherData.main.temp;
+    this.temp = this.temp + "";
+    this.temp = this.temp.split(".")[0];
+    this.location = this.currentWeatherData.name;
+    this.currentWeather = this.currentWeatherData.weather[0].description;
+    this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
+    this.date = new Date()
+      .toJSON()
+      .slice(0, 10)
+      .replace(/-/g, "/");
+    this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.currentWeatherData.weather[0].icon}@2x.png`;
   }
 }
 </script>

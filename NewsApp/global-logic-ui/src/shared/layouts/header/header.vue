@@ -102,7 +102,7 @@
           ></moreWeather>
         </div>
       </div>
-      <navigationDesctop></navigationDesctop>
+      <navigationDesctop v-if='isShowNavigation'></navigationDesctop>
     </div>
   </div>
 </template>
@@ -131,6 +131,7 @@ export default {
   computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
     return {
+      isShowNavigation: true,
       isCelsius: true,
       searchValue: "",
       currentWeatherData: null,
@@ -241,6 +242,10 @@ export default {
     }, 1000)
   },
   mounted() {
+    if (this.$router.history.current.name === 'weather-mobile') {
+      this.isShowNavigation = false;
+    }
+
     EventBus.$on("closeConverterModal", () => {
       this.isShowConverterProps = !this.isShowConverterProps;
     });
@@ -278,6 +283,12 @@ export default {
   watch: {
     getWeatherData: function(newVal) {
       this.changeTemplateWeather(newVal);
+    },
+
+    $route (to) {
+      if (to.name === 'weather-mobile') {
+        this.isShowNavigation = false;
+      }
     }
   }
 };
