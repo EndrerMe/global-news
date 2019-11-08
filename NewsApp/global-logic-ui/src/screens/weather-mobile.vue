@@ -7,17 +7,17 @@
           <span>Weather</span>
         </div>
         <div class="location-wrap section-elem">
-          <span>Glasgow</span>
+          <span>{{ location }}</span>
         </div>
         <div class="weather-data-wrap section-elem">
           <div class="clouds">
             <span class="icon">
-              <img src="./../assets/images/cloud.svg" alt="cloud" />
+              <img :src="currentWeatherImg" alt="cloud" />
             </span>
-            <span class="cloud-state">Broken Clouds</span>
+            <span class="cloud-state">{{ currentWeather }}</span>
           </div>
           <div class="temp-value-wrap">
-            <span class="temp-value">+9</span>
+            <span class="temp-value">{{ temp }}</span>
             <span class="temp-symbol-wrap">
               <span class="temp-symbol">
                 <span class="degreeMode active">
@@ -48,7 +48,7 @@
           <div class="mobile-weather-details-wrap">
             <div class="links-wrap">
               <div class="left-link">
-                <a href="#">
+                <a href="#" @click='showMobileMore()'>
                   More
                   <font-awesome-icon icon="caret-down" />
                 </a>
@@ -57,7 +57,7 @@
                 <a href="#">Weather Map</a>
               </div>
             </div>
-            <div class="sides-wrap">
+            <div class="sides-wrap" v-if='isShowMoreMobile'>
               <div class="left-side">
                 <div class="temp-info-wrap">
                   <div class="temp-value-wrap info-elem">
@@ -71,27 +71,27 @@
                         </span>
                       </span>
                     </p>
-                    <p>Place : London</p>
+                    <p>Place : {{ location }}</p>
                   </div>
                   <div class="show-info-wrap info-elem">
                     <p>
                       Min Temperature :
                       <span class="temp-value">
-                        14
+                        {{ currentWeatherData.main.temp_min }}
                         <span class="temp-val-symbol"></span>
                       </span>
                     </p>
                     <p>
                       Max Temperature :
                       <span class="temp-value">
-                        14
+                        {{ currentWeatherData.main.temp_max }}
                         <span class="temp-val-symbol"></span>
                       </span>
                     </p>
                     <p>
                       Temperature :
                       <span class="temp-value">
-                        14
+                        {{ temp }}
                         <span class="temp-val-symbol"></span>
                       </span>
                     </p>
@@ -99,11 +99,11 @@
                   <div class="additional-info info-elem">
                     <p class>
                       Humidity :
-                      <span class="value">28</span>
+                      <span class="value">{{ currentWeatherData.main.humidity }}</span>
                     </p>
                     <p class>
                       Wind Speed :
-                      <span class="value">3</span>
+                      <span class="value">{{ currentWeatherData.wind.speed }}</span>
                     </p>
                   </div>
                 </div>
@@ -111,9 +111,9 @@
               <div class="right-side">
                 <div class="wrap">
                   <span class="icon-wrap">
-                    <img src="./../assets/images/cloud.svg" alt="cloud" />
+                    <img :src="currentWeatherImg" alt="cloud" />
                   </span>
-                  <span class="text">Broken Clouds</span>
+                  <span class="text">{{ currentWeather }}</span>
                 </div>
               </div>
             </div>
@@ -125,8 +125,47 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-  
+  name: 'weatherMobile',
+  computed: mapGetters(["getWeatherData"]),
+  data() {
+    return {
+      currentWeatherData: null,
+      isShowMoreMobile: false,
+      temp: "",
+      location: "",
+      date: "",
+      currentWeather: null,
+      currentWeatherImg: null,
+    }
+  },
+  methods: {
+    ...mapActions([
+      'getWeatherByCountry'
+    ]),
+
+    showMobileMore() {
+      this.isShowMoreMobile = !this.isShowMoreMobile;
+    }
+  },
+  mounted() {
+    if (this.getWeatherData) {
+      this.currentWeatherData = this.getWeatherData;
+      this.temp = this.getWeatherData.main.temp;
+      this.temp = this.temp + "";
+      this.temp = this.temp.split(".")[0];
+      this.location = this.getWeatherData.name;
+      this.currentWeather = this.getWeatherData.weather[0].description;
+      this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
+      this.date = new Date()
+        .toJSON()
+        .slice(0, 10)
+        .replace(/-/g, "/");
+      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
+    }
+  }
 }
 </script>
 
