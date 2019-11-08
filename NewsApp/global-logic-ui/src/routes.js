@@ -17,7 +17,7 @@ const routes = [
   },
   {
     path: "/weather-mobile",
-    name: "testHover",
+    name: "weather-mobile",
     component: lazyLoad('weather-mobile')
   },
   {
