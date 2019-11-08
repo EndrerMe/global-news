@@ -20,11 +20,11 @@
             <span class="temp-value">{{ temp }}</span>
             <span class="temp-symbol-wrap">
               <span class="temp-symbol">
-                <span class="degreeMode active">
+                <span class="degreeMode" :class='{active : isCelsius}' @click='changeTemp("c")'>
                   <span class="degree"></span>
                   C
                 </span>
-                <span class="faringateMode">F</span>
+                <span class="faringateMode" :class='{active : !isCelsius}' @click='changeTemp("f")'>F</span>
               </span>
             </span>
           </div>
@@ -139,6 +139,7 @@ export default {
       date: "",
       currentWeather: null,
       currentWeatherImg: null,
+      isCelsius: true,
     }
   },
   methods: {
