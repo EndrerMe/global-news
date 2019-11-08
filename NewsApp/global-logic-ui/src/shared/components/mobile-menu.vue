@@ -39,17 +39,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-
 export default {
     name: 'mobileMenu',
-    computed: mapGetters(["getWeatherData"]),
     props: ['isShowSideMenu'],
     methods: {
-        ...mapActions([
-            'getWeatherByCountry'
-        ]),
-
         toggleMobileSideMenu() {
             this.$emit('toggleMobileSideMenu', {state: false})
         },
