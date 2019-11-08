@@ -21,6 +21,11 @@ const routes = [
     component: lazyLoad('weather-mobile')
   },
   {
+    path: "/converter-mobile",
+    name: "converter-mobile",
+    component: lazyLoad('converter-mobile')
+  },
+  {
     path: '/category/:category',
     name: 'category',
     component: lazyLoad('category'),

@@ -242,7 +242,7 @@ export default {
     }, 1000)
   },
   mounted() {
-    if (this.$router.history.current.name === 'weather-mobile') {
+    if (this.$router.history.current.name === 'weather-mobile' || this.$router.history.current.name === 'converter-mobile') {
       this.isShowNavigation = false;
     }
 
