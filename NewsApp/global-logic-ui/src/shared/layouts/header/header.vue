@@ -420,6 +420,7 @@ export default {
 }
 .top-menu-wrap .mobile-top-menu .navbar-toggler {
   border: none;
+  padding-left:16px;
 }
 .top-menu-wrap .mobile-top-menu .mobnile-search-wrap svg {
   color: rgb(248, 198, 26);
