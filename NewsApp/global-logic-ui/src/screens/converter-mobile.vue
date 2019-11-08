@@ -11,7 +11,7 @@
             <span class="icon-wrap">
               <font-awesome-icon icon="caret-down" />
             </span>
-            <ul class="currency-dropdown-from">
+            <ul class="currency-dropdown-from" v-if='isShowFromList'>
               <li class="hidden-elem">UYF</li>
               <li class="hidden-elem">UIH</li>
               <li class="hidden-elem">VCF</li>
@@ -35,7 +35,7 @@
             <span class="icon-wrap">
               <font-awesome-icon icon="caret-down" />
             </span>
-            <ul class="currency-dropdown-to">
+            <ul class="currency-dropdown-to" v-if='isShowToList'>
               <li class="hidden-elem">UYF</li>
               <li class="hidden-elem">UIH</li>
               <li class="hidden-elem">VCF</li>
@@ -63,8 +63,16 @@
 </template>
 
 <script>
+// import ratesService from "./../shared/services/rates.service";
+
 export default {
-    
+  name: 'converter-mobile',
+  data() {
+    return {
+      isShowToList: false,
+      isShowFromList: false,
+    }
+  }
 }
 </script>
 
@@ -81,7 +89,6 @@ export default {
 
 /* Custom Drop Down From */
 .currency-converter-wrap .from .dropdown-wrap .currency-dropdown-from {
-  display: none;
   position: absolute;
   list-style: none;
   width: 80px;
@@ -121,7 +128,6 @@ export default {
 
 /* Custom Drop Down To */
 .currency-converter-wrap .to .dropdown-wrap .currency-dropdown-to {
-  display: none;
   position: absolute;
   list-style: none;
   width: 80px;
