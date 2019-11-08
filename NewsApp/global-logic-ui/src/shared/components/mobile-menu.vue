@@ -202,12 +202,12 @@ export default {
 .mobile-side-menu-wrap .mobile-side-menu .nav-item a {
     width: 100%;
 }
-
 @media (max-width: 767px) {
   .mobile-side-menu-wrap {
+    visibility: hidden;
     position: absolute;
     background: #052962;
-    z-index: 9999;
+    z-index: 999999;
     top: 0px;
     left: 0;
     bottom: 0;
