@@ -13,7 +13,7 @@
             </b-nav-item>
             <b-nav-item href="#" class="wrap">
             <div class="top-side-wrap">
-                <span class="sub-item" v-bind:class="{ 'show-sub-item': isShowSideMenu }">
+                <span class="sub-item" @click='goToConverter()' v-bind:class="{ 'show-sub-item': isShowSideMenu }">
                 Currency Converter
                 <font-awesome-icon icon="caret-down" />
                 </span>
@@ -49,7 +49,12 @@ export default {
 
         goToWeather() {
             this.$router.push({name: "weather-mobile"});
-            this.$emit('toggleMobileSideMenu', {state: false})
+            this.$emit('toggleMobileSideMenu', {state: false});
+        },
+
+        goToConverter() {
+          this.$router.push({name: "converter-mobile"});
+          this.$emit('toggleMobileSideMenu', {state: false});
         }
     }
 }

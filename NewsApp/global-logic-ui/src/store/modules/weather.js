@@ -17,6 +17,7 @@ export default {
 
     mutations: { 
         updateWeatherData(state, weather) {
+            localStorage.setItem('currentWeather', JSON.stringify(weather));
             state.weatherData = weather;
         }
     },
