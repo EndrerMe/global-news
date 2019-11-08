@@ -289,11 +289,10 @@ export default {
 
 <style scoped>
 /* mobile side */
-.mobile-top-menu .mobile-side-menu-wrap{
+.mobile-top-menu .mobile-side-menu-wrap {
   visibility: hidden;
   width: 0;
 }
-
 .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu {
   padding-top: 57px;
 }
@@ -360,9 +359,14 @@ export default {
 }
 .mobile-top-menu .mobile-side-menu-wrap .nav-item a .top-side-wrap .sub-item {
   display: flex;
+  opacity: 0;
   justify-content: space-between;
   padding: 0 15px;
   margin-top: 20px;
+}
+.show-sub-item {
+  opacity: 1 !important;
+  transition: opacity 0.2s;
 }
 .mobile-top-menu .mobile-side-menu-wrap .close-link-wrap {
   display: none;
