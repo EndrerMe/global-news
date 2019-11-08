@@ -324,6 +324,7 @@ export default {
         this.temp = this.temp.split(".")[0];
         this.userCity = res.data.name;
         this.location = this.userCity;
+        EventBus.$emit('changeWeatherCity', {city: this.location});
         this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
         this.currentWeather = res.data.weather[0].description;
       });

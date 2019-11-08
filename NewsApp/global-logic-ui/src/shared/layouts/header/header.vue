@@ -272,6 +272,11 @@ export default {
       this.isShowConverterProps = !this.isShowConverterProps;
     });
 
+    EventBus.$on("changeWeatherCity", (data) => {
+      console.log(data)
+      this.location = data.city;
+    });
+
     EventBus.$on("changeWeatherAndType", (data) => {
       this.temp = data.temp;
 
