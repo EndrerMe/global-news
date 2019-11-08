@@ -6,7 +6,7 @@
           <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
             <b-nav class="mobile-top-menu">
               <!-- Side Menu -->
-              <mobileMenu 
+              <mobileMenu  
               :isShowSideMenu='isShowSideMenu'
               @toggleMobileSideMenu='toggleMobileSideMenu'></mobileMenu>
               <!-- end -->
