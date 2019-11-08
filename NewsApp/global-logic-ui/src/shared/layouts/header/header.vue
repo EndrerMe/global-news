@@ -323,10 +323,10 @@ export default {
 /* mobile side */
 .mobile-top-menu .mobile-side-menu-wrap{
   visibility: hidden;
+  width: 0;
 }
 
 .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu {
-  /* display: none; */
   padding-top: 57px;
 }
 .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu .nav-item.wrap {
@@ -427,19 +427,13 @@ export default {
   right: 0px;
   transform: rotate(45deg);
 }
-/* old */
 .sideMenuActive {
   visibility: visible !important;
   width: 82% !important;
   transition: all 0.2s;
 }
-#nav-collapse {
-  width: 0;
-  margin: 0 auto;
-}
 
 /* end */
-
 .top-menu-wrap .wide-menu .weather-content .top-part {
   display: flex;
 }
@@ -447,7 +441,6 @@ export default {
   display: flex;
   align-items: center;
 }
-
 .top-menu-wrap
   .wide-menu
   .weather-content
@@ -456,7 +449,6 @@ export default {
   .temp-symbol-wrap {
   position: relative;
 }
-
 .top-menu-wrap
   .wide-menu
   .weather-content
@@ -489,7 +481,6 @@ export default {
   .mode.active {
   display: block;
 }
-
 .top-menu-wrap
   .wide-menu
   .weather-content
@@ -507,45 +498,12 @@ export default {
   top: 6px;
   left: -7px;
 }
-
 .converter-wrap a:hover {
   cursor: default;
 }
 .converter-wrap .converter-span:hover {
   cursor: pointer;
 }
-
-/* .top-menu-wrap #nav-collapse .close-link-wrap {
-  display: none;
-  position: absolute;
-} */
-/* .top-menu-wrap #nav-collapse .close-wrap a {
-  position: absolute;
-  width: 30px !important;
-  height: 30px;
-  top: -44px;
-  right: 30px;
-}
-.top-menu-wrap #nav-collapse .close-wrap a::after {
-  position: absolute;
-  content: "";
-  width: 30px;
-  height: 2px;
-  background-color: rgb(248, 198, 26);
-  top: 14px;
-  right: 0px;
-  transform: rotate(-45deg);
-}
-.top-menu-wrap #nav-collapse .close-wrap a::before {
-  position: absolute;
-  content: "";
-  width: 30px;
-  height: 2px;
-  background-color: rgb(248, 198, 26);
-  top: 14px;
-  right: 0px;
-  transform: rotate(45deg);
-} */
 .top-menu-wrap .mobile-top-menu {
   display: none;
   width: 100%;
@@ -740,7 +698,6 @@ export default {
     font-size: 12px;
   }
 }
-
 @media (max-width: 991px) {
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 15px !important;
@@ -785,22 +742,13 @@ export default {
 }
 @media (max-width: 767px) {
   .mobile-side-menu-wrap {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     background: #052962;
     z-index: 9999;
     top: 0px;
     left: 0;
     bottom: 0;
-  }
-  #nav-collapse {
-    /* visibility: hidden;
-    position: absolute; */
-    /* background: #052962;
-    z-index: 9999;
-    top: 0px;
-    left: 0;
-    bottom: 0; */
   }
 }
 @media (min-width: 1140px) {
