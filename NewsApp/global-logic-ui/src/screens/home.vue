@@ -13,7 +13,7 @@
       <cardHome :key='entertainmentNews.title' :sendedNews='entertainmentNewsHome' :category="'entertainment'" :title="'entertainment'" :titleBorder="'ff995e'"></cardHome>
       <cardHome :sendedNews='scienceNewsHome' :category="'science'" :title="'science'" :titleBorder="'10c7ba'"></cardHome> -->
       <cardHome :sendedNews='businessNewsHome' :title="'Business'" :category="'business'" :titleBorder="'c710a2'"></cardHome>
-      <cardHome :sendedNews='entertainmentNewsHome' :title="'Entertainment'" :category="'entertainment'" :titleBorder="'ff995e'"></cardHome>
+      <cardHome :sendedNews='entertainmentNewsHome' :title="'Entertainment'" :category="'entertainment'" :titleBorder="'FF995E'"></cardHome>
       <cardHome :sendedNews='scienceNewsHome' :title="'Science'" :category="'science'" :titleBorder="'10c7ba'"></cardHome>
     </div>
   </div>
