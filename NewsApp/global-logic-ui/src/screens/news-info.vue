@@ -303,6 +303,9 @@ svg rect {
 .card-wrap .latest-news .card-body {
   padding: 0;
 }
+.card-wrap .new-info .card-body .vue-load-image img{
+  border-radius: unset;
+}
 .blue-text {
   color: blue;
 }

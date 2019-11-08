@@ -15,11 +15,14 @@
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" @click='toggleHint()'/>
-          <ul class="location-dropdown" v-if='isShowCityHint'>
-            <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
-              <span>{{ city.name }}, {{ city.country }}</span>
-            </li>
-          </ul>
+              <ul class="location-dropdown" v-if='isShowCityHint'>
+                <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
+                  <span>{{ city.name }}, {{ city.country }}</span>
+                </li>
+              </ul>
+              <div class="city-message-wrap">
+                <span class="city-message">Incorrect location</span>
+              </div>
           </div>
           <div class="button-wrap" @click="getWeather()">
             <button href="#">Search</button>
@@ -427,6 +430,18 @@ export default {
   padding: 2px 0;
   border:none;
 }
+.seacrh-country-wrap .city-message-wrap{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.seacrh-country-wrap .city-message-wrap .city-message{
+  font-family: "Amiri-Bold";
+  font-size: 12px;
+  color:#daa901;
+}
+
 /* end */
 
 /* Weather Details */
@@ -687,16 +702,6 @@ export default {
   font-size: 32px;
   font-family: initial;
 }
-.weather-search-wrap .button-wrap {
-  margin-top: 18px;
-}
-.weather-search-wrap .country-wrap span {
-  color: #eaeaea;
-  display: block;
-  width: 100%;
-  border-bottom: 1px solid;
-  text-align: start;
-}
 .weather-search-wrap .button-wrap button {
   height: 48px;
   background-color: #f8c61a;
@@ -718,8 +723,8 @@ export default {
   margin-top: 30px;
   width: 100%;
 }
-.weather-search-wrap .button-wrap {
-  margin-top: 23px;
+.weather-search-wrap .country-wrap{
+  padding-bottom: 23px;
 }
 .weather-search-wrap .country-wrap input {
   color: #eaeaea;
