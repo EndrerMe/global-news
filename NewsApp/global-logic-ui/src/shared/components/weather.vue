@@ -235,9 +235,7 @@
 <script>
 import converterDesctop from "./converter";
 import weatherService from "./../services/weather.service";
-// import lifeSearchService from './../services/lifesearch.service';
 import EventBus from "./../../eventBus";
-// import * as cities from 'all-the-cities';
 import cities from 'cities.json';
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";

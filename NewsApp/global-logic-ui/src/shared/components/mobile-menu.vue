@@ -13,11 +13,11 @@
             </b-nav-item>
             <b-nav-item href="#" class="wrap">
             <div class="top-side-wrap">
-                <span class="sub-item">
+                <span class="sub-item" v-bind:class="{ 'show-sub-item': isShowSideMenu }">
                 Currency Converter
                 <font-awesome-icon icon="caret-down" />
                 </span>
-                <span class="sub-item" @click='goToWeather()'>
+                <span class="sub-item" @click='goToWeather()' v-bind:class="{ 'show-sub-item': isShowSideMenu }">
                 Weather
                 <font-awesome-icon icon="caret-down" />
                 </span>
@@ -39,10 +39,17 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     name: 'mobileMenu',
+    computed: mapGetters(["getWeatherData"]),
     props: ['isShowSideMenu'],
     methods: {
+        ...mapActions([
+            'getWeatherByCountry'
+        ]),
+
         toggleMobileSideMenu() {
             this.$emit('toggleMobileSideMenu', {state: false})
         },
