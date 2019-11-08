@@ -737,9 +737,11 @@ export default {
   transform: translate(-50%);
   z-index: 1;
 }
-.top-box-preview .right-side .image-box,
-.top-box-preview .right-side-bottom .image-box {
+.top-box-preview .image-box {
   overflow: hidden;
+  height: 100%;
+}
+.top-box-preview .image-box .vue-load-image{
   height: 100%;
 }
 .top-box-preview .right-side {
