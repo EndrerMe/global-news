@@ -4,7 +4,7 @@
       <div class="container">
         <div class="search-panel-content">
           <div class="search-input-wrap">
-            <input id="search-results-input" placeholder="search" v-model="searchValue" />
+            <input id="search-results-input" placeholder="search" v-model="searchValue" v-on:input="searchBytitle($event)"/>
             <label class="close-search-wrap">
               <span class="close-search"></span>
             </label>
@@ -80,6 +80,8 @@
 
 <script>
 import cardSearchResult from "./../shared/components/cardSearchResult";
+import { mapActions } from "vuex";
+import _ from "lodash";
 
 export default {
   name: "searchResult",
@@ -101,6 +103,29 @@ export default {
       this.searchValue = data.searchValue;
       this.searchRes = data.news;
     }
+  },
+  methods: {
+    ...mapActions(["search"]),
+
+    searchBytitle: _.debounce(function(event) {
+      this.searchValue = event.target.value;
+      const value = event.target.value;
+      if (this.searchValue.length > 0) {
+        this.search({ value: value }).then(res => {
+          let news = [];
+          for (let i = 0; i < res.length; i++) {
+            if (res[i].urlToImage && res[i].title && res[i].description) {
+              news.push(res[i]);
+            } else {
+              continue;
+            }
+          }
+          this.searchRes = news;
+          const data = {news: news, searchValue: value};
+          localStorage.setItem('currentSearch', JSON.stringify(data));
+        });
+      }
+    }, 1000)
   }
 };
 </script>
