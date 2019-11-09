@@ -36,7 +36,13 @@ const routes = [
     name: 'weatherMap',
     component: lazyLoad('weather-map'),
     props: true,
-  }
+  },
+  {
+    path: "/search-results",
+    name: "search-results",
+    component: lazyLoad('search-results'),
+    props: true
+  },
 ];
 
 export default routes;
