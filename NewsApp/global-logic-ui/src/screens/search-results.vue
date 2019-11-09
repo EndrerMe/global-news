@@ -4,7 +4,12 @@
       <div class="container">
         <div class="search-panel-content">
           <div class="search-input-wrap">
-            <input id="search-results-input" placeholder="search" v-model="searchValue" v-on:input="searchBytitle($event)"/>
+            <input
+              id="search-results-input"
+              placeholder="search"
+              v-model="searchValue"
+              v-on:input="searchBytitle($event)"
+            />
             <label class="close-search-wrap">
               <span class="close-search"></span>
             </label>
@@ -63,8 +68,8 @@
       </div>
       <div class="search-results-wrap">
         <div class="display-results-wrap">
-          <span>Displaying results 1-10 out of 637 for</span>
-          <span>{{ searchValue }}</span>
+          <span>Displaying results 1-10 out of 637 for &nbsp;</span>
+          <span class="display-for-search">{{ searchValue }}</span>
         </div>
         <div class="search-result">
           <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
@@ -117,8 +122,8 @@ export default {
             }
           }
           this.searchRes = news;
-          const data = {news: news, searchValue: value};
-          localStorage.setItem('currentSearch', JSON.stringify(data));
+          const data = { news: news, searchValue: value };
+          localStorage.setItem("currentSearch", JSON.stringify(data));
         });
       }
     }, 1000)
@@ -136,14 +141,14 @@ export default {
 }
 
 .main-content-wrap .side-wrap,
-.main-content-wrap .search-results-wrap{
+.main-content-wrap .search-results-wrap {
   padding-top: 106px;
 }
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories,
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort {
   list-style: none;
   color: #3f3f3f;
-  padding-left:0;
+  padding-left: 0;
 }
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li,
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li {
@@ -178,9 +183,18 @@ export default {
   z-index: -1;
 }
 
-.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li:hover a::before,
-.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li:hover a::before
-{
+.main-content-wrap
+  .side-wrap
+  .side-menu-wrap
+  .side-menu-categories
+  li:hover
+  a::before,
+.main-content-wrap
+  .side-wrap
+  .side-menu-wrap
+  .side-menu-sort
+  li:hover
+  a::before {
   display: block !important;
 }
 
@@ -197,11 +211,20 @@ export default {
   position: relative;
   width: 80%;
 }
-.main-content-wrap .search-results-wrap .display-results-wrap{
+.main-content-wrap .search-results-wrap .display-results-wrap {
   position: absolute;
-  top:45px;
-  left: 50%;
-  transform: translate(-50%);
+  top: 45px;
+  right: 15px;
+  font-family: "Poppins-Regular";
+  font-size: 16px;
+}
+
+.main-content-wrap
+  .search-results-wrap
+  .display-results-wrap
+  .display-for-search {
+  font-family: "Poppins-Bold";
+  color: #052962;
 }
 
 .main-content-wrap .search-results-wrap .search-result {
