@@ -70,7 +70,7 @@
 
           <div class="search-result">
             
-            <cardSearchResult></cardSearchResult>
+            <cardSearchResult v-for='news of searchRes' :key='news.title' :news='news'></cardSearchResult>
 
           </div>
         </div>
