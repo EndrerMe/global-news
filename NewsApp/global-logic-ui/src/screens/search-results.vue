@@ -15,63 +15,59 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="main-content-wrap">
-        <div class="side-wrap">
-          <div class="side-menu-wrap">
-            <ul class="side-menu-categories">
-              <div class="menu-title-wrap">
-                <span class="title-text">Search across</span>
-              </div>
-              <li>
-                <a href="#">All News</a>
-              </li>
-              <li>
-                <a href="#">Business</a>
-              </li>
-              <li>
-                <a href="#">Entertainment</a>
-              </li>
-              <li>
-                <a href="#">General</a>
-              </li>
-              <li>
-                <a href="#">Health</a>
-              </li>
-              <li>
-                <a href="#">Science</a>
-              </li>
-              <li>
-                <a href="#">Sport</a>
-              </li>
-              <li>
-                <a href="#">Technology</a>
-              </li>
-            </ul>
+    <div class="container main-content-wrap">
+      <div class="side-wrap">
+        <div class="side-menu-wrap">
+          <ul class="side-menu-categories">
+            <div class="menu-title-wrap">
+              <span class="title-text">Search across</span>
+            </div>
+            <li>
+              <a href="#">All News</a>
+            </li>
+            <li>
+              <a href="#">Business</a>
+            </li>
+            <li>
+              <a href="#">Entertainment</a>
+            </li>
+            <li>
+              <a href="#">General</a>
+            </li>
+            <li>
+              <a href="#">Health</a>
+            </li>
+            <li>
+              <a href="#">Science</a>
+            </li>
+            <li>
+              <a href="#">Sport</a>
+            </li>
+            <li>
+              <a href="#">Technology</a>
+            </li>
+          </ul>
 
-            <ul class="side-menu-sort">
-              <div class="menu-title-wrap">
-                <span class="title-text">Sort by</span>
-              </div>
-              <li>
-                <a href="#">Date</a>
-              </li>
-              <li>
-                <a href="#">Popularity</a>
-              </li>
-            </ul>
-          </div>
+          <ul class="side-menu-sort">
+            <div class="menu-title-wrap">
+              <span class="title-text">Sort by</span>
+            </div>
+            <li>
+              <a href="#">Date</a>
+            </li>
+            <li>
+              <a href="#">Popularity</a>
+            </li>
+          </ul>
         </div>
-        <div class="search-results-wrap">
-          <span>
-            <span>Displaying results 1-10 out of 637 for</span>
-            <span>{{ searchValue }}</span>
-          </span>
-          <div class="search-result">
-            
-            <cardSearchResult v-for='news of searchRes' :key='news.title' :news='news'></cardSearchResult>
-
-          </div>
+      </div>
+      <div class="search-results-wrap">
+        <div class="display-results-wrap">
+          <span>Displaying results 1-10 out of 637 for</span>
+          <span>{{ searchValue }}</span>
+        </div>
+        <div class="search-result">
+          <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
         </div>
       </div>
     </div>
@@ -114,15 +110,78 @@ export default {
   width: 20%;
 }
 
-.main-content-wrap .side-wrap .menu-title-wrap .title-text {
+.main-content-wrap .side-wrap,
+.main-content-wrap .search-results-wrap{
+  padding-top: 106px;
+}
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort {
+  list-style: none;
+  color: #3f3f3f;
+  padding-left:0;
+}
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li {
+  text-align: start;
+  margin: 5px 0;
+}
+
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a {
+  position: relative;
+  font-family: "Amiri-Bold";
+  font-size: 16px;
+  color: #3f3f3f;
+  text-decoration: none;
+}
+
+.main-content-wrap
+  .side-wrap
+  .side-menu-wrap
+  .side-menu-categories
+  li
+  a::before,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a::before {
+  display: none;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background: #f8c61a;
+  left: 2px;
+  bottom: 7px;
+  z-index: -1;
+}
+
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li:hover a::before,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li:hover a::before
+{
+  display: block !important;
+}
+
+.main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
+.main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
   font-family: "Amiri-Bold";
   font-size: 28px;
-  /* color: #3F3F3F; */
+  text-align: start;
+  padding-left: 5px;
 }
 
 /* Search Results */
 .main-content-wrap .search-results-wrap {
+  position: relative;
   width: 80%;
+}
+.main-content-wrap .search-results-wrap .display-results-wrap{
+  position: absolute;
+  top:45px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.main-content-wrap .search-results-wrap .search-result {
+  display: flex;
+  flex-flow: wrap;
 }
 .main-content-wrap
   .search-results-wrap
@@ -134,6 +193,10 @@ export default {
 }
 
 /* Search panel */
+.search-panel-wrap .container,
+.main-content-wrap.container {
+  max-width: 1440px;
+}
 .search-panel-wrap {
   display: flex;
   align-items: center;
@@ -142,6 +205,7 @@ export default {
 }
 .search-panel-wrap .search-panel-content .search-input-wrap {
   position: relative;
+  display: flex;
 }
 .search-panel-wrap .search-panel-content .search-input-wrap input {
   width: 100%;
@@ -154,17 +218,17 @@ export default {
   .search-panel-content
   .search-input-wrap
   label.search-icon-wrap {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  right: -40px;
+  display: flex;
+  align-items: center;
+  margin-bottom: inherit;
+  padding: 0 15px;
 }
 .search-panel-wrap
   .search-panel-content
   .search-input-wrap
   label.close-search-wrap {
   position: absolute;
-  right: 20px;
+  right: 60px;
   top: 5px;
 }
 .search-panel-wrap
