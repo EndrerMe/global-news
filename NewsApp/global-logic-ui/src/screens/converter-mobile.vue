@@ -7,21 +7,25 @@
         <div class="dropdown-wrap" selected>
           <span>from</span>
           <div>
-            <span class="first-elem">USD</span>
-            <span class="icon-wrap">
-              <font-awesome-icon icon="caret-down" />
-            </span>
+            <div @click='toggleFromList()'>
+              <span class="first-elem">{{ currentRate }}</span>
+              <span class="icon-wrap">
+                <font-awesome-icon icon="caret-down" />
+              </span>
+            </div>
             <ul class="currency-dropdown-from" v-if='isShowFromList'>
-              <li class="hidden-elem">UYF</li>
-              <li class="hidden-elem">UIH</li>
-              <li class="hidden-elem">VCF</li>
-              <li class="hidden-elem">OUU</li>
-              <li class="hidden-elem">MVC</li>
+              <template v-for="value of ratesName">
+                <li 
+                class="hidden-elem"
+                :key="value"
+                v-if="value !== exchangeName || value !== currentRate"
+                @click="changeCurrentRate(value)">{{ value }}</li>
+              </template>
             </ul>
           </div>
         </div>
         <div class="value-wrap">
-          <input class="value" value="100" type="number" placeholder="Amount" />
+          <input class="value" value="100" type="number" placeholder="Amount" v-on:input="changeAmount($event)"/>
         </div>
       </div>
       <div class="convert-icon">
@@ -31,39 +35,46 @@
         <div class="dropdown-wrap" selected>
           <span>to</span>
           <div>
-            <span class="first-elem">EUR</span>
-            <span class="icon-wrap">
-              <font-awesome-icon icon="caret-down" />
-            </span>
+            <div @click='toggleToList()'>
+              <span class="first-elem">{{ exchangeName }}</span>
+              <span class="icon-wrap">
+                <font-awesome-icon icon="caret-down" />
+              </span>
+            </div>
             <ul class="currency-dropdown-to" v-if='isShowToList'>
-              <li class="hidden-elem">UYF</li>
-              <li class="hidden-elem">UIH</li>
-              <li class="hidden-elem">VCF</li>
-              <li class="hidden-elem">OUU</li>
-              <li class="hidden-elem">MVC</li>
+              <template v-for="value of getRatesName">
+                <li 
+                class="hidden-elem"
+                :key="value"
+                v-if="value !== currentRate || value !== exchangeName"
+                @click='changeRateTo(value)'>{{ value }}</li>
+              </template>
             </ul>
           </div>
         </div>
         <div class="value-wrap">
-          <span class="value">123.086</span>
+          <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span>
         </div>
       </div>
       <div class="rate-wrap">
         <div>
-          <span>EUR/USD = 32.09</span>
+          <span>EUR/USD = {{ retesCouples.first.usd[0] }}.{{ retesCouples.first.usd[1] }}</span>
         </div>
         <div>
-          <span>USD/JPY = 54.00</span>
+          <span>USD/JPY = {{ retesCouples.secound.jpy[0] }}.{{ retesCouples.secound.jpy[1] }}</span>
         </div>
         <div>
-          <span>GBP/USD = 13.50</span>
+          <span>GBP/USD = {{ retesCouples.third.usd[0] }}.{{ retesCouples.third.usd[1] }}</span>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-// import ratesService from "./../shared/services/rates.service";
+import ratesService from "./../shared/services/rates.service";
+import EventBus from "./../eventBus";
+import {mapGetters} from 'vuex'
+import _ from "lodash";
 
 export default {
   name: 'converter-mobile',
@@ -71,6 +82,275 @@ export default {
     return {
       isShowToList: false,
       isShowFromList: false,
+      ratesName: [],
+      ratesValue: {},
+      currentRate: "USD",
+      currentRateValue: "",
+      exchangeTo: "",
+      exchangeName: "EUR",
+      rateAmount: 100,
+      retesCouples: {
+        first: {
+          eur: this.rateAmount,
+          usd: ""
+        },
+
+        secound: {
+          usd: this.rateAmount,
+          jpy: ""
+        },
+
+        third: {
+          gbp: this.rateAmount,
+          usd: ""
+        }
+      }
+    }
+  },
+  computed: mapGetters(['getRatesName', 'getRatesValue', 'getMainRates']),
+  created() {
+    ratesService.getRates(this.currentRate).then(res => {
+      for (let i in res.data.rates) {
+        this.ratesName.push(i);
+      }
+      this.ratesValue = res.data.rates;
+      this.exchangeTo = this.ratesValue[this.exchangeName] * this.rateAmount;
+      this.exchangeTo = this.exchangeTo + "";
+      this.exchangeTo = this.exchangeTo.split(".");
+      let array = this.exchangeTo[0].split("");
+      this.exchangeTo[0] = "";
+      for (let i = 0; i < array.length; i++) {
+        if (array.length > 3) {
+          if (i % 3 == 0) {
+            if (i < array.length - 1) {
+              array[i] = array[i] + ",";
+            } else {
+              continue;
+            }
+          }
+        }
+      }
+      this.exchangeTo[0] = array.join("");
+      this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+    });
+
+    ratesService.getRates("EUR").then(res => {
+      this.retesCouples.first.usd = res.data.rates.USD;
+      this.retesCouples.first.usd = this.retesCouples.first.usd + "";
+      this.retesCouples.first.usd = this.retesCouples.first.usd.split(".");
+      let array = this.retesCouples.first.usd[0].split("");
+      this.retesCouples.first.usd[0] = "";
+      for (let i = 0; i < array.length; i++) {
+        if (array.length > 3) {
+          if (i % 3 == 0) {
+            if (i < array.length - 1) {
+              array[i] = array[i] + ",";
+            } else {
+              continue;
+            }
+          }
+        }
+      }
+      this.retesCouples.first.usd[0] = array.join("");
+      this.retesCouples.first.usd[1] = this.retesCouples.first.usd[1].slice(
+        0,
+        4
+      );
+    });
+
+    ratesService.getRates("USD").then(res => {
+      this.retesCouples.secound.jpy = res.data.rates.JPY;
+      this.retesCouples.secound.jpy = this.retesCouples.secound.jpy + "";
+      this.retesCouples.secound.jpy = this.retesCouples.secound.jpy.split(".");
+      let array = this.retesCouples.secound.jpy[0].split("");
+      this.retesCouples.secound.jpy[0] = "";
+      for (let i = 0; i < array.length; i++) {
+        if (array.length > 3) {
+          if (i % 3 == 0) {
+            if (i < array.length - 1) {
+              array[i] = array[i] + ",";
+            } else {
+              continue;
+            }
+          }
+        }
+      }
+      this.retesCouples.secound.jpy[0] = array.join("");
+      this.retesCouples.secound.jpy[1] = this.retesCouples.secound.jpy[1].slice(
+        0,
+        4
+      );
+    });
+
+    ratesService.getRates("GBP").then(res => {
+      this.retesCouples.third.usd = res.data.rates.USD;
+      this.retesCouples.third.usd = this.retesCouples.third.usd + "";
+      this.retesCouples.third.usd = this.retesCouples.third.usd.split(".");
+      let array = this.retesCouples.third.usd[0].split("");
+      this.retesCouples.third.usd[0] = "";
+      for (let i = 0; i < array.length; i++) {
+        if (array.length > 3) {
+          if (i % 3 == 0) {
+            if (i < array.length - 1) {
+              array[i] = array[i] + ",";
+            } else {
+              continue;
+            }
+          }
+        }
+      }
+      this.retesCouples.third.usd[0] = array.join("");
+      this.retesCouples.third.usd[1] = this.retesCouples.third.usd[1].slice(
+        0,
+        4
+      );
+    });
+  },
+  methods: {
+    toggleFromList() {
+      this.isShowFromList = !this.isShowFromList;
+    },
+
+    toggleToList() {
+      this.isShowToList = !this.isShowToList;
+    },
+
+    closeConverterModal() {
+      EventBus.$emit("closeConverterModal", { state: false });
+    },
+
+    changeCurrentRate(value) {
+      let target = value;
+      this.currentRate = target + "";
+      ratesService.getRates(this.currentRate).then(res => {
+        this.rates = res.data.rates;
+        this.currentRateValue = this.rates[this.currentRate];
+
+        this.exchangeTo = this.rates[this.exchangeName] * this.rateAmount;
+        this.exchangeTo = this.exchangeTo + "";
+        this.exchangeTo = this.exchangeTo.split(".");
+        let array = this.exchangeTo[0].split("");
+        this.exchangeTo[0] = "";
+        for (let i = 0; i < array.length; i++) {
+          if (array.length > 3) {
+            if (i % 3 == 0) {
+              if (i < array.length - 1) {
+                array[i] = array[i] + ",";
+              } else {
+                continue;
+              }
+            }
+          }
+        }
+        this.exchangeTo[0] = array.join("");
+        this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+        this.isLoaderShow = false;
+      });
+    },
+
+    changeRateTo(value) {
+      let target = value;
+      ratesService.getRates(this.currentRate).then(res => {
+        this.rates = res.data.rates;
+        this.exchangeTo = this.rates[target] * this.rateAmount;
+        this.exchangeTo = this.exchangeTo + "";
+        this.exchangeTo = this.exchangeTo.split(".");
+        let array = this.exchangeTo[0].split("");
+        this.exchangeTo[0] = "";
+        for (let i = 0; i < array.length; i++) {
+          if (array.length > 3) {
+            if (i % 3 == 0) {
+              if (i < array.length - 1) {
+                array[i] = array[i] + ",";
+              } else {
+                continue;
+              }
+            }
+          }
+        }
+        this.exchangeTo[0] = array.join("");
+        this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+        this.exchangeName = target;
+
+        this.isLoaderShow = false;
+      });
+    },
+
+    changeAmount: _.debounce(async function(event) {
+      const value = event.target.value;
+
+      this.rateAmount = value;
+
+      const res = await ratesService.getRates(this.currentRate);
+
+      if (value) {
+        if (this.exchangeTo === 0) {
+          this.exchangeTo = res.data.rates[this.exchangeName];
+          this.exchangeTo = this.exchangeTo * value;
+        } else {
+          this.exchangeTo = res.data.rates[this.exchangeName] * value;
+          this.exchangeTo = this.exchangeTo + "";
+          this.exchangeTo = this.exchangeTo.split(".");
+          let array = this.exchangeTo[0].split("");
+          this.exchangeTo[0] = "";
+          for (let i = 0; i < array.length; i++) {
+            if (array.length > 3) {
+              if (i % 3 == 0) {
+                if (i < array.length - 1) {
+                  array[i] = array[i] + ",";
+                } else {
+                  continue;
+                }
+              }
+            }
+          }
+          this.exchangeTo[0] = array.join("");
+          this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+        }
+      } else {
+        this.rateAmount = 100;
+        this.exchangeTo = res.data.rates[this.exchangeName] * this.rateAmount;
+        this.exchangeTo = this.exchangeTo + "";
+        this.exchangeTo = this.exchangeTo.split(".");
+        let array = this.exchangeTo[0].split("");
+        this.exchangeTo[0] = "";
+        for (let i = 0; i < array.length; i++) {
+          if (array.length > 3) {
+            if (i % 3 == 0) {
+              if (i < array.length - 1) {
+                array[i] = array[i] + ",";
+              } else {
+                continue;
+              }
+            }
+          }
+        }
+        this.exchangeTo[0] = array.join("");
+        this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+      }
+
+      this.rates = res.data.rates;
+
+      for (let item in this.rates) {
+        if (typeof this.rates[item] == "number") {
+          this.rates[item] = this.rates[item] * value;
+        }
+        continue;
+      }
+    }, 1000),
+
+    focusOn() {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        this.$emit("toggleHeadAndFoot", false);
+      }
+    },
+
+    focusOut() {
+      this.$emit("toggleHeadAndFoot", true);
     }
   }
 }
