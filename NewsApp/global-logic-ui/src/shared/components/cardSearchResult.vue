@@ -2,15 +2,15 @@
    <div class="card-wrap">
         <b-card class="mb-2 new-card new-card col-md-12">
         <div class="image-wrap">
-            <b-card-title>Title</b-card-title>
+            <b-card-title>{{ news.title }}</b-card-title>
             <div class="gradient"></div>
             <div class="image-wrap">
-            <img src="./../../assets/images/business/img-1.png" />
+            <img :src="news.urlToImage" />
             </div>
         </div>
 
         <div class="card-text-wrap">
-            <b-card-text>text.......</b-card-text>
+            <b-card-text>{{ news.description }}</b-card-text>
         </div>
         <template>
             <small class="text-muted">footer...........</small>
@@ -21,7 +21,8 @@
 
 <script>
 export default {
-    name: 'cardSearchResult'
+    props: ['news'],
+    name: 'cardSearchResult',
 }
 </script>
 
