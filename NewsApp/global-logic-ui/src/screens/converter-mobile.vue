@@ -76,11 +76,11 @@
 <script>
 import ratesService from "./../shared/services/rates.service";
 import EventBus from "./../eventBus";
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 import _ from "lodash";
 
 export default {
-  name: 'converter-mobile',
+  name: "converter-mobile",
   data() {
     return {
       isShowToList: false,
@@ -108,9 +108,9 @@ export default {
           usd: ""
         }
       }
-    }
+    };
   },
-  computed: mapGetters(['getRatesName', 'getRatesValue', 'getMainRates']),
+  computed: mapGetters(["getRatesName", "getRatesValue", "getMainRates"]),
   created() {
     ratesService.getRates(this.currentRate).then(res => {
       for (let i in res.data.rates) {
@@ -356,7 +356,7 @@ export default {
       this.$emit("toggleHeadAndFoot", true);
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -471,8 +471,8 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.currency-converter-wrap .to .dropdown-wrap .dropdown-title-wrap  ,
-.currency-converter-wrap .from .dropdown-wrap .dropdown-title-wrap  {
+.currency-converter-wrap .to .dropdown-wrap .dropdown-title-wrap,
+.currency-converter-wrap .from .dropdown-wrap .dropdown-title-wrap {
   height: 15px;
 }
 .currency-converter-wrap .to .dropdown-wrap .dropdown-title,
@@ -501,7 +501,7 @@ export default {
   outline: none;
 }
 .currency-converter-wrap .to {
-  margin-top:22px;
+  margin-top: 22px;
   text-align: start;
   display: flex;
   justify-content: space-between;
