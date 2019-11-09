@@ -55,6 +55,7 @@
                 class="hidden-elem"
                 :key="value"
                 v-if="value !== currentRate || value !== exchangeName"
+                @click='changeRateTo(value)'
               >
                 <span>{{ value }}</span>
               </li>
@@ -259,9 +260,9 @@ export default {
       });
     },
 
-    changeRateTo(event) {
+    changeRateTo(value) {
       this.isLoaderShow = true;
-      let target = event.target.value;
+      let target = value;
 
       ratesService.getRates(this.currentRate).then(res => {
         this.rates = res.data.rates;
