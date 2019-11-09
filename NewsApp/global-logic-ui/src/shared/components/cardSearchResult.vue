@@ -28,5 +28,5 @@ export default {
 <style scoped>
 .card-wrap .image-wrap img{
     width: 100%;
-}
+} 
 </style>
