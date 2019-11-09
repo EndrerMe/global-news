@@ -4,7 +4,7 @@
       <div class="container">
         <div class="search-panel-content">
           <div class="search-input-wrap">
-            <input id="search-results-input" placeholder="search" />
+            <input id="search-results-input" placeholder="search" v-model="searchValue" />
             <label class="close-search-wrap">
               <span class="close-search"></span>
             </label>
@@ -65,46 +65,10 @@
         <div class="search-results-wrap">
           <span>
             <span>Displaying results 1-10 out of 637 for</span>
-            <span>Tramp</span>
+            <span>{{ searchValue }}</span>
           </span>
-
-          <div class="search-result"> 
-            <div class="card-wrap">
-              <b-card class="mb-2 new-card new-card col-md-12">
-                <div class="image-wrap">
-                  <b-card-title>Title</b-card-title>
-                  <div class="gradient"></div>
-                  <div class="image-wrap">
-                    <img src="../assets/images/business/img-1.png" />
-                  </div>
-                </div>
-
-                <div class="card-text-wrap">
-                  <b-card-text>text.......</b-card-text>
-                </div>
-                <template>
-                  <small class="text-muted">footer...........</small>
-                </template>
-              </b-card>
-            </div>
-            <div class="card-wrap">
-              <b-card class="mb-2 new-card new-card col-md-12">
-                <div class="image-wrap">
-                  <b-card-title>Title</b-card-title>
-                  <div class="gradient"></div>
-                  <div class="image-wrap">
-                    <img src="../assets/images/business/img-2.png" />
-                  </div>
-                </div>
-
-                <div class="card-text-wrap">
-                  <b-card-text>text.......</b-card-text>
-                </div>
-                <template>
-                  <small class="text-muted">footer...........</small>
-                </template>
-              </b-card>
-            </div>
+          <div class="search-result">
+            <cardSearchResult></cardSearchResult>
           </div>
         </div>
       </div>
@@ -113,18 +77,30 @@
 </template>
 
 <script>
+import cardSearchResult from "./../shared/components/cardSearchResult";
+
 export default {
-  name: 'searchResult',
+  name: "searchResult",
+  components: {
+    cardSearchResult
+  },
   data() {
     return {
-      searchValue: '',
-    }
+      searchValue: "",
+      searchRes: []
+    };
   },
-  mounted () {
-    this.searchValue = this.$route.params.searchValue
-    console.log(this.$route.params)
+  mounted() {
+    if (this.$route.params.searchValue) {
+      this.searchValue = this.$route.params.searchValue;
+      this.searchRes = this.$route.params.news;
+    } else {
+      const data = JSON.parse(localStorage.getItem("currentSearch"));
+      this.searchValue = data.searchValue;
+      this.searchRes = data.news;
+    }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -146,8 +122,13 @@ export default {
 .main-content-wrap .search-results-wrap {
   width: 80%;
 }
-.main-content-wrap .search-results-wrap .search-result .card-wrap .image-wrap img{
-    width: 100%;
+.main-content-wrap
+  .search-results-wrap
+  .search-result
+  .card-wrap
+  .image-wrap
+  img {
+  width: 100%;
 }
 
 /* Search panel */
