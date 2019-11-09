@@ -85,11 +85,11 @@ export default {
 
 .mobile-side-menu-wrap .mobile-side-menu {
   /* display: none; */
-  padding-top: 57px;
+  padding-top: 58px;
 }
 
 .mobile-side-menu-wrap .mobile-side-menu .nav-item.wrap {
-  border-top: 1px solid #6d6d6d;
+  border-top: 1px solid #436f9c;
 }
 
 .mobile-side-menu-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button:hover {

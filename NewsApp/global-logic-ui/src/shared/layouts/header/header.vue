@@ -21,11 +21,11 @@
             <div id="nav-collapse">
               <div class="sub-wrap">
                 <b-navbar-nav class="wide-menu">
-                  <b-nav-item class="close-link-wrap">
+                  <!-- <b-nav-item class="close-link-wrap">
                     <div class="close-wrap" @click="toggleMobileSideMenu()">
                       <a href="#"></a>
                     </div>
-                  </b-nav-item>
+                  </b-nav-item> -->
                   <b-nav-item href="#" class="logo-wrap" @click="goToHomePage()">
                     <img src="../../../assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
