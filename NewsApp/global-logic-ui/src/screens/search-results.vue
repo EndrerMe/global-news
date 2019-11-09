@@ -4,7 +4,7 @@
       <div class="container">
         <div class="search-panel-content">
           <div class="search-input-wrap">
-            <input id="search-results-input" placeholder="search" />
+            <input id="search-results-input" placeholder="search" :value="searchValue"/>
             <label for="search-results-input" class="search-icon-wrap">
               <font-awesome-icon icon="search" class="fa-lg" />
             </label>
@@ -14,6 +14,21 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'searchResult',
+  data() {
+    return {
+      searchValue: '',
+    }
+  },
+  mounted () {
+    this.searchValue = this.$route.params.searchValue
+    console.log(this.$route.params)
+  }
+}
+</script>
 
 <style scoped>
 .search-panel-wrap {

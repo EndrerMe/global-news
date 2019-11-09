@@ -1,86 +1,74 @@
 <template>
-    <div class="currency-converter-wrap">
-      <div class="title-wrap">
-        <span class="title-text">Currency Converter</span>
-      </div>
-      <div class="from">
-        <div class="dropdown-wrap" selected>
-          <span>from</span>
-          <div>
-            <div @click='toggleFromList()'>
-              <span class="first-elem">{{ currentRate }}</span>
-              <span class="icon-wrap">
-                <font-awesome-icon icon="caret-down" />
-              </span>
-            </div>
-            <ul class="currency-dropdown-from" v-if='isShowFromList'>
-              <template v-for="value of ratesName">
-                <li 
-                class="hidden-elem"
-                :key="value"
-                v-if="value !== exchangeName || value !== currentRate"
-                @click="changeCurrentRate(value)">{{ value }}</li>
-              </template>
-            </ul>
+  <div class="currency-converter-wrap">
+    <div class="title-wrap">
+      <span class="title-text">Currency Converter</span>
+    </div>
+    <div class="from">
+      <div class="dropdown-wrap" selected>
+        <span>from</span>
+        <div>
+          <div @click='toggleFromList()'>
+            <span class="first-elem">{{ currentRate }}</span>
+            <span class="icon-wrap">
+              <font-awesome-icon icon="caret-down" />
+            </span>
           </div>
-        </div>
-        <div class="value-wrap">
-          <input class="value" value="100" type="number" placeholder="Amount" v-on:input="changeAmount($event)"/>
-        </div>
-      </div>
-      <div class="convert-icon">
-        <img src="../assets/images/header/change-arrows.svg" alt="logo" />
-      </div>
-      <div class="to">
-        <div class="dropdown-wrap" selected>
-          <span>to</span>
-          <div>
-            <div @click='toggleToList()'>
-              <span class="first-elem">{{ exchangeName }}</span>
-              <span class="icon-wrap">
-                <font-awesome-icon icon="caret-down" />
-              </span>
-            </div>
-            <ul class="currency-dropdown-to" v-if='isShowToList'>
-              <template v-for="value of getRatesName">
-                <li 
-                class="hidden-elem"
-                :key="value"
-                v-if="value !== currentRate || value !== exchangeName"
-                @click='changeRateTo(value)'>{{ value }}</li>
-              </template>
-            </ul>
-          </div>
-        </div>
-        <div class="value-wrap">
-          <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span>
-        </div>
-      </div>
-      <div class="rate-wrap">
-        <div>
-          <span>EUR/USD = {{ retesCouples.first.usd[0] }}.{{ retesCouples.first.usd[1] }}</span>
-        </div>
-        <div>
-          <span>USD/JPY = {{ retesCouples.secound.jpy[0] }}.{{ retesCouples.secound.jpy[1] }}</span>
-        </div>
-        <div>
-          <span>GBP/USD = {{ retesCouples.third.usd[0] }}.{{ retesCouples.third.usd[1] }}</span>
+          <ul class="currency-dropdown-from" v-if='isShowFromList'>
+            <template v-for="value of ratesName">
+              <li 
+              class="hidden-elem"
+              :key="value"
+              v-if="value !== exchangeName || value !== currentRate"
+              @click="changeCurrentRate(value)">{{ value }}</li>
+            </template>
+          </ul>
         </div>
       </div>
       <div class="value-wrap">
-        <input class="value" value="123.086" type="number" placeholder="Amount" />
+        <input class="value" value="100" type="number" placeholder="Amount" v-on:input="changeAmount($event)"/>
+      </div>
+    </div>
+    <div class="convert-icon">
+      <img src="../assets/images/header/change-arrows.svg" alt="logo" />
+    </div>
+    <div class="to">
+      <div class="dropdown-wrap" selected>
+        <span>to</span>
+        <div>
+          <div @click='toggleToList()'>
+            <span class="first-elem">{{ exchangeName }}</span>
+            <span class="icon-wrap">
+              <font-awesome-icon icon="caret-down" />
+            </span>
+          </div>
+          <ul class="currency-dropdown-to" v-if='isShowToList'>
+            <template v-for="value of getRatesName">
+              <li 
+              class="hidden-elem"
+              :key="value"
+              v-if="value !== currentRate || value !== exchangeName"
+              @click='changeRateTo(value)'>{{ value }}</li>
+            </template>
+          </ul>
+        </div>
+      </div>
+      <div class="value-wrap">
+        <span class="value">{{ exchangeTo[0] }}.{{exchangeTo[1]}}</span>
       </div>
     </div>
     <div class="rate-wrap">
       <div>
-        <span>EUR/USD = 32.09</span>
+        <span>EUR/USD = {{ retesCouples.first.usd[0] }}.{{ retesCouples.first.usd[1] }}</span>
       </div>
       <div>
-        <span>USD/JPY = 54.00</span>
+        <span>USD/JPY = {{ retesCouples.secound.jpy[0] }}.{{ retesCouples.secound.jpy[1] }}</span>
       </div>
       <div>
-        <span>GBP/USD = 13.50</span>
+        <span>GBP/USD = {{ retesCouples.third.usd[0] }}.{{ retesCouples.third.usd[1] }}</span>
       </div>
+    </div>
+    <div class="value-wrap">
+      <input class="value" value="123.086" type="number" placeholder="Amount" />
     </div>
   </div>
 </template>
