@@ -214,6 +214,7 @@ export default {
         this.search({ value: value }).then(res => {
           const data = {news: res, searchValue: value};
           this.searchValue = '';
+          localStorage.setItem('currentSearch', JSON.stringify(data));
           this.$router.push({name: "search-results", params: data});
         });
         // newsService.searchByTitle(this.searchValue).then((res) => {

@@ -4,7 +4,7 @@
       <div class="container">
         <div class="search-panel-content">
           <div class="search-input-wrap">
-            <input id="search-results-input" placeholder="search" />
+            <input id="search-results-input" placeholder="search" v-model='searchValue'/>
             <label class="close-search-wrap">
               <span class="close-search"></span>
             </label>
@@ -25,11 +25,18 @@ export default {
   data() {
     return {
       searchValue: '',
+      searchRes: [],
     }
   },
   mounted () {
-    this.searchValue = this.$route.params.searchValue
-    console.log(this.$route.params)
+    if (this.$route.params.searchValue) {
+      this.searchValue = this.$route.params.searchValue;
+      this.searchRes = this.$route.params.news;
+    } else {
+      const data = JSON.parse(localStorage.getItem("currentSearch"));
+      this.searchValue = data.searchValue;
+      this.searchRes = data.news;
+    }
   }
 }
 </script>
