@@ -209,9 +209,12 @@ export default {
     searchBytitle: _.debounce(function(event) {
       this.searchValue = event.target.value;
       const value = event.target.value;
+      console.log(value)
       if (this.searchValue.length > 0) {
         this.search({ value: value }).then(res => {
-          console.log(res);
+          const data = {news: res, searchValue: value};
+          this.searchValue = '';
+          this.$router.push({name: "search-results", params: data});
         });
         // newsService.searchByTitle(this.searchValue).then((res) => {
         //     this.currentNews = res.data.articles;

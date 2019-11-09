@@ -112,6 +112,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'searchResult',
+  data() {
+    return {
+      searchValue: '',
+    }
+  },
+  mounted () {
+    this.searchValue = this.$route.params.searchValue
+    console.log(this.$route.params)
+  }
+}
+</script>
+
 <style scoped>
 /* Side Menu */
 .main-content-wrap {
