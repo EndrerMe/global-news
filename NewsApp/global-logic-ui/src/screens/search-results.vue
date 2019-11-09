@@ -4,7 +4,7 @@
       <div class="container">
         <div class="search-panel-content">
           <div class="search-input-wrap">
-            <input id="search-results-input" placeholder="search" v-model='searchValue'/>
+            <input id="search-results-input" placeholder="search" v-model="searchValue" />
             <label class="close-search-wrap">
               <span class="close-search"></span>
             </label>
@@ -67,7 +67,6 @@
             <span>Displaying results 1-10 out of 637 for</span>
             <span>{{ searchValue }}</span>
           </span>
-
           <div class="search-result">
             
             <cardSearchResult v-for='news of searchRes' :key='news.title' :news='news'></cardSearchResult>
@@ -75,25 +74,25 @@
           </div>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
 </template>
 
 <script>
-import cardSearchResult from './../shared/components/cardSearchResult';
+import cardSearchResult from "./../shared/components/cardSearchResult";
 
 export default {
-  name: 'searchResult',
+  name: "searchResult",
   components: {
     cardSearchResult
   },
   data() {
     return {
-      searchValue: '',
-      searchRes: [],
-    }
+      searchValue: "",
+      searchRes: []
+    };
   },
-  mounted () {
+  mounted() {
     if (this.$route.params.searchValue) {
       this.searchValue = this.$route.params.searchValue;
       this.searchRes = this.$route.params.news;
@@ -103,7 +102,7 @@ export default {
       this.searchRes = data.news;
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -125,8 +124,13 @@ export default {
 .main-content-wrap .search-results-wrap {
   width: 80%;
 }
-.main-content-wrap .search-results-wrap .search-result .card-wrap .image-wrap img{
-    width: 100%;
+.main-content-wrap
+  .search-results-wrap
+  .search-result
+  .card-wrap
+  .image-wrap
+  img {
+  width: 100%;
 }
 
 /* Search panel */
