@@ -212,7 +212,15 @@ export default {
       console.log(value)
       if (this.searchValue.length > 0) {
         this.search({ value: value }).then(res => {
-          const data = {news: res, searchValue: value};
+          let news = [];
+          for (let i = 0; i < res.length; i++) {
+            if (res[i].urlToImage && res[i].title && res[i].description) {
+              news.push(res[i]);
+            } else {
+              continue;
+            }
+          }
+          const data = {news: news, searchValue: value};
           this.searchValue = '';
           localStorage.setItem('currentSearch', JSON.stringify(data));
           this.$router.push({name: "search-results", params: data});
