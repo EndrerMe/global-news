@@ -68,7 +68,7 @@
       </div>
       <div class="search-results-wrap">
         <div class="display-results-wrap">
-          <span>Displaying results 1-10 out of 637 for &nbsp;</span>
+          <span>Displaying results 1-10 out of 637 for</span>
           <span class="display-for-search">{{ searchValue }}</span>
         </div>
         <div class="search-result">
@@ -140,10 +140,10 @@ export default {
   width: 20%;
 }
 
-.main-content-wrap .side-wrap,
-.main-content-wrap .search-results-wrap {
+.main-content-wrap .side-wrap {
   padding-top: 106px;
 }
+
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories,
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort {
   list-style: none;
@@ -153,7 +153,7 @@ export default {
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li,
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li {
   text-align: start;
-  margin: 5px 0;
+  padding: 5px 0;
 }
 
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
@@ -196,8 +196,12 @@ export default {
   li:hover
   a::before {
   display: block !important;
+  cursor: pointer;
 }
-
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li:hover,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li:hover {
+  cursor: pointer;
+}
 .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
 .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
   font-family: "Amiri-Bold";
@@ -212,9 +216,11 @@ export default {
   width: 80%;
 }
 .main-content-wrap .search-results-wrap .display-results-wrap {
-  position: absolute;
-  top: 45px;
-  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  height: 106px;
   font-family: "Poppins-Regular";
   font-size: 16px;
 }
@@ -225,6 +231,7 @@ export default {
   .display-for-search {
   font-family: "Poppins-Bold";
   color: #052962;
+  margin-left: 5px;
 }
 
 .main-content-wrap .search-results-wrap .search-result {
