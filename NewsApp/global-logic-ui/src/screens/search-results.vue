@@ -65,56 +65,28 @@
         <div class="search-results-wrap">
           <span>
             <span>Displaying results 1-10 out of 637 for</span>
-            <span>Tramp</span>
+            <span>{{ searchValue }}</span>
           </span>
 
           <div class="search-result">
-            <div class="card-wrap">
-              <b-card class="mb-2 new-card new-card col-md-12">
-                <div class="image-wrap">
-                  <b-card-title>Title</b-card-title>
-                  <div class="gradient"></div>
-                  <div class="image-wrap">
-                    <img src="../assets/images/business/img-1.png" />
-                  </div>
-                </div>
+            
+            <cardSearchResult></cardSearchResult>
 
-                <div class="card-text-wrap">
-                  <b-card-text>text.......</b-card-text>
-                </div>
-                <template>
-                  <small class="text-muted">footer...........</small>
-                </template>
-              </b-card>
-            </div>
-            <div class="card-wrap">
-              <b-card class="mb-2 new-card new-card col-md-12">
-                <div class="image-wrap">
-                  <b-card-title>Title</b-card-title>
-                  <div class="gradient"></div>
-                  <div class="image-wrap">
-                    <img src="../assets/images/business/img-2.png" />
-                  </div>
-                </div>
-
-                <div class="card-text-wrap">
-                  <b-card-text>text.......</b-card-text>
-                </div>
-                <template>
-                  <small class="text-muted">footer...........</small>
-                </template>
-              </b-card>
-            </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   </div>
 </template>
 
 <script>
+import cardSearchResult from './../shared/components/cardSearchResult';
+
 export default {
   name: 'searchResult',
+  components: {
+    cardSearchResult
+  },
   data() {
     return {
       searchValue: '',
