@@ -209,10 +209,17 @@ export default {
     searchBytitle: _.debounce(function(event) {
       this.searchValue = event.target.value;
       const value = event.target.value;
-      console.log(value)
       if (this.searchValue.length > 0) {
         this.search({ value: value }).then(res => {
-          const data = {news: res, searchValue: value};
+          let news = [];
+          for (let i = 0; i < res.length; i++) {
+            if (res[i].urlToImage && res[i].title && res[i].description) {
+              news.push(res[i]);
+            } else {
+              continue;
+            }
+          }
+          const data = {news: news, searchValue: value};
           this.searchValue = '';
           localStorage.setItem('currentSearch', JSON.stringify(data));
           this.$router.push({name: "search-results", params: data});
@@ -230,18 +237,6 @@ export default {
         //         this.isLoaderShow = false;
         //     }
         // })
-      } else if (this.searchValue.length === 0) {
-        // newsService.getData(this.category, 1).then(res => {
-        //     this.currentNews = res.data.articles;
-        //     this.isLoaderShow = false;
-        //     this.isNothingFind = false;
-        //     this.isOverRequest = false
-        // }, (err) => {
-        //     if (err) {
-        //         this.isOverRequest = true;
-        //         this.isLoaderShow = false;
-        //     }
-        // });
       }
     }, 1000)
   },
