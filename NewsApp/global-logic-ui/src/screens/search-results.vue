@@ -68,7 +68,7 @@
             <span>Tramp</span>
           </span>
 
-          <div class="search-result">
+          <div class="search-result"> 
             <div class="card-wrap">
               <b-card class="mb-2 new-card new-card col-md-12">
                 <div class="image-wrap">
