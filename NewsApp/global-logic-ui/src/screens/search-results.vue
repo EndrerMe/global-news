@@ -74,7 +74,7 @@
         </div>
         <div class="search-results-wrap">
           <div class="display-results-wrap">
-            <span>Displaying results {{resultsCol - 9}}-{{resultsCol}} out of {{totalRes}} for</span>
+            <span>Displaying results {{resultsCol.from}}-{{resultsCol.to}} out of {{totalRes}} for</span>
             <span class="display-for-search">{{ resultsOf }}</span>
           </div>
           <div class="search-result">
@@ -109,14 +109,17 @@ export default {
       totalRes: 0,
       totalPages: 0,
       currentPage: 0,
-      resultsCol: 10,
+      resultsCol: {
+        from: 1,
+        to: 10,
+      },
     };
   },
   mounted() {
     if (this.$route.params.searchValue && this.$route.params.totalRes) {
       this.totalRes = this.$route.params.totalRes;
       this.searchValue = this.$route.params.searchValue;
-      this.resultsCol = this.$route.params.news.length;
+      this.resultsCol.to = this.$route.params.news.length;
       this.searchRes = this.$route.params.news;
       this.totalPages = Math.ceil(this.totalRes / 10);
       this.currentPage = 1;
@@ -125,7 +128,7 @@ export default {
       this.totalRes = data.totalRes;
       this.searchValue = data.searchValue;
       this.searchRes = data.news;
-      this.resultsCol = data.length;
+      this.resultsCol.to = data.length;
       this.totalPages = Math.ceil(this.totalRes / 10);
       this.currentPage = 1;
     }
@@ -142,8 +145,6 @@ export default {
     changePage(e) {
       window.scrollTo(0, 0);
       this.currentPage = e;
-      this.resultsCol = 10;
-      this.resultsCol = this.resultsCol * e;
       const searchData = { value: this.resultsOf, page: this.currentPage };
       const result = this.search(searchData);
       result.then((res) => {
@@ -156,12 +157,16 @@ export default {
           }
         }
         this.searchRes = news;
+        this.resultsCol.to = 10;
+        this.resultsCol.to = this.resultsCol.to * e;
+        this.resultsCol.from = this.resultsCol.to - 9;
         const data = { news: news, searchValue: this.searchValue };
         localStorage.setItem("currentSearch", JSON.stringify(data));
       })
     },
 
     searchBytitle: _.debounce(function(event) {
+      this.currentPage = 1;
       this.searchValue = event.target.value;
       this.resultsOf = this.searchValue;
       const value = event.target.value;
@@ -169,15 +174,16 @@ export default {
         const searchData = { value: value, page: this.currentPage };
         this.search(searchData).then(res => {
           let news = [];
-          for (let i = 0; i < res.length; i++) {
-            if (res[i].urlToImage && res[i].title && res[i].description) {
-              news.push(res[i]);
+          for (let i = 0; i < res.articles.length; i++) {
+            if (res.articles[i].urlToImage && res.articles[i].title && res.articles[i].description) {
+              news.push(res.articles[i]);
             } else {
               continue;
             }
           }
           this.searchRes = news;
-          this.resultsCol = this.searchRes.length;
+          this.resultsCol.to = news.length;
+          this.resultsCol.from = 1;
           const data = { news: news, searchValue: value };
           localStorage.setItem("currentSearch", JSON.stringify(data));
         });
