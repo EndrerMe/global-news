@@ -79,7 +79,7 @@ export default {
 
 <style scoped>
 #app {
-  min-height: 100vh;
-  background-color: #052962;
+  /* min-height: 100vh;
+  background-color: #052962; */
 }
 </style>
