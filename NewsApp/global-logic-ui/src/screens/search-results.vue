@@ -21,7 +21,7 @@
       </div>
     </div>
       <div class="main-content-wrap container">
-        <div  class="no-results-message-wrap">
+        <div  class="no-results-message-wrap" v-if='isShowErrorMessage'>
           <div class="no-results-message message-section">
             <span>Results for</span>
             <span class="display-for-search">{{ resultsOf }}</span>
@@ -90,7 +90,7 @@
           </div>
         </div>
         <div class="search-results-wrap">
-          <div class="display-results-wrap">
+          <div class="display-results-wrap" v-if='!isShowErrorMessage'>
             <span>Displaying results {{resultsCol.from}}-{{resultsCol.to}} out of {{totalRes}} for</span>
             <span class="display-for-search">{{ resultsOf }}</span>
           </div>
@@ -100,7 +100,7 @@
         </div>
       </div>
 
-      <categoryPagination :pageNumber='totalPages' @changePage="changePage" :isFirstPage='isFirstPage'></categoryPagination>
+      <categoryPagination v-if='!isShowErrorMessage' :pageNumber='totalPages' @changePage="changePage" :isFirstPage='isFirstPage'></categoryPagination>
     </div>
 </template>
 
@@ -130,10 +130,13 @@ export default {
         to: 10,
       },
       isFirstPage: false,
+      isShowErrorMessage: false,
     };
   },
   mounted() {
-    if (this.$route.params.searchValue && this.$route.params.totalRes) {
+    if (this.$route.params.news.length === 0) {
+      this.isShowErrorMessage = true;
+    } else if (this.$route.params.searchValue && this.$route.params.totalRes) {
       this.totalRes = this.$route.params.totalRes;
       this.searchValue = this.$route.params.searchValue;
       this.resultsCol.to = this.$route.params.news.length;
@@ -142,7 +145,6 @@ export default {
       this.currentPage = 1;
     } else {
       const data = JSON.parse(localStorage.getItem("currentSearch"));
-      console.log(data)
       this.totalRes = data.totalRes;
       this.searchValue = data.searchValue;
       this.searchRes = data.news;
@@ -350,7 +352,6 @@ export default {
 
 /* Search Results */
 .main-content-wrap .no-results-message-wrap{
-  display: none;
   position: absolute;
   text-align: start;
   font-family: 'Poppins-Regular';
