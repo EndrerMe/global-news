@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <loader :isShowLoader="isShowLoader"></loader>
-    <HeaderDesctop></HeaderDesctop>
-    <router-view />
-    <Footer></Footer>
+    <div>
+      <HeaderDesctop></HeaderDesctop>
+      <router-view />
+    </div>
+    <Footer class="footer-wrap"></Footer>
   </div>
 </template>
 
@@ -79,7 +81,16 @@ export default {
 
 <style scoped>
 #app {
-  /* min-height: 100vh;
-  background-color: #052962; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .footer-wrap {
+    flex-grow: 1;
+    background-color: #052962;
+  }
 }
 </style>
