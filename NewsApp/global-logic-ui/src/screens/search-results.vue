@@ -20,59 +20,61 @@
         </div>
       </div>
     </div>
-    <div class="container main-content-wrap">
-      <div class="side-wrap">
-        <div class="side-menu-wrap">
-          <ul class="side-menu-categories">
-            <div class="menu-title-wrap">
-              <span class="title-text">Search across</span>
-            </div>
-            <li>
-              <a href="#">All News</a>
-            </li>
-            <li>
-              <a href="#">Business</a>
-            </li>
-            <li>
-              <a href="#">Entertainment</a>
-            </li>
-            <li>
-              <a href="#">General</a>
-            </li>
-            <li>
-              <a href="#">Health</a>
-            </li>
-            <li>
-              <a href="#">Science</a>
-            </li>
-            <li>
-              <a href="#">Sport</a>
-            </li>
-            <li>
-              <a href="#">Technology</a>
-            </li>
-          </ul>
+    <div class="container">
+      <div class="main-content-wrap">
+        <div class="side-wrap">
+          <div class="side-menu-wrap">
+            <ul class="side-menu-categories">
+              <div class="menu-title-wrap">
+                <span class="title-text">Search across</span>
+              </div>
+              <li>
+                <a href="#" @click='searchByCategoryFun("all")'>All News</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("business")'>Business</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("entertainment")'>Entertainment</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("general")'>General</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("health")'>Health</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("science")'>Science</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("sport")'>Sport</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
+              </li>
+            </ul>
 
-          <ul class="side-menu-sort">
-            <div class="menu-title-wrap">
-              <span class="title-text">Sort by</span>
-            </div>
-            <li>
-              <a href="#">Date</a>
-            </li>
-            <li>
-              <a href="#">Popularity</a>
-            </li>
-          </ul>
+            <ul class="side-menu-sort">
+              <div class="menu-title-wrap">
+                <span class="title-text">Sort by</span>
+              </div>
+              <li>
+                <a href="#">Date</a>
+              </li>
+              <li>
+                <a href="#">Popularity</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="search-results-wrap">
-        <div class="display-results-wrap">
-          <span>Displaying results 1-10 out of 637 for</span>
-          <span class="display-for-search">{{ searchValue }}</span>
-        </div>
-        <div class="search-result">
-          <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
+        <div class="search-results-wrap">
+          <div class="display-results-wrap">
+            <span>Displaying results 1-10 out of 637 for</span>
+            <span class="display-for-search">{{ searchValue }}</span>
+          </div>
+          <div class="search-result">
+            <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
+          </div>
         </div>
       </div>
     </div>
@@ -92,7 +94,8 @@ export default {
   data() {
     return {
       searchValue: "",
-      searchRes: []
+      searchRes: [],
+      currentCategory: 'all',
     };
   },
   mounted() {
@@ -106,7 +109,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["search"]),
+    ...mapActions(["search", "searchByCategory"]),
 
     searchBytitle: _.debounce(function(event) {
       this.searchValue = event.target.value;
@@ -126,7 +129,36 @@ export default {
           localStorage.setItem("currentSearch", JSON.stringify(data));
         });
       }
-    }, 1000)
+    }, 1000),
+
+    searchByCategoryFun(value) {
+      let news = [];
+      let probablyNews = [];
+      if (value !== this.currentCategory) {
+        if (value !== 'all') {
+          const data = {category: value, page: 1, keyWord: this.searchValue};
+          this.searchByCategory(data).then((res) => {
+            probablyNews = res;
+          })
+        } else {
+          this.search({ value: this.searchValue }).then(res => {
+            probablyNews = res;
+          });
+        }
+
+        for (let i = 0; i < probablyNews.length; i++) {
+          if (probablyNews[i].urlToImage && probablyNews[i].title && probablyNews[i].description) {
+            news.push(probablyNews[i]);
+          } else {
+            continue;
+          }
+        }
+
+        this.searchRes = news;
+        const data = {news: news, searchValue: this.searchValue};
+        localStorage.setItem('currentSearch', JSON.stringify(data));
+      }
+    }
   }
 };
 </script>

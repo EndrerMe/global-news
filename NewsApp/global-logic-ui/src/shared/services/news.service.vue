@@ -13,7 +13,11 @@ export default {
     },
 
     searchByTitle(text) {
-        return axios.get(`${environment.newsApiUrl}everything?qInTitle=${text}&apiKey=${environment.newsApiKey}`);
+        return axios.get(`${environment.newsApiUrl}everything?qInTitle=${text}&pageSize=10&apiKey=${environment.newsApiKey}`);
+    },
+    
+    searchByCategory(category, page, keyWord) {
+        return axios.get(`${environment.newsApiUrl}top-headlines?category=${category}&q=${keyWord}&pageSize=10&page=${page}&apiKey=${environment.newsApiKey}`);
     },
 
     getPageCol(category) {

@@ -32,6 +32,19 @@ export default {
             })
         },
 
+        async searchByCategory(ctx, data) {
+            console.log(data)
+            return new Promise((resolve, reject) => {
+                newsService.searchByCategory(data.category, data.page).then((res) => {
+                    let news = res.data.articles;
+                    ctx.commit('updateSearchRes', news);
+                    resolve(news)
+                }).catch(res => {
+                    reject(res)
+                })
+            })
+        },
+
         async getNewsForHome(ctx, data) {
             newsService.getData(data.category, data.page).then((res) => {
             let newsCol = data.limit;
