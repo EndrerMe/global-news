@@ -37,6 +37,10 @@ export default {
     EventBus.$emit("showLoader");
   },
   mounted() {
+    EventBus.$on("toggleMoreWeather", state => {
+      this.isShowMoreWeather = state.state;
+    });
+
     let that = this;
     mapboxgl.accessToken = environment.mapboxKey;
     this.$getLocation()
@@ -77,7 +81,7 @@ export default {
   },
   methods: {
     closeMoreWeather() {
-      this.isShowMoreWeather = false;
+      this.isShowMoreWeather = !this.isShowMoreWeather;
     },
 
     goBack() {
