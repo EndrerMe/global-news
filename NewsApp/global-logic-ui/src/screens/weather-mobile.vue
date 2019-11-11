@@ -243,7 +243,19 @@ export default {
 </script>
 
 <style scoped>
- 
+ /* Scroll */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #959aa0;
+}
+::-webkit-scrollbar-thumb {
+  background: #052962;
+  border-radius: 10px;
+}
+/* end */
+
 /* Custom Drop Down */
 .modile-side-weather-wrap .country-wrap{
   position: relative;
