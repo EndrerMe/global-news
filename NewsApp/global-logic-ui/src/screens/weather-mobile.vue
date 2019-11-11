@@ -250,7 +250,7 @@ export default {
 
 <style scoped>
  /* Scroll */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 3px;
 }
 ::-webkit-scrollbar-track {
@@ -259,7 +259,7 @@ export default {
 ::-webkit-scrollbar-thumb {
   background: #052962;
   border-radius: 10px;
-}
+} */
 /* end */
 
 /* Custom Drop Down */
