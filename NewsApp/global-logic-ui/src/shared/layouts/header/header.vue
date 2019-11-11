@@ -210,16 +210,18 @@ export default {
       this.searchValue = event.target.value;
       const value = event.target.value;
       if (this.searchValue.length > 0) {
-        this.search({ value: value }).then(res => {
+        const searchData = { value: value, page: 1 };
+        this.search(searchData).then(res => {
           let news = [];
-          for (let i = 0; i < res.length; i++) {
-            if (res[i].urlToImage && res[i].title && res[i].description) {
-              news.push(res[i]);
+          let totalRes = res.totalResults;
+          for (let i = 0; i < res.articles.length; i++) {
+            if (res.articles[i].urlToImage && res.articles[i].title && res.articles[i].description) {
+              news.push(res.articles[i]);
             } else {
               continue;
             }
           }
-          const data = {news: news, searchValue: value};
+          const data = {news: news, searchValue: value, totalRes: totalRes};
           this.searchValue = '';
           localStorage.setItem('currentSearch', JSON.stringify(data));
           this.$router.push({name: "search-results", params: data});

@@ -12,8 +12,8 @@ export default {
         return axios.get(`${environment.newsApiUrl}top-headlines?country=us&${someFilter}apiKey=${environment.newsApiKey}`);
     },
 
-    searchByTitle(text) {
-        return axios.get(`${environment.newsApiUrl}everything?qInTitle=${text}&pageSize=10&apiKey=${environment.newsApiKey}`);
+    searchByTitle(data) {
+        return axios.get(`${environment.newsApiUrl}everything?qInTitle=${data.value}&pageSize=10&page=${data.page}&apiKey=${environment.newsApiKey}`);
     },
     
     searchByCategory(category, page, keyWord) {

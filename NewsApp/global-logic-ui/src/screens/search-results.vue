@@ -10,7 +10,7 @@
               v-model="searchValue"
               v-on:input="searchBytitle($event)"
             />
-            <label class="close-search-wrap">
+            <label class="close-search-wrap" @click='clearSearch()'>
               <span class="close-search"></span>
             </label>
             <label for="search-results-input" class="search-icon-wrap">
@@ -73,52 +73,99 @@
         </div>
         <div class="search-results-wrap">
           <div class="display-results-wrap">
-            <span>Displaying results 1-10 out of 637 for</span>
-            <span class="display-for-search">{{ searchValue }}</span>
+            <span>Displaying results {{resultsCol - 9}}-{{resultsCol}} out of {{totalRes}} for</span>
+            <span class="display-for-search">{{ resultsOf }}</span>
           </div>
           <div class="search-result">
             <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
           </div>
         </div>
       </div>
-  </div>
+
+      <categoryPagination :pageNumber='totalPages' @changePage="changePage"></categoryPagination>
+    </div>
 </template>
 
 <script>
 import cardSearchResult from "./../shared/components/cardSearchResult";
+import categoryPagination from './../shared/components/paginate';
 import { mapActions } from "vuex";
 import _ from "lodash";
 
 export default {
   name: "searchResult",
   components: {
-    cardSearchResult
+    cardSearchResult,
+    categoryPagination
   },
   data() {
     return {
       searchValue: "",
+      resultsOf: '',
       searchRes: [],
       currentCategory: 'all',
+      totalRes: 0,
+      totalPages: 0,
+      currentPage: 0,
+      resultsCol: 10,
     };
   },
   mounted() {
-    if (this.$route.params.searchValue) {
+    if (this.$route.params.searchValue && this.$route.params.totalRes) {
+      this.totalRes = this.$route.params.totalRes;
       this.searchValue = this.$route.params.searchValue;
+      this.resultsCol = this.$route.params.news.length;
       this.searchRes = this.$route.params.news;
+      this.totalPages = Math.ceil(this.totalRes / 10);
+      this.currentPage = 1;
     } else {
       const data = JSON.parse(localStorage.getItem("currentSearch"));
+      this.totalRes = data.totalRes;
       this.searchValue = data.searchValue;
       this.searchRes = data.news;
+      this.resultsCol = data.length;
+      this.totalPages = Math.ceil(this.totalRes / 10);
+      this.currentPage = 1;
     }
+
+    this.resultsOf = this.searchValue;
   },
   methods: {
     ...mapActions(["search", "searchByCategory", "sortBy"]),
 
+    clearSearch() {
+      this.searchValue = '';
+    },
+
+    changePage(e) {
+      window.scrollTo(0, 0);
+      this.currentPage = e;
+      this.resultsCol = 10;
+      this.resultsCol = this.resultsCol * e;
+      const searchData = { value: this.resultsOf, page: this.currentPage };
+      const result = this.search(searchData);
+      result.then((res) => {
+        let news = [];
+        for (let i = 0; i < res.articles.length; i++) {
+          if (res.articles[i].urlToImage && res.articles[i].title && res.articles[i].description) {
+            news.push(res.articles[i]);
+          } else {
+            continue;
+          }
+        }
+        this.searchRes = news;
+        const data = { news: news, searchValue: this.searchValue };
+        localStorage.setItem("currentSearch", JSON.stringify(data));
+      })
+    },
+
     searchBytitle: _.debounce(function(event) {
       this.searchValue = event.target.value;
+      this.resultsOf = this.searchValue;
       const value = event.target.value;
       if (this.searchValue.length > 0) {
-        this.search({ value: value }).then(res => {
+        const searchData = { value: value, page: this.currentPage };
+        this.search(searchData).then(res => {
           let news = [];
           for (let i = 0; i < res.length; i++) {
             if (res[i].urlToImage && res[i].title && res[i].description) {
@@ -128,6 +175,7 @@ export default {
             }
           }
           this.searchRes = news;
+          this.resultsCol = this.searchRes.length;
           const data = { news: news, searchValue: value };
           localStorage.setItem("currentSearch", JSON.stringify(data));
         });

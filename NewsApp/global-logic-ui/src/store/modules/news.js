@@ -22,8 +22,8 @@ export default {
 
         async search(ctx, data) {
             return new Promise((resolve, reject) => {
-                newsService.searchByTitle(data.value).then((res) => {
-                    let news = res.data.articles;
+                newsService.searchByTitle(data).then((res) => {
+                    let news = res.data;
                     ctx.commit('updateSearchRes', news);
                     resolve(news)
                 }).catch(res => {
