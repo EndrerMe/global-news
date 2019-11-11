@@ -174,6 +174,8 @@ export default {
           this.isShowCityHint = false;
           this.isShowErroeMessage = true;
         }
+
+        console.log(res)
       }
     }, 1000),
 
