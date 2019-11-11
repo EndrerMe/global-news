@@ -20,8 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="main-content-wrap">
+      <div class="main-content-wrap container">
         <div class="side-wrap">
           <div class="side-menu-wrap">
             <ul class="side-menu-sort">
@@ -82,7 +81,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -188,7 +186,7 @@ export default {
   font-family: "Amiri-Bold";
   font-size: 28px;
   margin: 0 7px;
-  color: blue;
+  color: #052962;
 }
 .main-content-wrap .side-wrap .side-menu-wrap .separator::before{
   content:'';
@@ -237,7 +235,7 @@ export default {
   display: none;
   content: "";
   position: absolute;
-  width: 100%;
+  width: 93%;
   height: 7px;
   background: #f8c61a;
   left: 2px;
