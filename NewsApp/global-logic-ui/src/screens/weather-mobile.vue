@@ -302,9 +302,11 @@ export default {
   .faringateMode {
   margin-left: 5px;
 }
+.mobile-weather-main-wrap .temp-info-wrap .temp-symbol .degreeMode{
+  margin-left: 18px;
+}
 .mobile-weather-main-wrap .temp-info-wrap .temp-symbol .active {
   color: #f8c61a;
-  margin-left: 18px;
 }
 .mobile-weather-main-wrap
   .temp-info-wrap
