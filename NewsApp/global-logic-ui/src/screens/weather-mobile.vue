@@ -235,15 +235,6 @@ export default {
 };
 </script>
 
-<style>
-@media (max-width: 767px) {
-  .container {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-</style>
-
 <style scoped>
 .mobile-weather-main-wrap .temp-value-wrap .temp-symbol-wrap {
   display: block;
@@ -554,7 +545,7 @@ export default {
 .modile-side-weather-wrap {
   background-color: #052962;
   z-index: 999;
-  border-top: 1px solid;
+  border-top: 1px solid #436f9c;
   overflow: scroll;
 }
 </style>

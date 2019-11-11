@@ -10,13 +10,25 @@
               :isShowSideMenu='isShowSideMenu'
               @toggleMobileSideMenu='toggleMobileSideMenu'></mobileMenu>
               <!-- end -->
-              <b-navbar-toggle target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
+              <b-nav-item class="mobile-menu-button">
+                <b-navbar-toggle  target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
+              </b-nav-item>
               <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
                 <img src="../../../assets/images/logo.svg" alt="logo" />
               </b-nav-item>
-              <b-nav-item class="mobnile-search-wrap">
-                <font-awesome-icon icon="search" class="fa-lg" />
-              </b-nav-item>
+              <li class="mobile-search-wrap">
+                    <div class="input-wrap">
+                      <input
+                        id="mobile-search-input"
+                        class="mobile-search-input"
+                        v-on:input="searchBytitle($event)"
+                        v-model="searchValue"
+                      />
+                      <label for="mobile-search-input" class="icon-wrap">
+                        <font-awesome-icon icon="search" class="fa-lg" />
+                      </label>
+                    </div>
+              </li>
             </b-nav>
             <div id="nav-collapse">
               <div class="sub-wrap">
@@ -414,12 +426,45 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+.top-menu-wrap .mobile-top-menu li{
+  width: 33.3%;
+}
+.top-menu-wrap .mobile-top-menu li a{
+ padding:0;
+}
+.top-menu-wrap .mobile-top-menu li.mobile-menu-button a{
+  text-align: start;
+}
 .top-menu-wrap .mobile-top-menu .navbar-toggler {
   border: none;
-  padding-left:16px;
+  padding: 0;
 }
-.top-menu-wrap .mobile-top-menu .mobnile-search-wrap svg {
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap svg {
   color: rgb(248, 198, 26);
+}
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap .input-wrap{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap .input-wrap .icon-wrap{
+  right: 16px;
+  top: 5px; 
+  margin-bottom: 0;
+}
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap .input-wrap .mobile-search-input:focus {
+  border-bottom: 2px solid rgb(248, 198, 26);
+}
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap .input-wrap .mobile-search-input{
+  outline: none;
+  background: transparent;
+  color: white;
+  border: none;
+  width: 55%;
+  padding: 0 5px 3px 5px;
+  border-bottom: 2px solid transparent; 
+  padding: 0;
+  margin-left: 34%;
 }
 .top-menu-wrap .mobile-top-menu .mobile-logo-wrap a {
   padding: 0;
@@ -463,7 +508,7 @@ export default {
 }
 #nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap {
   position: absolute;
-  right: 37px;
+  right: 41px;
   top: 2px;
 }
 #nav-collapse .sub-wrap .wide-menu .search-wrap .search-input {
@@ -542,6 +587,7 @@ export default {
   font-size: 28px;
 }
 
+/* Media */
 @media (max-width: 767px) {
   .bottom-menu-wrap {
     height: unset !important;
@@ -580,6 +626,13 @@ export default {
   #nav-collapse .navbar-nav {
     align-items: flex-start;
   }
+  .bottom-menu-wrap .bottom-menu {
+    flex-wrap: unset;
+  }
+  .bottom-menu-wrap .box-menu {
+    overflow: scroll !important;
+    display: flex;
+  }
 }
 @media (max-width: 1199px) {
   .bottom-menu-wrap .bottom-menu li a {
@@ -589,6 +642,9 @@ export default {
 @media (max-width: 1139px) {
   #nav-collapse .sub-wrap .wide-menu {
     font-size: 12px;
+  }
+  #nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap{
+    right: 32px;
   }
 }
 @media (max-width: 991px) {
@@ -600,15 +656,6 @@ export default {
   }
   .top-menu-wrap .navbar-collapse .search-wrap a svg {
     margin: 0 10px;
-  }
-}
-@media (max-width: 767px) {
-  .bottom-menu-wrap .bottom-menu {
-    flex-wrap: unset;
-  }
-  .bottom-menu-wrap .box-menu {
-    overflow: scroll !important;
-    display: flex;
   }
 }
 @keyframes rotate-bell {
