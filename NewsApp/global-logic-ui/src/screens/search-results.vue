@@ -24,7 +24,7 @@
         <div  class="no-results-message-wrap" v-if='isShowErrorMessage'>
           <div class="no-results-message message-section">
             <span>Results for</span>
-            <span class="display-for-search">{{ resultsOf }}</span>
+            <span class="display-for-search">{{ searchValue }}</span>
             <span>have not found. Please try again.</span>
           </div>
           <div class="message-section">
@@ -39,7 +39,7 @@
             </ul>
           </div>
         </div>
-        <div class="side-wrap">
+        <div class="side-wrap" v-if='!isShowErrorMessage'>
           <div class="side-menu-wrap">
             <ul class="side-menu-sort">
               <div class="menu-title-wrap">
@@ -136,6 +136,7 @@ export default {
   mounted() {
     if (this.$route.params.news.length === 0) {
       this.isShowErrorMessage = true;
+      this.searchValue = this.$route.params.searchValue;
     } else if (this.$route.params.searchValue && this.$route.params.totalRes) {
       this.totalRes = this.$route.params.totalRes;
       this.searchValue = this.$route.params.searchValue;
