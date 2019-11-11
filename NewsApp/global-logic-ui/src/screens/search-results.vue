@@ -24,28 +24,28 @@
                 <span class="title-text">Search across</span>
               </div>
               <li>
-                <a href="#">All News</a>
+                <a href="#" @click='searchByCategoryFun("all")'>All News</a>
               </li>
               <li>
-                <a href="#">Business</a>
+                <a href="#" @click='searchByCategoryFun("business")'>Business</a>
               </li>
               <li>
-                <a href="#">Entertainment</a>
+                <a href="#" @click='searchByCategoryFun("entertainment")'>Entertainment</a>
               </li>
               <li>
-                <a href="#">General</a>
+                <a href="#" @click='searchByCategoryFun("general")'>General</a>
               </li>
               <li>
-                <a href="#">Health</a>
+                <a href="#" @click='searchByCategoryFun("health")'>Health</a>
               </li>
               <li>
-                <a href="#">Science</a>
+                <a href="#" @click='searchByCategoryFun("science")'>Science</a>
               </li>
               <li>
-                <a href="#">Sport</a>
+                <a href="#" @click='searchByCategoryFun("sport")'>Sport</a>
               </li>
               <li>
-                <a href="#">Technology</a>
+                <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
               </li>
             </ul>
 
@@ -69,7 +69,7 @@
           </span>
           <div class="search-result">
             
-            <cardSearchResult v-for='news of searchRes' :key='news.title' :news='news'></cardSearchResult>
+            <cardSearchResult v-for='news of searchRes' :key='news.title + news.description' :news='news'></cardSearchResult>
 
           </div>
         </div>
@@ -91,7 +91,8 @@ export default {
   data() {
     return {
       searchValue: "",
-      searchRes: []
+      searchRes: [],
+      currentCategory: 'all',
     };
   },
   mounted() {
@@ -105,7 +106,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["search"]),
+    ...mapActions(["search", "searchByCategory"]),
 
     searchBytitle: _.debounce(function(event) {
       this.searchValue = event.target.value;
@@ -125,7 +126,36 @@ export default {
           localStorage.setItem('currentSearch', JSON.stringify(data));
         });
       }
-    }, 1000)
+    }, 1000),
+
+    searchByCategoryFun(value) {
+      let news = [];
+      let probablyNews = [];
+      if (value !== this.currentCategory) {
+        if (value !== 'all') {
+          const data = {category: value, page: 1, keyWord: this.searchValue};
+          this.searchByCategory(data).then((res) => {
+            probablyNews = res;
+          })
+        } else {
+          this.search({ value: this.searchValue }).then(res => {
+            probablyNews = res;
+          });
+        }
+
+        for (let i = 0; i < probablyNews.length; i++) {
+          if (probablyNews[i].urlToImage && probablyNews[i].title && probablyNews[i].description) {
+            news.push(probablyNews[i]);
+          } else {
+            continue;
+          }
+        }
+
+        this.searchRes = news;
+        const data = {news: news, searchValue: this.searchValue};
+        localStorage.setItem('currentSearch', JSON.stringify(data));
+      }
+    }
   }
 };
 </script>
