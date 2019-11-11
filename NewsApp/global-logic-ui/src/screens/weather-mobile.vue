@@ -341,10 +341,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-left: calc((100% - 276px));
+  padding-left: calc((100% - 293px));
 }
 .mobile-weather-details-wrap .right-side .text {
-  white-space: nowrap;
+  margin-bottom: 4px;
 }
 .mobile-weather-details-wrap .right-side .icon-wrap img {
   width: 35px;
@@ -608,5 +608,12 @@ export default {
   z-index: 999;
   border-top: 1px solid #436f9c;
   overflow: scroll;
+}
+
+/* Media */
+@media (max-width: 340px) {
+  .mobile-weather-details-wrap .right-side .text{
+    font-size: 14px;
+  }
 }
 </style>
