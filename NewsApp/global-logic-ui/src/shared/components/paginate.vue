@@ -16,23 +16,13 @@
 
 <script>
 export default {
-  props: ["pageNumber", 'isFirstPage'],
+  props: ["pageNumber"],
   name: "categoryPagination",
-  data() {
-    return {
-      toFirstPage: false,
-    }
-  },
   methods: {
     clickCallback(pageNum) {
       this.$emit("changePage", pageNum);
     }
   },
-  watch: {
-    isFirstPage(newVal) {
-      this.toFirstPage = newVal;
-    }
-  }
 };
 </script>
 

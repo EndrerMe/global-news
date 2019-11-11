@@ -100,7 +100,9 @@
         </div>
       </div>
 
-      <categoryPagination v-if='!isShowErrorMessage' :pageNumber='totalPages' @changePage="changePage" :isFirstPage='isFirstPage'></categoryPagination>
+      <div v-if='isShowPagination'>
+        <categoryPagination v-if='!isShowErrorMessage' :pageNumber='totalPages' @changePage="changePage" :key="componentKey"></categoryPagination>
+      </div>
     </div>
 </template>
 
@@ -131,27 +133,37 @@ export default {
       },
       isFirstPage: false,
       isShowErrorMessage: false,
+      isShowPagination: true,
+      componentKey: 0,
     };
   },
   mounted() {
-    if (this.$route.params.news.length === 0) {
-      this.isShowErrorMessage = true;
-      this.searchValue = this.$route.params.searchValue;
-    } else if (this.$route.params.searchValue && this.$route.params.totalRes) {
-      this.totalRes = this.$route.params.totalRes;
-      this.searchValue = this.$route.params.searchValue;
-      this.resultsCol.to = this.$route.params.news.length;
-      this.searchRes = this.$route.params.news;
-      this.totalPages = Math.ceil(this.totalRes / 10);
-      this.currentPage = 1;
+    if (this.$route.params.news) {
+      if (this.$route.params.news.length === 0) {
+        this.isShowErrorMessage = true;
+        this.searchValue = this.$route.params.searchValue;
+        localStorage.setItem("currentSearch", JSON.stringify({hasError: true}));
+      } else if (this.$route.params.searchValue && this.$route.params.totalRes) {
+        this.totalRes = this.$route.params.totalRes;
+        this.searchValue = this.$route.params.searchValue;
+        this.resultsCol.to = this.$route.params.news.length;
+        this.searchRes = this.$route.params.news;
+        this.totalPages = Math.ceil(this.totalRes / 10);
+        this.currentPage = 1;
+      }
     } else {
       const data = JSON.parse(localStorage.getItem("currentSearch"));
-      this.totalRes = data.totalRes;
-      this.searchValue = data.searchValue;
-      this.searchRes = data.news;
-      this.resultsCol.to = data.news.length;
-      this.totalPages = Math.ceil(this.totalRes / 10);
-      this.currentPage = 1;
+      if (data.hasError) {
+        this.isShowErrorMessage = true;
+        this.searchValue = data.searchValue;
+      } else {
+        this.totalRes = data.totalRes;
+        this.searchValue = data.searchValue;
+        this.searchRes = data.news;
+        this.resultsCol.to = data.news.length;
+        this.totalPages = Math.ceil(this.totalRes / 10);
+        this.currentPage = 1;
+      }  
     }
 
     this.resultsOf = this.searchValue;
@@ -165,6 +177,7 @@ export default {
 
     changePage(e) {
       window.scrollTo(0, 0);
+      this.isFirstPage = false;
       this.currentPage = e;
       const searchData = { value: this.resultsOf, page: this.currentPage };
       const result = this.search(searchData);
@@ -187,6 +200,7 @@ export default {
     },
 
     searchBytitle: _.debounce(function(event) {
+      this.isShowPagination = false;
       this.currentPage = 1;
       this.searchValue = event.target.value;
       this.resultsOf = this.searchValue;
@@ -194,26 +208,35 @@ export default {
       if (this.searchValue.length > 0) {
         const searchData = { value: value, page: this.currentPage };
         this.search(searchData).then(res => {
-          let news = [];
-          let totalRes = null;
-          for (let i = 0; i < res.articles.length; i++) {
-            if (res.articles[i].urlToImage && res.articles[i].title && res.articles[i].description) {
-              totalRes = res.totalResults;
-              news.push(res.articles[i]);
-            } else {
-              continue;
+          if (res.articles.length > 0) {
+            this.isFirstPage = true;
+            let news = [];
+            let totalRes = null;
+            for (let i = 0; i < res.articles.length; i++) {
+              if (res.articles[i].urlToImage && res.articles[i].title && res.articles[i].description) {
+                totalRes = res.totalResults;
+                news.push(res.articles[i]);
+              } else {
+                continue;
+              }
             }
+            this.searchRes = news;
+            this.resultsCol.to = news.length;
+            this.resultsCol.from = 1;
+            this.totalPages = Math.ceil(totalRes / 10);
+            this.totalRes = totalRes;
+            const data = { news: news, searchValue: value, totalRes: totalRes };
+            this.componentKey += 1;
+            localStorage.setItem("currentSearch", JSON.stringify(data));
+          } else {
+            this.searchRes = [];
+            this.isShowErrorMessage = true;
+            localStorage.setItem("currentSearch", JSON.stringify({hasError: true, searchValue: this.searchValue}));
           }
-          this.searchRes = news;
-          this.resultsCol.to = news.length;
-          this.resultsCol.from = 1;
-          this.totalPages = Math.ceil(totalRes / 10);
-          this.totalRes = totalRes;
-          const data = { news: news, searchValue: value, totalRes: totalRes };
-          this.isFirstPage = true;
-          localStorage.setItem("currentSearch", JSON.stringify(data));
         });
       }
+
+      this.isShowPagination = true;
     }, 1000),
 
     searchByCategoryFun(value) {
