@@ -4,7 +4,12 @@
       <div class="container">
         <div class="search-panel-content">
           <div class="search-input-wrap">
-            <input id="search-results-input" placeholder="search" v-model="searchValue" v-on:input="searchBytitle($event)"/>
+            <input
+              id="search-results-input"
+              placeholder="search"
+              v-model="searchValue"
+              v-on:input="searchBytitle($event)"
+            />
             <label class="close-search-wrap">
               <span class="close-search"></span>
             </label>
@@ -63,14 +68,12 @@
           </div>
         </div>
         <div class="search-results-wrap">
-          <span>
+          <div class="display-results-wrap">
             <span>Displaying results 1-10 out of 637 for</span>
-            <span>{{ searchValue }}</span>
-          </span>
+            <span class="display-for-search">{{ searchValue }}</span>
+          </div>
           <div class="search-result">
-            
-            <cardSearchResult v-for='news of searchRes' :key='news.title + news.description' :news='news'></cardSearchResult>
-
+            <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
           </div>
         </div>
       </div>
@@ -122,8 +125,8 @@ export default {
             }
           }
           this.searchRes = news;
-          const data = {news: news, searchValue: value};
-          localStorage.setItem('currentSearch', JSON.stringify(data));
+          const data = { news: news, searchValue: value };
+          localStorage.setItem("currentSearch", JSON.stringify(data));
         });
       }
     }, 1000),
@@ -169,15 +172,103 @@ export default {
   width: 20%;
 }
 
-.main-content-wrap .side-wrap .menu-title-wrap .title-text {
+.main-content-wrap .side-wrap {
+  padding-top: 106px;
+}
+
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort {
+  list-style: none;
+  color: #3f3f3f;
+  padding-left: 0;
+}
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li {
+  text-align: start;
+  padding: 5px 0;
+}
+
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a {
+  position: relative;
+  font-family: "Amiri-Bold";
+  font-size: 16px;
+  color: #3f3f3f;
+  text-decoration: none;
+}
+
+.main-content-wrap
+  .side-wrap
+  .side-menu-wrap
+  .side-menu-categories
+  li
+  a::before,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a::before {
+  display: none;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background: #f8c61a;
+  left: 2px;
+  bottom: 7px;
+  z-index: -1;
+}
+
+.main-content-wrap
+  .side-wrap
+  .side-menu-wrap
+  .side-menu-categories
+  li:hover
+  a::before,
+.main-content-wrap
+  .side-wrap
+  .side-menu-wrap
+  .side-menu-sort
+  li:hover
+  a::before {
+  display: block !important;
+  cursor: pointer;
+}
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li:hover,
+.main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li:hover {
+  cursor: pointer;
+}
+.main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
+.main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
   font-family: "Amiri-Bold";
   font-size: 28px;
-  /* color: #3F3F3F; */
+  text-align: start;
+  padding-left: 5px;
 }
 
 /* Search Results */
 .main-content-wrap .search-results-wrap {
+  position: relative;
   width: 80%;
+}
+.main-content-wrap .search-results-wrap .display-results-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  height: 106px;
+  font-family: "Poppins-Regular";
+  font-size: 16px;
+}
+
+.main-content-wrap
+  .search-results-wrap
+  .display-results-wrap
+  .display-for-search {
+  font-family: "Poppins-Bold";
+  color: #052962;
+  margin-left: 5px;
+}
+
+.main-content-wrap .search-results-wrap .search-result {
+  display: flex;
+  flex-flow: wrap;
 }
 .main-content-wrap
   .search-results-wrap
@@ -189,6 +280,10 @@ export default {
 }
 
 /* Search panel */
+.search-panel-wrap .container,
+.main-content-wrap.container {
+  max-width: 1440px;
+}
 .search-panel-wrap {
   display: flex;
   align-items: center;
@@ -197,6 +292,7 @@ export default {
 }
 .search-panel-wrap .search-panel-content .search-input-wrap {
   position: relative;
+  display: flex;
 }
 .search-panel-wrap .search-panel-content .search-input-wrap input {
   width: 100%;
@@ -209,17 +305,17 @@ export default {
   .search-panel-content
   .search-input-wrap
   label.search-icon-wrap {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  right: -40px;
+  display: flex;
+  align-items: center;
+  margin-bottom: inherit;
+  padding: 0 15px;
 }
 .search-panel-wrap
   .search-panel-content
   .search-input-wrap
   label.close-search-wrap {
   position: absolute;
-  right: 20px;
+  right: 60px;
   top: 5px;
 }
 .search-panel-wrap
