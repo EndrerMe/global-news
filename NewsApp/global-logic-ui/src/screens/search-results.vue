@@ -240,7 +240,7 @@ export default {
   content:'';
   width: 80px;
   height: 2px;
-  background: #fadc04;
+  background: #f8c61a;
   display: inline-block;
   margin-bottom: 4px;
 }
@@ -248,7 +248,7 @@ export default {
   content:'';
   width: 80px;
   height: 2px;
-  background: #fadc04;
+  background: #f8c61a;
   display: inline-block;
   margin-bottom: 4px;
 }
