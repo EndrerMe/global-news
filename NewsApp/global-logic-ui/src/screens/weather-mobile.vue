@@ -36,7 +36,7 @@
             </p>
           </div>
           <div class="country-wrap">
-            <input :value="userCity" v-on:input="changecountry($event)" />
+            <input :value="userCity" v-on:input="changecountry($event)" @click='hideCityList()'/>
               <ul class="location-dropdown" v-if='isShowCityHint'>
                 <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
                   <span>{{ city.name }}, {{ city.country }}</span>
@@ -154,6 +154,12 @@ export default {
   },
   methods: {
     ...mapActions(["getWeatherByCountry"]),
+
+    hideCityList() {
+      if (this.probablyCityList.length > 0) {
+        this.isShowCityHint = !this.isShowCityHint;
+      }
+    },
 
     showMobileMore() {
       this.isShowMoreMobile = !this.isShowMoreMobile;
