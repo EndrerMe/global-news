@@ -67,9 +67,6 @@
         <span>GBP/USD = {{ retesCouples.third.usd[0] }}.{{ retesCouples.third.usd[1] }}</span>
       </div>
     </div>
-    <div class="value-wrap">
-      <input class="value" value="123.086" type="number" placeholder="Amount" />
-    </div>
   </div>
 </template>
 
@@ -211,10 +208,12 @@ export default {
   },
   methods: {
     toggleFromList() {
+      this.isShowToList = false;
       this.isShowFromList = !this.isShowFromList;
     },
 
     toggleToList() {
+      this.isShowFromList = false;
       this.isShowToList = !this.isShowToList;
     },
 
@@ -405,7 +404,6 @@ export default {
 }
 .currency-converter-wrap .to .dropdown-wrap .currency-dropdown-to,
 .currency-converter-wrap .from .dropdown-wrap .currency-dropdown-from {
-  display: none;
   position: absolute;
   list-style: none;
   width: 80px;
