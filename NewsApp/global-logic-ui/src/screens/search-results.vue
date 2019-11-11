@@ -24,6 +24,23 @@
       <div class="main-content-wrap">
         <div class="side-wrap">
           <div class="side-menu-wrap">
+            <ul class="side-menu-sort">
+              <div class="menu-title-wrap">
+                <span class="title-text">Sort all news by</span>
+              </div>
+              <li>
+                <a href="#" @click='searchByCategoryFun("all")'>Date</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("business")'>Popularity</a>
+              </li>
+              <li>
+                <a href="#" @click='searchByCategoryFun("entertainment")'>Relevancy</a>
+              </li>
+            </ul>
+            <div class="separator">
+              <span>or</span>
+            </div>
             <ul class="side-menu-categories">
               <div class="menu-title-wrap">
                 <span class="title-text">Search across</span>
@@ -163,7 +180,32 @@ export default {
 .main-content-wrap .side-wrap {
   padding-top: 106px;
 }
-
+.main-content-wrap .side-wrap .side-menu-wrap .separator{
+  text-align: start;
+  margin-bottom: 16px;
+}
+.main-content-wrap .side-wrap .side-menu-wrap .separator span{
+  font-family: "Amiri-Bold";
+  font-size: 28px;
+  margin: 0 7px;
+  color: blue;
+}
+.main-content-wrap .side-wrap .side-menu-wrap .separator::before{
+  content:'';
+  width: 80px;
+  height: 2px;
+  background: #fadc04;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.main-content-wrap .side-wrap .side-menu-wrap .separator::after{
+  content:'';
+  width: 80px;
+  height: 2px;
+  background: #fadc04;
+  display: inline-block;
+  margin-bottom: 4px;
+}
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories,
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort {
   list-style: none;
@@ -227,7 +269,6 @@ export default {
   font-family: "Amiri-Bold";
   font-size: 28px;
   text-align: start;
-  padding-left: 5px;
 }
 
 /* Search Results */
