@@ -21,6 +21,24 @@
       </div>
     </div>
       <div class="main-content-wrap container">
+        <div  class="no-results-message-wrap">
+          <div class="no-results-message message-section">
+            <span>Results for</span>
+            <span class="display-for-search">{{ resultsOf }}</span>
+            <span>have not found. Please try again.</span>
+          </div>
+          <div class="message-section">
+            <span>Advice:</span>
+          </div>
+          <div class="message-section">
+            <ul class="advices-list">
+              <li>Check if all words are spelled correctly.</li>
+              <li>Try to change the keywords to synonyms.</li>
+              <li>Try to use more general words.</li>
+              <li>Try entering fewer keywords.</li>
+            </ul>
+          </div>
+        </div>
         <div class="side-wrap">
           <div class="side-menu-wrap">
             <ul class="side-menu-sort">
@@ -324,6 +342,19 @@ export default {
 }
 
 /* Search Results */
+.main-content-wrap .no-results-message-wrap{
+  display: none;
+  position: absolute;
+  text-align: start;
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+}
+.main-content-wrap .no-results-message-wrap .message-section{
+  margin-top: 30px;
+}
+.main-content-wrap .no-results-message-wrap .message-section .advices-list{
+  padding-left: 20px;
+}
 .main-content-wrap .search-results-wrap {
   position: relative;
   width: 80%;
@@ -341,10 +372,12 @@ export default {
 .main-content-wrap
   .search-results-wrap
   .display-results-wrap
-  .display-for-search {
+  .display-for-search,
+  .main-content-wrap .no-results-message-wrap .no-results-message .display-for-search
+   {
   font-family: "Poppins-Bold";
   color: #052962;
-  margin-left: 5px;
+  margin: 0 5px;
 }
 
 .main-content-wrap .search-results-wrap .search-result {
