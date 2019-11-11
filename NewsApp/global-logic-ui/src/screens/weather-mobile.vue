@@ -339,7 +339,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-left: calc((100% - 293px));
 }
 .mobile-weather-details-wrap .right-side .text {
   white-space: nowrap;
@@ -400,6 +399,7 @@ export default {
 }
 .mobile-weather-details-wrap .sides-wrap {
   display: flex;
+  justify-content: space-between;
 }
 .mobile-weather-details-wrap {
   width: 100%;
