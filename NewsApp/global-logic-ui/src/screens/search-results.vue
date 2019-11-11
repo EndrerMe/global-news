@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <categoryPagination :pageNumber='totalPages' @changePage="changePage"></categoryPagination>
+      <categoryPagination :pageNumber='totalPages' @changePage="changePage" :isFirstPage='isFirstPage'></categoryPagination>
     </div>
 </template>
 
@@ -111,6 +111,7 @@ export default {
         from: 1,
         to: 10,
       },
+      isFirstPage: false,
     };
   },
   mounted() {
@@ -123,10 +124,11 @@ export default {
       this.currentPage = 1;
     } else {
       const data = JSON.parse(localStorage.getItem("currentSearch"));
+      console.log(data)
       this.totalRes = data.totalRes;
       this.searchValue = data.searchValue;
       this.searchRes = data.news;
-      this.resultsCol.to = data.length;
+      this.resultsCol.to = data.news.length;
       this.totalPages = Math.ceil(this.totalRes / 10);
       this.currentPage = 1;
     }
@@ -172,8 +174,10 @@ export default {
         const searchData = { value: value, page: this.currentPage };
         this.search(searchData).then(res => {
           let news = [];
+          let totalRes = null;
           for (let i = 0; i < res.articles.length; i++) {
             if (res.articles[i].urlToImage && res.articles[i].title && res.articles[i].description) {
+              totalRes = res.totalResults;
               news.push(res.articles[i]);
             } else {
               continue;
@@ -182,7 +186,10 @@ export default {
           this.searchRes = news;
           this.resultsCol.to = news.length;
           this.resultsCol.from = 1;
-          const data = { news: news, searchValue: value };
+          this.totalPages = Math.ceil(totalRes / 10);
+          this.totalRes = totalRes;
+          const data = { news: news, searchValue: value, totalRes: totalRes };
+          this.isFirstPage = true;
           localStorage.setItem("currentSearch", JSON.stringify(data));
         });
       }

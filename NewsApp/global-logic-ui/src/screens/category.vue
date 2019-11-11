@@ -547,6 +547,7 @@ export default {
   methods: {
     changePage(e) {
       window.scrollTo(0, 0);
+      this.pageNumber = false;
       newsService.getData(this.category, e).then(
         res => {
           let articles = res.data.articles;
