@@ -262,7 +262,6 @@ export default {
       currentWeather: null,
       currentWeatherImg: null,
       isShowMoreWeather: false,
-      probablyCity: "London"
     };
   },
   methods: {
@@ -306,7 +305,6 @@ export default {
           this.isShowCityHint = true;
           this.isShowErroeMessage = false;
           this.probablyCityList = res;
-          this.probablyCity = res[0].name;
         } else {
           this.isShowCityHint = false;
           this.isShowErroeMessage = true;

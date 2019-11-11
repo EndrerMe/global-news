@@ -36,7 +36,7 @@
             </p>
           </div>
           <div class="country-wrap">
-            <input value="Lond" />
+            <input :value="userCity" v-on:input="changecountry($event)" />
           </div>
           <div class="button-wrap">
             <button href="#">Search</button>
@@ -63,8 +63,8 @@
                     <p>
                       <span class="switch">Show weather in :</span>
                       <span class="temp-symbol">
-                        <span>F</span>
-                        <span class="degreeMode active">
+                        <span v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
+                        <span class="degreeMode" v-bind:class="{ active: isCelsius }" @click='changeTemp("c")'>
                           <span class="degree"></span>
                           C
                         </span>
@@ -125,6 +125,8 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import cities from 'cities.json';
+import _ from "lodash";
 
 export default {
   name: "weatherMobile",
@@ -133,12 +135,16 @@ export default {
     return {
       currentWeatherData: null,
       isShowMoreMobile: false,
+      userCity: 'London',
       temp: "",
       location: "",
       date: "",
       currentWeather: null,
       currentWeatherImg: null,
       isCelsius: true,
+      isShowCityHint: false,
+      isShowErroeMessage: false,
+      probablyCityList: [],
     }
   },
   methods: {
@@ -151,7 +157,61 @@ export default {
     goToWeatherMap() {
       const data = this.currentWeatherData;
       this.$router.push({name: "weatherMap", params: { data }});
-    }
+    },
+
+    changecountry: _.debounce(function(event) {
+      const value = event.target.value;
+      this.userCity = value;
+      if (value.length > 2) {
+        const res = cities.filter(city => {
+          return city.name.match(value)
+        })
+        if (res.length > 0) {
+          this.isShowCityHint = true;
+          this.isShowErroeMessage = false;
+          this.probablyCityList = res;
+        } else {
+          this.isShowCityHint = false;
+          this.isShowErroeMessage = true;
+        }
+      }
+    }, 1000),
+
+    changeTemp(temp) {
+      if (temp === 'f' && this.isCelsius) {
+        this.isCelsius = false;
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min * 1.8 + 32;
+        this.currentWeatherData.main.temp_min = Math.round(this.currentWeatherData.main.temp_min);
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min + '';
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min.split(".")[0];
+
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max * 1.8 + 32;
+        this.currentWeatherData.main.temp_max = Math.round(this.currentWeatherData.main.temp_max);
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max + '';
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max.split(".")[0];
+
+        this.temp = this.temp * 1.8 + 32;
+        this.temp = Math.round(this.temp);
+        this.temp = this.temp + '';
+        this.temp = this.temp.split(".")[0];
+      } else if (temp === 'c' && !this.isCelsius) {
+        this.isCelsius = true;
+        this.currentWeatherData.main.temp_min = (this.currentWeatherData.main.temp_min - 32) / 1.8;
+        this.currentWeatherData.main.temp_min = Math.round(this.currentWeatherData.main.temp_min);
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min + '';
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min.split(".")[0];
+
+        this.currentWeatherData.main.temp_max = (this.currentWeatherData.main.temp_max - 32) / 1.8;
+        this.currentWeatherData.main.temp_max = Math.round(this.currentWeatherData.main.temp_max);
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max + '';
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max.split(".")[0];
+
+        this.temp = (this.temp - 32) / 1.8;
+        this.temp = Math.round(this.temp);
+        this.temp = this.temp + '';
+        this.temp = this.temp.split(".")[0];
+      }
+    },
   },
   created() {
     if (this.getWeatherData.main) {

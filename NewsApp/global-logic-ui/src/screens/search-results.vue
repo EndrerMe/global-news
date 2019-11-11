@@ -53,18 +53,6 @@
                 <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
               </li>
             </ul>
-
-            <ul class="side-menu-sort">
-              <div class="menu-title-wrap">
-                <span class="title-text">Sort by</span>
-              </div>
-              <li>
-                <a href="#">Date</a>
-              </li>
-              <li>
-                <a href="#">Popularity</a>
-              </li>
-            </ul>
           </div>
         </div>
         <div class="search-results-wrap">
@@ -109,7 +97,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["search", "searchByCategory"]),
+    ...mapActions(["search", "searchByCategory", "sortBy"]),
 
     searchBytitle: _.debounce(function(event) {
       this.searchValue = event.target.value;
@@ -158,7 +146,7 @@ export default {
         const data = {news: news, searchValue: this.searchValue};
         localStorage.setItem('currentSearch', JSON.stringify(data));
       }
-    }
+    },
   }
 };
 </script>

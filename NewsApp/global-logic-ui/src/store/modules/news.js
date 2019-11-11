@@ -33,7 +33,6 @@ export default {
         },
 
         async searchByCategory(ctx, data) {
-            console.log(data)
             return new Promise((resolve, reject) => {
                 newsService.searchByCategory(data.category, data.page).then((res) => {
                     let news = res.data.articles;
