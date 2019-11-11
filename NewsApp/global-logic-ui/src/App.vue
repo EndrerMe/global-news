@@ -91,6 +91,9 @@ export default {
   .footer-wrap {
     flex-grow: 1;
     background-color: #052962;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 }
 </style>
