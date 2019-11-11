@@ -344,6 +344,7 @@ export default {
   padding-left: calc((100% - 293px));
 }
 .mobile-weather-details-wrap .right-side .text {
+  white-space: nowrap;
   margin-bottom: 4px;
 }
 .mobile-weather-details-wrap .right-side .icon-wrap img {
