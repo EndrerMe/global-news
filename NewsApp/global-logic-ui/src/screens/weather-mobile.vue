@@ -31,12 +31,17 @@
         <div class="seacrh-country-wrap section-elem">
           <div class="text-wrap">
             <p>
-              Do you mean
+              Show weather in
               <span class="search-result">London</span> ?
             </p>
           </div>
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" />
+              <ul class="location-dropdown" v-if='isShowCityHint'>
+                <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
+                  <span>{{ city.name }}, {{ city.country }}</span>
+                </li>
+              </ul>
           </div>
           <div class="button-wrap">
             <button href="#">Search</button>
@@ -238,6 +243,40 @@ export default {
 </script>
 
 <style scoped>
+ 
+/* Custom Drop Down */
+.modile-side-weather-wrap .country-wrap{
+  position: relative;
+}
+.seacrh-country-wrap .location-dropdown {
+  width: 100%;
+  position: absolute;
+  list-style: none;
+  padding-left: 0;
+  z-index: 99999;
+  top: 31px;
+  font-family: 'Poppins-Bold';
+  max-height: 112px;
+  overflow: auto;
+}
+.seacrh-country-wrap .location-dropdown li {
+  display: flex;
+  width: 100%;
+  background: white;
+  padding: 0 10px;
+}
+.seacrh-country-wrap .location-dropdown li:hover {
+  background: #f8c61a;
+  cursor: pointer;
+}
+.seacrh-country-wrap .location-dropdown li span {
+  color: #3f3f3f;
+  font-size: 16px;
+  padding: 2px 0;
+  border:none;
+}
+/* end */
+
 .mobile-weather-main-wrap .temp-value-wrap .temp-symbol-wrap {
   display: block;
   text-align: start;
