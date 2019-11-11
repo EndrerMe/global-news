@@ -153,7 +153,7 @@ export default {
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li,
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li {
   text-align: start;
-  padding: 5px 0;
+  padding: 3px 0;
 }
 
 .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
