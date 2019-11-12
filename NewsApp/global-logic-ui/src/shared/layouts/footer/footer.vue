@@ -84,9 +84,11 @@ footer .right-item button {
   letter-spacing: 1px;
   font-family: "Poppins-SemiBold";
 }
+
+/* Media */
 @media (max-width: 1199px) {
   footer .right-item button {
-    width: 232px !important;
+    width: 232px ;
     height: 44px;
   }
 }
@@ -99,7 +101,7 @@ footer .right-item button {
 
 @media (max-width: 991px) {
   footer .right-item button {
-    width: 222px !important;
+    width: 222px;
     height: 40px;
   }
 }
@@ -131,6 +133,9 @@ footer .right-item button {
   }
   footer{
     border-top: 1px solid #1f3a6b;
+  }
+  footer .right-item button {
+    width: 100%;
   }
 }
 </style>

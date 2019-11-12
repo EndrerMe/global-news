@@ -159,6 +159,9 @@
         </div>
       </div>
     </div>
+    <div class="more-results-wrap">
+        <button class="more-results-button">More results</button>
+    </div>
 
       <div v-if='!isShowErrorAfterFilters'>
         <categoryPagination v-if='!isShowErrorMessage' :pageNumber='totalPages' @changePage="changePage" :key="componentKey"></categoryPagination>
@@ -386,6 +389,22 @@ export default {
 </script>
 
 <style scoped>
+/* More Results */
+.more-results-wrap{
+  padding: 0 16px;
+}
+.more-results-wrap .more-results-button{
+  width:100%;
+  height: 40px;
+  background-color: #052962;
+  border: none;
+  font-family: 'Poppins-SemiBold';
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #F8C61A;
+}
+/* end */
+
 /* Mob Sort */
 .search-panel-wrap{
   position: relative;
