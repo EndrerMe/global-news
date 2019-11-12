@@ -159,7 +159,7 @@
         </div>
       </div>
     </div>
-    <div class="more-results-wrap">
+    <div class="more-results-wrap container">
         <button class="more-results-button">More results</button>
     </div>
 
@@ -708,29 +708,6 @@ export default {
 /* end */
 
 /* Media */
-@media (max-width: 767px) {
-  .main-content-wrap {
-    flex-direction: column;
-  }
-  .main-content-wrap .search-results-wrap {
-    width: unset;
-  }
-  .main-content-wrap .side-wrap {
-    display: none;
-  }
-  .search-panel-wrap
-    .search-panel-content
-    .search-input-wrap
-    label.search-icon-wrap {
-    display: none;
-  }
-  .search-panel-wrap
-    .search-panel-content
-    .search-input-wrap
-    label.close-search-wrap {
-    right: 10px;
-  }
-}
 @media (min-width: 1140px) {
   .mobile-bottom-menu-wrap .bottom-menu li a {
     font-size: 26px !important;
@@ -739,32 +716,6 @@ export default {
 @media (max-width: 1139px) {
   .mobile-bottom-menu-wrap .bottom-menu li a {
     font-size: 16px;
-  }
-}
-@media (min-width: 768px) {
-  .mobile-bottom-menu-wrap{
-    display: none;
-  }
-  .search-panel-wrap .search-sort-wrap{
-    display: none;
-  }
-}
-@media (max-width: 767px) {
-  .mobile-bottom-menu-wrap .bottom-menu {
-    flex-wrap: unset;
-  }
-  .mobile-bottom-menu-wrap .box-menu {
-    overflow: auto !important;
-    display: flex;
-  }
-  .search-panel-wrap{
-    height: 120px;
-  }
-  .search-panel-wrap .search-panel-content .search-input-wrap{
-    align-items: flex-start;
-  }
-  .search-panel-wrap .search-panel-content .search-input-wrap label.close-search-wrap{
-    top: 27%;
   }
 }
 @media (max-width: 1199px) {
@@ -805,5 +756,59 @@ export default {
     font-size: 12px;
   }
 }
-
+@media (min-width: 768px) {
+  .mobile-bottom-menu-wrap{
+    display: none;
+  }
+  .search-panel-wrap .search-sort-wrap{
+    display: none;
+  }
+  .more-results-wrap{
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .mobile-bottom-menu-wrap .bottom-menu {
+    flex-wrap: unset;
+  }
+  .mobile-bottom-menu-wrap .box-menu {
+    overflow: auto !important;
+    display: flex;
+  }
+  .search-panel-wrap{
+    height: 120px;
+  }
+  .search-panel-wrap .search-panel-content .search-input-wrap{
+    align-items: flex-start;
+  }
+  .search-panel-wrap .search-panel-content .search-input-wrap label.close-search-wrap{
+    top: 27%;
+  }
+    .main-content-wrap {
+    flex-direction: column;
+  }
+  .main-content-wrap .search-results-wrap {
+    width: unset;
+  }
+  .main-content-wrap .side-wrap {
+    display: none;
+  }
+  .search-panel-wrap
+    .search-panel-content
+    .search-input-wrap
+    label.search-icon-wrap {
+    display: none;
+  }
+  .search-panel-wrap
+    .search-panel-content
+    .search-input-wrap
+    label.close-search-wrap {
+    right: 10px;
+  }
+}
+@media (min-width: 576px){
+  .container {
+    max-width: unset ;
+  }
+}
 </style>
