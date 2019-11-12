@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="convert-icon">
-      <img src="../assets/images/header/change-arrows.svg" alt="logo" />
+      <img src="@/assets/images/header/change-arrows.svg" alt="logo" />
     </div>
     <div class="to">
       <div class="dropdown-wrap" selected>
@@ -71,10 +71,13 @@
 </template>
 
 <script>
-import ratesService from "./../shared/services/rates.service";
-import EventBus from "./../eventBus";
+// Vendors
 import { mapGetters } from "vuex";
 import _ from "lodash";
+// Services
+import ratesService from "@/shared/services/rates.service";
+// Events
+import EventBus from "@/eventBus";
 
 export default {
   name: "converter-mobile",
@@ -248,6 +251,8 @@ export default {
         this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
         this.isLoaderShow = false;
       });
+
+      this.isShowFromList = false;
     },
 
     changeRateTo(value) {
@@ -276,6 +281,8 @@ export default {
 
         this.isLoaderShow = false;
       });
+
+      this.isShowToList = false;
     },
 
     changeAmount: _.debounce(async function(event) {

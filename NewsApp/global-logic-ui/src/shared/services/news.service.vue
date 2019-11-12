@@ -1,6 +1,8 @@
 <script>
+// Vendors
 import axios from 'axios';
-import {environment} from './../../environment/environment'
+// Environments
+import {environment} from '@/environment/environment'
 
 export default {
     name: 'newsService',
@@ -17,11 +19,16 @@ export default {
     },
     
     searchByCategory(category, page, keyWord) {
+        console.log(category, page, keyWord)
         return axios.get(`${environment.newsApiUrl}top-headlines?category=${category}&q=${keyWord}&pageSize=10&page=${page}&apiKey=${environment.newsApiKey}`);
     },
 
     getPageCol(category) {
         return axios.get(`${environment.newsApiUrl}top-headlines?category=${category}&apiKey=${environment.newsApiKey}`)
-    }
+    },
+
+    sortBy(data) {
+        return axios.get(`${environment.newsApiUrl}p=${data.value}&pageSize=10&page=${data.page}&apiKey=${environment.newsApiKey}`);
+    },
 }
 </script>

@@ -69,6 +69,7 @@
 </template>
 
 <script>
+// Vendors
 import { mapActions } from "vuex";
 import VueLoadImage from 'vue-load-image';
 

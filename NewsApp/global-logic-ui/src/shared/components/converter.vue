@@ -38,7 +38,7 @@
     </div>
 
     <div class="convert-icon">
-      <img src="../../assets/images/header/change-arrows.svg" alt="logo" />
+      <img src="@/assets/images/header/change-arrows.svg" alt="logo" />
     </div>
     <div class="to">
       <div class="dropdown-wrap" selected>
@@ -82,10 +82,13 @@
 </template>
 
 <script>
-import ratesService from "./../services/rates.service";
-import EventBus from "./../../eventBus";
+// Vendors
 import _ from "lodash";
 import {mapGetters} from 'vuex'
+// Services
+import ratesService from "@/shared/services/rates.service";
+// Events
+import EventBus from "@/eventBus";
 
 export default {
   name: "converterDesctop",
@@ -220,10 +223,12 @@ export default {
   },
   methods: {
     toggleCurrentRates() {
+      this.isShowRatesTo = false;
       this.isShowRatesFrom = !this.isShowRatesFrom;
     },
 
     toggleExchangeRates() {
+      this.isShowRatesFrom = false;
       this.isShowRatesTo = !this.isShowRatesTo;
     },
 
@@ -256,6 +261,7 @@ export default {
         }
         this.exchangeTo[0] = array.join("");
         this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+        this.isShowRatesFrom = !this.isShowRatesFrom;
         this.isLoaderShow = false;
       });
     },
@@ -287,6 +293,7 @@ export default {
         this.exchangeName = target;
 
         this.isLoaderShow = false;
+        this.isShowRatesTo = !this.isShowRatesTo;
       });
     },
 

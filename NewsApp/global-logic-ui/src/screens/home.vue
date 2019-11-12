@@ -20,10 +20,13 @@
 </template>
 
 <script>
-import cardHome from './../shared/components/cardHome';
-import homeSlider from './../shared/components/home-slider';
-import newsService from './../shared/services/news.service';
+// Vendors
 import {mapGetters, mapState } from 'vuex'
+// Components
+import cardHome from '@/shared/components/cardHome';
+import homeSlider from '@/shared/components/home-slider';
+// Services
+import newsService from '@/shared/services/news.service';
 
 export default {
   components: { 

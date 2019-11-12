@@ -49,8 +49,10 @@
 </template>
 
 <script>
-import subscriptionService from './../services/subscription.service';
-import EventBus from './../../eventBus';
+// Services
+import subscriptionService from '@/shared/services/subscription.service';
+// Events
+import EventBus from '@/eventBus';
 
 export default {
   name: "subscribeDesctop",

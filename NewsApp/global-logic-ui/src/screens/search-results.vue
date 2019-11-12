@@ -21,7 +21,7 @@
       </div>
     </div>
       <div class="main-content-wrap container">
-        <div  class="no-results-message-wrap" v-if='isShowErrorMessage'>
+        <div  class="no-results-message-wrap" v-if='isShowErrorMessage || isShowErrorAfterFilters'>
           <div class="no-results-message message-section">
             <span>Results for</span>
             <span class="display-for-search">{{ searchValue }}</span>
@@ -46,13 +46,13 @@
                 <span class="title-text">Sort all news by</span>
               </div>
               <li>
-                <a href="#" @click='searchByCategoryFun("all")'>Date</a>
+                <a href="#" @click='sortByFun("data")'>Date</a>
               </li>
               <li>
-                <a href="#" @click='searchByCategoryFun("business")'>Popularity</a>
+                <a href="#" @click='sortByFun("popularity")'>Popularity</a>
               </li>
               <li>
-                <a href="#" @click='searchByCategoryFun("entertainment")'>Relevancy</a>
+                <a href="#" @click='sortByFun("relevancy")'>Relevancy</a>
               </li>
             </ul>
             <div class="separator">
@@ -100,17 +100,19 @@
         </div>
       </div>
 
-      <div v-if='isShowPagination'>
+      <div v-if='!isShowErrorAfterFilters'>
         <categoryPagination v-if='!isShowErrorMessage' :pageNumber='totalPages' @changePage="changePage" :key="componentKey"></categoryPagination>
       </div>
     </div>
 </template>
 
 <script>
-import cardSearchResult from "./../shared/components/cardSearchResult";
-import categoryPagination from './../shared/components/paginate';
+// Vendors
 import { mapActions } from "vuex";
 import _ from "lodash";
+// Components
+import cardSearchResult from "@/shared/components/cardSearchResult";
+import categoryPagination from '@/shared/components/paginate';
 
 export default {
   name: "searchResult",
@@ -135,6 +137,7 @@ export default {
       isShowErrorMessage: false,
       isShowPagination: true,
       componentKey: 0,
+      isShowErrorAfterFilters: false,
     };
   },
   mounted() {
@@ -221,6 +224,8 @@ export default {
               }
             }
             this.searchRes = news;
+            this.isShowErrorAfterFilters = false;
+            this.isShowErrorMessage = false;
             this.resultsCol.to = news.length;
             this.resultsCol.from = 1;
             this.totalPages = Math.ceil(totalRes / 10);
@@ -239,6 +244,27 @@ export default {
       this.isShowPagination = true;
     }, 1000),
 
+    sortByFun(value) {
+      let data = {page: 1};
+      let responce = null;
+      if (this.searchRes.length > 0) {
+        if (value === 'date') {
+          data.value = 'publishedAt';
+          responce = this.sortBy(data);
+        } else if (value === 'popularity') {
+          data.value = 'popularity';
+          responce = this.sortBy(data);
+        } else if (value === 'relevancy') {
+          data.value = 'relevancy';
+          responce = this.sortBy(data);
+        }
+
+        responce.then((res) => {
+          console.log(res)
+        })
+      }
+    },
+
     searchByCategoryFun(value) {
       let news = [];
       let probablyNews = [];
@@ -247,22 +273,28 @@ export default {
           const data = {category: value, page: 1, keyWord: this.searchValue};
           this.searchByCategory(data).then((res) => {
             probablyNews = res;
+            console.log('-------------------')
+            console.log(res)
           })
         } else {
           this.search({ value: this.searchValue }).then(res => {
             probablyNews = res;
+            console.log('********************')
+            console.log(res)
           });
         }
-
-        for (let i = 0; i < probablyNews.length; i++) {
-          if (probablyNews[i].urlToImage && probablyNews[i].title && probablyNews[i].description) {
-            news.push(probablyNews[i]);
+        
+        this.isShowErrorAfterFilters = false;
+        for (let i = 0; i < probablyNews.articles.length; i++) {
+          if (probablyNews.articles[i].urlToImage && probablyNews.articles[i].title && probablyNews.articles[i].description) {
+            news.push(probablyNews.articles[i]);
           } else {
             continue;
           }
         }
 
         this.searchRes = news;
+        this.currentCategory = value;
         const data = {news: news, searchValue: this.searchValue};
         localStorage.setItem('currentSearch', JSON.stringify(data));
       }

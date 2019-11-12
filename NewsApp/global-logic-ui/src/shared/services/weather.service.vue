@@ -1,6 +1,8 @@
 <script>
+// Vendors
 import axios from 'axios';
-import {environment} from './../../environment/environment'
+// Environments
+import {environment} from '@/environment/environment'
 
 export default {
     name: 'weatherService',

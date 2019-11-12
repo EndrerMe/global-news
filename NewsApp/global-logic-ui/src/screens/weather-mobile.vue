@@ -129,9 +129,13 @@
 </template>
 
 <script>
+// Vendors
 import { mapGetters, mapActions } from "vuex";
-import cities from 'cities.json';
 import _ from "lodash";
+// Services
+import weatherService from '@/shared/services/weather.service';
+// Jsons
+import cities from 'cities.json';
 
 export default {
   name: "weatherMobile",
@@ -154,6 +158,26 @@ export default {
   },
   methods: {
     ...mapActions(["getWeatherByCountry"]),
+
+    getWeather(city) { 
+
+      if (city) {
+        this.userCity = city;
+        this.isShowCityHint = false;
+      }
+
+      weatherService.getWeatherByCountry(this.userCity).then(res => {
+        res.data.weather[0].description = res.data.weather[0].description.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
+        this.currentWeatherData = res.data;
+        this.temp = res.data.main.temp;
+        this.temp = this.temp + "";
+        this.temp = this.temp.split(".")[0];
+        this.userCity = res.data.name;
+        this.location = this.userCity;
+        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
+        this.currentWeather = res.data.weather[0].description;
+      });
+    },
 
     hideCityList() {
       if (this.probablyCityList.length > 0) {

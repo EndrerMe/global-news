@@ -14,11 +14,16 @@
 </template>
 
 <script>
-import { environment } from "./../environment/environment";
+// Vendors
 import mapboxgl from "mapbox-gl";
-import EventBus from "./../eventBus";
-import moreWeather from "./../shared/components/more-weather";
-import weatherService from "./../shared/services/weather.service";
+// Environments
+import { environment } from "@/environment/environment";
+// Events
+import EventBus from "@/eventBus";
+// Components
+import moreWeather from "@/shared/components/more-weather";
+// Services
+import weatherService from "@/shared/services/weather.service";
 
 export default {
   props: ["data"],

@@ -1,4 +1,5 @@
-import newsService from './../../shared/services/news.service';
+// Services
+import newsService from '@/shared/services/news.service';
 
 export default {
     actions: {
@@ -20,6 +21,18 @@ export default {
             })
         },
 
+        async sortBy(ctx, data) {
+            return new Promise((resolve, reject) => {
+                newsService.sortBy(data).then((res) => {
+                    let news = res.data;
+                    ctx.commit('updateSearchRes', news);
+                    resolve(news);
+                }).catch((res) => {
+                    reject(res);
+                })
+            })
+        },
+
         async search(ctx, data) {
             return new Promise((resolve, reject) => {
                 newsService.searchByTitle(data).then((res) => {
@@ -34,7 +47,7 @@ export default {
 
         async searchByCategory(ctx, data) {
             return new Promise((resolve, reject) => {
-                newsService.searchByCategory(data.category, data.page).then((res) => {
+                newsService.searchByCategory(data.category, data.page, data.keyWord).then((res) => {
                     let news = res.data.articles;
                     ctx.commit('updateSearchRes', news);
                     resolve(news)

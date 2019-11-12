@@ -90,6 +90,7 @@
 </template>
 
 <script>
+// Vendors
 import Slick from "vue-slick";
 import { mapActions } from "vuex";
 import VueLoadImage from "vue-load-image";

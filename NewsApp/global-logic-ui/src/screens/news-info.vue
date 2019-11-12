@@ -166,9 +166,11 @@
 </template>
 
 <script>
+// Vendors
 import { mapGetters, mapActions } from "vuex";
-import latestNews from "./../shared/components/latestNews";
 import VueLoadImage from 'vue-load-image';
+// Components
+import latestNews from "@/shared/components/latestNews";
 
 export default {
   components: {

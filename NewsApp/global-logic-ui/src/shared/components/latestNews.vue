@@ -63,6 +63,7 @@
 </template>
 
 <script>
+// Vendors
 import VueLoadImage from 'vue-load-image'
 
 export default {

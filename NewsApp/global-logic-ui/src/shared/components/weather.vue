@@ -14,7 +14,7 @@
         </div>
         <div class="error-message" v-if='isShowErroeMessage'>
           <span>Location is incorrect. Please, try again.</span>
-          <img src="./../../assets/images/close-error.png" @click='closeErrorMessage()'>
+          <img src="@/assets/images/close-error.png" @click='closeErrorMessage()'>
         </div>
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
@@ -173,12 +173,17 @@
 </template>
 
 <script>
-import converterDesctop from "./converter";
-import weatherService from "./../services/weather.service";
-import EventBus from "./../../eventBus";
-import cities from 'cities.json';
+// Vendors
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
+// Components
+import converterDesctop from "@/shared/components/converter";
+// Services
+import weatherService from "@/shared/services/weather.service";
+// Events
+import EventBus from "@/eventBus";
+// Json
+import cities from 'cities.json';
 
 export default {
   props: ["isShowWeatherModalProps", "isShowConverterProps"],
