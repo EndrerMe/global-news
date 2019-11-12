@@ -149,8 +149,10 @@
       </div>
       <div class="search-results-wrap">
         <div class="display-results-wrap" v-if="!isShowErrorMessage">
-          <span>Displaying results {{resultsCol.from}}-{{resultsCol.to}} out of {{totalRes}} for</span>
-          <span class="display-for-search">{{ resultsOf }}</span>
+          <span>
+            <span>Displaying results {{resultsCol.from}}-{{resultsCol.to}} out of {{totalRes}} for</span>
+            <span class="display-for-search">{{ resultsOf }}</span>
+          </span>
         </div>
         <div class="search-result">
           <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
@@ -471,7 +473,7 @@ export default {
 }
 .main-content-wrap .side-wrap .side-menu-wrap .separator::before {
   content: "";
-  width: 80px;
+  width: 75px;
   height: 2px;
   background: #f8c61a;
   display: inline-block;
@@ -479,7 +481,7 @@ export default {
 }
 .main-content-wrap .side-wrap .side-menu-wrap .separator::after {
   content: "";
-  width: 80px;
+  width: 75px;
   height: 2px;
   background: #f8c61a;
   display: inline-block;

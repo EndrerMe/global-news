@@ -67,35 +67,26 @@ export default {
   justify-content: space-between;
   padding: 0 15px;
   margin-top: 20px;
+  color:white;
 }
 .show-sub-item {
   opacity: 1 !important;
   transition: opacity 0.5s;
 }
-
 .sideMenuActive {
   visibility: visible !important;
   width: 82% !important;
   transition: all 0.2s;
 }
-
 .mobile-side-menu-wrap{
   visibility: hidden;
 }
-
-.mobile-side-menu-wrap .mobile-side-menu {
-  /* display: none; */
-  padding-top: 58px;
-}
-
 .mobile-side-menu-wrap .mobile-side-menu .nav-item.wrap {
   border-top: 1px solid #436f9c;
 }
-
 .mobile-side-menu-wrap .mobile-side-menu .nav-item a .bottom-side-wrap button:hover {
   background: #ffe076;
 }
-
 .mobile-side-menu-wrap
   .mobile-side-menu
   .nav-item
@@ -112,7 +103,6 @@ export default {
   font-size: 13px;
   letter-spacing: 1px;
 }
-
 .mobile-side-menu-wrap
   .mobile-side-menu
   .nav-item
@@ -122,8 +112,8 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 0 15px;
+  color: white;
 }
-
 .mobile-side-menu-wrap
   .nav-item
   a
@@ -131,11 +121,9 @@ export default {
   .sub-item.date {
   padding-bottom: 35px;
 }
-
 .mobile-side-menu-wrap .nav-item a .bottom-side-wrap {
   padding-bottom: 20px;
 }
-
 .mobile-side-menu-wrap
   .nav-item
   a
@@ -145,19 +133,16 @@ export default {
   color: rgb(248, 198, 26);
   transform: rotate(-90deg);
 }
-
 .mobile-side-menu-wrap .nav-item a .top-side-wrap .sub-item {
   display: flex;
   justify-content: space-between;
   padding: 0 15px;
   margin-top: 20px;
 }
-
 .mobile-side-menu-wrap .close-link-wrap {
   display: none;
   position: absolute;
 }
-
 .mobile-side-menu-wrap .close-link-wrap .close-wrap a {
   position: absolute;
   width: 30px !important;
@@ -165,7 +150,6 @@ export default {
   top: -44px;
   right: 30px;
 }
-
 .mobile-side-menu-wrap .close-link-wrap .close-wrap a::after {
   position: absolute;
   content: "";
@@ -176,7 +160,6 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-
 .mobile-side-menu-wrap .close-link-wrap .close-wrap a::before {
   position: absolute;
   content: "";
@@ -187,21 +170,22 @@ export default {
   right: 0px;
   transform: rotate(45deg);
 }
-
 .mobile-side-menu-wrap .mobile-side-menu {
     display: flex;
     height: 100%;
+    padding-top: 58px;
+    justify-content: space-between;
 }
-
 .mobile-side-menu-wrap .mobile-side-menu .nav-item {
     display: flex;
     width: 100%;
     font-family: "Poppins-Regular";
 }
-
 .mobile-side-menu-wrap .mobile-side-menu .nav-item a {
     width: 100%;
 }
+
+/* Media */
 @media (max-width: 767px) {
   .mobile-side-menu-wrap {
     visibility: hidden;
