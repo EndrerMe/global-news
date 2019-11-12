@@ -86,23 +86,18 @@ footer .right-item button {
 }
 
 /* Media */
-@media (max-width: 1199px) {
-  footer .right-item button {
-    width: 232px ;
-    height: 44px;
+@media (min-width: 1140px){
+  footer .container {
+    max-width: 1638px !important;
   }
 }
-
 @media (max-width: 1139px) {
   footer .right-item button {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 991px) {
-  footer .right-item button {
-    width: 222px;
     height: 40px;
+  }
+  footer .container{
+    max-width: 814px !important;
   }
 }
 @media (min-width: 768px) {
@@ -136,6 +131,9 @@ footer .right-item button {
   }
   footer .right-item button {
     width: 100%;
+  }
+  footer .container{
+    max-width: unset;
   }
 }
 </style>
