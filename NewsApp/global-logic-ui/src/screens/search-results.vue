@@ -24,13 +24,13 @@
               <span>All news</span>
             </div>
             <div class="side">
-              <span>Category</span>
+              <span @click='toggleCategoryFilter()'>Category</span>
             </div>
           </div>
     </div>
 
     <!-- Mob Categories -->
-  <div class="mobile-bottom-menu-wrap">
+  <div class="mobile-bottom-menu-wrap" v-if='isShowMobileCategories'>
     <div class="container">
       <div class="box-menu">
         <b-nav class="bottom-menu">
@@ -196,6 +196,7 @@ export default {
       isShowPagination: true,
       componentKey: 0,
       isShowErrorAfterFilters: false,
+      isShowMobileCategories: false,
     };
   },
   mounted() {
@@ -237,6 +238,10 @@ export default {
   },
   methods: {
     ...mapActions(["search", "searchByCategory", "sortBy"]),
+
+    toggleCategoryFilter() {
+      this.isShowMobileCategories = !this.isShowMobileCategories;
+    },
 
     clearSearch() {
       this.searchValue = "";
