@@ -1,20 +1,5 @@
 <template>
   <div>
-    <div
-      class="subscribe-prompt-wrap"
-      v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s' }"
-      v-if="isShowSubscribe"
-    >
-      <div class="close-wrap" @click="closeSubSubscribe()">
-        <a href="#"></a>
-      </div>
-      <div class="text-wrap">
-        <span>Do you want to receive more news ?</span>
-      </div>
-      <div class="button-wrap">
-        <button href="#" @click="showFullSubscribe()">Subscribe Us</button>
-      </div>
-    </div>
     <div class="notify-prompt-wrap" v-if="isShowSubscribeFull">
       <div class="close-wrap" @click="closeSubscribeFull()">
         <a class="close-button" href="#"></a>
@@ -24,12 +9,12 @@
         <p class="dropdown"></p>
         <div class="dropdown-wrap">
           <span class="first-elem" @click="toggleCategories">
-            {{ currentCategory }}
+             {{ currentCategory }}
             <span class="icon-wrap">
               <font-awesome-icon icon="caret-down" />
             </span>
           </span>
-          <ul class="currency-dropdown" v-if="isShowCatogories">
+          <ul class="currency-dropdown"  v-if="isShowCatogories">
             <li class="hidden-elem" v-for="category of categoriesArray" :key="category" @click='changeCategory(category)'>
               <span>{{ category }}</span>
             </li>
@@ -38,7 +23,7 @@
       </div>
       <div class="send-email-wrap">
         <div class="email-wrap">
-          <input value="E-mail" v-model='email'/>
+          <input value="E-mail"/>
         </div>
         <div class="button-wrap">
           <button href="#" @click='subscribe()'>Subscribe</button>
@@ -49,21 +34,14 @@
 </template>
 
 <script>
-// Services
-import subscriptionService from '@/shared/services/subscription.service';
 // Events
 import EventBus from '@/eventBus';
 
 export default {
-  name: "subscribeDesctop",
-  props: ["showSubscribeFull"],
   data() {
     return {
-      email: '',
-      category: '',
       currentCategory: 'All News',
       isShowCatogories: false,
-      isShowSubscribe: true,
       isShowSubscribeFull: false,
       categoriesArray: [
         "All News",
@@ -78,68 +56,37 @@ export default {
     };
   },
   methods: {
-    closeSubSubscribe() {
-      this.isShowSubscribe = false;
+    toggleCategories() {
+      this.isShowCatogories = !this.isShowCatogories;
     },
-
-    showFullSubscribe() {
-      this.isShowSubscribe = false;
-      this.isShowSubscribeFull = true;
-    },
-
-    closeSubscribeFull() {
+       closeSubscribeFull() {
       this.isShowSubscribeFull = !this.isShowSubscribeFull;
       if (this.isShowCatogories) {
         this.isShowCatogories = !this.isShowCatogories;
       }
-    },
-
-    toggleCategories() {
-      this.isShowCatogories = !this.isShowCatogories;
-    },
-
-    changeCategory(category) {
-      this.category = category;
-      this.currentCategory = category;
-      this.isShowCatogories = !this.isShowCatogories;
-    },
-
-    subscribe() {
-      subscriptionService.addSubscroption(this.email, this.category);  
     }
   },
   mounted() {
-    EventBus.$on("ShowSubscribe", () => {
+    EventBus.$on("ShowMobileSubscribe", () => {
       this.isShowSubscribeFull = !this.isShowSubscribeFull;
     });
-  },
-  watch: {
-    showSubscribeFull: function(newValue) {
-      if (this.isShowSubscribeFull !== newValue) {
-        this.isShowSubscribe = false;
-        this.isShowSubscribeFull = newValue;
-      } else {
-        return;
-      }
-    }
   }
 };
 </script>
 
 <style scoped>
-/* Custom Dropdown*/
 .notify-prompt-wrap .currency-dropdown {
   position: absolute;
   list-style: none;
   padding-left: 0;
   z-index: 99999;
-  top: 40px;
+  top: 50px;
 }
 .notify-prompt-wrap .dropdown-wrap {
   position: relative;
-  font-family: "Amiri-Bold";
   display: flex;
   justify-content: center;
+  font-family: "Amiri-Bold";
 }
 .notify-prompt-wrap .dropdown-wrap .icon-wrap {
   margin-left: 4px;
@@ -147,7 +94,7 @@ export default {
   align-items: center;
 }
 .notify-prompt-wrap .dropdown-wrap .first-elem {
-  font-size: 28px;
+  font-size: 40px;
   display: flex;
 }
 .notify-prompt-wrap .dropdown-wrap .first-elem:hover{
@@ -173,9 +120,7 @@ export default {
   font-size: 16px;
   padding: 2px 0;
 }
-/* end */
 
-/* Notify Subscribe*/
 .notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
@@ -203,13 +148,15 @@ export default {
   background: transparent;
   border: none;
   border-bottom: 1px solid;
+  font-family: 'Poppins-Regular';
+  font-size: 22px;
 }
 .notify-prompt-wrap .button-wrap button {
-  width: 242px;
-  height: 48px;
+  width: 100%;
+  height: 40px;
   background-color: #f8c61a;
   border: none;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -220,14 +167,14 @@ export default {
   background-color: #ffe076;
 }
 .notify-prompt-wrap {
-  width: 355px;
-  padding-bottom: 56px;
+  width: 100%;
+  padding: 55px 16px;
   border: 1px solid;
   position: absolute;
-  right: 0;
-  top: 101px;
+  top: 50%;
+  transform: translate(0,-50%);
   background-color: #052962;
-  z-index: 999;
+  z-index: 999999;
   text-align: center;
 }
 .notify-prompt-wrap .close-wrap a {
@@ -241,9 +188,9 @@ export default {
 .notify-prompt-wrap .close-wrap a::before {
   position: absolute;
   content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
+  width: 27px;
+  height: 2px;
+  background-color: #F8C61A;
   top: 7px;
   right: 0px;
   transform: rotate(45deg);
@@ -251,17 +198,20 @@ export default {
 .notify-prompt-wrap .close-wrap a::after {
   position: absolute;
   content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
+  width: 27px;
+  height: 2px;
+  background-color: #F8C61A;
   top: 7px;
   right: 0px;
   transform: rotate(-45deg);
 }
 .notify-prompt-wrap .text-wrap {
-  margin-top: 86px;
-  padding: 0px 90px;
+  margin-top: 35px;
   color: white;
+}
+
+.notify-prompt-wrap .text-wrap .dropdown{
+  margin-bottom: 0;
 }
 .notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
@@ -270,8 +220,11 @@ export default {
 }
 .notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
+  font-family: 'Poppins-Regular';
+  font-size: 18px;
 }
 .notify-prompt-wrap .send-email-wrap {
+  width:100%;
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
@@ -285,73 +238,5 @@ export default {
   width: 100%;
   border-bottom: 1px solid;
   text-align: start;
-}
-
-/* Subscribe Prompt Auto*/
-.subscribe-prompt-wrap {
-  width: 381px;
-  padding-bottom: 40px;
-  border: 1px solid;
-  position: absolute;
-  right: 0px;
-  top: 101px;
-  background-color: #052962;
-  z-index: 9999;
-  text-align: center;
-}
-.subscribe-prompt-wrap .close-wrap a {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  position: absolute;
-  top: 24px;
-  right: 23px;
-}
-.subscribe-prompt-wrap .close-wrap a::before {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(45deg);
-}
-.subscribe-prompt-wrap .close-wrap a::after {
-  position: absolute;
-  content: "";
-  width: 15px;
-  height: 1px;
-  background-color: white;
-  top: 7px;
-  right: 0px;
-  transform: rotate(-45deg);
-}
-.subscribe-prompt-wrap .text-wrap {
-  margin-top: 90px;
-  padding: 0px 100px;
-  font-family: "Poppins-Regular";
-  font-size: 16px;
-}
-.subscribe-prompt-wrap .text-wrap span {
-  color: #eaeaea;
-}
-.subscribe-prompt-wrap .button-wrap {
-  margin-top: 37px;
-}
-.subscribe-prompt-wrap .button-wrap button {
-  width: 242px;
-  height: 48px;
-  background-color: #f8c61a;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: "Poppins-SemiBold";
-  color: #052962;
-}
-.subscribe-prompt-wrap .button-wrap button:hover {
-  background-color: #ffe076;
 }
 </style>
