@@ -182,11 +182,28 @@ export default {
         weekDay: "",
         month: "",
         year: ""
-      }
+      },
+      windowWidth: null,
+      windowHeight: null,
+      isSearchRes: false,
+      isMobile: false,
     };
   },
   methods: {
     ...mapActions(["search"]),
+
+    getWindowWidth() {
+      this.windowWidth = document.documentElement.clientWidth;
+      if (this.windowWidth <= 767) {
+        if (this.isSearchRes) {
+          this.isShowNavigation = false;
+        }
+      }
+    },
+
+    getWindowHeight() {
+      this.windowHeight = document.documentElement.clientHeight;
+    },
 
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
@@ -253,6 +270,14 @@ export default {
     }, 1000)
   },
   mounted() {
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.getWindowWidth);
+      window.addEventListener('resize', this.getWindowHeight);
+
+      this.getWindowWidth()
+      this.getWindowHeight()
+    })
+
     if (this.$router.history.current.name === 'weather-mobile' || this.$router.history.current.name === 'converter-mobile') {
       this.isShowNavigation = false;
     }
@@ -299,6 +324,11 @@ export default {
     $route (to) {
       if (to.name === 'weather-mobile' || to.name === 'converter-mobile') {
         this.isShowNavigation = false;
+      } else if (to.name === 'search-results') {
+        this.isSearchRes = true;
+        if (this.windowWidth <= 767) {
+          this.isShowNavigation = false;
+        }
       }
     }
   }
