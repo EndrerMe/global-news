@@ -388,8 +388,8 @@ export default {
   color: #f8c61a;
   margin-bottom: 8px;
 }
-.currency-converter-wrap .to .dropdown-wrap li span,
-.currency-converter-wrap .from .dropdown-wrap li span {
+.currency-converter-wrap .to .dropdown-wrap li,
+.currency-converter-wrap .from .dropdown-wrap li {
   color: #3f3f3f;
   font-size: 16px;
   padding: 2px 0;
@@ -472,7 +472,6 @@ export default {
 .currency-converter-wrap .to .dropdown-wrap,
 .currency-converter-wrap .from .dropdown-wrap {
   height: 81px;
-  width: 100px;
   display: flex;
   flex-direction: column;
 }
