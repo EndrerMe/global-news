@@ -13,8 +13,9 @@
                 <span class="switch">Show weather in :</span>
                 <span class="temp-symbol">
                   <span class="mode" v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
+                  <span class="degree"></span>
                   <span class="mode" @click='changeTemp("c")' v-bind:class="{ active: isCelsius }">
-                    <span class="degree"></span>
+                    <!-- <span class="degree"></span> -->
                     C
                   </span>
                 </span>
@@ -225,7 +226,6 @@ export default {
 }
 .weather-details-wrap .show-info-wrap .temp-val-symbol {
   position: relative;
-  margin-left: 5px;
 }
 .weather-details-wrap .show-info-wrap .temp-val-symbol::before {
   content: "";
@@ -236,13 +236,18 @@ export default {
   border-radius: 10px;
   top: 5px;
 }
-.weather-details-wrap .temp-symbol span {
-  margin: 0 5px;
+.weather-details-wrap .temp-symbol span.mode {
+  margin: 0 6px;
+  cursor: pointer;
 }
+.weather-details-wrap .temp-symbol span.degree{
+  position: relative;
+}
+
 .weather-details-wrap .temp-symbol .mode.active {
   color: #f8c61a;
 }
-.weather-details-wrap .temp-symbol .degree::before {
+.weather-details-wrap .temp-symbol span.degree::before {
   content: "";
   width: 7px;
   height: 7px;
@@ -250,7 +255,7 @@ export default {
   position: absolute;
   border-radius: 10px;
   top: 6px;
-  left: 29px;
+  left: 5px;
 }
 .weather-details-wrap .temp-symbol {
   position: relative;
@@ -619,6 +624,50 @@ export default {
   }
   .weather-details-wrap .right-side .wrap{
     margin-bottom: 23px;
+  }
+  .weather-details-wrap .temp-symbol span.degree::before {
+    top: 4px;
+    width: 5px;
+    height: 5px;
+
+  }
+  .weather-details-wrap .show-info-wrap .temp-val-symbol::before{
+    width: 5px;
+    height: 5px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    left: 21px;
+  }
+}
+@media (max-width: 377px) {
+  .weather-details-wrap .temp-info-wrap p,
+  .weather-details-wrap .right-side .wrap span
+  {
+    font-size: 16px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    height: 13px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    left: 19px;
+  }
+}
+@media (max-width: 358px) {
+  .weather-details-wrap .temp-info-wrap p,
+  .weather-details-wrap .right-side .wrap span
+  {
+    font-size: 14px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    height: 14px;
+    top: 3px;
+  }
+  .weather-details-wrap .temp-symbol span.degree::before{
+    left: 4px;
+    top: 3px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    left: 18px;
   }
 }
 </style>
