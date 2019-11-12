@@ -149,8 +149,10 @@
       </div>
       <div class="search-results-wrap">
         <div class="display-results-wrap" v-if="!isShowErrorMessage">
-          <span>Displaying results {{resultsCol.from}}-{{resultsCol.to}} out of {{totalRes}} for</span>
-          <span class="display-for-search">{{ resultsOf }}</span>
+          <span>
+            <span>Displaying results {{resultsCol.from}}-{{resultsCol.to}} out of {{totalRes}} for</span>
+            <span class="display-for-search">{{ resultsOf }}</span>
+          </span>
         </div>
         <div class="search-result">
           <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
