@@ -443,7 +443,7 @@ export default {
 }
 .main-content-wrap .side-wrap .side-menu-wrap .separator::before {
   content: "";
-  width: 80px;
+  width: 75px;
   height: 2px;
   background: #f8c61a;
   display: inline-block;
@@ -451,7 +451,7 @@ export default {
 }
 .main-content-wrap .side-wrap .side-menu-wrap .separator::after {
   content: "";
-  width: 80px;
+  width: 75px;
   height: 2px;
   background: #f8c61a;
   display: inline-block;
