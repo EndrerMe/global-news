@@ -5,7 +5,8 @@
         <div class="close-wrap" @click="closeMoreWeather()">
           <a href="#"></a>
         </div>
-        <div class="left-side">
+        <div class="content-wrap">
+          <div class="left-side">
           <div class="temp-info-wrap">
             <div class="temp-value-wrap info-elem">
               <p>
@@ -54,14 +55,15 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="right-side">
+          </div>
+          <div class="right-side">
           <div class="wrap">
             <span class="icon-wrap">
               <img :src="weatherImg" alt />
             </span>
-            <span>{{ weatherData.weather[0].description }}</span>
+            <span class="description">{{ weatherData.weather[0].description }}</span>
           </div>
+        </div>
         </div>
       </div>
       <div class="bg-close" v-if="!isWeatherMap && isShowMoreWeather" @click="closeMoreWeather()"></div>
@@ -186,17 +188,25 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.weather-details-wrap .content-wrap{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .weather-details-wrap .right-side {
-  position: absolute;
-  right: 11%;
-  top: 31%;
+  align-items: center;
+  display: flex;
   font-size: 24px;
-  font-weight: bold;
-  font-family: "SegoeUIRegular";
+  font-family: 'Poppins-Medium';
 }
 .weather-details-wrap .right-side .wrap {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.weather-details-wrap .right-side .wrap span.description{
+  line-height: 3;
+  font-family: 'Poppins-Light';
 }
 .weather-details-wrap .right-side {
   color: #f9f9f9;
@@ -245,6 +255,7 @@ export default {
 .weather-details-wrap .temp-symbol {
   position: relative;
   margin-left: 10px;
+  font-family: "SegoeUIRegular";
 }
 .weather-details-wrap .temp-symbol::before {
   content: "";
@@ -255,17 +266,23 @@ export default {
   left: 24px;
   top: 5px;
 }
+.weather-details-wrap .temp-value,
+.weather-details-wrap .temp-info-wrap p .value
+{
+  font-family: 'Poppins-Light';
+  letter-spacing: 3px;
+  margin-left: 7px;
+}
 .weather-details-wrap .temp-value-wrap {
   text-align: start;
 }
 .weather-details-wrap .temp-info-wrap p {
   margin-bottom: 10px;
-  font-family: "SegoeUIRegular";
+  font-family: 'Poppins-Medium';
   font-size: 24px;
 }
 .weather-details-wrap .temp-info-wrap {
   color: #f9f9f9;
-  font-size: 24px;
 }
 .weather-details-wrap .close-wrap a {
   width: 18px;
@@ -556,6 +573,8 @@ export default {
   z-index: 999;
   border-top: 1px solid;
 }
+
+/* Media */
 @media (min-width: 768px) {
   .modile-side-weather-wrap {
     display: none;
@@ -573,6 +592,33 @@ export default {
     top: 0px;
     left: 0;
     bottom: 0;
+  }
+  .weather-details-wrap{
+    width: 100%;
+  }
+  .weather-details-wrap .temp-info-wrap p{
+    font-size: 18px;
+  }
+  .weather-details-wrap .right-side .wrap span{
+        font-size: 18px;
+  }
+  .weather-details-wrap .right-side {
+    align-items: flex-end;
+  }
+  .weather-details-wrap .right-side .wrap span.description{
+    line-height: 0;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    height: 17px;
+  }
+  .weather-details-wrap .right-side .icon-wrap img{
+    width: 70px;
+  }
+  .weather-details-wrap{
+    padding: 30px 15px 36px 15px;
+  }
+  .weather-details-wrap .right-side .wrap{
+    margin-bottom: 23px;
   }
 }
 </style>
