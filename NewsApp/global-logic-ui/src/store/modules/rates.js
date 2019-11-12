@@ -1,4 +1,5 @@
-import ratesService from './../../shared/services/rates.service';
+// Services
+import ratesService from '@/shared/services/rates.service';
 
 export default {
     actions: {

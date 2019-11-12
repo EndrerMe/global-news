@@ -158,22 +158,19 @@
       </div>
     </div>
 
-    <div v-if="isShowPagination">
-      <categoryPagination
-        v-if="!isShowErrorMessage"
-        :pageNumber="totalPages"
-        @changePage="changePage"
-        :key="componentKey"
-      ></categoryPagination>
+      <div v-if='!isShowErrorAfterFilters'>
+        <categoryPagination v-if='!isShowErrorMessage' :pageNumber='totalPages' @changePage="changePage" :key="componentKey"></categoryPagination>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
-import cardSearchResult from "./../shared/components/cardSearchResult";
-import categoryPagination from "./../shared/components/paginate";
+// Vendors
 import { mapActions } from "vuex";
 import _ from "lodash";
+// Components
+import cardSearchResult from "@/shared/components/cardSearchResult";
+import categoryPagination from '@/shared/components/paginate';
 
 export default {
   name: "searchResult",
@@ -197,7 +194,8 @@ export default {
       isFirstPage: false,
       isShowErrorMessage: false,
       isShowPagination: true,
-      componentKey: 0
+      componentKey: 0,
+      isShowErrorAfterFilters: false,
     };
   },
   mounted() {
@@ -298,6 +296,8 @@ export default {
               }
             }
             this.searchRes = news;
+            this.isShowErrorAfterFilters = false;
+            this.isShowErrorMessage = false;
             this.resultsCol.to = news.length;
             this.resultsCol.from = 1;
             this.totalPages = Math.ceil(totalRes / 10);
@@ -319,6 +319,27 @@ export default {
       this.isShowPagination = true;
     }, 1000),
 
+    sortByFun(value) {
+      let data = {page: 1};
+      let responce = null;
+      if (this.searchRes.length > 0) {
+        if (value === 'date') {
+          data.value = 'publishedAt';
+          responce = this.sortBy(data);
+        } else if (value === 'popularity') {
+          data.value = 'popularity';
+          responce = this.sortBy(data);
+        } else if (value === 'relevancy') {
+          data.value = 'relevancy';
+          responce = this.sortBy(data);
+        }
+
+        responce.then((res) => {
+          console.log(res)
+        })
+      }
+    },
+
     searchByCategoryFun(value) {
       let news = [];
       let probablyNews = [];
@@ -327,28 +348,30 @@ export default {
           const data = { category: value, page: 1, keyWord: this.searchValue };
           this.searchByCategory(data).then(res => {
             probablyNews = res;
-          });
+            console.log('-------------------')
+            console.log(res)
+          })
         } else {
           this.search({ value: this.searchValue }).then(res => {
             probablyNews = res;
+            console.log('********************')
+            console.log(res)
           });
         }
-
-        for (let i = 0; i < probablyNews.length; i++) {
-          if (
-            probablyNews[i].urlToImage &&
-            probablyNews[i].title &&
-            probablyNews[i].description
-          ) {
-            news.push(probablyNews[i]);
+        
+        this.isShowErrorAfterFilters = false;
+        for (let i = 0; i < probablyNews.articles.length; i++) {
+          if (probablyNews.articles[i].urlToImage && probablyNews.articles[i].title && probablyNews.articles[i].description) {
+            news.push(probablyNews.articles[i]);
           } else {
             continue;
           }
         }
 
         this.searchRes = news;
-        const data = { news: news, searchValue: this.searchValue };
-        localStorage.setItem("currentSearch", JSON.stringify(data));
+        this.currentCategory = value;
+        const data = {news: news, searchValue: this.searchValue};
+        localStorage.setItem('currentSearch', JSON.stringify(data));
       }
     }
   }

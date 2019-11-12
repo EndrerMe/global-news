@@ -14,7 +14,7 @@
                 <b-navbar-toggle  target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
               </b-nav-item>
               <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
-                <img src="../../../assets/images/logo.svg" alt="logo" />
+                <img src="@/assets/images/logo.svg" alt="logo" />
               </b-nav-item>
               <li class="mobile-search-wrap">
                     <div class="input-wrap">
@@ -34,7 +34,7 @@
               <div class="sub-wrap">
                 <b-navbar-nav class="wide-menu">
                   <b-nav-item href="#" class="logo-wrap" @click="goToHomePage()">
-                    <img src="../../../assets/images/logo.svg" alt="logo" />
+                    <img src="@/assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
                   <b-nav-item href="#" class="current-date">
                     <span>{{currentDate.day}} {{currentDate.month}}, {{currentDate.year}}</span>
@@ -115,15 +115,18 @@
 </template>
 
 <script>
-import weatherDesctop from "./../../components/weather";
-import subscribeDesctop from "./../../components/subscribe";
-import navigationDesctop from "./../../components/navigation";
-import converterDesctop from "./../../components/converter";
-import moreWeather from "./../../components/more-weather";
-import EventBus from "./../../../eventBus";
-import mobileMenu from './../../components/mobile-menu';
+// Vendors
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
+// Components
+import weatherDesctop from "@/shared/components/weather";
+import subscribeDesctop from "@/shared/components/subscribe";
+import navigationDesctop from "@/shared/components/navigation";
+import converterDesctop from "@/shared/components/converter";
+import moreWeather from "@/shared/components/more-weather";
+import mobileMenu from '@/shared/components/mobile-menu';
+// Events
+import EventBus from "@/eventBus";
 
 export default {
   name: "HeaderDesctop",

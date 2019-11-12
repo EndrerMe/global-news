@@ -20,11 +20,15 @@
 </style>
 
 <script>
-import HeaderDesctop from "./shared/layouts/header/header";
-import Footer from "./shared/layouts/footer/footer";
-import loader from "./components/loader/loader";
+// Vendors
 import { mapActions, mapGetters } from "vuex";
-import EventBus from "./eventBus";
+// Layouts
+import HeaderDesctop from "@/shared/layouts/header/header";
+import Footer from "@/shared/layouts/footer/footer";
+// Compoents
+import loader from "@/shared/components/loader";
+// Events
+import EventBus from "@/eventBus";
 
 export default {
   name: "app",

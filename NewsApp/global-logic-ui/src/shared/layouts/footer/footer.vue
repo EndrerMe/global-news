@@ -4,7 +4,7 @@
       <div class="container content">
         <div class="content-wrap">
           <div class="left-item">
-            <img src="../../../assets/images/logo.svg" alt="logo" />
+            <img src="@/assets/images/logo.svg" alt="logo" />
           </div>
           <div class="center-item">
             <pre class="text">Created by&#160;<a href="http://anuitex.com">Anuitex</a></pre>
@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import EventBus from './../../../eventBus';
+// Events
+import EventBus from '@/eventBus';
 
 export default {
   name: "Footer",

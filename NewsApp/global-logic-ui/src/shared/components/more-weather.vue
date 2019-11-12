@@ -70,8 +70,10 @@
 </template>
 
 <script>
-import EventBus from "./../../eventBus";
+// Vendors
 import {mapActions, mapGetters} from 'vuex'
+// Events
+import EventBus from "@/eventBus";
 
 export default {
   props: ["isShowMoreWeather", "weatherData", "isWeatherMap"],

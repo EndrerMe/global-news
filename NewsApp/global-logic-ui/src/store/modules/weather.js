@@ -1,4 +1,5 @@
-import weatherService from './../../shared/services/weather.service';
+// Services
+import weatherService from '@/shared/services/weather.service';
 
 export default {
     actions: {

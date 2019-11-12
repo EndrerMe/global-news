@@ -441,10 +441,13 @@
 </template>
 
 <script>
+// Vendors
 import VueLoadImage from 'vue-load-image';
-import newsService from "./../shared/services/news.service";
-import categoryPagination from "./../shared/components/paginate";
-import cardCategory from "./../shared/components/cardCategory";
+// Services
+import newsService from "@/shared/services/news.service";
+// Components
+import categoryPagination from "@/shared/components/paginate";
+import cardCategory from "@/shared/components/cardCategory";
 
 export default {
   name: "currentCategory",
@@ -547,7 +550,6 @@ export default {
   methods: {
     changePage(e) {
       window.scrollTo(0, 0);
-      this.pageNumber = false;
       newsService.getData(this.category, e).then(
         res => {
           let articles = res.data.articles;

@@ -5,9 +5,9 @@ import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
 
 // Store modules
-import news from './modules/news';
-import weather from './modules/weather';
-import rates from './modules/rates';
+import news from '@/store/modules/news';
+import weather from '@/store/modules/weather';
+import rates from '@/store/modules/rates';
 
 Vue.use(Vuex);
 
