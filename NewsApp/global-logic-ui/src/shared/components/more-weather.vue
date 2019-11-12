@@ -639,7 +639,7 @@ export default {
     left: 21px;
   }
 }
-@media (max-width: 377px) {
+@media (max-width: 400px) {
   .weather-details-wrap .temp-info-wrap p,
   .weather-details-wrap .right-side .wrap span
   {
@@ -652,11 +652,11 @@ export default {
     left: 19px;
   }
 }
-@media (max-width: 358px) {
+@media (max-width: 365px) {
   .weather-details-wrap .temp-info-wrap p,
   .weather-details-wrap .right-side .wrap span
   {
-    font-size: 14px;
+    font-size: 12px;
   }
   .weather-details-wrap .temp-symbol::before{
     height: 14px;
