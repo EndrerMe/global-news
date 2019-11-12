@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <loader :isShowLoader="isShowLoader"></loader>
-    <div>
       <HeaderDesctop></HeaderDesctop>
       <router-view />
-    </div>
     <Footer class="footer-wrap"></Footer>
   </div>
 </template>

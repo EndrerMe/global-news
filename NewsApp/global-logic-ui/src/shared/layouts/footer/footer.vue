@@ -10,7 +10,7 @@
             <pre class="text">Created by&#160;<a href="http://anuitex.com">Anuitex</a></pre>
           </div>
           <div class="right-item">
-            <button @click='openSubcribePopu()'>Subscribe Us</button>
+            <button @click='openSubcribePopup()'>Subscribe Us</button>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@ import EventBus from '@/eventBus';
 export default {
   name: "Footer",
   methods: {
-    openSubcribePopu() {
+    openSubcribePopup() {
       EventBus.$emit("ShowSubscribe");
       window.scrollTo(0, 0);
     }
