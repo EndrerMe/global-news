@@ -456,19 +456,16 @@ export default {
 .mobile-bottom-menu-wrap {
   font-family: "Amiri-Bold";
 }
-.mobile-bottom-menu-wrap .box-menu{
-  display: flex;
-  justify-content: center;
-}
 .mobile-bottom-menu-wrap .bottom-sort-menu{
   display: none;
   background-color: unset !important;
   justify-content: center !important;
+  margin: 0 auto;
 }
-.mobile-bottom-menu-wrap .bottom-category-menu
-{
+.mobile-bottom-menu-wrap .bottom-category-menu{
   background-color: unset !important;
   justify-content: center !important;
+  margin: 0 auto;
 }
 .mobile-bottom-menu-wrap .bottom-category-menu li a a,
 .mobile-bottom-menu-wrap .bottom-sort-menu li a
@@ -877,6 +874,11 @@ export default {
     padding-top: 26px;
   }
 }
+/* @media (max-width: 680px){
+  .mobile-bottom-menu-wrap .box-menu{
+    justify-content: unset;
+  }
+} */
 @media (min-width: 576px){
   .container {
     max-width: unset ;
