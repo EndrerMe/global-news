@@ -12,18 +12,21 @@
       <!-- <cardHome :sendedNews='businessNewsHome' :category="'business'" :title="'business'" :titleBorder="'c710a2'"></cardHome>
       <cardHome :key='entertainmentNews.title' :sendedNews='entertainmentNewsHome' :category="'entertainment'" :title="'entertainment'" :titleBorder="'ff995e'"></cardHome>
       <cardHome :sendedNews='scienceNewsHome' :category="'science'" :title="'science'" :titleBorder="'10c7ba'"></cardHome> -->
-      <cardHome :sendedNews='businessNewsHome' :title="'Business'" :category="'business'" :titleBorder="'10c7ba'"></cardHome>
-      <cardHome :sendedNews='entertainmentNewsHome' :title="'Entertainment'" :category="'entertainment'" :titleBorder="'ff995e'"></cardHome>
-      <cardHome :sendedNews='scienceNewsHome' :title="'Science'" :category="'science'" :titleBorder="'c710a2'"></cardHome>
+      <cardHome :sendedNews='businessNewsHome' :title="'Business'" :category="'business'" :titleBorder="'c710a2'"></cardHome>
+      <cardHome :sendedNews='entertainmentNewsHome' :title="'Entertainment'" :category="'entertainment'" :titleBorder="'FF995E'"></cardHome>
+      <cardHome :sendedNews='scienceNewsHome' :title="'Science'" :category="'science'" :titleBorder="'10c7ba'"></cardHome>
     </div>
   </div>
 </template>
 
 <script>
-import cardHome from './../shared/components/cardHome';
-import homeSlider from './../shared/components/home-slider';
-import newsService from './../shared/services/news.service';
+// Vendors
 import {mapGetters, mapState } from 'vuex'
+// Components
+import cardHome from '@/shared/components/cardHome';
+import homeSlider from '@/shared/components/home-slider';
+// Services
+import newsService from '@/shared/services/news.service';
 
 export default {
   components: { 
@@ -116,10 +119,10 @@ export default {
 <style>
 @import "./../../node_modules/slick-carousel/slick/slick.css";
 
-
-
-
 /* Slick Slider */
+.slider-wrap{
+  padding-bottom: 30px;
+}
 .slick-slider {
   margin-top: 30px;
 }
@@ -170,18 +173,34 @@ export default {
   top: 8px;
   left: 8px;
 }
+/* Slider Media */
+@media (max-width: 767px) {
+  .slick-slider button.slick-next{
+    right: -5px !important;
+  }
+  .slick-slider button.slick-prev{
+    right: 30px !important;
+  }
+}
 </style>
 
 <style scoped>
-/* Hide elements for mibile 
-Subscribe : class = 'mobile-notify-prompt-wrap'
-Dark Screen :  class = 'dark-screen'
-
-Weather Menu : class = 'modile-side-weather-wrap'
-*/
+/* Common */
+.dark-screen {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  display: none;
+}
 
 /* Notify */
-.mobile-notify-prompt-wrap .text-wrap p {
+/* .mobile-notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
 .mobile-notify-prompt-wrap .text-wrap p.dropdown {
@@ -219,7 +238,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   background-color: #ffe076;
 }
 .mobile-notify-prompt-wrap {
-  /* display: none; */
   padding-bottom: 45px;
   border: 1px solid;
   background-color: #052962;
@@ -256,7 +274,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   right: 2px;
   transform: rotate(-45deg);
 }
-
 .mobile-notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
   font-size: 20px;
@@ -293,112 +310,8 @@ Weather Menu : class = 'modile-side-weather-wrap'
 .mobile-notify-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-
-/* Weater Details */
-
-</style>
-
-<style scoped>
-
-/* Common */
-@media (min-width: 1140px) {
-  .container {
-    max-width: 1638px !important;
-  }
-}
-@media (max-width: 1139px) {
-  .container {
-    max-width: 814px !important;
-  }
-}
-</style>
-
-<style>
-/* Common */
-.dark-screen {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 0.5);
-  color: rgba(0, 0, 0, 0.5);
-  z-index: 999999;
-  display: none;
-}
-
-/* Common for Business, Entertainment, Science */
-.elem-wrap {
-  max-width: 526px;
-}
-.elem-wrap img {
-  width: 100%;
-}
-.description-wrap {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
-}
-.creator-info {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 15px;
-}
-.description-wrap span {
-  font-size: 16px;
-  font-weight: bold;
-}
-.card-deck {
-  margin-top: 30px;
-}
-.card-text {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
-}
-
-/* Business */
-.business-wrap {
-  margin-top: 60px;
-  text-align: start;
-}
-.business-wrap .title-wrap {
-  border-left: 5px solid #c710a2;
-}
-.business-wrap .title-wrap .title-text {
-  display: block;
-  font-size: 32px;
-  font-family: "Poppins";
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding: 6px 30px;
-}
-
-/* Entertainment */
-.entertainment-wrap {
-  margin-top: 60px;
-  text-align: start;
-}
-.entertainment-wrap .title-wrap {
-  border-left: 5px solid #ff995e;
-}
-/* Science */
-.science-wrap {
-  margin-top: 60px;
-  text-align: start;
-}
-.science-wrap .title-wrap {
-  border-left: 5px solid #10c7ba;
-}
-.science-wrap .title-wrap .title-text {
-  display: block;
-  font-size: 32px;
-  font-family: "Poppins";
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding: 6px 30px;
-}
+ */
+ 
 /* Header */
 .top-menu-wrap {
   background-color: #052962;
@@ -453,6 +366,18 @@ Weather Menu : class = 'modile-side-weather-wrap'
   font-size: 20px;
   position: absolute;
 }
+
+/* Media */
+@media (min-width: 1140px) {
+  .container {
+    max-width: 1638px !important;
+  }
+}
+@media (max-width: 1139px) {
+  .container {
+    max-width: 814px !important;
+  }
+}
 @media (max-width: 1199px) {
   .bottom-menu ul li a span {
     font-size: 23px;
@@ -461,97 +386,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
 @media (max-width: 991px) {
   .bottom-menu ul li a span {
     font-size: 17px;
-  }
-}
-</style>
-
-<style scoped>
-/* Footer */
-footer {
-  background-color: #052962;
-  margin-top: 72px;
-}
-footer .content-wrap {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-footer .left-item,
-footer .right-item {
-  margin: auto 0;
-}
-footer .center-item {
-  display: flex;
-}
-footer .center-item .text {
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 5px;
-  font-size: 10px;
-}
-/* footer .right-item button {
-  width: 98% !important;
-  width: 185px !important;
-  height: 35px;
-  font-size: 12px;
-} */
-footer .right-item button:hover {
-  background-color: #ffe076 !important;
-}
-
-footer .right-item button {
-  width: 242px;
-  height: 48px;
-  background-color: #f8c61a;
-  color: #052962;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 900;
-  border: none;
-  letter-spacing: 1px;
-}
-@media (max-width: 1199px) {
-  footer .right-item button {
-    width: 232px !important;
-    height: 44px;
-  }
-}
-@media (max-width: 991px) {
-  footer .right-item button {
-    width: 222px !important;
-    height: 40px;
-    font-size: 14px;
-  }
-}
-@media (min-width: 768px) {
-  footer .container.content {
-    height: 100px;
-  }
-}
-@media (max-width: 767px) {
-  footer {
-    margin-top: 0px;
-  }
-  footer img {
-    width: 100px;
-  }
-  footer .content-wrap {
-    flex-direction: column;
-    height: unset !important;
-  }
-  footer .content-wrap .center-item {
-    margin: 0 auto;
-  }
-  footer .content-wrap :nth-child(2) {
-    order: 3;
-  }
-  footer .content-wrap .left-item {
-    padding: 20px 0;
-  }
-  footer .content-wrap .center-item {
-    padding: 20px 0;
   }
 }
 </style>

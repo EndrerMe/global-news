@@ -6,28 +6,35 @@
           <b-navbar class="top-menu" toggleable="md" type="dark" variant="info">
             <b-nav class="mobile-top-menu">
               <!-- Side Menu -->
-              <mobileMenu  
+              <mobileMenu 
               :isShowSideMenu='isShowSideMenu'
               @toggleMobileSideMenu='toggleMobileSideMenu'></mobileMenu>
               <!-- end -->
-              <b-navbar-toggle target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
-              <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
-                <img src="../../../assets/images/logo.svg" alt="logo" />
-              </b-nav-item> 
-              <b-nav-item class="mobnile-search-wrap">
-                <font-awesome-icon icon="search" class="fa-lg" />
+              <b-nav-item class="mobile-menu-button">
+                <b-navbar-toggle  target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
               </b-nav-item>
+              <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
+                <img src="@/assets/images/logo.svg" alt="logo" />
+              </b-nav-item>
+              <li class="mobile-search-wrap">
+                    <div class="input-wrap">
+                      <input
+                        id="mobile-search-input"
+                        class="mobile-search-input"
+                        v-on:input="searchBytitle($event)"
+                        v-model="searchValue"
+                      />
+                      <label for="mobile-search-input" class="icon-wrap">
+                        <font-awesome-icon icon="search" class="fa-lg" />
+                      </label>
+                    </div>
+              </li>
             </b-nav>
             <div id="nav-collapse">
               <div class="sub-wrap">
                 <b-navbar-nav class="wide-menu">
-                  <b-nav-item class="close-link-wrap">
-                    <div class="close-wrap" @click="toggleMobileSideMenu()">
-                      <a href="#"></a>
-                    </div>
-                  </b-nav-item>
                   <b-nav-item href="#" class="logo-wrap" @click="goToHomePage()">
-                    <img src="../../../assets/images/logo.svg" alt="logo" />
+                    <img src="@/assets/images/logo.svg" alt="logo" />
                   </b-nav-item>
                   <b-nav-item href="#" class="current-date">
                     <span>{{currentDate.day}} {{currentDate.month}}, {{currentDate.year}}</span>
@@ -102,21 +109,24 @@
           ></moreWeather>
         </div>
       </div>
-      <navigationDesctop></navigationDesctop>
+      <navigationDesctop v-if='isShowNavigation'></navigationDesctop>
     </div>
   </div>
 </template>
 
 <script>
-import weatherDesctop from "./../../components/weather";
-import subscribeDesctop from "./../../components/subscribe";
-import navigationDesctop from "./../../components/navigation";
-import converterDesctop from "./../../components/converter";
-import moreWeather from "./../../components/more-weather";
-import EventBus from "./../../../eventBus";
-import mobileMenu from './../../components/mobile-menu';
+// Vendors
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
+// Components
+import weatherDesctop from "@/shared/components/weather";
+import subscribeDesctop from "@/shared/components/subscribe";
+import navigationDesctop from "@/shared/components/navigation";
+import converterDesctop from "@/shared/components/converter";
+import moreWeather from "@/shared/components/more-weather";
+import mobileMenu from '@/shared/components/mobile-menu';
+// Events
+import EventBus from "@/eventBus";
 
 export default {
   name: "HeaderDesctop",
@@ -131,6 +141,7 @@ export default {
   computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
     return {
+      isShowNavigation: true,
       isCelsius: true,
       searchValue: "",
       currentWeatherData: null,
@@ -171,11 +182,33 @@ export default {
         weekDay: "",
         month: "",
         year: ""
-      }
+      },
+      windowWidth: null,
+      windowHeight: null,
+      isSearchRes: false,
+      isMobile: false,
+      isPageWithoutNav: false,
     };
   },
   methods: {
     ...mapActions(["search"]),
+
+    getWindowWidth() {
+      this.windowWidth = document.documentElement.clientWidth;
+      if (this.windowWidth <= 767) {
+        if (this.isSearchRes) {
+          this.isShowNavigation = false;
+        }
+      } else {
+        if (!this.isPageWithoutNav) {
+          this.isShowNavigation = true
+        }
+      }
+    },
+
+    getWindowHeight() {
+      this.windowHeight = document.documentElement.clientHeight;
+    },
 
     toggleMobileSideMenu() {
       this.isShowSideMenu = !this.isShowSideMenu;
@@ -209,8 +242,21 @@ export default {
       this.searchValue = event.target.value;
       const value = event.target.value;
       if (this.searchValue.length > 0) {
-        this.search({ value: value }).then(res => {
-          console.log(res);
+        const searchData = { value: value, page: 1 };
+        this.search(searchData).then(res => {
+          let news = [];
+          let totalRes = res.totalResults;
+          for (let i = 0; i < res.articles.length; i++) {
+            if (res.articles[i].urlToImage && res.articles[i].title && res.articles[i].description) {
+              news.push(res.articles[i]);
+            } else {
+              continue;
+            }
+          }
+          const data = {news: news, searchValue: value, totalRes: totalRes};
+          this.searchValue = '';
+          localStorage.setItem('currentSearch', JSON.stringify(data));
+          this.$router.push({name: "search-results", params: data});
         });
         // newsService.searchByTitle(this.searchValue).then((res) => {
         //     this.currentNews = res.data.articles;
@@ -225,22 +271,22 @@ export default {
         //         this.isLoaderShow = false;
         //     }
         // })
-      } else if (this.searchValue.length === 0) {
-        // newsService.getData(this.category, 1).then(res => {
-        //     this.currentNews = res.data.articles;
-        //     this.isLoaderShow = false;
-        //     this.isNothingFind = false;
-        //     this.isOverRequest = false
-        // }, (err) => {
-        //     if (err) {
-        //         this.isOverRequest = true;
-        //         this.isLoaderShow = false;
-        //     }
-        // });
       }
     }, 1000)
   },
   mounted() {
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.getWindowWidth);
+      window.addEventListener('resize', this.getWindowHeight);
+
+      this.getWindowWidth()
+      this.getWindowHeight()
+    })
+
+    if (this.$router.history.current.name === 'weather-mobile' || this.$router.history.current.name === 'converter-mobile') {
+      this.isShowNavigation = false;
+    }
+
     EventBus.$on("closeConverterModal", () => {
       this.isShowConverterProps = !this.isShowConverterProps;
     });
@@ -278,6 +324,18 @@ export default {
   watch: {
     getWeatherData: function(newVal) {
       this.changeTemplateWeather(newVal);
+    },
+
+    $route (to) {
+      if (to.name === 'weather-mobile' || to.name === 'converter-mobile') {
+        this.isPageWithoutNav = true;
+        this.isShowNavigation = false;
+      } else if (to.name === 'search-results') {
+        this.isSearchRes = true;
+        if (this.windowWidth <= 767) {
+          this.isShowNavigation = false;
+        }
+      }
     }
   }
 };
@@ -285,6 +343,12 @@ export default {
 
 <style>
 @import "./../../../assets/css/fonts.css";
+
+/* Bootstrap menu button color */
+.top-menu-wrap .mobile-top-menu .navbar-toggler .navbar-toggler-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(248, 198, 26, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
 </style>
 
 <style scoped>
@@ -407,11 +471,45 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+.top-menu-wrap .mobile-top-menu li{
+  width: 33.3%;
+}
+.top-menu-wrap .mobile-top-menu li a{
+ padding:0;
+}
+.top-menu-wrap .mobile-top-menu li.mobile-menu-button a{
+  text-align: start;
+}
 .top-menu-wrap .mobile-top-menu .navbar-toggler {
   border: none;
+  padding: 0;
 }
-.top-menu-wrap .mobile-top-menu .mobnile-search-wrap svg {
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap svg {
   color: rgb(248, 198, 26);
+}
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap .input-wrap{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap .input-wrap .icon-wrap{
+  right: 16px;
+  top: 5px; 
+  margin-bottom: 0;
+}
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap .input-wrap .mobile-search-input:focus {
+  border-bottom: 2px solid rgb(248, 198, 26);
+}
+.top-menu-wrap .mobile-top-menu .mobile-search-wrap .input-wrap .mobile-search-input{
+  outline: none;
+  background: transparent;
+  color: white;
+  border: none;
+  width: 55%;
+  padding: 0 5px 3px 5px;
+  border-bottom: 2px solid transparent; 
+  padding: 0;
+  margin-left: 34%;
 }
 .top-menu-wrap .mobile-top-menu .mobile-logo-wrap a {
   padding: 0;
@@ -455,7 +553,7 @@ export default {
 }
 #nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap {
   position: absolute;
-  right: 37px;
+  right: 41px;
   top: 2px;
 }
 #nav-collapse .sub-wrap .wide-menu .search-wrap .search-input {
@@ -534,10 +632,8 @@ export default {
   font-size: 28px;
 }
 
+/* Media */
 @media (max-width: 767px) {
-  .bottom-menu-wrap {
-    height: unset !important;
-  }
   .bottom-menu {
     padding: 10px 0;
   }
@@ -550,18 +646,6 @@ export default {
   }
   #nav-collapse .sub-wrap .wide-menu {
     display: none;
-  }
-  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu {
-    display: flex;
-    height: 100%;
-  }
-  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu .nav-item {
-    display: flex;
-    width: 100%;
-    font-family: "Poppins-Regular";
-  }
-  .mobile-top-menu .mobile-side-menu-wrap .mobile-side-menu .nav-item a {
-    width: 100%;
   }
   .top-menu-wrap #nav-collapse .close-link-wrap {
     display: block;
@@ -585,34 +669,20 @@ export default {
     align-items: flex-start;
   }
 }
-@media (max-width: 1199px) {
-  .bottom-menu-wrap .bottom-menu li a {
-    font-size: 22px;
-  }
-}
 @media (max-width: 1139px) {
   #nav-collapse .sub-wrap .wide-menu {
     font-size: 12px;
   }
+  #nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap{
+    right: 32px;
+  }
 }
 @media (max-width: 991px) {
-  .bottom-menu-wrap .bottom-menu li a {
-    font-size: 15px !important;
-  }
   .carousel-caption .slide-title span {
     font-size: 28px;
   }
   .top-menu-wrap .navbar-collapse .search-wrap a svg {
     margin: 0 10px;
-  }
-}
-@media (max-width: 767px) {
-  .bottom-menu-wrap .bottom-menu {
-    flex-wrap: unset;
-  }
-  .bottom-menu-wrap .box-menu {
-    overflow: scroll !important;
-    display: flex;
   }
 }
 @keyframes rotate-bell {
@@ -635,17 +705,6 @@ export default {
   }
   #nav-collapse {
     width: 100%;
-  }
-}
-@media (max-width: 767px) {
-  .mobile-side-menu-wrap {
-    visibility: hidden;
-    position: absolute;
-    background: #052962;
-    z-index: 9999;
-    top: 0px;
-    left: 0;
-    bottom: 0;
   }
 }
 @media (min-width: 1140px) {

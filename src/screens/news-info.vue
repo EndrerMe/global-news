@@ -166,9 +166,11 @@
 </template>
 
 <script>
+// Vendors
 import { mapGetters, mapActions } from "vuex";
-import latestNews from "./../shared/components/latestNews";
 import VueLoadImage from 'vue-load-image';
+// Components
+import latestNews from "@/shared/components/latestNews";
 
 export default {
   components: {
@@ -205,15 +207,6 @@ export default {
   }
 };
 </script>
-
-<style>
-@media (max-width: 1139px) {
-  .card-wrap .new-info .social-networks-wrap span {
-    width: 32px !important;
-    height: 32px !important;
-  }
-}
-</style>
 
 <style scoped>
 /* Common */
@@ -425,5 +418,13 @@ svg rect {
   justify-content: center;
   border-radius: 25px;
   margin-left: 10px;
+}
+
+/* Media */
+@media (max-width: 1139px) {
+  .card-wrap .new-info .social-networks-wrap span {
+    width: 32px !important;
+    height: 32px !important;
+  }
 }
 </style>

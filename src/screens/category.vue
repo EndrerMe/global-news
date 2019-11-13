@@ -441,10 +441,13 @@
 </template>
 
 <script>
+// Vendors
 import VueLoadImage from 'vue-load-image';
-import newsService from "./../shared/services/news.service";
-import categoryPagination from "./../shared/components/paginate";
-import cardCategory from "./../shared/components/cardCategory";
+// Services
+import newsService from "@/shared/services/news.service";
+// Components
+import categoryPagination from "@/shared/components/paginate";
+import cardCategory from "@/shared/components/cardCategory";
 
 export default {
   name: "currentCategory",

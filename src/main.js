@@ -18,11 +18,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "animate.css";
 import "aos/dist/aos.css";
-import "./assets/css/global/global.css";
-import "./assets/css/components/pagination.css";
+import "@/assets/css/global/global.css";
+import "@/assets/css/components/pagination.css";
 
 // Store
-import store from './store';
+import store from '@/store';
 
 // Fonts
 import { library } from "@fortawesome/fontawesome-svg-core";

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Mobile  Weather -->
     <div class="modile-side-weather-wrap">
       <div class="mobile-weather-main-wrap">
         <div class="title-wrap section-elem">
@@ -32,19 +31,24 @@
         <div class="seacrh-country-wrap section-elem">
           <div class="text-wrap">
             <p>
-              Do you mean
+              Weather In
               <span class="search-result">London</span> ?
             </p>
           </div>
           <div class="country-wrap">
-            <input value="Lond" />
+            <input :value="userCity" v-on:input="changecountry($event)" @click='hideCityList()'/>
+              <ul class="location-dropdown" v-if='isShowCityHint'>
+                <li class="hidden-elem" v-for='city of probablyCityList' :key='city.lat + city.lng' @click='getWeather(city.name)'>
+                  <span>{{ city.name }}, {{ city.country }}</span>
+                </li>
+              </ul>
           </div>
           <div class="button-wrap">
             <button href="#">Search</button>
           </div>
         </div>
         <div class="links-wrap">
-          <!-- Mobile Weater Details -->
+          
           <div class="mobile-weather-details-wrap">
             <div class="links-wrap">
               <div class="left-link">
@@ -54,7 +58,7 @@
                 </a>
               </div>
               <div class="right-link">
-                <a href="#">Weather Map</a>
+                <a href="#" @click='goToWeatherMap()'>Weather Map</a>
               </div>
             </div>
             <div class="sides-wrap" v-if='isShowMoreMobile'>
@@ -62,10 +66,10 @@
                 <div class="temp-info-wrap">
                   <div class="temp-value-wrap info-elem">
                     <p>
-                      <span class="switch">Show weather in :</span>
+                      <span class="switch">Weather In :</span>
                       <span class="temp-symbol">
-                        <span>F</span>
-                        <span class="degreeMode active">
+                        <span v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
+                        <span class="degreeMode" v-bind:class="{ active: isCelsius }" @click='changeTemp("c")'>
                           <span class="degree"></span>
                           C
                         </span>
@@ -125,53 +129,181 @@
 </template>
 
 <script>
+// Vendors
 import { mapGetters, mapActions } from "vuex";
+import _ from "lodash";
+// Services
+import weatherService from '@/shared/services/weather.service';
+// Jsons
+import cities from 'cities.json';
 
 export default {
-  name: 'weatherMobile',
+  name: "weatherMobile",
   computed: mapGetters(["getWeatherData"]),
   data() {
     return {
       currentWeatherData: null,
       isShowMoreMobile: false,
+      userCity: 'London',
       temp: "",
       location: "",
       date: "",
       currentWeather: null,
       currentWeatherImg: null,
       isCelsius: true,
+      isShowCityHint: false,
+      isShowErroeMessage: false,
+      probablyCityList: [],
     }
   },
   methods: {
-    ...mapActions([
-      'getWeatherByCountry'
-    ]),
+    ...mapActions(["getWeatherByCountry"]),
+
+    getWeather(city) { 
+
+      if (city) {
+        this.userCity = city;
+        this.isShowCityHint = false;
+      }
+
+      weatherService.getWeatherByCountry(this.userCity).then(res => {
+        res.data.weather[0].description = res.data.weather[0].description.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
+        this.currentWeatherData = res.data;
+        this.temp = res.data.main.temp;
+        this.temp = this.temp + "";
+        this.temp = this.temp.split(".")[0];
+        this.userCity = res.data.name;
+        this.location = this.userCity;
+        this.currentWeatherImg = `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`;
+        this.currentWeather = res.data.weather[0].description;
+      });
+    },
+
+    hideCityList() {
+      if (this.probablyCityList.length > 0) {
+        this.isShowCityHint = !this.isShowCityHint;
+      }
+    },
 
     showMobileMore() {
       this.isShowMoreMobile = !this.isShowMoreMobile;
-    }
+    },
+
+    goToWeatherMap() {
+      const data = this.currentWeatherData;
+      this.$router.push({name: "weatherMap", params: { data }});
+    },
+
+    changecountry: _.debounce(function(event) {
+      const value = event.target.value;
+      this.userCity = value;
+      if (value.length > 2) {
+        const res = cities.filter(city => {
+          return city.name.match(value)
+        })
+        if (res.length > 0) {
+          this.isShowCityHint = true;
+          this.isShowErroeMessage = false;
+          this.probablyCityList = res;
+        } else {
+          this.isShowCityHint = false;
+          this.isShowErroeMessage = true;
+        }
+      }
+    }, 1000),
+
+    changeTemp(temp) {
+      if (temp === 'f' && this.isCelsius) {
+        this.isCelsius = false;
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min * 1.8 + 32;
+        this.currentWeatherData.main.temp_min = Math.round(this.currentWeatherData.main.temp_min);
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min + '';
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min.split(".")[0];
+
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max * 1.8 + 32;
+        this.currentWeatherData.main.temp_max = Math.round(this.currentWeatherData.main.temp_max);
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max + '';
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max.split(".")[0];
+
+        this.temp = this.temp * 1.8 + 32;
+        this.temp = Math.round(this.temp);
+        this.temp = this.temp + '';
+        this.temp = this.temp.split(".")[0];
+      } else if (temp === 'c' && !this.isCelsius) {
+        this.isCelsius = true;
+        this.currentWeatherData.main.temp_min = (this.currentWeatherData.main.temp_min - 32) / 1.8;
+        this.currentWeatherData.main.temp_min = Math.round(this.currentWeatherData.main.temp_min);
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min + '';
+        this.currentWeatherData.main.temp_min = this.currentWeatherData.main.temp_min.split(".")[0];
+
+        this.currentWeatherData.main.temp_max = (this.currentWeatherData.main.temp_max - 32) / 1.8;
+        this.currentWeatherData.main.temp_max = Math.round(this.currentWeatherData.main.temp_max);
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max + '';
+        this.currentWeatherData.main.temp_max = this.currentWeatherData.main.temp_max.split(".")[0];
+
+        this.temp = (this.temp - 32) / 1.8;
+        this.temp = Math.round(this.temp);
+        this.temp = this.temp + '';
+        this.temp = this.temp.split(".")[0];
+      }
+    },
   },
-  mounted() {
-    if (this.getWeatherData) {
+  created() {
+    if (this.getWeatherData.main) {
       this.currentWeatherData = this.getWeatherData;
-      this.temp = this.getWeatherData.main.temp;
-      this.temp = this.temp + "";
-      this.temp = this.temp.split(".")[0];
-      this.location = this.getWeatherData.name;
-      this.currentWeather = this.getWeatherData.weather[0].description;
-      this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
-      this.date = new Date()
-        .toJSON()
-        .slice(0, 10)
-        .replace(/-/g, "/");
-      this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
+    } else {
+      this.currentWeatherData = JSON.parse(localStorage.getItem("currentWeather"));
     }
+
+    this.temp = this.currentWeatherData.main.temp;
+    this.temp = this.temp + "";
+    this.temp = this.temp.split(".")[0];
+    this.location = this.currentWeatherData.name;
+    this.currentWeather = this.currentWeatherData.weather[0].description;
+    this.currentWeather = this.currentWeather.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
+    this.date = new Date()
+      .toJSON()
+      .slice(0, 10)
+      .replace(/-/g, "/");
+    this.currentWeatherImg = `http://openweathermap.org/img/wn/${this.currentWeatherData.weather[0].icon}@2x.png`;
   }
-}
+};
 </script>
 
 <style scoped>
-/* Mob Weater*/
+/* Custom Dropdown */
+.modile-side-weather-wrap .country-wrap{
+  position: relative;
+}
+.seacrh-country-wrap .location-dropdown {
+  width: 100%;
+  position: absolute;
+  list-style: none;
+  padding-left: 0;
+  z-index: 99999;
+  top: 31px;
+  font-family: 'Poppins-Bold';
+  max-height: 112px;
+  overflow: auto;
+}
+.seacrh-country-wrap .location-dropdown li {
+  display: flex;
+  width: 100%;
+  background: white;
+  padding: 0 10px;
+}
+.seacrh-country-wrap .location-dropdown li:hover {
+  background: #f8c61a;
+  cursor: pointer;
+}
+.seacrh-country-wrap .location-dropdown li span {
+  color: #3f3f3f;
+  font-size: 16px;
+  padding: 2px 0;
+  border:none;
+}
+/* end */
+
 .mobile-weather-main-wrap .temp-value-wrap .temp-symbol-wrap {
   display: block;
   text-align: start;
@@ -185,9 +317,11 @@ export default {
   .faringateMode {
   margin-left: 5px;
 }
+.mobile-weather-main-wrap .temp-info-wrap .temp-symbol .degreeMode{
+  margin-left: 18px;
+}
 .mobile-weather-main-wrap .temp-info-wrap .temp-symbol .active {
   color: #f8c61a;
-  margin-left: 18px;
 }
 .mobile-weather-main-wrap
   .temp-info-wrap
@@ -203,10 +337,6 @@ export default {
   top: 3px;
   left: 21px;
 }
-.modile-side-weather-wrap {
-  /* display: none; */
-  overflow: scroll;
-}
 .weaterDetailsHidden {
   height: 300px;
   transition: all 1s;
@@ -220,10 +350,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-left: calc((100% - 276px));
 }
 .mobile-weather-details-wrap .right-side .text {
   white-space: nowrap;
+  margin-bottom: 4px;
 }
 .mobile-weather-details-wrap .right-side .icon-wrap img {
   width: 35px;
@@ -280,6 +410,7 @@ export default {
 }
 .mobile-weather-details-wrap .sides-wrap {
   display: flex;
+  justify-content: space-between;
 }
 .mobile-weather-details-wrap {
   width: 100%;
@@ -378,7 +509,6 @@ export default {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #052962;
-
 }
 .mobile-weather-main-wrap .weather-data-wrap {
   display: flex;
@@ -485,6 +615,14 @@ export default {
 .modile-side-weather-wrap {
   background-color: #052962;
   z-index: 999;
-  border-top: 1px solid;
+  border-top: 1px solid #436f9c;
+  overflow: scroll;
+}
+
+/* Media */
+@media (max-width: 340px) {
+  .mobile-weather-details-wrap .right-side .text{
+    font-size: 14px;
+  }
 }
 </style>

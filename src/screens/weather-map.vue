@@ -14,11 +14,16 @@
 </template>
 
 <script>
-import { environment } from "./../environment/environment";
+// Vendors
 import mapboxgl from "mapbox-gl";
-import EventBus from './../eventBus';
-import moreWeather from "./../shared/components/more-weather";
-import weatherService from "./../shared/services/weather.service";
+// Environments
+import { environment } from "@/environment/environment";
+// Events
+import EventBus from "@/eventBus";
+// Components
+import moreWeather from "@/shared/components/more-weather";
+// Services
+import weatherService from "@/shared/services/weather.service";
 
 export default {
   props: ["data"],
@@ -37,6 +42,10 @@ export default {
     EventBus.$emit("showLoader");
   },
   mounted() {
+    EventBus.$on("toggleMoreWeather", state => {
+      this.isShowMoreWeather = state.state;
+    });
+
     let that = this;
     mapboxgl.accessToken = environment.mapboxKey;
     this.$getLocation()
@@ -55,9 +64,9 @@ export default {
           });
         });
 
-        this.map.on('load', function() {
+        this.map.on("load", function() {
           EventBus.$emit("closeLoader");
-        })
+        });
       })
       .catch(function() {
         this.map = new mapboxgl.Map({
@@ -77,11 +86,11 @@ export default {
   },
   methods: {
     closeMoreWeather() {
-      this.isShowMoreWeather = false;
+      this.isShowMoreWeather = !this.isShowMoreWeather;
     },
 
     goBack() {
-      this.$router.go(-1);
+      this.$router.go(-2);
     }
   }
 };
@@ -100,7 +109,6 @@ export default {
   background: rgba(43, 98, 154, 0.5);
   color: rgba(43, 98, 154, 0.5);
 }
-
 .back-to-home::before {
   position: absolute;
   content: "";
@@ -113,7 +121,6 @@ export default {
   top: 19px;
   left: 20px;
 }
-
 .map {
   position: fixed;
   top: 0;
@@ -122,10 +129,19 @@ export default {
   bottom: 0;
   z-index: 999;
 }
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Media */
+@media (max-width: 767px) {
+  .map {
+    top: 59px;
+  }
+  .back-to-home{
+    top: 109px;
+  }
 }
 </style>

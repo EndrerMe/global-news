@@ -21,6 +21,11 @@ const routes = [
     component: lazyLoad('weather-mobile')
   },
   {
+    path: "/converter-mobile",
+    name: "converter-mobile",
+    component: lazyLoad('converter-mobile')
+  },
+  {
     path: '/category/:category',
     name: 'category',
     component: lazyLoad('category'),
@@ -31,7 +36,13 @@ const routes = [
     name: 'weatherMap',
     component: lazyLoad('weather-map'),
     props: true,
-  }
+  },
+  {
+    path: "/search-results",
+    name: "search-results",
+    component: lazyLoad('search-results'),
+    props: true
+  },
 ];
 
 export default routes;

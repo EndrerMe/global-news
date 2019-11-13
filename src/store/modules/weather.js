@@ -1,4 +1,5 @@
-import weatherService from './../../shared/services/weather.service';
+// Services
+import weatherService from '@/shared/services/weather.service';
 
 export default {
     actions: {
@@ -17,6 +18,7 @@ export default {
 
     mutations: { 
         updateWeatherData(state, weather) {
+            localStorage.setItem('currentWeather', JSON.stringify(weather));
             state.weatherData = weather;
         }
     },
