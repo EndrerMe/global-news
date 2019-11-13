@@ -102,12 +102,18 @@ export default {
   z-index: -1;
   bottom: 2px;
 }
+
+/* Media */
+@media (max-width: 1199px) {
+  .bottom-menu ul li a span {
+    font-size: 23px;
+  }
+}
 @media (min-width: 1140px) {
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 26px !important;
   }
 }
-
 @media (max-width: 1139px) {
   .bottom-menu-wrap .bottom-menu li a {
     font-size: 16px;
@@ -116,7 +122,6 @@ export default {
     height: 100px;
   }
 }
-
 @media (max-width: 767px) {
   .bottom-menu-wrap .bottom-menu {
     flex-wrap: unset;
@@ -125,16 +130,8 @@ export default {
     overflow: auto !important;
     display: flex;
   }
-}
-
-@media (max-width: 1199px) {
-  .bottom-menu ul li a span {
-    font-size: 23px;
-  }
-}
-@media (max-width: 991px) {
-  .bottom-menu ul li a span {
-    font-size: 17px;
+  .bottom-menu-wrap {
+    height: 72px;
   }
 }
 </style>

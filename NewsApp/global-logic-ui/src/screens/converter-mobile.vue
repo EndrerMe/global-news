@@ -376,7 +376,7 @@ export default {
   font-size: 20px;
 }
 
-/* Common Custom Drop Down  */
+/* Common Custom Dropdown  */
 .currency-converter-wrap .from .dropdown-wrap .first-elem,
 .currency-converter-wrap .to .dropdown-wrap .first-elem {
   font-size: 40px;

@@ -5,15 +5,16 @@
         <div class="close-wrap" @click="closeMoreWeather()">
           <a href="#"></a>
         </div>
-        <div class="left-side">
+        <div class="content-wrap">
+          <div class="left-side">
           <div class="temp-info-wrap">
             <div class="temp-value-wrap info-elem">
               <p>
-                <span class="switch">Show weather in :</span>
+                <span class="switch">Weather in :</span>
                 <span class="temp-symbol">
                   <span class="mode" v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
+                  <span class="degree"></span>
                   <span class="mode" @click='changeTemp("c")' v-bind:class="{ active: isCelsius }">
-                    <span class="degree"></span>
                     C
                   </span>
                 </span>
@@ -54,14 +55,15 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="right-side">
+          </div>
+          <div class="right-side">
           <div class="wrap">
             <span class="icon-wrap">
               <img :src="weatherImg" alt />
             </span>
-            <span>{{ weatherData.weather[0].description }}</span>
+            <span class="description">{{ weatherData.weather[0].description }}</span>
           </div>
+        </div>
         </div>
       </div>
       <div class="bg-close" v-if="!isWeatherMap && isShowMoreWeather" @click="closeMoreWeather()"></div>
@@ -186,17 +188,25 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.weather-details-wrap .content-wrap{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .weather-details-wrap .right-side {
-  position: absolute;
-  right: 11%;
-  top: 31%;
+  align-items: center;
+  display: flex;
   font-size: 24px;
-  font-weight: bold;
-  font-family: "SegoeUIRegular";
+  font-family: 'Poppins-Medium';
 }
 .weather-details-wrap .right-side .wrap {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.weather-details-wrap .right-side .wrap span.description{
+  line-height: 3;
+  font-family: 'Poppins-Light';
 }
 .weather-details-wrap .right-side {
   color: #f9f9f9;
@@ -215,7 +225,6 @@ export default {
 }
 .weather-details-wrap .show-info-wrap .temp-val-symbol {
   position: relative;
-  margin-left: 5px;
 }
 .weather-details-wrap .show-info-wrap .temp-val-symbol::before {
   content: "";
@@ -226,13 +235,18 @@ export default {
   border-radius: 10px;
   top: 5px;
 }
-.weather-details-wrap .temp-symbol span {
-  margin: 0 5px;
+.weather-details-wrap .temp-symbol span.mode {
+  margin: 0 6px;
+  cursor: pointer;
 }
+.weather-details-wrap .temp-symbol span.degree{
+  position: relative;
+}
+
 .weather-details-wrap .temp-symbol .mode.active {
   color: #f8c61a;
 }
-.weather-details-wrap .temp-symbol .degree::before {
+.weather-details-wrap .temp-symbol span.degree::before {
   content: "";
   width: 7px;
   height: 7px;
@@ -240,11 +254,12 @@ export default {
   position: absolute;
   border-radius: 10px;
   top: 6px;
-  left: 29px;
+  left: 5px;
 }
 .weather-details-wrap .temp-symbol {
   position: relative;
   margin-left: 10px;
+  font-family: "SegoeUIRegular";
 }
 .weather-details-wrap .temp-symbol::before {
   content: "";
@@ -255,17 +270,23 @@ export default {
   left: 24px;
   top: 5px;
 }
+.weather-details-wrap .temp-value,
+.weather-details-wrap .temp-info-wrap p .value
+{
+  font-family: 'Poppins-Light';
+  letter-spacing: 3px;
+  margin-left: 7px;
+}
 .weather-details-wrap .temp-value-wrap {
   text-align: start;
 }
 .weather-details-wrap .temp-info-wrap p {
   margin-bottom: 10px;
-  font-family: "SegoeUIRegular";
+  font-family: 'Poppins-Medium';
   font-size: 24px;
 }
 .weather-details-wrap .temp-info-wrap {
   color: #f9f9f9;
-  font-size: 24px;
 }
 .weather-details-wrap .close-wrap a {
   width: 18px;
@@ -556,6 +577,8 @@ export default {
   z-index: 999;
   border-top: 1px solid;
 }
+
+/* Media */
 @media (min-width: 768px) {
   .modile-side-weather-wrap {
     display: none;
@@ -573,6 +596,77 @@ export default {
     top: 0px;
     left: 0;
     bottom: 0;
+  }
+  .weather-details-wrap{
+    width: 100%;
+  }
+  .weather-details-wrap .temp-info-wrap p{
+    font-size: 18px;
+  }
+  .weather-details-wrap .right-side .wrap span{
+        font-size: 18px;
+  }
+  .weather-details-wrap .right-side {
+    align-items: flex-end;
+  }
+  .weather-details-wrap .right-side .wrap span.description{
+    line-height: 0;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    height: 17px;
+  }
+  .weather-details-wrap .right-side .icon-wrap img{
+    width: 70px;
+  }
+  .weather-details-wrap{
+    padding: 30px 15px 36px 15px;
+  }
+  .weather-details-wrap .right-side .wrap{
+    margin-bottom: 23px;
+  }
+  .weather-details-wrap .temp-symbol span.degree::before {
+    top: 4px;
+    width: 5px;
+    height: 5px;
+
+  }
+  .weather-details-wrap .show-info-wrap .temp-val-symbol::before{
+    width: 5px;
+    height: 5px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    left: 21px;
+  }
+}
+@media (max-width: 400px) {
+  .weather-details-wrap .temp-info-wrap p,
+  .weather-details-wrap .right-side .wrap span
+  {
+    font-size: 16px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    height: 13px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    left: 19px;
+  }
+}
+@media (max-width: 365px) {
+  .weather-details-wrap .temp-info-wrap p,
+  .weather-details-wrap .right-side .wrap span
+  {
+    font-size: 12px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    height: 14px;
+    top: 3px;
+  }
+  .weather-details-wrap .temp-symbol span.degree::before{
+    left: 4px;
+    top: 3px;
+  }
+  .weather-details-wrap .temp-symbol::before{
+    left: 18px;
   }
 }
 </style>

@@ -10,7 +10,7 @@
             <pre class="text">Created by&#160;<a href="http://anuitex.com">Anuitex</a></pre>
           </div>
           <div class="right-item">
-            <button @click='openSubcribePopu()'>Subscribe Us</button>
+            <button @click='openSubcribePopup()'>Subscribe Us</button>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@ import EventBus from '@/eventBus';
 export default {
   name: "Footer",
   methods: {
-    openSubcribePopu() {
+    openSubcribePopup() {
       EventBus.$emit("ShowSubscribe");
       window.scrollTo(0, 0);
     }
@@ -84,28 +84,28 @@ footer .right-item button {
   letter-spacing: 1px;
   font-family: "Poppins-SemiBold";
 }
-@media (max-width: 1199px) {
-  footer .right-item button {
-    width: 232px !important;
-    height: 44px;
+
+/* Media */
+@media (min-width: 1140px){
+  footer .container {
+    max-width: 1638px !important;
   }
 }
-
 @media (max-width: 1139px) {
   footer .right-item button {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 991px) {
-  footer .right-item button {
-    width: 222px !important;
     height: 40px;
+  }
+  footer .container{
+    max-width: 814px !important;
   }
 }
 @media (min-width: 768px) {
   footer .container.content {
     height: 100px;
+  }
+  footer .content-wrap .left-item{
+    width: 242px;
   }
 }
 @media (max-width: 767px) {
@@ -131,6 +131,13 @@ footer .right-item button {
   }
   footer{
     border-top: 1px solid #1f3a6b;
+  }
+  footer .right-item button {
+    width: 100%;
+    font-size: 13px;
+  }
+  footer .container{
+    max-width: unset;
   }
 }
 </style>

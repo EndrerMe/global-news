@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <loader :isShowLoader="isShowLoader"></loader>
-    <div>
+    <div class="app-main-content">
       <HeaderDesctop></HeaderDesctop>
       <router-view />
     </div>

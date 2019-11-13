@@ -29,11 +29,12 @@
           </div>
     </div>
 
-    <!-- Mob Categories -->
+  <!-- Mob Search menu -->
   <div class="mobile-bottom-menu-wrap" v-if='isShowMobileCategories'>
     <div class="container">
       <div class="box-menu">
-        <b-nav class="bottom-menu">
+        <!-- Mob Categories -->
+        <b-nav class="bottom-category-menu">
           <b-nav-item>
             <a href="#" @click='searchByCategoryFun("all")'>All News</a>
           </b-nav-item>
@@ -59,21 +60,45 @@
             <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
           </b-nav-item>
         </b-nav>
+        <!-- Mob Sort -->
+        <b-nav class="bottom-sort-menu">
+          <b-nav-item>
+            <span>Newest</span>
+          </b-nav-item>
+          <b-nav-item>
+            <span>Most popular</span>
+          </b-nav-item>
+          <b-nav-item>
+            <span>Most relevant</span>
+          </b-nav-item>
+        </b-nav>
       </div>
     </div>
   </div>
 <!-- end -->
     <div class="main-content-wrap container">
-      <div class="no-results-message-wrap" v-if="isShowErrorMessage">
-        <div class="no-results-message message-section">
-          <span>Results for</span>
-          <span class="display-for-search">{{ searchValue }}</span>
-          <span>have not found. Please try again.</span>
-        </div>
-        <div class="message-section">
-          <span>Advice:</span>
-        </div>
-        <div class="message-section">
+      <div class="messages-wrap">
+        <div class="no-results-message-wrap" v-if="isShowErrorMessage">
+          <!-- All results message -->
+          <div class="no-results-message message-section">
+            <span>Results for</span>
+            <span class="display-for-search">{{ searchValue }}</span>
+            <span>have not been found. Please try again.</span>
+          </div>
+          <!-- end -->
+
+          <!-- By category message -->
+          <div class="no-results-by-category-message message-section">
+            <span>Matches for</span>
+            <span class="display-for-search">{{ searchValue }}</span>
+            <span> have not been found. Please, try to make another search request by using the next tips:</span>
+          </div>
+          <!-- end -->
+
+          <div class="message-section">
+            <span>Advice:</span>
+          </div>
+          <div class="message-section">
           <ul class="advices-list">
             <li>Check if all words are spelled correctly.</li>
             <li>Try to change the keywords to synonyms.</li>
@@ -81,6 +106,7 @@
             <li>Try entering fewer keywords.</li>
           </ul>
         </div>
+      </div>
       </div>
       <div class="side-wrap" v-if="!isShowErrorMessage">
         <div class="side-menu-wrap">
@@ -143,6 +169,9 @@
           <cardSearchResult v-for="news of searchRes" :key="news.title" :news="news"></cardSearchResult>
         </div>
       </div>
+    </div>
+    <div class="more-results-wrap container">
+        <button class="more-results-button">More results</button>
     </div>
 
       <div v-if='!isShowErrorAfterFilters'>
@@ -366,7 +395,23 @@ export default {
 </script>
 
 <style scoped>
-/* Mob Sort */
+/* More Results */
+.more-results-wrap{
+  padding: 0 16px;
+}
+.more-results-wrap .more-results-button{
+  width:100%;
+  height: 40px;
+  background-color: #052962;
+  border: none;
+  font-family: 'Poppins-SemiBold';
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #F8C61A;
+}
+/* end */
+
+/* Mob Search Menu */
 .search-panel-wrap{
   position: relative;
 }
@@ -379,47 +424,67 @@ export default {
   width: 100%;
   justify-content: space-between;
 }
-
 .search-panel-wrap .search-sort-wrap .side{
   color: white;
 }
-/* end */
-
-/* Mob Categories */
 .mobile-bottom-menu-wrap {
   height: 70px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #E5E9EF;
 }
 .mobile-bottom-menu-wrap {
   font-family: "Amiri-Bold";
 }
-.mobile-bottom-menu-wrap .bottom-menu {
+.mobile-bottom-menu-wrap .bottom-sort-menu{
+  display: none;
   background-color: unset !important;
   justify-content: center !important;
+  margin: 0 auto;
 }
-.mobile-bottom-menu-wrap .bottom-menu li a a {
+.mobile-bottom-menu-wrap .bottom-category-menu{
+  background-color: unset !important;
+  justify-content: center !important;
+  margin: 0 auto;
+}
+.mobile-bottom-menu-wrap .bottom-category-menu li a a,
+.mobile-bottom-menu-wrap .bottom-sort-menu li a
+{
   color: #3f3f3f;
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
+  white-space: nowrap;
 }
-.mobile-bottom-menu-wrap .bottom-menu li .nav-link:hover a::before {
+.mobile-bottom-menu-wrap .bottom-category-menu li .nav-link:hover a::before,
+.mobile-bottom-menu-wrap .bottom-sort-menu li a:hover span::before{
   display: block;
 }
 .mobile-bottom-menu-wrap {
   display: flex;
   align-items: center;
 }
-.mobile-bottom-menu-wrap .bottom-menu li a a {
+.mobile-bottom-menu-wrap .bottom-category-menu li a a,
+.mobile-bottom-menu-wrap .bottom-sort-menu li a span{
   position: relative;
 }
-.mobile-bottom-menu-wrap .bottom-menu li .nav-link a {
+.mobile-bottom-menu-wrap .bottom-category-menu li .nav-link a{
   display: flex;
   justify-content: center;
   line-height: 20px;
 }
-.mobile-bottom-menu-wrap .bottom-menu li .nav-link a::before {
+.mobile-bottom-menu-wrap .bottom-sort-menu li a span::before{
+  display: none;
+  content: "";
+  width: 93%;
+  height: 7px;
+  background: #f8c61a;
+  position: absolute;
+  z-index: -1;
+  bottom: 7px;
+  left: 4px;
+}
+.mobile-bottom-menu-wrap .bottom-category-menu li .nav-link a::before{
   display: none;
   content: "";
   width: 93%;
@@ -531,7 +596,6 @@ export default {
 
 /* Search Results */
 .main-content-wrap .no-results-message-wrap {
-  position: absolute;
   text-align: start;
   font-family: "Poppins-Regular";
   font-size: 16px;
@@ -556,13 +620,17 @@ export default {
   font-size: 16px;
 }
 .main-content-wrap
-  .search-results-wrap
-  .display-results-wrap
-  .display-for-search,
+.search-results-wrap
+.display-results-wrap
+.display-for-search,
 .main-content-wrap
-  .no-results-message-wrap
-  .no-results-message
-  .display-for-search {
+.no-results-message-wrap
+.no-results-message
+.display-for-search,
+.main-content-wrap
+.no-results-message-wrap
+.no-results-by-category-message
+.display-for-search {
   font-family: "Poppins-Bold";
   color: #052962;
   margin: 0 5px;
@@ -580,7 +648,7 @@ export default {
   width: 100%;
 }
 
-/* Search panel */
+/* Search Panel */
 .search-panel-wrap .container,
 .main-content-wrap.container {
   max-width: 1440px;
@@ -669,8 +737,94 @@ export default {
 /* end */
 
 /* Media */
+@media (max-width: 1139px) {
+  .search-panel-wrap .container,
+  .main-content-wrap.container {
+    max-width: 814px !important;
+  }
+  .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
+  .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
+    font-size: 22px;
+  }
+  .main-content-wrap .side-wrap .side-menu-wrap .separator::before,
+  .main-content-wrap .side-wrap .side-menu-wrap .separator::after{
+    width: 50px;
+  }
+  .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
+  .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a {
+    font-size: 12px;
+  }
+  .search-panel-wrap .search-panel-content .search-input-wrap input{
+    height: 40px;
+    font-size: 14px;
+  }
+  .search-panel-wrap .search-panel-content .search-input-wrap label.close-search-wrap span{
+    width: 30px;
+    height: 30px;
+  }
+  .search-panel-wrap
+  .search-panel-content
+  .search-input-wrap
+  label.close-search-wrap
+  span::before {
+    height: 30px;
+    top: 0;
+    left: 14px;
+  }
+  .search-panel-wrap
+  .search-panel-content
+  .search-input-wrap
+  label.close-search-wrap
+  span::after {
+    content: "";
+    width: 2px;
+    height: 30px;
+    background: black;
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 0;
+    left: 14px;
+  }
+  .main-content-wrap .search-results-wrap .display-results-wrap{
+    height: 90px;
+  }
+}
+@media (max-width: 800px) {
+  .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
+  .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .mobile-bottom-menu-wrap{
+    display: none;
+  }
+  .search-panel-wrap .search-sort-wrap{
+    display: none;
+  }
+  .more-results-wrap{
+    display: none;
+  }
+}
 @media (max-width: 767px) {
-  .main-content-wrap {
+  .mobile-bottom-menu-wrap .bottom-category-menu,
+    .mobile-bottom-menu-wrap .bottom-sort-menu{
+    flex-wrap: unset;
+  }
+  .mobile-bottom-menu-wrap .box-menu {
+    overflow: auto !important;
+    display: flex;
+  }
+  .search-panel-wrap{
+    height: 120px;
+  }
+  .search-panel-wrap .search-panel-content .search-input-wrap{
+    align-items: flex-start;
+  }
+  .search-panel-wrap .search-panel-content .search-input-wrap label.close-search-wrap{
+    top: 20%;
+  }
+    .main-content-wrap {
     flex-direction: column;
   }
   .main-content-wrap .search-results-wrap {
@@ -691,80 +845,18 @@ export default {
     label.close-search-wrap {
     right: 10px;
   }
-}
-@media (min-width: 1140px) {
-  .mobile-bottom-menu-wrap .bottom-menu li a {
-    font-size: 26px !important;
-  }
-}
-@media (max-width: 1139px) {
-  .mobile-bottom-menu-wrap .bottom-menu li a {
-    font-size: 16px;
-  }
-}
-@media (min-width: 768px) {
-  .mobile-bottom-menu-wrap{
+  .main-content-wrap
+  .search-results-wrap
+  .display-results-wrap{
     display: none;
   }
-  .search-panel-wrap .search-sort-wrap{
-    display: none;
+  .main-content-wrap .search-results-wrap .search-result {
+    padding-top: 26px;
   }
 }
-@media (max-width: 767px) {
-  .mobile-bottom-menu-wrap .bottom-menu {
-    flex-wrap: unset;
-  }
-  .mobile-bottom-menu-wrap .box-menu {
-    overflow: auto !important;
-    display: flex;
-  }
-  .search-panel-wrap{
-    height: 120px;
-  }
-  .search-panel-wrap .search-panel-content .search-input-wrap{
-    align-items: flex-start;
-  }
-  .search-panel-wrap .search-panel-content .search-input-wrap label.close-search-wrap{
-    top: 27%;
+@media (min-width: 576px){
+  .container {
+    max-width: unset ;
   }
 }
-@media (max-width: 1199px) {
-  .mobile-bottom-menu-wrap .bottom-menu ul li a span {
-    font-size: 23px;
-  }
-}
-@media (max-width: 1075px) {
-  .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
-  .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
-    font-size: 24px;
-  }
-  .main-content-wrap .side-wrap .side-menu-wrap .separator::before,
-  .main-content-wrap .side-wrap .side-menu-wrap .separator::after{
-    width: 60px;
-  }
-  .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
-  .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a {
-    font-size: 14px;
-  }
-}
-@media (max-width: 991px) {
-  .mobile-bottom-menu-wrap .bottom-menu ul li a span {
-    font-size: 17px;
-  }
-}
-@media (max-width: 900px) {
-  .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
-  .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
-    font-size: 20px;
-  }
-  .main-content-wrap .side-wrap .side-menu-wrap .separator::before,
-  .main-content-wrap .side-wrap .side-menu-wrap .separator::after{
-    width: 50px;
-  }
-  .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
-  .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a {
-    font-size: 12px;
-  }
-}
-
 </style>

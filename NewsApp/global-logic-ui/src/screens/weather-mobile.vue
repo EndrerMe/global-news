@@ -31,7 +31,7 @@
         <div class="seacrh-country-wrap section-elem">
           <div class="text-wrap">
             <p>
-              Show weather in
+              Weather In
               <span class="search-result">London</span> ?
             </p>
           </div>
@@ -66,7 +66,7 @@
                 <div class="temp-info-wrap">
                   <div class="temp-value-wrap info-elem">
                     <p>
-                      <span class="switch">Show weather in :</span>
+                      <span class="switch">Weather In :</span>
                       <span class="temp-symbol">
                         <span v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
                         <span class="degreeMode" v-bind:class="{ active: isCelsius }" @click='changeTemp("c")'>
@@ -271,20 +271,7 @@ export default {
 </script>
 
 <style scoped>
- /* Scroll */
-/* ::-webkit-scrollbar {
-  width: 3px;
-}
-::-webkit-scrollbar-track {
-  background: #959aa0;
-}
-::-webkit-scrollbar-thumb {
-  background: #052962;
-  border-radius: 10px;
-} */
-/* end */
-
-/* Custom Drop Down */
+/* Custom Dropdown */
 .modile-side-weather-wrap .country-wrap{
   position: relative;
 }
@@ -522,7 +509,6 @@ export default {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #052962;
-
 }
 .mobile-weather-main-wrap .weather-data-wrap {
   display: flex;

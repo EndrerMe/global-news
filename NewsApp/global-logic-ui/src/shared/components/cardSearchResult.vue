@@ -2,6 +2,7 @@
   <div class="col-md-6">
     <b-card class="mb-2 new-card">
       <div class="image-wrap">
+        <div class="gradient"></div>
         <b-card-img slot="image" :src="news.urlToImage"></b-card-img>
         <div class="gradient"></div>
         <div class="title-wrap">
@@ -31,7 +32,7 @@ export default {
 <style scoped>
 .new-card {
   border: none !important;
-    margin-bottom: 50px !important;
+  margin-bottom: 50px !important;
 }
 .new-card .image-wrap img {
   position: absolute;
@@ -41,12 +42,26 @@ export default {
   object-fit: cover;
   border-radius: unset !important;
 }
-
 .new-card .image-wrap {
   position: relative;
   padding-bottom: 100%;
   width: 100%;
   height: 0;
+}
+.new-card .gradient {
+  position: absolute;
+  top: 0bott;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9416141456582633) 0%,
+    rgba(255, 255, 255, 0) 30%
+  );
+  z-index: 1;
 }
 .new-card .image-wrap .title-wrap {
   position: absolute;
@@ -62,7 +77,6 @@ export default {
   font-family: "Amiri-Bold";
   z-index: 2;
 }
-
 .new-card .image-wrap .title-wrap .title p {
   margin: 0;
 }
@@ -80,7 +94,6 @@ export default {
   font-family: "Poppins-Regular";
   font-size: 16px;
 }
-
 .new-card .card-body{
   padding: 0 !important;
 }
@@ -98,5 +111,48 @@ export default {
     border-top: 1px solid #b3abab;
     font-size: 14px;
     font-family: "Poppins-Regular";
+}
+
+/* Media */
+@media (max-width: 1139px) {
+  .new-card .image-wrap .title-wrap,
+  .new-card .text-wrap p{
+    font-size: 12px;
+    max-height: 55px;
+  }
+  .new-card .card-footer{
+    font-size: 10px;
+  }
+  .new-card .text-wrap{
+    height: 70px;
+  }
+  .new-card{
+    margin-bottom: 25px !important;
+  }
+  .new-card .text-wrap p{
+    padding: 16px 0 13px 0;
+  }
+  .new-card .text-wrap {
+    height: 60px;
+  }
+}
+@media (max-width:767px) {
+  .new-card .text-wrap p{
+    padding: 12px 0 13px 0;
+  }
+  .new-card{
+    margin-bottom: 15px !important;
+  }
+    .new-card .image-wrap .title-wrap,
+  .new-card .text-wrap p{
+    font-size: 20px;
+    max-height: 70px;
+  }
+  .new-card .text-wrap {
+    height: 80px;
+  }
+  .new-card .card-footer{
+    font-size: 14px;
+  }
 }
 </style>
