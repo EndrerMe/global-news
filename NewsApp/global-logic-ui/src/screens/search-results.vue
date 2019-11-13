@@ -619,7 +619,6 @@ export default {
 
 /* Search Results */
 .main-content-wrap .no-results-message-wrap {
-  position: absolute;
   text-align: start;
   font-family: "Poppins-Regular";
   font-size: 16px;
