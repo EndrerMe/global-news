@@ -92,16 +92,28 @@
   </div>
 <!-- end -->
     <div class="main-content-wrap container">
-      <div class="no-results-message-wrap" v-if="isShowErrorMessage">
-        <div class="no-results-message message-section">
-          <span>Results for</span>
-          <span class="display-for-search">{{ searchValue }}</span>
-          <span>have not found. Please try again.</span>
-        </div>
-        <div class="message-section">
-          <span>Advice:</span>
-        </div>
-        <div class="message-section">
+      <div class="messages-wrap">
+        <div class="no-results-message-wrap" v-if="isShowErrorMessage">
+          <!-- All results message -->
+          <div class="no-results-message message-section">
+            <span>Results for</span>
+            <span class="display-for-search">{{ searchValue }}</span>
+            <span>have not been found. Please try again.</span>
+          </div>
+          <!-- end -->
+
+          <!-- By category message -->
+          <div class="no-results-by-category-message message-section">
+            <span>Matches for</span>
+            <span class="display-for-search">{{ searchValue }}</span>
+            <span> have not been found. Please, try to make another search request by using the next tips:</span>
+          </div>
+          <!-- end -->
+
+          <div class="message-section">
+            <span>Advice:</span>
+          </div>
+          <div class="message-section">
           <ul class="advices-list">
             <li>Check if all words are spelled correctly.</li>
             <li>Try to change the keywords to synonyms.</li>
@@ -109,6 +121,7 @@
             <li>Try entering fewer keywords.</li>
           </ul>
         </div>
+      </div>
       </div>
       <div class="side-wrap" v-if="!isShowErrorMessage">
         <div class="side-menu-wrap">
@@ -631,13 +644,17 @@ export default {
   font-size: 16px;
 }
 .main-content-wrap
-  .search-results-wrap
-  .display-results-wrap
-  .display-for-search,
+.search-results-wrap
+.display-results-wrap
+.display-for-search,
 .main-content-wrap
-  .no-results-message-wrap
-  .no-results-message
-  .display-for-search {
+.no-results-message-wrap
+.no-results-message
+.display-for-search,
+.main-content-wrap
+.no-results-message-wrap
+.no-results-by-category-message
+.display-for-search {
   font-family: "Poppins-Bold";
   color: #052962;
   margin: 0 5px;
