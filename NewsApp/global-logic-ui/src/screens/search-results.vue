@@ -829,7 +829,7 @@ export default {
     align-items: flex-start;
   }
   .search-panel-wrap .search-panel-content .search-input-wrap label.close-search-wrap{
-    top: 27%;
+    top: 20%;
   }
     .main-content-wrap {
     flex-direction: column;

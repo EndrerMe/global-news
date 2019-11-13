@@ -104,6 +104,9 @@ footer .right-item button {
   footer .container.content {
     height: 100px;
   }
+  footer .content-wrap .left-item{
+    width: 242px;
+  }
 }
 @media (max-width: 767px) {
   footer {
