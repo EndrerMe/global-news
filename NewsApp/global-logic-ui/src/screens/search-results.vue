@@ -744,24 +744,14 @@ export default {
 /* end */
 
 /* Media */
-@media (max-width: 1075px) {
+@media (max-width: 1139px) {
+  .search-panel-wrap .container,
+  .main-content-wrap.container {
+    max-width: 814px !important;
+  }
   .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
   .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
-    font-size: 24px;
-  }
-  .main-content-wrap .side-wrap .side-menu-wrap .separator::before,
-  .main-content-wrap .side-wrap .side-menu-wrap .separator::after{
-    width: 60px;
-  }
-  .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
-  .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a {
-    font-size: 14px;
-  }
-}
-@media (max-width: 900px) {
-  .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
-  .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
-    font-size: 20px;
+    font-size: 22px;
   }
   .main-content-wrap .side-wrap .side-menu-wrap .separator::before,
   .main-content-wrap .side-wrap .side-menu-wrap .separator::after{
@@ -770,6 +760,46 @@ export default {
   .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
   .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a {
     font-size: 12px;
+  }
+  .search-panel-wrap .search-panel-content .search-input-wrap input{
+    height: 40px;
+    font-size: 14px;
+  }
+  .search-panel-wrap .search-panel-content .search-input-wrap label.close-search-wrap span{
+    width: 30px;
+    height: 30px;
+  }
+  .search-panel-wrap
+  .search-panel-content
+  .search-input-wrap
+  label.close-search-wrap
+  span::before {
+    height: 30px;
+    top: 0;
+    left: 14px;
+  }
+  .search-panel-wrap
+  .search-panel-content
+  .search-input-wrap
+  label.close-search-wrap
+  span::after {
+    content: "";
+    width: 2px;
+    height: 30px;
+    background: black;
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 0;
+    left: 14px;
+  }
+  .main-content-wrap .search-results-wrap .display-results-wrap{
+    height: 90px;
+  }
+}
+@media (max-width: 800px) {
+  .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
+  .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
+    font-size: 20px;
   }
 }
 @media (min-width: 768px) {

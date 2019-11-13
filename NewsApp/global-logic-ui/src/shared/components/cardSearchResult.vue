@@ -42,7 +42,6 @@ export default {
   object-fit: cover;
   border-radius: unset !important;
 }
-
 .new-card .image-wrap {
   position: relative;
   padding-bottom: 100%;
@@ -64,7 +63,6 @@ export default {
   );
   z-index: 1;
 }
-
 .new-card .image-wrap .title-wrap {
   position: absolute;
   width: 92%;
@@ -79,7 +77,6 @@ export default {
   font-family: "Amiri-Bold";
   z-index: 2;
 }
-
 .new-card .image-wrap .title-wrap .title p {
   margin: 0;
 }
@@ -97,7 +94,6 @@ export default {
   font-family: "Poppins-Regular";
   font-size: 16px;
 }
-
 .new-card .card-body{
   padding: 0 !important;
 }
@@ -118,16 +114,45 @@ export default {
 }
 
 /* Media */
-@media (max-width:767px) {
+@media (max-width: 1139px) {
+  .new-card .image-wrap .title-wrap,
   .new-card .text-wrap p{
-    max-height: 60px;
-    padding: 12px 0 13px 0;
+    font-size: 12px;
+    max-height: 55px;
+  }
+  .new-card .card-footer{
+    font-size: 10px;
   }
   .new-card .text-wrap{
     height: 70px;
   }
   .new-card{
+    margin-bottom: 25px !important;
+  }
+  .new-card .text-wrap p{
+    padding: 16px 0 13px 0;
+  }
+  .new-card .text-wrap {
+    height: 60px;
+  }
+}
+@media (max-width:767px) {
+  .new-card .text-wrap p{
+    padding: 12px 0 13px 0;
+  }
+  .new-card{
     margin-bottom: 15px !important;
+  }
+    .new-card .image-wrap .title-wrap,
+  .new-card .text-wrap p{
+    font-size: 20px;
+    max-height: 70px;
+  }
+  .new-card .text-wrap {
+    height: 80px;
+  }
+  .new-card .card-footer{
+    font-size: 14px;
   }
 }
 </style>
