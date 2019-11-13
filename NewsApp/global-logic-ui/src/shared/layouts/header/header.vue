@@ -187,6 +187,7 @@ export default {
       windowHeight: null,
       isSearchRes: false,
       isMobile: false,
+      isPageWithoutNav: false,
     };
   },
   methods: {
@@ -197,6 +198,10 @@ export default {
       if (this.windowWidth <= 767) {
         if (this.isSearchRes) {
           this.isShowNavigation = false;
+        }
+      } else {
+        if (!this.isPageWithoutNav) {
+          this.isShowNavigation = true
         }
       }
     },
@@ -323,6 +328,7 @@ export default {
 
     $route (to) {
       if (to.name === 'weather-mobile' || to.name === 'converter-mobile') {
+        this.isPageWithoutNav = true;
         this.isShowNavigation = false;
       } else if (to.name === 'search-results') {
         this.isSearchRes = true;

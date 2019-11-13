@@ -19,7 +19,6 @@ export default {
     },
     
     searchByCategory(category, page, keyWord) {
-        console.log(category, page, keyWord)
         return axios.get(`${environment.newsApiUrl}top-headlines?category=${category}&q=${keyWord}&pageSize=10&page=${page}&apiKey=${environment.newsApiKey}`);
     },
 
@@ -28,7 +27,7 @@ export default {
     },
 
     sortBy(data) {
-        return axios.get(`${environment.newsApiUrl}p=${data.value}&pageSize=10&page=${data.page}&apiKey=${environment.newsApiKey}`);
+        return axios.get(`${environment.newsApiUrl}everything?sortBy=${data.sortBy}&q=${data.value}&pageSize=10&page=${data.page}&apiKey=${environment.newsApiKey}`);
     },
 }
 </script>

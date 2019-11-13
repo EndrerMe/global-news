@@ -35,43 +35,28 @@
       <div class="box-menu">
         <b-nav class="bottom-menu">
           <b-nav-item>
-            <router-link
-              class="link"
-              :to="{ name: `category`, params: {category: 'business'} }"
-            >Business</router-link>
+            <a href="#" @click='searchByCategoryFun("all")'>All News</a>
           </b-nav-item>
           <b-nav-item>
-            <router-link
-              class="link"
-              :to="{ name: `category`, params: {category: 'entertainment'} }"
-            >Entertainment</router-link>
+            <a href="#" @click='searchByCategoryFun("business")'>Business</a>
           </b-nav-item>
           <b-nav-item>
-            <router-link
-              class="link"
-              :to="{ name: `category`, params: {category: 'general'} }"
-            >General</router-link>
+            <a href="#" @click='searchByCategoryFun("entertainment")'>Entertainment</a>
           </b-nav-item>
           <b-nav-item>
-            <router-link
-              class="link"
-              :to="{ name: `category`, params: {category: 'health'} }"
-            >Health</router-link>
+            <a href="#" @click='searchByCategoryFun("general")'>General</a>
           </b-nav-item>
           <b-nav-item>
-            <router-link
-              class="link"
-              :to="{ name: `category`, params: {category: 'science'} }"
-            >Science</router-link>
+            <a href="#" @click='searchByCategoryFun("health")'>Health</a>
           </b-nav-item>
           <b-nav-item>
-            <router-link class="link" :to="{ name: `category`, params: {category: 'sport'} }">Sport</router-link>
+            <a href="#" @click='searchByCategoryFun("science")'>Science</a>
           </b-nav-item>
           <b-nav-item>
-            <router-link
-              class="link"
-              :to="{ name: `category`, params: {category: 'technology'} }"
-            >Technology</router-link>
+            <a href="#" @click='searchByCategoryFun("sport")'>Sport</a>
+          </b-nav-item>
+          <b-nav-item>
+            <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
           </b-nav-item>
         </b-nav>
       </div>
@@ -104,13 +89,13 @@
               <span class="title-text">Sort all news by</span>
             </div>
             <li>
-              <a href="#" @click='searchByCategoryFun("all")'>Date</a>
+              <a href="#" @click='sortByFun("publishedAt")'>Date</a>
             </li>
             <li>
-              <a href="#" @click='searchByCategoryFun("business")'>Popularity</a>
+              <a href="#" @click='sortByFun("popularity")'>Popularity</a>
             </li>
             <li>
-              <a href="#" @click='searchByCategoryFun("entertainment")'>Relevancy</a>
+              <a href="#" @click='sortByFun("relevancy")'>Relevancy</a>
             </li>
           </ul>
           <div class="separator">
@@ -326,52 +311,47 @@ export default {
       this.isShowPagination = true;
     }, 1000),
 
-    sortByFun(value) {
-      let data = {page: 1};
-      let responce = null;
+    async sortByFun(value) {
+      let data = {page: 1, value: this.searchValue};
+      let response;
       if (this.searchRes.length > 0) {
         if (value === 'date') {
-          data.value = 'publishedAt';
-          responce = this.sortBy(data);
+          data.sortBy = 'publishedAt';
+          response = await this.sortBy(data);
         } else if (value === 'popularity') {
-          data.value = 'popularity';
-          responce = this.sortBy(data);
+          data.sortBy = 'popularity';
+          response = await this.sortBy(data);
         } else if (value === 'relevancy') {
-          data.value = 'relevancy';
-          responce = this.sortBy(data);
+          data.sortBy = 'relevancy';
+          response = await this.sortBy(data);
         }
 
-        responce.then((res) => {
-          console.log(res)
-        })
+        console.log(response)
       }
     },
 
-    searchByCategoryFun(value) {
+    async searchByCategoryFun(value) {
       let news = [];
       let probablyNews = [];
+      let response;
       if (value !== this.currentCategory) {
         if (value !== "all") {
           const data = { category: value, page: 1, keyWord: this.searchValue };
-          this.searchByCategory(data).then(res => {
-            probablyNews = res;
-            console.log('-------------------')
-            console.log(res)
-          })
+          response = await this.searchByCategory(data);
         } else {
-          this.search({ value: this.searchValue }).then(res => {
-            probablyNews = res;
-            console.log('********************')
-            console.log(res)
-          });
+          response = await this.search({ value: this.searchValue });
         }
         
-        this.isShowErrorAfterFilters = false;
-        for (let i = 0; i < probablyNews.articles.length; i++) {
-          if (probablyNews.articles[i].urlToImage && probablyNews.articles[i].title && probablyNews.articles[i].description) {
-            news.push(probablyNews.articles[i]);
-          } else {
-            continue;
+        probablyNews = response.data;
+
+        if (probablyNews.articles) {
+          this.isShowErrorAfterFilters = false;
+          for (let i = 0; i < probablyNews.articles.length; i++) {
+            if (probablyNews.articles[i].urlToImage && probablyNews.articles[i].title && probablyNews.articles[i].description) {
+              news.push(probablyNews.articles[i]);
+            } else {
+              continue;
+            }
           }
         }
 
