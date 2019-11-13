@@ -200,7 +200,7 @@ export default {
 }
 
 /* Notify */
-.mobile-notify-prompt-wrap .text-wrap p {
+/* .mobile-notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
 .mobile-notify-prompt-wrap .text-wrap p.dropdown {
@@ -310,7 +310,8 @@ export default {
 .mobile-notify-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-
+ */
+ 
 /* Header */
 .top-menu-wrap {
   background-color: #052962;

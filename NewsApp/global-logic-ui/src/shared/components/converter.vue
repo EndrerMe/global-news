@@ -573,7 +573,7 @@ export default {
   font-size: 12px;
 }
 .currency-converter-wrap .convert-icon {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: start;
 }
 .currency-converter-wrap {

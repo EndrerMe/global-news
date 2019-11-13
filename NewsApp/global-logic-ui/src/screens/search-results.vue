@@ -431,7 +431,7 @@ export default {
 }
 /* end */
 
-/* Mob Search menu */
+/* Mob Search Menu */
 .search-panel-wrap{
   position: relative;
 }
@@ -668,7 +668,7 @@ export default {
   width: 100%;
 }
 
-/* Search panel */
+/* Search Panel */
 .search-panel-wrap .container,
 .main-content-wrap.container {
   max-width: 1440px;
@@ -874,11 +874,6 @@ export default {
     padding-top: 26px;
   }
 }
-/* @media (max-width: 680px){
-  .mobile-bottom-menu-wrap .box-menu{
-    justify-content: unset;
-  }
-} */
 @media (min-width: 576px){
   .container {
     max-width: unset ;

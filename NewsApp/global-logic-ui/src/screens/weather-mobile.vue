@@ -271,7 +271,7 @@ export default {
 </script>
 
 <style scoped>
-/* Custom Drop Down */
+/* Custom Dropdown */
 .modile-side-weather-wrap .country-wrap{
   position: relative;
 }
@@ -509,7 +509,6 @@ export default {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #052962;
-
 }
 .mobile-weather-main-wrap .weather-data-wrap {
   display: flex;

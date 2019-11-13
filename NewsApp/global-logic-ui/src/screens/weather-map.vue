@@ -135,6 +135,7 @@ export default {
   align-items: center;
 }
 
+/* Media */
 @media (max-width: 767px) {
   .map {
     top: 59px;

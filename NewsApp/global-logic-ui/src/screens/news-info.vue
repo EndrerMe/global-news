@@ -208,15 +208,6 @@ export default {
 };
 </script>
 
-<style>
-@media (max-width: 1139px) {
-  .card-wrap .new-info .social-networks-wrap span {
-    width: 32px !important;
-    height: 32px !important;
-  }
-}
-</style>
-
 <style scoped>
 /* Common */
 @media (max-width: 1139px) {
@@ -427,5 +418,13 @@ svg rect {
   justify-content: center;
   border-radius: 25px;
   margin-left: 10px;
+}
+
+/* Media */
+@media (max-width: 1139px) {
+  .card-wrap .new-info .social-networks-wrap span {
+    width: 32px !important;
+    height: 32px !important;
+  }
 }
 </style>
