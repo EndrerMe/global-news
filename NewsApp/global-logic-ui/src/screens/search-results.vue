@@ -29,11 +29,12 @@
           </div>
     </div>
 
-    <!-- Mob Categories -->
+  <!-- Mob Search menu -->
   <div class="mobile-bottom-menu-wrap" v-if='isShowMobileCategories'>
     <div class="container">
       <div class="box-menu">
-        <b-nav class="bottom-menu">
+        <!-- Mob Categories -->
+        <b-nav class="bottom-category-menu">
           <b-nav-item>
             <router-link
               class="link"
@@ -72,6 +73,18 @@
               class="link"
               :to="{ name: `category`, params: {category: 'technology'} }"
             >Technology</router-link>
+          </b-nav-item>
+        </b-nav>
+        <!-- Mob Sort -->
+        <b-nav class="bottom-sort-menu">
+          <b-nav-item>
+            <span>Newest</span>
+          </b-nav-item>
+          <b-nav-item>
+            <span>Most popular</span>
+          </b-nav-item>
+          <b-nav-item>
+            <span>Most relevant</span>
           </b-nav-item>
         </b-nav>
       </div>
@@ -405,7 +418,7 @@ export default {
 }
 /* end */
 
-/* Mob Sort */
+/* Mob Search menu */
 .search-panel-wrap{
   position: relative;
 }
@@ -418,47 +431,70 @@ export default {
   width: 100%;
   justify-content: space-between;
 }
-
 .search-panel-wrap .search-sort-wrap .side{
   color: white;
 }
-/* end */
-
-/* Mob Categories */
 .mobile-bottom-menu-wrap {
   height: 70px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #E5E9EF;
 }
 .mobile-bottom-menu-wrap {
   font-family: "Amiri-Bold";
 }
-.mobile-bottom-menu-wrap .bottom-menu {
+.mobile-bottom-menu-wrap .box-menu{
+  display: flex;
+  justify-content: center;
+}
+.mobile-bottom-menu-wrap .bottom-sort-menu{
+  display: none;
   background-color: unset !important;
   justify-content: center !important;
 }
-.mobile-bottom-menu-wrap .bottom-menu li a a {
+.mobile-bottom-menu-wrap .bottom-category-menu
+{
+  background-color: unset !important;
+  justify-content: center !important;
+}
+.mobile-bottom-menu-wrap .bottom-category-menu li a a,
+.mobile-bottom-menu-wrap .bottom-sort-menu li a
+{
   color: #3f3f3f;
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
+  white-space: nowrap;
 }
-.mobile-bottom-menu-wrap .bottom-menu li .nav-link:hover a::before {
+.mobile-bottom-menu-wrap .bottom-category-menu li .nav-link:hover a::before,
+.mobile-bottom-menu-wrap .bottom-sort-menu li a:hover span::before{
   display: block;
 }
 .mobile-bottom-menu-wrap {
   display: flex;
   align-items: center;
 }
-.mobile-bottom-menu-wrap .bottom-menu li a a {
+.mobile-bottom-menu-wrap .bottom-category-menu li a a,
+.mobile-bottom-menu-wrap .bottom-sort-menu li a span{
   position: relative;
 }
-.mobile-bottom-menu-wrap .bottom-menu li .nav-link a {
+.mobile-bottom-menu-wrap .bottom-category-menu li .nav-link a{
   display: flex;
   justify-content: center;
   line-height: 20px;
 }
-.mobile-bottom-menu-wrap .bottom-menu li .nav-link a::before {
+.mobile-bottom-menu-wrap .bottom-sort-menu li a span::before{
+  display: none;
+  content: "";
+  width: 93%;
+  height: 7px;
+  background: #f8c61a;
+  position: absolute;
+  z-index: -1;
+  bottom: 7px;
+  left: 4px;
+}
+.mobile-bottom-menu-wrap .bottom-category-menu li .nav-link a::before{
   display: none;
   content: "";
   width: 93%;
@@ -708,21 +744,6 @@ export default {
 /* end */
 
 /* Media */
-@media (min-width: 1140px) {
-  .mobile-bottom-menu-wrap .bottom-menu li a {
-    font-size: 26px !important;
-  }
-}
-@media (max-width: 1139px) {
-  .mobile-bottom-menu-wrap .bottom-menu li a {
-    font-size: 16px;
-  }
-}
-@media (max-width: 1199px) {
-  .mobile-bottom-menu-wrap .bottom-menu ul li a span {
-    font-size: 23px;
-  }
-}
 @media (max-width: 1075px) {
   .main-content-wrap .side-wrap .side-menu-categories .menu-title-wrap,
   .main-content-wrap .side-wrap .side-menu-sort .menu-title-wrap {
@@ -735,11 +756,6 @@ export default {
   .main-content-wrap .side-wrap .side-menu-wrap .side-menu-categories li a,
   .main-content-wrap .side-wrap .side-menu-wrap .side-menu-sort li a {
     font-size: 14px;
-  }
-}
-@media (max-width: 991px) {
-  .mobile-bottom-menu-wrap .bottom-menu ul li a span {
-    font-size: 17px;
   }
 }
 @media (max-width: 900px) {
@@ -768,7 +784,8 @@ export default {
   }
 }
 @media (max-width: 767px) {
-  .mobile-bottom-menu-wrap .bottom-menu {
+  .mobile-bottom-menu-wrap .bottom-category-menu,
+    .mobile-bottom-menu-wrap .bottom-sort-menu{
     flex-wrap: unset;
   }
   .mobile-bottom-menu-wrap .box-menu {
@@ -804,6 +821,14 @@ export default {
     .search-input-wrap
     label.close-search-wrap {
     right: 10px;
+  }
+  .main-content-wrap
+  .search-results-wrap
+  .display-results-wrap{
+    display: none;
+  }
+  .main-content-wrap .search-results-wrap .search-result {
+    padding-top: 26px;
   }
 }
 @media (min-width: 576px){
