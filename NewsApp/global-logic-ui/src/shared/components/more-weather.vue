@@ -10,12 +10,11 @@
           <div class="temp-info-wrap">
             <div class="temp-value-wrap info-elem">
               <p>
-                <span class="switch">Show weather in :</span>
+                <span class="switch">Weather in :</span>
                 <span class="temp-symbol">
                   <span class="mode" v-bind:class="{ active: !isCelsius }" @click='changeTemp("f")'>F</span>
                   <span class="degree"></span>
                   <span class="mode" @click='changeTemp("c")' v-bind:class="{ active: isCelsius }">
-                    <!-- <span class="degree"></span> -->
                     C
                   </span>
                 </span>

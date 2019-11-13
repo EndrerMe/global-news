@@ -119,10 +119,10 @@ export default {
 <style>
 @import "./../../node_modules/slick-carousel/slick/slick.css";
 
-
-
-
 /* Slick Slider */
+.slider-wrap{
+  padding-bottom: 30px;
+}
 .slick-slider {
   margin-top: 30px;
 }
@@ -173,15 +173,31 @@ export default {
   top: 8px;
   left: 8px;
 }
+/* Slider Media */
+@media (max-width: 767px) {
+  .slick-slider button.slick-next{
+    right: -5px !important;
+  }
+  .slick-slider button.slick-prev{
+    right: 30px !important;
+  }
+}
 </style>
 
 <style scoped>
-/* Hide elements for mibile 
-Subscribe : class = 'mobile-notify-prompt-wrap'
-Dark Screen :  class = 'dark-screen'
-
-Weather Menu : class = 'modile-side-weather-wrap'
-*/
+/* Common */
+.dark-screen {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  display: none;
+}
 
 /* Notify */
 .mobile-notify-prompt-wrap .text-wrap p {
@@ -222,7 +238,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   background-color: #ffe076;
 }
 .mobile-notify-prompt-wrap {
-  /* display: none; */
   padding-bottom: 45px;
   border: 1px solid;
   background-color: #052962;
@@ -259,7 +274,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   right: 2px;
   transform: rotate(-45deg);
 }
-
 .mobile-notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
   font-size: 20px;
@@ -297,111 +311,6 @@ Weather Menu : class = 'modile-side-weather-wrap'
   background-color: #ffe076;
 }
 
-/* Weater Details */
-
-</style>
-
-<style scoped>
-
-/* Common */
-@media (min-width: 1140px) {
-  .container {
-    max-width: 1638px !important;
-  }
-}
-@media (max-width: 1139px) {
-  .container {
-    max-width: 814px !important;
-  }
-}
-</style>
-
-<style>
-/* Common */
-.dark-screen {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 0.5);
-  color: rgba(0, 0, 0, 0.5);
-  z-index: 999999;
-  display: none;
-}
-
-/* Common for Business, Entertainment, Science */
-.elem-wrap {
-  max-width: 526px;
-}
-.elem-wrap img {
-  width: 100%;
-}
-.description-wrap {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
-}
-.creator-info {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 15px;
-}
-.description-wrap span {
-  font-size: 16px;
-  font-weight: bold;
-}
-.card-deck {
-  margin-top: 30px;
-}
-.card-text {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
-}
-
-/* Business */
-.business-wrap {
-  margin-top: 60px;
-  text-align: start;
-}
-.business-wrap .title-wrap {
-  border-left: 5px solid #c710a2;
-}
-.business-wrap .title-wrap .title-text {
-  display: block;
-  font-size: 32px;
-  font-family: "Poppins";
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding: 6px 30px;
-}
-
-/* Entertainment */
-.entertainment-wrap {
-  margin-top: 60px;
-  text-align: start;
-}
-.entertainment-wrap .title-wrap {
-  border-left: 5px solid #ff995e;
-}
-/* Science */
-.science-wrap {
-  margin-top: 60px;
-  text-align: start;
-}
-.science-wrap .title-wrap {
-  border-left: 5px solid #10c7ba;
-}
-.science-wrap .title-wrap .title-text {
-  display: block;
-  font-size: 32px;
-  font-family: "Poppins";
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding: 6px 30px;
-}
 /* Header */
 .top-menu-wrap {
   background-color: #052962;
@@ -455,6 +364,18 @@ Weather Menu : class = 'modile-side-weather-wrap'
 .top-menu-wrap .weather-value .celsius-value {
   font-size: 20px;
   position: absolute;
+}
+
+/* Media */
+@media (min-width: 1140px) {
+  .container {
+    max-width: 1638px !important;
+  }
+}
+@media (max-width: 1139px) {
+  .container {
+    max-width: 814px !important;
+  }
 }
 @media (max-width: 1199px) {
   .bottom-menu ul li a span {

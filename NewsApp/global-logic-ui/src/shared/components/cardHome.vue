@@ -1,8 +1,8 @@
 <template>
-  <div class="business-wrap">
+  <div class="news-wrap">
     <div
       class="title-wrap"
-      v-bind:style="titleBorder ? {borderLeft: '5px solid #' + titleBorder} : {}"
+      v-bind:style="titleBorder ? {borderLeft: '4px solid #' + titleBorder} : {}"
     >
       <span class="title-text">{{ title }}</span>
     </div>
@@ -169,6 +169,81 @@ export default {
 };
 </script>
 
+<style scoped>
+/* Common for Business, Entertainment, Science */
+.elem-wrap {
+  max-width: 526px;
+}
+.elem-wrap img {
+  width: 100%;
+}
+.description-wrap {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
+}
+.creator-info {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+.description-wrap span {
+  font-size: 16px;
+  font-weight: bold;
+}
+.card-deck {
+  margin-top: 30px;
+}
+.card-text {
+  padding: 19px 0 10px 0;
+  border-bottom: 2px solid #b3abab;
+}
+.news-wrap {
+  margin-top: 50px;
+  text-align: start;
+}
+
+.news-wrap .title-wrap {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.news-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding-left: 30px;
+}
+
+/* Entertainment */
+.entertainment-wrap {
+  margin-top: 60px;
+  text-align: start;
+}
+.entertainment-wrap .title-wrap {
+  border-left: 5px solid #ff995e;
+}
+/* Science */
+.science-wrap {
+  margin-top: 60px;
+  text-align: start;
+}
+.science-wrap .title-wrap {
+  border-left: 5px solid #10c7ba;
+}
+.science-wrap .title-wrap .title-text {
+  display: block;
+  font-size: 32px;
+  font-family: "Poppins";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 6px 30px;
+}
+</style>
+
 <style>
 .slick-slide.center-element {
   margin: 0 10px;
@@ -270,7 +345,7 @@ svg rect {
 }
 .new-card {
   border: none !important;
-  padding-bottom: 15px;
+  padding-bottom: 6px;
   padding-left: 0;
   padding-right: 0;
 }
@@ -279,72 +354,9 @@ svg rect {
   padding: 0 !important;
 }
 
-.entertainment-wrap {
-  margin-top: 60px;
-  text-align: start;
-}
-.entertainment-wrap .title-wrap .title-text {
-  display: block;
-  font-size: 32px;
-  font-family: "Poppins-Bold";
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  padding: 6px 30px;
-}
-.slick-slider {
-  margin-top: 30px;
-}
-.slick-slider .slick-dots {
-  display: none !important;
-}
-.slick-slider button.slick-prev,
-.slick-slider button.slick-next:focus {
-  outline: none;
-}
-.slick-slider button.slick-prev {
-  position: absolute;
-  top: -49px;
-  right: 50px;
-  color: transparent;
-  background: transparent;
-  border: none;
-  width: 30px;
-}
-.slick-slider button.slick-prev::before {
-  right: 8px;
-  position: absolute;
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-left: 2px solid #4e3535;
-  border-bottom: 2px solid #4e3535;
-  transform: rotate(45deg);
-  top: 8px;
-}
-.slick-slider button.slick-next {
-  position: absolute;
-  top: -49px;
-  right: 15px;
-  color: transparent;
-  background: transparent;
-  border: none;
-  width: 30px;
-}
-.slick-slider button.slick-next::before {
-  position: absolute;
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid #4e3535;
-  border-bottom: 2px solid #4e3535;
-  transform: rotate(-45deg);
-  top: 8px;
-  left: 8px;
-}
+/* Media */
 @media (max-width: 1199px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
+  .news-wrap .title-wrap .title-text {
     font-size: 28px !important;
   }
   .card-title {
@@ -352,10 +364,9 @@ svg rect {
   }
 }
 @media (max-width: 1139px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
+  .news-wrap .title-wrap .title-text {
     font-size: 20px !important;
+    padding-left: 25px;
   }
   .image-wrap {
     height: 245px !important;
@@ -372,19 +383,25 @@ svg rect {
     height: 35px;
   }
   .card-text-wrap {
-  padding: 18px 0 10px 0;
-}
+    padding: 18px 0 10px 0;
+  }
+  .news-wrap .title-wrap {
+    height: 40px;
+  }
+  .slick-slider {
+    margin-top: 20px;
+  }
+  .news-wrap{
+    margin-top: 30px;
+  }
 }
 @media (max-width: 767px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 16px !important;
+  .news-wrap .title-wrap .title-text{
+    font-size: 18px !important;
+    padding-left: 20px;
   }
-  .business-wrap,
-  .entertainment-wrap,
-  .science-wrap {
-    margin-top: 30px !important;
+  .news-wrap {
+    margin-top: 15px !important;
   }
   .card-title {
     font-size: 16px !important;
@@ -406,16 +423,16 @@ svg rect {
   .new-card .image-wrap {
     padding-bottom: 0;
   }
+  .card-footer {
+    font-size: 12px;
+  }
 }
 @media (max-width: 575px) {
-  .business-wrap .title-wrap .title-text,
-  .entertainment-wrap .title-wrap .title-text,
-  .science-wrap .title-wrap .title-text {
-    font-size: 12px !important;
+  .news-wrap .title-wrap .title-text {
     letter-spacing: 5px !important;
   }
   .slick-slider {
-    margin-top: 20px;
+    margin-top: 14px;
   }
 }
 @media (max-width: 450px) {
@@ -427,5 +444,14 @@ svg rect {
   .image-wrap {
     height: 210px !important;
   }
+  .card-title{
+    font-size: 14px !important;
+  } 
 }
+@media (max-width: 374px) {
+  .news-wrap .title-wrap .title-text {
+    font-size: 12px !important;
+  }
+}
+
 </style>

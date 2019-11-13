@@ -247,7 +247,7 @@ export default {
     height: 10px !important;
   }
   .carousel-inner {
-    height: 300px !important;
+    height: 296px !important;
   }
 }
 @media (max-width: 450px) {
@@ -259,33 +259,6 @@ export default {
   }
   .carousel-caption .slide-title .slide-category::before {
     height: 7px !important;
-  }
-  .carousel-inner {
-    height: 260px !important;
-  }
-}
-@media (max-width: 375px) {
-  .slider-wrap .carousel-control-prev {
-    width: 25px !important;
-    height: 25px !important;
-  }
-  .slider-wrap .carousel-control-next {
-    width: 25px !important;
-    height: 25px !important;
-  }
-
-  .carousel .carousel-control-next::after {
-    width: 10px !important;
-    height: 10px !important;
-    left: 6px !important;
-  }
-  .carousel .carousel-control-prev::before {
-    width: 10px !important;
-    height: 10px !important;
-    left: 10px !important;
-  }
-  .carousel-inner {
-    height: 210px !important;
   }
 }
 </style>

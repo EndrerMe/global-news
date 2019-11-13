@@ -131,6 +131,7 @@ footer .right-item button {
   }
   footer .right-item button {
     width: 100%;
+    font-size: 13px;
   }
   footer .container{
     max-width: unset;
