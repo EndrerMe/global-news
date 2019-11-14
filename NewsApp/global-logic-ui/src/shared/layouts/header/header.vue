@@ -515,7 +515,7 @@ export default {
   padding: 0;
 }
 .top-menu-wrap .mobile-top-menu .mobile-logo-wrap img {
-  width: 90px;
+  width: 62px;
 }
 #nav-collapse .sub-wrap {
   width: 100%;
@@ -576,6 +576,10 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+.top-menu-wrap .wide-menu li.search-wrap a svg,
+.top-menu-wrap .wide-menu li.search-wrap .icon-wrap svg{
+  font-size: 24px;
+}
 .top-menu-wrap .wide-menu li a svg,
 #nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap svg {
   color: rgb(248, 198, 26);
@@ -590,6 +594,9 @@ export default {
 }
 .top-menu-wrap .navbar-nav li .nav-link {
   padding: 0 !important;
+}
+.top-menu-wrap .navbar-nav li .nav-link img{
+  width: 160px;  
 }
 .top-menu-wrap .navbar-nav li a span {
   color: #f9f9f9;
@@ -634,6 +641,62 @@ export default {
 }
 
 /* Media */
+@media (min-width: 1140px) {
+  .container {
+    max-width: 1638px !important;
+  }
+}
+@media (max-width: 1139px) {
+  .container {
+    max-width: 814px !important;
+  }
+  #nav-collapse .sub-wrap .wide-menu .search-wrap {
+    margin-left: 55px;
+  }
+  #nav-collapse .sub-wrap .wide-menu {
+    font-size: 12px;
+  }
+  #nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap{
+    right: 32px;
+  }
+  .top-menu-wrap .navbar-nav li .nav-link img{
+    width: 102px;  
+  }
+  .top-menu-wrap .wide-menu li.search-wrap a svg,
+  .top-menu-wrap .wide-menu li.search-wrap .icon-wrap svg{
+    font-size: 18px;
+  }
+}
+@media (max-width: 991px) {
+  .carousel-caption .slide-title span {
+    font-size: 28px;
+  }
+  .top-menu-wrap .navbar-collapse .search-wrap a svg {
+    margin: 0 10px;
+  }
+}
+@keyframes rotate-bell {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@media (min-width: 768px) {
+  .modile-side-weather-wrap {
+    display: none;
+  }
+  #nav-collapse {
+    width: 100%;
+  }
+}
 @media (max-width: 767px) {
   .bottom-menu {
     padding: 10px 0;
@@ -669,56 +732,9 @@ export default {
   #nav-collapse .navbar-nav {
     align-items: flex-start;
   }
-}
-@media (max-width: 1139px) {
-  #nav-collapse .sub-wrap .wide-menu {
-    font-size: 12px;
-  }
-  #nav-collapse .sub-wrap .wide-menu .search-wrap .icon-wrap{
-    right: 32px;
+  .top-menu-wrap .mobile-top-menu .mobile-search-wrap svg {
+    font-size: 22px !important;
   }
 }
-@media (max-width: 991px) {
-  .carousel-caption .slide-title span {
-    font-size: 28px;
-  }
-  .top-menu-wrap .navbar-collapse .search-wrap a svg {
-    margin: 0 10px;
-  }
-}
-@keyframes rotate-bell {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(30deg);
-  }
-  75% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-@media (min-width: 768px) {
-  .modile-side-weather-wrap {
-    display: none;
-  }
-  #nav-collapse {
-    width: 100%;
-  }
-}
-@media (min-width: 1140px) {
-  .container {
-    max-width: 1638px !important;
-  }
-}
-@media (max-width: 1139px) {
-  .container {
-    max-width: 814px !important;
-  }
-  #nav-collapse .sub-wrap .wide-menu .search-wrap {
-    margin-left: 55px;
-  }
-}
+
 </style>

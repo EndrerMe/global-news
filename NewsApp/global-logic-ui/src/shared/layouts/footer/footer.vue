@@ -45,7 +45,7 @@ footer .content-wrap {
   justify-content: space-between;
 }
 footer .left-item img {
-  width: 90px;
+  width: 136px;
 }
 footer .left-item,
 footer .right-item {
@@ -63,7 +63,8 @@ footer .center-item .text {
   display: flex;
   align-items: flex-end;
   font-size: 10px;
-  color: white;
+  color: #F9F9F9;
+  opacity: 0.7;
   font-family: 'Poppins-Light';
 }
 footer .center-item .text a {
@@ -73,7 +74,7 @@ footer .right-item button:hover {
   background-color: #ffe076 !important;
 }
 footer .right-item button {
-  width: 242px;
+  width: 243px;
   height: 48px;
   background-color: #f8c61a;
   color: #052962;
@@ -90,6 +91,9 @@ footer .right-item button {
   footer .container {
     max-width: 1638px !important;
   }
+  footer .container.content {
+    height: 112px !important;
+  }
 }
 @media (max-width: 1139px) {
   footer .right-item button {
@@ -99,6 +103,9 @@ footer .right-item button {
   }
   footer .container{
     max-width: 814px !important;
+  }
+  footer .left-item img{
+    width: 102px;
   }
 }
 @media (min-width: 768px) {
@@ -124,7 +131,6 @@ footer .right-item button {
   }
   footer .content-wrap {
     flex-direction: column;
-    height: unset !important;
   }
   footer .content-wrap .center-item {
     margin: 0 auto;
@@ -145,6 +151,15 @@ footer .right-item button {
   }
   footer .container{
     max-width: unset;
+  }
+    footer .left-item img{
+    width: 90px;
+  }
+  footer .center-item .text{
+    font-size: 8px;
+  }
+  footer .container.content {
+    height: 195px;
   }
 }
 </style>

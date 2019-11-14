@@ -13,9 +13,6 @@
             <label class="close-search-wrap" @click="clearSearch()">
               <span class="close-search"></span>
             </label>
-            <label for="search-results-input" class="search-icon-wrap">
-              <font-awesome-icon icon="search" class="fa-lg" />
-            </label>
           </div>
         </div>
       </div>
@@ -671,18 +668,9 @@ export default {
 .search-panel-wrap
   .search-panel-content
   .search-input-wrap
-  label.search-icon-wrap {
-  display: flex;
-  align-items: center;
-  margin-bottom: inherit;
-  padding: 0 15px;
-}
-.search-panel-wrap
-  .search-panel-content
-  .search-input-wrap
   label.close-search-wrap {
   position: absolute;
-  right: 60px;
+  right: 20px;
   top: 50%;
   transform: translate(0,-50%);
   }
@@ -723,13 +711,6 @@ export default {
   transform: rotate(-45deg);
   top: 3px;
   left: 19px;
-}
-.search-panel-wrap
-  .search-panel-content
-  .search-input-wrap
-  label.search-icon-wrap
-  svg {
-  color: white;
 }
 /* end */
 
@@ -828,12 +809,6 @@ export default {
     width: unset;
   }
   .main-content-wrap .side-wrap {
-    display: none;
-  }
-  .search-panel-wrap
-    .search-panel-content
-    .search-input-wrap
-    label.search-icon-wrap {
     display: none;
   }
   .search-panel-wrap
