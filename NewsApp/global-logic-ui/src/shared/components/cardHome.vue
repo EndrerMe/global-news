@@ -246,7 +246,7 @@ export default {
 
 <style>
 .slick-slide.center-element {
-  margin: 0 10px;
+  margin: 0 30px;
 }
 .slick-track {
   display: flex !important;

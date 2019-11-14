@@ -34,7 +34,6 @@ export default {
 </script>
 
 <style scoped>
-/* Footer */
 footer {
   background-color: #052962;
   margin-top: 72px;
@@ -54,6 +53,7 @@ footer .right-item {
 }
 footer .center-item {
   display: flex;
+  justify-content: center;
 }
 footer .center-item pre {
   margin: 0;
@@ -64,8 +64,8 @@ footer .center-item .text {
   align-items: flex-end;
   font-size: 10px;
   color: white;
+  font-family: 'Poppins-Light';
 }
-
 footer .center-item .text a {
   color: white;
 }
@@ -95,6 +95,7 @@ footer .right-item button {
   footer .right-item button {
     font-size: 14px;
     height: 40px;
+    width: 184px;
   }
   footer .container{
     max-width: 814px !important;
@@ -104,8 +105,14 @@ footer .right-item button {
   footer .container.content {
     height: 100px;
   }
-  footer .content-wrap .left-item{
-    width: 242px;
+  footer .right-item{
+    text-align:end;
+  }   
+  footer .left-item{
+    text-align: start;
+  }
+  .left-item, .center-item, .right-item{
+    flex:1;
   }
 }
 @media (max-width: 767px) {
