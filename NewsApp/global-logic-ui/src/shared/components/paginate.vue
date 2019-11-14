@@ -26,3 +26,10 @@ export default {
 };
 </script>
 
+<style>
+@media (max-width: 767px) {
+  .pagination-wrap{
+    margin-bottom: 45px;
+  }
+}
+</style>

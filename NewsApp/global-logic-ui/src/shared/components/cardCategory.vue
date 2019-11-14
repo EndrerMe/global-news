@@ -92,6 +92,9 @@ export default {
 </script>
 
 <style scoped>
+.vue-load-image{
+  height: 100%;
+}
 .new-card {
   border: none !important;
 }
@@ -159,7 +162,6 @@ export default {
   font-size: 14px;
   font-family: "Poppins-Regular";
 }
-
 .new-card .card-text {
   padding: 20px 0 13px 0;
   text-align: start;
@@ -180,6 +182,7 @@ export default {
   margin-bottom: 50px !important;
 }
 
+/* Media */
 @media (max-width: 1139px) {
   .new-card .title-wrap {
     font-size: 12px !important;
@@ -205,25 +208,46 @@ export default {
   .new-card {
     margin-bottom: 30px !important;
   }
+  .new-card .image-wrap{
+    padding-bottom: unset;
+  }
+  .new-card .image-wrap img{
+    position: relative;
+  }
+  .new-card .image-wrap{
+    height: 400px;
+  }
 }
 @media (max-width: 600px) {
   .new-card .title-wrap {
     font-size: 20px !important;
+  }
+  .new-card .image-wrap{
+    height: 330px;
   }
 }
 @media (max-width: 550px) {
   .new-card .title-wrap {
     font-size: 18px !important;
   }
+  .new-card .image-wrap{
+    height: 300px;
+  }
 }
 @media (max-width: 419px) {
   .new-card .title-wrap {
     font-size: 14px !important;
   }
+  .new-card .image-wrap{
+    height: 230px;
+  }
 }
 @media (max-width: 375px) {
   .new-card .title-wrap span {
     font-size: 12px !important;
+  }
+  .new-card .image-wrap{
+    height: 216px;
   }
 }
 
