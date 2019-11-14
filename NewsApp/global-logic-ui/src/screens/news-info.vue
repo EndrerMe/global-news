@@ -217,85 +217,11 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 1139px) {
-  .container {
-    max-width: 814px !important;
-  }
-  .card-wrap .new-info .social-networks-wrap span {
-    width: 32px !important;
-    height: 32px !important;
-  }
-  .card-wrap .new-info .title-wrap .text {
-    font-size: 22px !important;
-  }
-  .card-wrap .new-info .description-wrap {
-    font-size: 14px !important;
-  }
-  .card-wrap .new-info .card-text {
-    font-size: 12px !important;
-  }
-  .card-wrap .new-info .title-wrap {
-    padding: 20px 0 !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .card-deck {
-    flex-direction: column;
-  }
-  .card-wrap .new-info,
-  .card-wrap .latest-news{
-    max-width: unset !important; 
-  }
-  .card-deck .card{
-    margin-left: unset;
-    margin-right: unset;
-  }
-  .card-wrap .new-info .social-networks-wrap{
-    margin-top: 35px;
-    margin-bottom: 35px;
-    justify-content: center;
-  }
-  .card-wrap .new-info .card-body .vue-load-image{
-    position: relative;
-    padding-bottom: 100%;
-  }
-  .card-wrap .new-info .card-body .vue-load-image img{
-    position: absolute;
-    left: 0;
-    height: 100%;
-  }
-  .card-wrap .new-info .news-published{
-    display: none !important; 
-  }
-  .card-wrap .new-info .title-wrap .text{
-    font-size: 18px !important;
-  }
-    .card-wrap .new-info .description-wrap {
-    font-size: 16px !important;
-  }
-}
-
-@media (min-width: 576px) {
-  .card-deck .card{
-    margin-left: unset;
-    margin-right: unset;
-  }
-}
-
-@media (max-width: 725px) {
-  .card-wrap .new-info .social-networks-wrap .icons-wrap {
-    margin-bottom: 10px;
-  }
-}
-
 svg path,
 svg rect {
   fill: #ff6700;
 }
-</style>
 
-<style scoped>
 .container.content {
   max-width: 1638px;
 }
@@ -311,7 +237,7 @@ svg rect {
   border: none;
 }
 .card-wrap .new-info {
-  max-width: 65%;
+  max-width: 69%;
 }
 .card-wrap .latest-news {
   max-width: 31%;
@@ -379,6 +305,77 @@ svg rect {
   font-family: "Poppins-Regular";
   padding-top: 20px;
 }
+
+/* Media */
+@media (max-width: 1139px) {
+  .container {
+    max-width: 814px !important;
+  }
+  .card-wrap .new-info .social-networks-wrap span {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .card-wrap .new-info .title-wrap .text {
+    font-size: 22px !important;
+  }
+  .card-wrap .new-info .description-wrap {
+    font-size: 14px !important;
+  }
+  .card-wrap .new-info .card-text {
+    font-size: 12px !important;
+  }
+  .card-wrap .new-info .title-wrap {
+    padding: 20px 0 !important;
+  }
+}
+@media (max-width: 767px) {
+  .card-deck {
+    flex-direction: column;
+  }
+  .card-wrap .new-info,
+  .card-wrap .latest-news{
+    max-width: unset !important; 
+  }
+  .card-deck .card{
+    margin-left: unset;
+    margin-right: unset;
+  }
+  .card-wrap .new-info .social-networks-wrap{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    justify-content: center;
+  }
+  .card-wrap .new-info .card-body .vue-load-image{
+    position: relative;
+    padding-bottom: 100%;
+  }
+  .card-wrap .new-info .card-body .vue-load-image img{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-wrap .new-info .news-published{
+    display: none !important; 
+  }
+  .card-wrap .new-info .title-wrap .text{
+    font-size: 18px !important;
+  }
+    .card-wrap .new-info .description-wrap {
+    font-size: 16px !important;
+  }
+}
+@media (min-width: 576px) {
+  .card-deck .card{
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
+@media (max-width: 725px) {
+  .card-wrap .new-info .social-networks-wrap .icons-wrap {
+    margin-bottom: 10px;
+  }
+}
 </style>
 
 <style>
@@ -434,10 +431,10 @@ svg rect {
     margin-top: 45px;
   }
 }
-
 @media (max-width: 767px) {
   .card-wrap .latest-news .card-body {
     border-top: 1px solid #ebebeb ;
   }
 }
 </style>
+
