@@ -69,7 +69,13 @@
   .pagination-wrap .page-number:hover {
     border: 1px solid #052962;
   }
-  
+  .pagination-wrap .page-number.disabled:hover {
+    border: none;
+    cursor: default;
+  }
+  .pagination-wrap .page-number.disabled a:hover {
+    cursor: default;
+  }
   .pagination-wrap .page-number:hover a{
     color: #052962;
   }
