@@ -32,8 +32,12 @@
           <div class="text-wrap">
             <p>
               Weather In
-              <span class="search-result">London</span> ?
+              <span class="search-result">London</span> 
             </p>
+          </div>
+          <div class="error-message">
+            <span>Location is incorrect. Please, try again.</span>
+            <img src="@/assets/images/close-error.png" @click='closeErrorMessage()'>
           </div>
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" @click='hideCityList()'/>
@@ -271,6 +275,16 @@ export default {
 </script>
 
 <style scoped>
+.error-message {
+  display: none;
+  width: 100%;
+  background-color: rgba(210, 55, 55, .5);
+}
+.error-message span {
+  font-size: 12px;
+  font-family: "Amiri-Bold";
+}
+
 /* Custom Dropdown */
 .modile-side-weather-wrap .country-wrap{
   position: relative;
