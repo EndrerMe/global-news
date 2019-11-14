@@ -132,9 +132,6 @@
               <span class="title-text">Search across</span>
             </div>
             <li>
-              <a href="#" @click='searchByCategoryFun("all")'>All News</a>
-            </li>
-            <li>
               <a href="#" @click='searchByCategoryFun("business")'>Business</a>
             </li>
             <li>
