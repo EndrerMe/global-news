@@ -284,6 +284,7 @@ export default {
 }
 .error-message span {
   font-size: 12px;
+  font-family: "Amiri-Bold";
 }
 .weather-main-wrap .temp-symbol .mode {
   position: relative;
