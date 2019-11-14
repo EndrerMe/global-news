@@ -97,6 +97,11 @@ export default {
 </script>
 
 <style scoped>
+.back-to-home:hover{
+  background-color: rgba(85, 125, 146, 0.9);
+  background: rgba(85, 125, 146, 0.9);
+  color: rgba(85, 125, 146, 0.9);
+}
 .back-to-home {
   position: fixed;
   font-size: 30px;
@@ -119,7 +124,7 @@ export default {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   top: 19px;
-  left: 20px;
+  left: 22px;
 }
 .map {
   position: fixed;

@@ -188,6 +188,8 @@ export default {
   transform: rotate(223deg);
   left: 12px;
 }
+
+/* Media */
 @media (max-width: 1139px) {
   .carousel-caption .slide-title span {
     font-size: 22px !important;
