@@ -48,7 +48,7 @@ export default {
         async searchByCategory(ctx, data) {
             return new Promise((resolve, reject) => {
                 newsService.searchByCategory(data.category, data.page, data.keyWord).then((res) => {
-                    let news = res.data.articles;
+                    let news = res;
                     ctx.commit('updateSearchRes', news);
                     resolve(news)
                 }).catch(res => {
