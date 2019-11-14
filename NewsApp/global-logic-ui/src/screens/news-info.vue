@@ -3,11 +3,12 @@
     <div class="container content">
       <div class="card-wrap">
         <b-card-group deck>
-          <b-card class="new-info" header-tag="header">
+          <b-card class="new-info col-sm-12" header-tag="header">
             <div class="title-wrap">
               <span class="text">{{currentNews.title}}</span>
             </div>
-            <vue-load-image>
+            <div class="image-wrap">
+              <vue-load-image>
               <b-card-img slot='image' v-if="currentNews.urlToImage" :src="currentNews.urlToImage"></b-card-img>
               <svg slot='preloader'
                 version="1.1"
@@ -55,7 +56,14 @@
               </svg>
               <div slot="error">error message</div>
             </vue-load-image>
+            <span class="category-wrap">CATEGORY TEST</span>
+            </div>
 
+            <!-- <template v-slot:footer>
+              <small class="text-muted">{{ currentNews.publishedAt | moment("from", "now") }}</small>
+              <small class="text-muted">{{ currentNews.source.name }}</small>
+            </template>
+ -->
             <div class="description-wrap">
               <p>{{ currentNews.content }}</p>
             </div>
@@ -158,7 +166,7 @@
           </b-card>
 
           <!-- Latest News -->
-          <latestNews :latestNews="getNews" :category='category'></latestNews>
+          <latestNews class="col-sm-12" :latestNews="getNews" :category='category'></latestNews>
         </b-card-group>
       </div>
     </div>
@@ -209,7 +217,6 @@ export default {
 </script>
 
 <style scoped>
-/* Common */
 @media (max-width: 1139px) {
   .container {
     max-width: 814px !important;
@@ -218,15 +225,6 @@ export default {
     width: 32px !important;
     height: 32px !important;
   }
-}
-@media (max-width: 575px) {
-  .card-deck {
-    flex-flow: wrap;
-  }
-}
-
-/* New Info */
-@media (max-width: 1139px) {
   .card-wrap .new-info .title-wrap .text {
     font-size: 22px !important;
   }
@@ -236,29 +234,58 @@ export default {
   .card-wrap .new-info .card-text {
     font-size: 12px !important;
   }
-}
-@media (max-width: 812px) {
-  .card-wrap .new-info .title-wrap .text {
-    font-size: 18px !important;
+  .card-wrap .new-info .title-wrap {
+    padding: 20px 0 !important;
   }
 }
+
+@media (max-width: 767px) {
+  .card-deck {
+    flex-direction: column;
+  }
+  .card-wrap .new-info,
+  .card-wrap .latest-news{
+    max-width: unset !important; 
+  }
+  .card-deck .card{
+    margin-left: unset;
+    margin-right: unset;
+  }
+  .card-wrap .new-info .social-networks-wrap{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    justify-content: center;
+  }
+  .card-wrap .new-info .card-body .vue-load-image{
+    position: relative;
+    padding-bottom: 100%;
+  }
+  .card-wrap .new-info .card-body .vue-load-image img{
+    position: absolute;
+    left: 0;
+    height: 100%;
+  }
+  .card-wrap .new-info .news-published{
+    display: none !important; 
+  }
+  .card-wrap .new-info .title-wrap .text{
+    font-size: 18px !important;
+  }
+    .card-wrap .new-info .description-wrap {
+    font-size: 16px !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .card-deck .card{
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
+
 @media (max-width: 725px) {
   .card-wrap .new-info .social-networks-wrap .icons-wrap {
     margin-bottom: 10px;
-  }
-}
-@media (max-width: 575px) {
-  .new-info {
-    max-width: unset !important;
-  }
-  .description-wrap {
-    margin-top: 0 !important;
-  }
-  .social-networks-wrap {
-    margin-top: 0 !important;
-  }
-  .card-wrap .new-info {
-    margin-bottom: 0;
   }
 }
 
@@ -269,7 +296,6 @@ svg rect {
 </style>
 
 <style scoped>
-/* Content */
 .container.content {
   max-width: 1638px;
 }
@@ -277,8 +303,6 @@ svg rect {
   display: flex;
   justify-content: space-between;
 }
-
-/* Common */
 .card-deck {
   margin-top: unset;
 }
@@ -305,15 +329,10 @@ svg rect {
 .bold-text {
   font-weight: bold;
 }
-
-/* New Info */
-.card-wrap .latest-news .item-wrap .image-wrap {
+.card-wrap .new-info .image-wrap {
   position: relative;
 }
-.card-wrap .latest-news .item-wrap img {
-  width: 100%;
-}
-.card-wrap .latest-news .item-wrap .category-wrap {
+.card-wrap .new-info .category-wrap {
   position: absolute;
   font-size: 14px;
   font-family: "Poppins-Medium";
@@ -324,7 +343,7 @@ svg rect {
   text-transform: uppercase;
   letter-spacing: 4px;
 }
-.card-wrap .latest-news .item-wrap .category-wrap.entertainment::before {
+.card-wrap .new-info .category-wrap::before {
   content: "";
   width: 3px;
   height: 20px;
@@ -332,32 +351,16 @@ svg rect {
   position: absolute;
   left: 22px;
 }
-.card-wrap .latest-news .item-wrap .category-wrap.business::before {
-  content: "";
-  width: 3px;
-  height: 20px;
-  background-color: #c710a2;
-  position: absolute;
-  left: 22px;
-}
-.card-wrap .latest-news .item-wrap .category-wrap.science::before {
-  content: "";
-  width: 3px;
-  height: 20px;
-  background-color: #10c7ba;
-  position: absolute;
-  left: 22px;
-}
-
 .card-wrap .new-info .title-wrap {
   text-align: start;
-  padding: 37px 0;
+  padding: 30px 0;
 }
 .card-wrap .new-info .title-wrap .text {
   font-size: 32px;
   color: #3f3f3f;
   font-weight: bold;
   text-transform: uppercase;
+  font-family: 'Amiri-Bold';
 }
 
 .card-wrap .new-info .news-published {
@@ -374,6 +377,7 @@ svg rect {
   font-size: 22px;
   border-bottom: none;
   font-family: "Poppins-Regular";
+  padding-top: 20px;
 }
 </style>
 
@@ -425,6 +429,15 @@ svg rect {
   .card-wrap .new-info .social-networks-wrap span {
     width: 32px !important;
     height: 32px !important;
+  }
+  .card-wrap .new-info .social-networks-wrap {
+    margin-top: 45px;
+  }
+}
+
+@media (max-width: 767px) {
+  .card-wrap .latest-news .card-body {
+    border-top: 1px solid #ebebeb ;
   }
 }
 </style>
