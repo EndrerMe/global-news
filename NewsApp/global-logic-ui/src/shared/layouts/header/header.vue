@@ -611,6 +611,7 @@ export default {
 .top-menu-wrap .wide-menu .current-date a {
   display: flex;
   flex-direction: column;
+  cursor: default;
 }
 .top-menu-wrap .wide-menu .nav-item .weather-content {
   position: relative;

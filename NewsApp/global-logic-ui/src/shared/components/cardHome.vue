@@ -81,7 +81,7 @@
 
           <template v-slot:footer>
             <small class="text-muted">{{ news.publishedAt | moment("from", "now") }}</small>
-            <small class="text-muted">{{ news.source.name }}</small>
+            <small class="text-muted right-elem">{{ news.source.name }}</small>
           </template>
         </b-card>
       </div>
@@ -342,6 +342,9 @@ svg rect {
   border-top: 2px solid #b3abab;
   font-family: "Poppins-Regular";
   font-size: 14px;
+}
+.card-footer .right-elem{
+  margin-right: 3px;
 }
 .new-card {
   border: none !important;
