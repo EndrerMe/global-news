@@ -193,10 +193,6 @@ export default {
 .card-deck {
   margin-top: 30px;
 }
-.card-text {
-  padding: 19px 0 10px 0;
-  border-bottom: 2px solid #b3abab;
-}
 .news-wrap {
   margin-top: 50px;
   text-align: start;
@@ -333,6 +329,10 @@ svg rect {
   border-bottom: none;
   font-family: "Poppins-Regular";
   font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* количество строк */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 .card-footer {
   padding: 15px 0 0 0 !important;

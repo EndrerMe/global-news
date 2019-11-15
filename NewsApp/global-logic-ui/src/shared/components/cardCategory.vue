@@ -98,10 +98,6 @@ export default {
 .new-card {
   border: none !important;
 }
-.new-card .text-wrap p {
-  max-height: 70px;
-  overflow: hidden;
-}
 .new-card .card-body {
   padding: 0 !important;
 }
@@ -168,6 +164,12 @@ export default {
   border: none;
   font-family: "Poppins-Regular";
   font-size: 16px;
+  max-height: 70px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 .new-card .text-wrap {
   padding-bottom: 10px;
