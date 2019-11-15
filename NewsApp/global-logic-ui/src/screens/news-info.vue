@@ -249,6 +249,16 @@ svg rect {
 .card-wrap .new-info .card-body .vue-load-image img{
   border-radius: unset;
 }
+.card-wrap .new-info .card-body .vue-load-image{
+  position: relative;
+  height: 100%;
+}
+.card-wrap .new-info .card-body .vue-load-image img{
+  position: absolute;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+}
 .blue-text {
   color: blue;
 }
@@ -256,6 +266,7 @@ svg rect {
   font-weight: bold;
 }
 .card-wrap .new-info .image-wrap {
+  height: 518px;
   position: relative;
 }
 .card-wrap .new-info .category-wrap {
@@ -327,13 +338,15 @@ svg rect {
   .card-wrap .new-info .title-wrap {
     padding: 20px 0 !important;
   }
+  .card-wrap .new-info .image-wrap{
+    height: 264px;
+  }
 }
 @media (max-width: 767px) {
   .card-deck {
     flex-direction: column;
   }
-  .card-wrap .new-info,
-  .card-wrap .latest-news{
+  .card-wrap .new-info{
     max-width: unset !important; 
   }
   .card-deck .card{
@@ -346,14 +359,7 @@ svg rect {
     justify-content: center;
   }
   .card-wrap .new-info .card-body .vue-load-image{
-    position: relative;
     padding-bottom: 100%;
-  }
-  .card-wrap .new-info .card-body .vue-load-image img{
-    position: absolute;
-    left: 0;
-    height: 100%;
-    object-fit: cover;
   }
   .card-wrap .new-info .news-published{
     display: none !important; 
@@ -363,6 +369,9 @@ svg rect {
   }
     .card-wrap .new-info .description-wrap {
     font-size: 16px !important;
+  }
+  .card-wrap .new-info .image-wrap{
+    height: unset;
   }
 }
 @media (min-width: 576px) {
@@ -431,10 +440,10 @@ svg rect {
     margin-top: 45px;
   }
 }
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .card-wrap .latest-news .card-body {
     border-top: 1px solid #ebebeb ;
   }
-}
+} */
 </style>
 
