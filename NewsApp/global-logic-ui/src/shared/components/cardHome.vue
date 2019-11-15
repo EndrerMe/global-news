@@ -40,7 +40,7 @@
                 style="enable-background:new 0 0 50 50;"
                 xml:space="preserve"
               >
-                <rect x="0" y="0" width="4" height="20" fill="#333">
+                <rect x="0" y="0" width="4" height="20" fill="#F8C61A">
                   <animate
                     attributeName="opacity"
                     attributeType="XML"
@@ -50,7 +50,7 @@
                     repeatCount="indefinite"
                   />
                 </rect>
-                <rect x="7" y="0" width="4" height="20" fill="#333">
+                <rect x="7" y="0" width="4" height="20" fill="#F8C61A">
                   <animate
                     attributeName="opacity"
                     attributeType="XML"
@@ -60,7 +60,7 @@
                     repeatCount="indefinite"
                   />
                 </rect>
-                <rect x="14" y="0" width="4" height="20" fill="#333">
+                <rect x="14" y="0" width="4" height="20" fill="#F8C61A">
                   <animate
                     attributeName="opacity"
                     attributeType="XML"
@@ -299,7 +299,16 @@ svg rect {
   width: 100%;
   padding-bottom: 100%;
 }
-
+.new-card .image-wrap .vue-load-image{
+  position: absolute;
+  top: 0;
+  bottom: 0px;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .new-card .image-wrap img {
   position: absolute;
   width: 100%;
