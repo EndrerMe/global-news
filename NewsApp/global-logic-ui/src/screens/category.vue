@@ -690,17 +690,17 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 10px;
-  padding-left: 86px;
+  padding-left: 93px;
 }
 .main-title-wrap .text::before {
   z-index: -1;
   position: absolute;
   content: "";
-  width: 102px;
+  width: 108px;
   height: 37px;
   background-color: #c710a2;
   left: 0;
-  top: 0;
+  top: 3px;
 }
 .top-box-preview {
   margin-top: 42px;
@@ -872,6 +872,10 @@ export default {
   z-index: 1;
   margin: 0 10px !important;
 }
+svg path,
+svg rect {
+  fill: #ff6700;
+}
 
 /* Media */
 @media (min-width: 1140px) {
@@ -885,14 +889,6 @@ export default {
 @media (max-width: 1139px) {
   .container {
     max-width: 814px !important;
-  }
-  .main-title-wrap span {
-    font-size: 24px !important;
-    letter-spacing: 8px !important;
-  }
-  .main-title-wrap span::before {
-    height: 27px !important;
-    width: 95px !important;
   }
   .top-box-preview .left-side .hover-link {
     left: 10px;
@@ -923,6 +919,17 @@ export default {
   .top-box-preview .right-side .right-side-bottom .title-wrap {
     width: 78%;
   }
+  .main-title-wrap .text {
+    font-size: 24px;
+    letter-spacing: 8px;
+  }
+  .main-title-wrap .text::before {
+    height: 24px;
+    width: 43px;
+  }
+  .main-title-wrap .text{
+    padding-left: 33px;
+  }
 }
 @media (max-width: 992px) {
   .top-box-preview .title-wrap span {
@@ -930,9 +937,6 @@ export default {
   }
 }
 @media (max-width: 767px) {
-  .main-title-wrap span {
-    font-size: 24px !important;
-  }
   .top-box-preview .right-side-top .title-wrap span,
   .top-box-preview .right-side-bottom .title-wrap span {
     font-size: 22px !important;
@@ -1014,6 +1018,15 @@ export default {
   .top-box-preview .right-side .right-side-bottom button{
     font-size: 20px !important;
   }
+  .main-title-wrap .text::before {
+    height: 18px;
+    width: 32px;
+    top: 2px;
+  }
+  .main-title-wrap .text {
+    font-size: 18px;
+    padding-left: 25px;
+  }
 }
 @media (max-width: 575px) {
   .top-box-preview .right-side-bottom .title-wrap {
@@ -1021,16 +1034,6 @@ export default {
   }
   .card-deck{
     margin-top: unset ;
-  }
-}
-@media (max-width: 499px) {
-  .main-title-wrap span {
-    font-size: 20px !important;
-    letter-spacing: 6px !important;
-  }
-  .main-title-wrap span::before {
-    height: 21px !important;
-    width: 94px !important;
   }
 }
 @media (max-width: 450px) {
@@ -1049,13 +1052,9 @@ export default {
   }
 }
 @media (max-width: 375px) {
-  .main-title-wrap span {
-    font-size: 16px !important;
+  .main-title-wrap .text {
+    font-size: 18px !important;
     letter-spacing: 5px !important;
-  }
-  .main-title-wrap span::before {
-    height: 16px !important;
-    width: 92px !important;
   }
   .top-box-preview .right-side-bottom .title-wrap span p {
     max-height: 70px;
@@ -1069,10 +1068,5 @@ export default {
   .top-box-preview .left-side .title-wrap span {
     font-size: 12px !important;
   }
-}
-
-svg path,
-svg rect {
-  fill: #ff6700;
 }
 </style>
