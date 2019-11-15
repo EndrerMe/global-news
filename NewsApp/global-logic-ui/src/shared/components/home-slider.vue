@@ -82,7 +82,7 @@ export default {
 }
 .carousel-caption .slide-title .title-text {
   display: inline-block;
-  max-height: 500px;
+  max-height: 200px;
   overflow: hidden;
   font-size: 40px;
 }
@@ -235,6 +235,12 @@ export default {
   }
   .carousel-caption {
     bottom: 10% !important;
+  }
+  .carousel-caption .slide-title{
+    max-width: 40%;
+  }
+  .carousel-caption .slide-title .title-text {
+    max-height: 160px;
   }
 }
 @media (max-width: 575px) {

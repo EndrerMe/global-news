@@ -630,7 +630,7 @@ export default {
 .top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
   position: absolute;
   top: 40px;
-  right: -55px;
+  right: -28px;
   color: rgb(248, 198, 26);
 }
 .top-menu-wrap .wide-menu li.weather-wrap .location-name {
@@ -667,6 +667,9 @@ export default {
   .top-menu-wrap .wide-menu li.search-wrap a svg,
   .top-menu-wrap .wide-menu li.search-wrap .icon-wrap svg{
     font-size: 18px;
+  }
+  .top-menu-wrap .wide-menu li.weather-wrap .weather-dropdown-arrow {
+    right: -23px;
   }
 }
 @media (max-width: 991px) {
