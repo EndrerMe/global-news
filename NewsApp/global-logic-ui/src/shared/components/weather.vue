@@ -8,13 +8,15 @@
         <div class="temp-value-wrap">
           <div class="text-wrap">
             <span>
-              Weather In
+              Weather in 
             </span>
           </div>
         </div>
         <div class="error-message" v-if='isShowErroeMessage'>
           <span>Location is incorrect. Please, try again.</span>
-          <img src="@/assets/images/close-error.png" @click='closeErrorMessage()'>
+          <span>
+            <img src="@/assets/images/close-error.png" @click='closeErrorMessage()'>
+          </span>
         </div>
         <div class="seacrh-country-wrap">
           <div class="country-wrap">
@@ -279,7 +281,9 @@ export default {
 
 /* Weather */
 .error-message {
-  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  /* width: 100%; */
   background-color: rgba(210, 55, 55, .5);
 }
 .error-message span {

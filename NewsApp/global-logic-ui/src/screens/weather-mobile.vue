@@ -31,13 +31,15 @@
         <div class="seacrh-country-wrap section-elem">
           <div class="text-wrap">
             <p>
-              Weather In
+              Weather in
               <span class="search-result">London</span> 
             </p>
           </div>
           <div class="error-message">
             <span>Location is incorrect. Please, try again.</span>
-            <img src="@/assets/images/close-error.png" @click='closeErrorMessage()'>
+            <span>
+              <img src="@/assets/images/close-error.png" @click='closeErrorMessage()'>
+            </span>
           </div>
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" @click='hideCityList()'/>
@@ -283,6 +285,7 @@ export default {
 .error-message span {
   font-size: 12px;
   font-family: "Amiri-Bold";
+  margin: 0 15px
 }
 
 /* Custom Dropdown */
