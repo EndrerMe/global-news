@@ -107,7 +107,7 @@
       </div>
       <div class="side-wrap" v-if="!isShowErrorMessage">
         <div class="side-menu-wrap">
-          <ul class="side-menu-sort">
+          <!-- <ul class="side-menu-sort">
             <div class="menu-title-wrap">
               <span class="title-text">Sort all news by</span>
             </div>
@@ -120,6 +120,29 @@
             <li>
               <a href="#" @click='sortByFun("relevancy")'>Relevancy</a>
             </li>
+          </ul> -->
+          <ul class="side-menu-sort">
+            <div class="menu-title-wrap">
+              <span class="title-text">Sort all news by</span>
+            </div>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxDate"/>
+                <label for="checkBoxDate">Date</label>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxPopularity"/>
+                <label for="checkBoxPopularity">Popularity</label>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxRelevancy"/>
+                <label for="checkBoxRelevancy">Relevancy</label>
+              </a>
+            </li>
           </ul>
           <div class="separator">
             <span>or</span>
@@ -128,7 +151,7 @@
             <div class="menu-title-wrap">
               <span class="title-text">Search across</span>
             </div>
-            <li>
+            <!-- <li>
               <a href="#" @click='searchByCategoryFun("business")'>Business</a>
             </li>
             <li>
@@ -148,6 +171,48 @@
             </li>
             <li>
               <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
+            </li> -->
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxBusiness"/>
+                <label for="checkBoxBusiness">Business</label>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxEntertainment"/>
+                <label for="checkBoxEntertainment">Entertainment</label>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxGeneral"/>
+                <label for="checkBoxGeneral">General</label>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxHealth"/>
+                <label for="checkBoxHealth">Health</label>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxScience"/>
+                <label for="checkBoxScience">Science</label>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxSport"/>
+                <label for="checkBoxSport">Sport</label>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <input type="checkbox" id="checkBoxTechnology"/>
+                <label for="checkBoxTechnology">Technology</label>
+              </a>
             </li>
           </ul>
         </div>
@@ -389,6 +454,34 @@ export default {
 </script>
 
 <style scoped>
+/* CheckBoxes */
+.side-menu-sort li [type="checkbox"]:not(:checked),
+.side-menu-sort li [type="checkbox"]:checked,
+.side-menu-categories li [type="checkbox"]:not(:checked),
+.side-menu-categories li [type="checkbox"]:checked{
+  position: absolute;
+  left: -9999px;
+}
+.side-menu-sort li [type="checkbox"]:not(:checked) + label,
+.side-menu-sort li [type="checkbox"]:checked + label,
+.side-menu-categories  li [type="checkbox"]:not(:checked) + label,
+.side-menu-categories  li [type="checkbox"]:checked + label{
+  cursor: pointer;
+  margin-bottom: 0;
+ }
+.side-menu-sort li [type="checkbox"]:checked + label:after,
+.side-menu-categories li [type="checkbox"]:checked + label:after {
+  content: "";
+  position: absolute;
+  width: 93%;
+  height: 7px;
+  background: #f8c61a;
+  left: 2px;
+  bottom: 7px;
+  z-index: -1;
+}
+/* end */
+
 /* More Results */
 .more-results-wrap{
   padding: 0 16px;
