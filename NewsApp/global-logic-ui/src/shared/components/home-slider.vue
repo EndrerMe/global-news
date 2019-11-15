@@ -53,7 +53,8 @@ export default {
 }
 
 .carousel-inner {
-  height: 766px !important;
+  max-height: 766px !important;
+  height: calc(100vh - 250px);
 }
 .carousel-item {
   height: 100%;
