@@ -146,7 +146,8 @@ export default {
     top: 59px;
   }
   .back-to-home{
-    top: 109px;
+    top: 79px;
+    left: 20px;
   }
 }
 </style>

@@ -13,6 +13,9 @@
             </b-nav-item>
             <b-nav-item href="#" class="wrap">
             <div class="top-side-wrap">
+                <span class="sub-item"  v-bind:class="{ 'show-sub-item': isShowSideMenu }">
+                News Feed
+                </span>
                 <span class="sub-item" @click='goToConverter()' v-bind:class="{ 'show-sub-item': isShowSideMenu }">
                 Currency Converter
                 <font-awesome-icon icon="caret-down" />
