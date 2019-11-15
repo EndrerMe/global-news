@@ -3,7 +3,9 @@
     <div class="dark-screen"></div>
     <!-- Header -->
 
-    <div class="container content">
+    <div class="container content"
+    data-aos="fade-up" data-aos-delay='1000'
+    >
       <!-- Slider -->
 
       <div class="slider-wrap">

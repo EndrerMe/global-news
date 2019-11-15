@@ -1,12 +1,12 @@
 <template>
   <div class="container content">
     <!-- Top title -->
-    <div class="main-title-wrap">
+    <div class="main-title-wrap" data-aos="fade-right" >
       <span class="text">{{ category | titleToUpperCase }}</span>
     </div>
-
+    <div  data-aos="fade-up" data-aos-delay='1000'>
     <!-- Top-box with 4 images -->
-    <div class="top-box-preview row">
+      <div class="top-box-preview row">
       <div class="left-side col-md-6 box-item">
         <div class="hover-link">
           <button @click="goToCurrentNews(firstBlock)">Read More</button>
@@ -429,14 +429,15 @@
           </div>
         </div>
       </div>
-    </div>
+      </div>
 
     <!-- All News -->
-    <b-card-group deck row>
+      <b-card-group deck row>
       <cardCategory v-for="news of currentNews" :key="news.title" :news="news" :category="category"></cardCategory>
-    </b-card-group>
+      </b-card-group>
 
-    <categoryPagination :pageNumber="pageNumber" @changePage="changePage"></categoryPagination>
+      <categoryPagination :pageNumber="pageNumber" @changePage="changePage"></categoryPagination>
+    </div>
   </div>
 </template>
 

@@ -2,11 +2,16 @@
   <div class="news-wrap">
     <div
       class="title-wrap"
+      data-aos="fade-right" 
       v-bind:style="titleBorder ? {borderLeft: '4px solid #' + titleBorder} : {}"
     >
       <span class="title-text">{{ title }}</span>
     </div>
     <slick
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
       ref="slick"
       :options="slickOptions"
       class="slick"
