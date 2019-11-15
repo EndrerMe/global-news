@@ -137,7 +137,7 @@ export default {
 <style scoped>
 .error-message {
   position: absolute;
-  top: 38px;
+  top: 39px;
   display: none;
   width: 100%;
   background-color: rgba(210, 55, 55, .5);
