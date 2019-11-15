@@ -607,6 +607,7 @@ export default {
 .top-menu-wrap .navbar-nav li.nav-item.weather-wrap {
   color: #f9f9f9;
   height: 100%;
+  width: 113px;
 }
 .top-menu-wrap .navbar {
   background-color: #052962 !important;
@@ -633,8 +634,9 @@ export default {
   color: rgb(248, 198, 26);
 }
 .top-menu-wrap .wide-menu li.weather-wrap .location-name {
-  text-align: end;
-}
+  display: flex;
+  justify-content: center;
+  }
 .top-menu-wrap .weather-value {
   font-family: "Poppins-Regular";
   font-size: 28px;

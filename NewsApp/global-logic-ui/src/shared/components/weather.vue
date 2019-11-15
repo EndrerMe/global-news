@@ -361,6 +361,7 @@ export default {
   text-align: end;
   font-size: 41px;
   font-family: "Poppins-SemiBold";
+  width: 63px;
 }
 .weather-search-wrap .temp-value-wrap .temp-symbol span {
   margin: 0 3px;

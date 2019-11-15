@@ -9,7 +9,7 @@
         <div>
           <span class="first-elem" @click="toggleCurrentRates()">{{ currentRate }}</span>
           <span class="icon-wrap">
-            <font-awesome-icon icon="caret-down" />
+            <font-awesome-icon icon="caret-down" @click="toggleCurrentRates()"/>
           </span>
 
           <ul class="currency-dropdown-from" v-if="isShowRatesFrom">
@@ -46,7 +46,7 @@
         <div>
           <span class="first-elem" @click="toggleExchangeRates()">{{ exchangeName }}</span>
           <span class="icon-wrap">
-            <font-awesome-icon icon="caret-down" />
+            <font-awesome-icon icon="caret-down" @click="toggleExchangeRates()"/>
           </span>
 
           <ul class="currency-dropdown-to" v-if="isShowRatesTo">
