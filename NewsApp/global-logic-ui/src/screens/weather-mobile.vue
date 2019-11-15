@@ -34,12 +34,12 @@
               Weather in
               <span class="search-result">London</span> 
             </p>
-          </div>
           <div class="error-message">
             <span>Location is incorrect. Please, try again.</span>
             <span>
               <img src="@/assets/images/close-error.png" @click='closeErrorMessage()'>
             </span>
+          </div>
           </div>
           <div class="country-wrap">
             <input :value="userCity" v-on:input="changecountry($event)" @click='hideCityList()'/>
@@ -278,19 +278,25 @@ export default {
 
 <style scoped>
 .error-message {
+  position: absolute;
+  top: 28px;
   display: none;
   width: 100%;
   background-color: rgba(210, 55, 55, .5);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
 }
 .error-message span {
   font-size: 12px;
   font-family: "Amiri-Bold";
-  margin: 0 15px
+  margin-top: 2px;
 }
 
 /* Custom Dropdown */
 .modile-side-weather-wrap .country-wrap{
   position: relative;
+  margin-top: 10px;
 }
 .seacrh-country-wrap .location-dropdown {
   width: 100%;
@@ -498,6 +504,9 @@ export default {
   margin-top: 45px;
   width: 100%;
 }
+.mobile-weather-main-wrap .seacrh-country-wrap .text-wrap{
+  position: relative;
+}
 .mobile-weather-main-wrap .seacrh-country-wrap .search-result {
   color: rgb(248, 198, 26) !important;
 }
@@ -512,6 +521,7 @@ export default {
   background: transparent;
   border: none;
   border-bottom: 2px solid #83aeff;
+  padding-left: 8px;
 }
 .mobile-weather-main-wrap .button-wrap {
   margin-top: 15px;

@@ -314,7 +314,7 @@ svg rect {
   font-size: 22px;
   border-bottom: none;
   font-family: "Poppins-Regular";
-  padding-top: 20px;
+  padding-top: 35px;
 }
 
 /* Media */

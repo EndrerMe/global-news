@@ -23,6 +23,14 @@
         <p>You subscribe on</p>
         <p class="dropdown"></p>
         <div class="dropdown-wrap">
+
+          <div class="error-message">
+            <span>Email is incorrect. Please, try again.</span>
+            <span>
+              <img src="@/assets/images/close-error.png" @click='closeErrorMessage()'>
+            </span>
+          </div>
+
           <span class="first-elem" @click="toggleCategories">
             {{ currentCategory }}
             <span class="icon-wrap">
@@ -127,6 +135,23 @@ export default {
 </script>
 
 <style scoped>
+.error-message {
+  position: absolute;
+  top: 38px;
+  display: none;
+  width: 100%;
+  background-color: rgba(210, 55, 55, .5);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  width: 69%;
+}
+.error-message span {
+  font-size: 12px;
+  font-family: "Amiri-Bold";
+  margin-top: 2px;
+}
+
 /* Custom Dropdown*/
 .notify-prompt-wrap .currency-dropdown {
   position: absolute;
@@ -187,11 +212,6 @@ export default {
 .notify-prompt-wrap .news-dropdown option {
   color: black;
 }
-.notify-prompt-wrap .send-email-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
 .notify-prompt-wrap .button-wrap {
   margin-top: 23px;
 }
@@ -203,6 +223,7 @@ export default {
   background: transparent;
   border: none;
   border-bottom: 1px solid;
+  padding-left: 5px;
 }
 .notify-prompt-wrap .button-wrap button {
   width: 242px;
@@ -260,7 +281,6 @@ export default {
 }
 .notify-prompt-wrap .text-wrap {
   margin-top: 86px;
-  padding: 0px 90px;
   color: white;
 }
 .notify-prompt-wrap .wropdown-arrow {
@@ -274,7 +294,7 @@ export default {
 .notify-prompt-wrap .send-email-wrap {
   display: inline-flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .notify-prompt-wrap .button-wrap {
   margin-top: 23px;

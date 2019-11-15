@@ -108,8 +108,8 @@ export default {
   left: 50px;
   top: 50px;
   z-index: 99999;
-  width: 56px;
-  height: 56px;
+  width: 30px;
+  height: 30px;
   background-color: rgba(43, 98, 154, 0.5);
   background: rgba(43, 98, 154, 0.5);
   color: rgba(43, 98, 154, 0.5);
@@ -117,14 +117,13 @@ export default {
 .back-to-home::before {
   position: absolute;
   content: "";
-  width: 20px;
-  height: 20px;
-  border-bottom: 5px solid white;
-  border-left: 5px solid white;
-  -webkit-transform: rotate(45deg);
+  width: 13px;
+  height: 13px;
+  border-bottom: 3px solid white;
+  border-left: 3px solid white;
   transform: rotate(45deg);
-  top: 19px;
-  left: 22px;
+  top: 9px;
+  left: 12px;
 }
 .map {
   position: fixed;
@@ -146,8 +145,8 @@ export default {
     top: 59px;
   }
   .back-to-home{
-    top: 79px;
-    left: 20px;
+    top: 75px;
+    left: 16px;
   }
 }
 </style>
