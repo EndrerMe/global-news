@@ -92,8 +92,7 @@ export default {
   line-height: 20px;
 }
 
-.bottom-menu li .nav-link a::before {
-  display: none;
+.bottom-menu li .nav-link a.active::before {
   content: "";
   width: 93%;
   height: 7px;
