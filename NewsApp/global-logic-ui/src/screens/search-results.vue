@@ -18,7 +18,7 @@
       </div>
           <div class="search-sort-wrap">
             <div class="side">
-              <span>All news</span>
+              <span @click='toggleSortFilter()'>All news</span>
             </div>
             <div class="side">
               <span @click='toggleCategoryFilter()'>Category</span>
@@ -27,46 +27,28 @@
     </div>
 
   <!-- Mob Search menu -->
-  <div class="mobile-bottom-menu-wrap" v-if='isShowMobileCategories'>
+  <div class="mobile-bottom-menu-wrap">
     <div class="container">
       <div class="box-menu">
         <!-- Mob Categories -->
-        <b-nav class="bottom-category-menu">
+        <b-nav class="bottom-category-menu" v-if='isShowMobileCategories'>
           <b-nav-item>
-            <a href="#" @click='searchByCategoryFun("all")'>All News</a>
+            <a href="#" @click='searchByCategoryFun("all")' v-bind:class="{ active: currentFilter === 'all' }">All News</a>
           </b-nav-item>
-          <b-nav-item>
-            <a href="#" @click='searchByCategoryFun("business")'>Business</a>
-          </b-nav-item>
-          <b-nav-item>
-            <a href="#" @click='searchByCategoryFun("entertainment")'>Entertainment</a>
-          </b-nav-item>
-          <b-nav-item>
-            <a href="#" @click='searchByCategoryFun("general")'>General</a>
-          </b-nav-item>
-          <b-nav-item>
-            <a href="#" @click='searchByCategoryFun("health")'>Health</a>
-          </b-nav-item>
-          <b-nav-item>
-            <a href="#" @click='searchByCategoryFun("science")'>Science</a>
-          </b-nav-item>
-          <b-nav-item>
-            <a href="#" @click='searchByCategoryFun("sport")'>Sport</a>
-          </b-nav-item>
-          <b-nav-item>
-            <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
+          <b-nav-item v-for='category of categories' :key='category'>
+            <a href="#" @click='searchByCategoryFun(category)' v-bind:class="{ active: currentFilter === category }">{{category}}</a>
           </b-nav-item>
         </b-nav>
         <!-- Mob Sort -->
-        <b-nav class="bottom-sort-menu">
-          <b-nav-item>
-            <span>Newest</span>
+        <b-nav class="bottom-sort-menu" v-if='isShowMobileSort'>
+          <b-nav-item v-bind:class="{ active: currentSort === 'publishedAt' }">
+            <span @click='sortByFun("publishedAt")'>Newest</span>
           </b-nav-item>
-          <b-nav-item>
-            <span>Most popular</span>
+          <b-nav-item v-bind:class="{ active: currentSort === 'popularity' }">
+            <span @click='sortByFun("popularity")'>Most popular</span>
           </b-nav-item>
-          <b-nav-item>
-            <span>Most relevant</span>
+          <b-nav-item v-bind:class="{ active: currentSort === 'relevancy' }">
+            <span @click='sortByFun("relevancy")'>Most relevant</span>
           </b-nav-item>
         </b-nav>
       </div>
@@ -125,20 +107,20 @@
             <div class="menu-title-wrap">
               <span class="title-text">Sort all news by</span>
             </div>
-            <li>
-              <a href="#">
+            <li v-bind:class="{ active: currentSort === 'publishedAt' }">
+              <a href="#" @click='sortByFun("publishedAt")'>
                 <input type="checkbox" id="checkBoxDate"/>
                 <label for="checkBoxDate">Date</label>
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li v-bind:class="{ active: currentSort === 'popularity' }">
+              <a href="#" @click='sortByFun("popularity")'>
                 <input type="checkbox" id="checkBoxPopularity"/>
                 <label for="checkBoxPopularity">Popularity</label>
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li v-bind:class="{ active: currentSort === 'relevancy' }">
+              <a href="#" @click='sortByFun("relevancy")'>
                 <input type="checkbox" id="checkBoxRelevancy"/>
                 <label for="checkBoxRelevancy">Relevancy</label>
               </a>
@@ -172,46 +154,10 @@
             <li>
               <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
             </li> -->
-            <li>
-              <a href="#">
+            <li v-for='category of categories' :key='category' v-bind:class="{ active: currentFilter === category }">
+              <a href="#" @click='searchByCategoryFun(category)'>
                 <input type="checkbox" id="checkBoxBusiness"/>
-                <label for="checkBoxBusiness">Business</label>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <input type="checkbox" id="checkBoxEntertainment"/>
-                <label for="checkBoxEntertainment">Entertainment</label>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <input type="checkbox" id="checkBoxGeneral"/>
-                <label for="checkBoxGeneral">General</label>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <input type="checkbox" id="checkBoxHealth"/>
-                <label for="checkBoxHealth">Health</label>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <input type="checkbox" id="checkBoxScience"/>
-                <label for="checkBoxScience">Science</label>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <input type="checkbox" id="checkBoxSport"/>
-                <label for="checkBoxSport">Sport</label>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <input type="checkbox" id="checkBoxTechnology"/>
-                <label for="checkBoxTechnology">Technology</label>
+                <label for="checkBoxBusiness">{{category}}</label>
               </a>
             </li>
           </ul>
@@ -230,11 +176,13 @@
       </div>
     </div>
     <div class="more-results-wrap container">
-        <button class="more-results-button">More results</button>
+        <button class="more-results-button" @click='getMoreResults'>More results</button>
     </div>
 
-      <div v-if='!isShowErrorAfterFilters'>
-        <categoryPagination v-if='!isShowErrorMessage' :pageNumber='totalPages' @changePage="changePage" :key="componentKey"></categoryPagination>
+      <div v-if='isShowPagination'>
+        <div v-if='!isShowErrorAfterFilters'>
+          <categoryPagination v-if='!isShowErrorMessage' :pageNumber='totalPages' @changePage="changePage" :key="componentKey"></categoryPagination>
+        </div>
       </div>
     </div>
 </template>
@@ -255,6 +203,8 @@ export default {
   },
   data() {
     return {
+      currentSort: '',
+      currentFilter: '',
       searchValue: "",
       resultsOf: "",
       searchRes: [],
@@ -269,12 +219,22 @@ export default {
       isFirstPage: false,
       isShowErrorMessage: false,
       isShowPagination: true,
+      isShowMobileSort: false,
       componentKey: 0,
       isShowErrorAfterFilters: false,
       isShowMobileCategories: false,
+      categories: ['Business', 'Entertainment', 'General', 'Health', 'Science', 'Sport', 'Technology']
     };
   },
   mounted() {
+
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.getWindowWidth);
+
+      //Init
+      this.getWindowWidth()
+    })
+
     if (this.$route.params.news) {
       if (this.$route.params.news.length === 0) {
         this.isShowErrorMessage = true;
@@ -315,11 +275,27 @@ export default {
     ...mapActions(["search", "searchByCategory", "sortBy"]),
 
     toggleCategoryFilter() {
+      this.isShowMobileSort = false;
       this.isShowMobileCategories = !this.isShowMobileCategories;
+    },
+
+    toggleSortFilter() {
+      this.isShowMobileCategories = false;
+      this.isShowMobileSort = !this.isShowMobileSort;
     },
 
     clearSearch() {
       this.searchValue = "";
+    },
+
+    getWindowWidth() {
+      const windowWidth = document.documentElement.clientWidth;
+
+      if (windowWidth < 767) {
+        this.isShowPagination = false;
+      } else {
+        this.isShowPagination = true;
+      }
     },
 
     changePage(e) {
@@ -350,8 +326,35 @@ export default {
       });
     },
 
-    searchBytitle: _.debounce(function(event) {
-      this.isShowPagination = false;
+    getMoreResults() {
+      window.scrollTo(0, 0);
+
+      this.currentPage += 1;
+      const searchData = { value: this.resultsOf, page: this.currentPage };
+      const result = this.search(searchData);
+      result.then(res => {
+        let news = [];
+        for (let i = 0; i < res.articles.length; i++) {
+          if (
+            res.articles[i].urlToImage &&
+            res.articles[i].title &&
+            res.articles[i].description
+          ) {
+            news.push(res.articles[i]);
+          } else {
+            continue;
+          }
+        }
+        this.searchRes = news;
+        this.resultsCol.to = 10;
+        this.resultsCol.to = this.resultsCol.to * this.currentPage;
+        this.resultsCol.from = this.resultsCol.to - 9;
+        const data = { news: news, searchValue: this.searchValue };
+        localStorage.setItem("currentSearch", JSON.stringify(data));
+      });
+    },
+
+    searchBytitle:_.debounce(function(event) {
       this.currentPage = 1;
       this.searchValue = event.target.value;
       this.resultsOf = this.searchValue;
@@ -396,25 +399,34 @@ export default {
         });
       }
 
-      this.isShowPagination = true;
     }, 1000),
 
     async sortByFun(value) {
-      let data = {page: 1, value: this.searchValue};
-      let response;
+      let dataForSearch = {page: 1, value: this.searchValue, sortBy: value};
+      let news = [];
+      let probablyNews = [];
+
       if (this.searchRes.length > 0) {
-        if (value === 'date') {
-          data.sortBy = 'publishedAt';
-          response = await this.sortBy(data);
-        } else if (value === 'popularity') {
-          data.sortBy = 'popularity';
-          response = await this.sortBy(data);
-        } else if (value === 'relevancy') {
-          data.sortBy = 'relevancy';
-          response = await this.sortBy(data);
+        const response = await this.sortBy(dataForSearch);
+
+        probablyNews = response.articles;
+
+        if (probablyNews) {
+          this.isShowErrorAfterFilters = false;
+          for (let i = 0; i < probablyNews.length; i++) {
+            if (probablyNews[i].urlToImage && probablyNews[i].title && probablyNews[i].description) {
+              news.push(probablyNews[i]);
+            } else {
+              continue;
+            }
+          }
         }
 
-        console.log(response)
+        this.searchRes = news;
+        this.currentSort = value;
+        console.log(this.currentSort)
+        const data = {news: news, searchValue: this.searchValue};
+        localStorage.setItem('currentSearch', JSON.stringify(data));
       }
     },
 
@@ -429,8 +441,12 @@ export default {
         } else {
           response = await this.search({ value: this.searchValue });
         }
-        
-        probablyNews = response.data;
+
+        if (response.data) {
+          probablyNews = response.data;
+        } else {
+          probablyNews = response;
+        }
 
         if (probablyNews.articles) {
           this.isShowErrorAfterFilters = false;
@@ -446,6 +462,9 @@ export default {
         this.searchRes = news;
         this.currentCategory = value;
         const data = {news: news, searchValue: this.searchValue};
+
+        this.currentFilter = value;
+        
         localStorage.setItem('currentSearch', JSON.stringify(data));
       }
     }
@@ -524,7 +543,6 @@ export default {
   font-family: "Amiri-Bold";
 }
 .mobile-bottom-menu-wrap .bottom-sort-menu{
-  display: none;
   background-color: unset !important;
   justify-content: center !important;
   margin: 0 auto;

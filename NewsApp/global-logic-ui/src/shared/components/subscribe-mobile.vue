@@ -23,7 +23,7 @@
       </div>
       <div class="send-email-wrap">
         <div class="email-wrap">
-          <input value="E-mail"/>
+          <input value="E-mail" v-model='email'/>
         </div>
         <div class="button-wrap">
           <button href="#" @click='subscribe()'>Subscribe</button>
@@ -35,15 +35,19 @@
 
 <script>
 // Events
-// import EventBus from '@/eventBus';
+import EventBus from '@/eventBus';
+// Services
+import subscriptionService from '@/shared/services/subscription.service';
 
 export default {
   name: 'subscribeMobile',
   data() {
     return {
       currentCategory: 'All News',
-      isShowCatogories: true,
-      isShowSubscribeMobile: true,
+      isShowCatogories: false,
+      categoryForSubscrive: '',
+      isShowSubscribeMobile: false,
+      email: '',
       categoriesArray: [
         "All News",
         "Business",
@@ -56,22 +60,33 @@ export default {
       ]
     };
   },
-  // methods: {
-  //   toggleCategories() {
-  //     this.isShowCatogories = !this.isShowCatogories;
-  //   },
-  //      closeSubscribeFull() {
-  //     this.isShowSubscribeFull = !this.isShowSubscribeFull;
-  //     if (this.isShowCatogories) {
-  //       this.isShowCatogories = !this.isShowCatogories;
-  //     }
-  //   }
-  // },
-  // mounted() {
-  //   EventBus.$on("ShowMobileSubscribe", () => {
-  //     this.isShowSubscribeFull = !this.isShowSubscribeFull;
-  //   });
-  // }
+  mounted() {
+    EventBus.$on("toggleMobileSubscrive", () => {
+      this.isShowSubscribeMobile = !this.isShowSubscribeMobile;
+    });
+  },
+  methods: {
+    toggleCategories() {
+      this.isShowCatogories = !this.isShowCatogories;
+    },
+
+    closeSubscribeMobile() {
+      this.isShowSubscribeMobile = !this.isShowSubscribeMobile;
+      if (this.isShowCatogories) {
+        this.isShowCatogories = !this.isShowCatogories;
+      }
+    },
+
+    subscribe() {
+      subscriptionService.addSubscroption(this.email, this.categoryForSubscrive);  
+    },
+
+    changeCategory(category) {
+      this.categoryForSubscrive = category;
+      this.currentCategory = category;
+      this.isShowCatogories = !this.isShowCatogories;
+    },
+  },
 };
 </script>
 

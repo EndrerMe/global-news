@@ -21,10 +21,9 @@
                       <input
                         id="mobile-search-input"
                         class="mobile-search-input"
-                        v-on:input="searchBytitle($event)"
                         v-model="searchValue"
                       />
-                      <label for="mobile-search-input" class="icon-wrap">
+                      <label for="mobile-search-input" class="icon-wrap" @click='searchBytitle()'>
                         <font-awesome-icon icon="search" class="fa-lg" />
                       </label>
                     </div>
