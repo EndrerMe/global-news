@@ -424,7 +424,6 @@ export default {
 
         this.searchRes = news;
         this.currentSort = value;
-        console.log(this.currentSort)
         const data = {news: news, searchValue: this.searchValue};
         localStorage.setItem('currentSearch', JSON.stringify(data));
       }

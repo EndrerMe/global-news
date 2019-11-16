@@ -85,7 +85,7 @@
 <script>
 // Vendors
 import _ from "lodash";
-import {mapGetters} from 'vuex'
+import {mapGetters} from 'vuex';
 // Services
 import ratesService from "@/shared/services/rates.service";
 // Events

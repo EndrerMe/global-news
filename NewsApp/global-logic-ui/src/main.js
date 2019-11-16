@@ -11,7 +11,7 @@ import SocialSharing from 'vue-social-sharing'
 import VueMoment from 'vue-moment';
 import Paginate from 'vuejs-paginate'
 import VueInputAutowidth from 'vue-input-autowidth'
-import InputMask from 'vue-input-mask';
+import money from 'v-money'
 
 // Router
 import routes from "./routes";
@@ -60,7 +60,7 @@ library.add(
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.component('paginate', Paginate)
-Vue.component('input-mask', InputMask)
+Vue.use(money, {precision: 4})
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(Slick);

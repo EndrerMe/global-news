@@ -291,7 +291,6 @@ export default {
     });
 
     EventBus.$on("changeWeatherCity", data => {
-      console.log(data);
       this.location = data.city;
     });
 
