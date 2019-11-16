@@ -10,6 +10,8 @@ import VueGeolocation from 'vue-browser-geolocation';
 import SocialSharing from 'vue-social-sharing'
 import VueMoment from 'vue-moment';
 import Paginate from 'vuejs-paginate'
+import VueInputAutowidth from 'vue-input-autowidth'
+import InputMask from 'vue-input-mask';
 
 // Router
 import routes from "./routes";
@@ -58,6 +60,7 @@ library.add(
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.component('paginate', Paginate)
+Vue.component('input-mask', InputMask)
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(Slick);
@@ -65,6 +68,7 @@ Vue.use(vWow);
 Vue.use(VueMoment);
 Vue.use(VueGeolocation);
 Vue.use(SocialSharing);
+Vue.use(VueInputAutowidth);
 
 const router = new VueRouter({ routes });
 

@@ -81,13 +81,12 @@
                   </li>
                   <li class="nav-item search-wrap">
                     <div class="input-wrap">
-                      <label for="search-input" class="icon-wrap">
+                      <label for="search-input" class="icon-wrap" @click='searchBytitle()'>
                         <font-awesome-icon icon="search" class="fa-lg" />
                       </label>
                       <input
                         id="search-input"
                         class="search-input"
-                        v-on:input="searchBytitle($event)"
                         v-model="searchValue"
                       />
                     </div>
@@ -97,6 +96,7 @@
                       </a>
                     </div>
                     <subscribeDesctop :showSubscribeFull="showSubscribeFull"></subscribeDesctop>
+                    <subscribeMobile></subscribeMobile>
                   </li>
                 </b-navbar-nav>
               </div>
@@ -117,7 +117,6 @@
 <script>
 // Vendors
 import { mapGetters, mapActions } from "vuex";
-import _ from "lodash";
 // Components
 import weatherDesctop from "@/shared/components/weather";
 import subscribeDesctop from "@/shared/components/subscribe";
@@ -125,6 +124,7 @@ import navigationDesctop from "@/shared/components/navigation";
 import converterDesctop from "@/shared/components/converter";
 import moreWeather from "@/shared/components/more-weather";
 import mobileMenu from '@/shared/components/mobile-menu';
+import subscribeMobile from '@/shared/components/subscribe-mobile';
 // Events
 import EventBus from "@/eventBus";
 
@@ -137,6 +137,7 @@ export default {
     converterDesctop,
     moreWeather,
     mobileMenu,
+    subscribeMobile
   },
   computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
@@ -238,9 +239,8 @@ export default {
       this.currentWeatherImg = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
     },
 
-    searchBytitle: _.debounce(function(event) {
-      this.searchValue = event.target.value;
-      const value = event.target.value;
+    searchBytitle() {
+      const value = this.searchValue;
       if (this.searchValue.length > 0) {
         const searchData = { value: value, page: 1 };
         this.search(searchData).then(res => {
@@ -272,7 +272,7 @@ export default {
         //     }
         // })
       }
-    }, 1000)
+    }
   },
   mounted() {
     this.$nextTick(function() {

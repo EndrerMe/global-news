@@ -49,8 +49,15 @@
 </template>
 
 <script>
+import EventBus from "@/eventBus";
+
 export default {
-  name: "navigationDesctop"
+  name: "navigationDesctop",
+  methods: {
+    changePaginationToFirstPage() {
+      EventBus.$emit("toFirstPage");
+    }
+  }
 };
 </script>
 

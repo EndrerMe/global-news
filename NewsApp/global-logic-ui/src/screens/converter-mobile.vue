@@ -80,7 +80,7 @@ import ratesService from "@/shared/services/rates.service";
 import EventBus from "@/eventBus";
 
 export default {
-  name: "converter-mobile",
+  name: "converterMobile",
   data() {
     return {
       isShowToList: false,

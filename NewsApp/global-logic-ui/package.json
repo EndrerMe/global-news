@@ -30,6 +30,8 @@
     "v-wow": "^1.2.1",
     "vue": "^2.6.10",
     "vue-browser-geolocation": "^1.8.0",
+    "vue-input-autowidth": "^1.0.9",
+    "vue-input-mask": "0.0.10",
     "vue-load-image": "^0.1.8",
     "vue-mapbox": "^0.4.1",
     "vue-moment": "^4.0.0",

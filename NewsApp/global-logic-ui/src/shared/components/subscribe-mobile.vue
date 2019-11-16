@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="notify-prompt-wrap" v-if="isShowSubscribeFull">
+    <div class="notify-prompt-wrap" v-if="isShowSubscribeMobile">
       <div class="close-wrap" @click="closeSubscribeFull()">
         <a class="close-button" href="#"></a>
       </div>
@@ -35,14 +35,15 @@
 
 <script>
 // Events
-import EventBus from '@/eventBus';
+// import EventBus from '@/eventBus';
 
 export default {
+  name: 'subscribeMobile',
   data() {
     return {
       currentCategory: 'All News',
-      isShowCatogories: false,
-      isShowSubscribeFull: false,
+      isShowCatogories: true,
+      isShowSubscribeMobile: true,
       categoriesArray: [
         "All News",
         "Business",
@@ -55,22 +56,22 @@ export default {
       ]
     };
   },
-  methods: {
-    toggleCategories() {
-      this.isShowCatogories = !this.isShowCatogories;
-    },
-       closeSubscribeFull() {
-      this.isShowSubscribeFull = !this.isShowSubscribeFull;
-      if (this.isShowCatogories) {
-        this.isShowCatogories = !this.isShowCatogories;
-      }
-    }
-  },
-  mounted() {
-    EventBus.$on("ShowMobileSubscribe", () => {
-      this.isShowSubscribeFull = !this.isShowSubscribeFull;
-    });
-  }
+  // methods: {
+  //   toggleCategories() {
+  //     this.isShowCatogories = !this.isShowCatogories;
+  //   },
+  //      closeSubscribeFull() {
+  //     this.isShowSubscribeFull = !this.isShowSubscribeFull;
+  //     if (this.isShowCatogories) {
+  //       this.isShowCatogories = !this.isShowCatogories;
+  //     }
+  //   }
+  // },
+  // mounted() {
+  //   EventBus.$on("ShowMobileSubscribe", () => {
+  //     this.isShowSubscribeFull = !this.isShowSubscribeFull;
+  //   });
+  // }
 };
 </script>
 

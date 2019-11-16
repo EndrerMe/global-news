@@ -8,7 +8,6 @@ export default {
 
             ratesService.getRates(data.currentRate).then((res) => {
                 const rates = res.data.rates;
-
                 // ctx.commit('updateExchangeTo', data)
                 ctx.commit('updateRatesName', rates);
                 ctx.commit('updateRatesValue', rates);
@@ -25,9 +24,12 @@ export default {
 
     mutations: {
         updateRatesName(state, rates) {
+            let ratesName = [];
             for (let i in rates) {
-                state.ratesName.push(i);
+                ratesName.push(i);
             }
+
+            state.ratesName = ratesName.sort();
         },
 
         updateRatesValue(state, rates) {
