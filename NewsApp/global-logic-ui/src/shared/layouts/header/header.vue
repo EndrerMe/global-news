@@ -11,15 +11,16 @@
               :isShowSideMenu='isShowSideMenu'
               @toggleMobileSideMenu='toggleMobileSideMenu'></mobileMenu>
               <!-- end -->
-              <b-nav-item class="mobile-menu-button">
+              <b-nav-item id="mobile-menu-button" class="mobile-menu-button">
                 <b-navbar-toggle  target="mobile-side-menu-wrap" @click="toggleMobileSideMenu()"></b-navbar-toggle>
               </b-nav-item>
-              <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()">
+              <b-nav-item class="mobile-logo-wrap" @click="goToHomePage()" v-if='isShowLogo'>
                 <img src="@/assets/images/logo.svg" alt="logo" />
               </b-nav-item>
               <li class="mobile-search-wrap">
                     <div class="input-wrap">
-                      <input
+                      <input @blur="showLogo($event)"
+                        @focus="hideLogo($event)"
                         id="mobile-search-input"
                         class="mobile-search-input"
                         v-model="searchValue"
@@ -141,6 +142,7 @@ export default {
   computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
     return {
+      isShowLogo: true,
       isShowNavigation: true,
       isCelsius: true,
       searchValue: "",
@@ -206,6 +208,18 @@ export default {
       }
     },
 
+    showLogo(e){
+      this.isShowLogo = true;
+      e.target.parentElement.parentElement.classList.remove(
+        "active"
+        )
+    },
+    hideLogo(e){
+      e.target.parentElement.parentElement.classList.add(
+        "active"
+        )
+    this.isShowLogo = false;
+    },
     getWindowHeight() {
       this.windowHeight = document.documentElement.clientHeight;
     },
