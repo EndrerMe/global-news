@@ -459,7 +459,6 @@ export default {
 }
 .currency-converter-wrap .to .value-wrap .value,
 .currency-converter-wrap .from .value-wrap .value {
-  width: 160px;
   display: block;
   border-bottom: 1px solid #b7b7b7 !important;
   text-align: center;
@@ -468,6 +467,14 @@ export default {
   color: white;
   font-family: "Poppins-Regular";
   font-size: 22px;
+  max-width: 200px;
+}
+.currency-converter-wrap .to .value-wrap span.value,
+.currency-converter-wrap .from .value-wrap span.value{
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .currency-converter-wrap .to .dropdown-wrap,
 .currency-converter-wrap .from .dropdown-wrap {

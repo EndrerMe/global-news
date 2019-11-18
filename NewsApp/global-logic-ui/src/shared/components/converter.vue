@@ -527,47 +527,21 @@ export default {
   margin-top: 10px;
 }
 .currency-converter-wrap .to .value-wrap {
+  max-width: 180px;
   font-size: 18px;
   display: flex;
   align-items: center;
   font-family: "Poppins-Regular";
 }
-.currency-converter-wrap .to .value-wrap .value {
-  width: 103px;
-  display: block;
-  border-bottom: 1px solid #b7b7b7 !important;
-  text-align: center;
-}
-.currency-converter-wrap .to .dropdown-wrap {
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-}
-.currency-converter-wrap .to .dropdown-wrap .dropdown option {
-  font-size: 16px;
-  color: black;
-}
-.currency-converter-wrap .to .dropdown-wrap .dropdown {
-  background: transparent;
-  width: 80px;
-  height: 40px;
-  color: white;
-  font-size: 26px;
-  border: none;
-}
-.currency-converter-wrap .to .dropdown-wrap .dropdown:focus {
-  outline: none;
-}
-.currency-converter-wrap .to {
-  margin-top: 15px;
-  text-align: start;
-  display: flex;
-  justify-content: space-between;
-  font-family: "Amiri-Bold";
-}
 .currency-converter-wrap .from .value-wrap {
   display: flex;
   align-items: center;
+}
+.currency-converter-wrap .to .value-wrap .value,
+.currency-converter-wrap .from .value-wrap .value {
+  display: block;
+  border-bottom: 1px solid #b7b7b7 !important;
+  text-align: center;
 }
 .currency-converter-wrap .from .value-wrap .value {
   width: 103px;
@@ -580,15 +554,25 @@ export default {
   font-family: "Poppins-Regular";
   font-size: 18px;
 }
+
+.currency-converter-wrap .to .value-wrap span.value{
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.currency-converter-wrap .to .dropdown-wrap,
 .currency-converter-wrap .from .dropdown-wrap {
   width: 100px;
   display: flex;
   flex-direction: column;
 }
+.currency-converter-wrap .to .dropdown-wrap .dropdown option,
 .currency-converter-wrap .from .dropdown-wrap .dropdown option {
   font-size: 16px;
   color: black;
 }
+.currency-converter-wrap .to .dropdown-wrap .dropdown,
 .currency-converter-wrap .from .dropdown-wrap .dropdown {
   background: transparent;
   width: 80px;
@@ -597,8 +581,16 @@ export default {
   font-size: 26px;
   border: none;
 }
+.currency-converter-wrap .to .dropdown-wrap .dropdown:focus,
 .currency-converter-wrap .from .dropdown-wrap .dropdown:focus {
   outline: none;
+}
+.currency-converter-wrap .to {
+  margin-top: 15px;
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Amiri-Bold";
 }
 .currency-converter-wrap .from {
   margin-top: 70px;
