@@ -20,7 +20,7 @@
             style="enable-background:new 0 0 50 50;"
             xml:space="preserve"
           >
-            <rect x="0" y="0" width="4" height="20" fill="#333">
+            <rect x="0" y="0" width="4" height="20" fill="#F8C61A">
               <animate
                 attributeName="opacity"
                 attributeType="XML"
@@ -30,7 +30,7 @@
                 repeatCount="indefinite"
               />
             </rect>
-            <rect x="7" y="0" width="4" height="20" fill="#333">
+            <rect x="7" y="0" width="4" height="20" fill="#F8C61A">
               <animate
                 attributeName="opacity"
                 attributeType="XML"
@@ -40,7 +40,7 @@
                 repeatCount="indefinite"
               />
             </rect>
-            <rect x="14" y="0" width="4" height="20" fill="#333">
+            <rect x="14" y="0" width="4" height="20" fill="#F8C61A">
               <animate
                 attributeName="opacity"
                 attributeType="XML"
@@ -82,9 +82,11 @@ export default {
 </script>
 
 <style scoped>
-svg path,
-svg rect {
-  fill: #ff6700;
+.latest-news .item-wrap .image-wrap svg{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
 }
 .latest-news {
   border: none;
@@ -99,7 +101,6 @@ svg rect {
 .latest-news .item-wrap .image-wrap .vue-load-image{
   height: 100%;
 }
-
 .latest-news .item-wrap img {
   width: 100%;
   height: 100%;
