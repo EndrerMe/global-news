@@ -2,7 +2,7 @@
   <div>
     <div class="mobile-notify-prompt-wrap" v-if="isShowSubscribeMobile">
       <div class="close-wrap" @click="closeSubscribeFull()">
-        <a class="close-button" href="#"></a>
+        <a class="close-button" href="#" @click="closeSubSubscribe()"></a>
       </div>
       <div class="text-wrap">
         <p>You subscribe on</p>
@@ -66,21 +66,21 @@ export default {
     });
   },
   methods: {
+    closeSubSubscribe() {
+      this.isShowSubscribeMobile = false;
+    },
     toggleCategories() {
       this.isShowCatogories = !this.isShowCatogories;
     },
-
     closeSubscribeMobile() {
       this.isShowSubscribeMobile = !this.isShowSubscribeMobile;
       if (this.isShowCatogories) {
         this.isShowCatogories = !this.isShowCatogories;
       }
     },
-
     subscribe() {
       subscriptionService.addSubscroption(this.email, this.categoryForSubscrive);  
     },
-
     changeCategory(category) {
       this.categoryForSubscrive = category;
       this.currentCategory = category;
