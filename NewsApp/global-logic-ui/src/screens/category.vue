@@ -113,6 +113,7 @@
       </div>
       <div class="right-side col-md-6">
         <div class="image-wrap right-side-top">
+          <div class="box-item-wrap" style="height:100%;"> 
           <div class="box-item">
             <div class="hover-link">
               <button @click="goToCurrentNews(secoundBlock)">Read More</button>
@@ -217,9 +218,11 @@
               </span>
             </div>
           </div>
+          </div>
         </div>
         <div class="right-side-bottom">
-          <div class="image-wrap col-md-6 col-sm-6 box-item left-item">
+          <div class="box-item-wrap  col-md-6 col-sm-6" > 
+          <div class="image-wrap box-item left-item">
             <div class="hover-link">
               <button @click="goToCurrentNews(thirdBlock)">Read More</button>
             </div>
@@ -323,7 +326,9 @@
               </span>
             </div>
           </div>
-          <div class="image-wrap col-md-6 col-sm-6 box-item right-item">
+          </div>
+         <div class="box-item-wrap col-md-6 col-sm-6"> 
+          <div class="image-wrap  box-item right-item">
             <div class="hover-link">
               <button @click="goToCurrentNews(fourthBlock)">Read More</button>
             </div>
@@ -426,6 +431,7 @@
                 <p>{{fourthBlock.title}}</p>
               </span>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -648,7 +654,7 @@ export default {
   justify-content: center;
   position: absolute;
   bottom: 0px;
-  top: 15px;
+  top: 0;
   left: 0;
   right: 0;
   position: absolute;
@@ -769,10 +775,19 @@ export default {
   justify-content: space-between;
   align-items: flex-end;
 }
-.top-box-preview .right-side-bottom .image-wrap {
+
+.top-box-preview .right-side-bottom .left-item,
+.top-box-preview .right-side-bottom .right-item{
+  height: 100%;
+}
+.top-box-preview .right-side-bottom .box-item-wrap{
   padding-top: 15px;
   height: 95%;
   max-width: 47%;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
 }
 .top-box-preview .right-side .right-side-top {
   height: 50%;
@@ -809,7 +824,7 @@ export default {
   cursor: pointer;
   z-index: 999;
 }
-.top-box-preview .right-side-bottom .gradient {
+.top-box-preview .right-side-bottom .box-item-wrap .gradient {
   position: absolute;
   top: 15px;
   bottom: 0;
@@ -968,10 +983,19 @@ svg rect {
     flex-direction: column;
     height: 100%;
   }
-  .top-box-preview .right-side-bottom .image-wrap,
-  .top-box-preview .right-side .right-side-top .box-item{
+  .top-box-preview .right-side-top .box-item{
     height: 100%;
     max-width: unset;
+    position: relative;
+    padding-bottom: 100%;
+  }
+   .top-box-preview .right-side-bottom .box-item-wrap{
+    max-width: unset;
+    padding-top: 0;
+    margin-top: 30px;
+   }
+  .top-box-preview .right-side-bottom .box-item{
+    height: 100%;
     position: relative;
     padding-bottom: 100%;
   }
@@ -981,9 +1005,6 @@ svg rect {
   .top-box-preview .right-side img{
     position: absolute;
     left: 0;
-  }
-  .top-box-preview .right-side-bottom .image-wrap{
-    padding-top: unset;
   }
   .top-box-preview .left-side .gradient{
     margin: 0 15px !important;
@@ -997,8 +1018,7 @@ svg rect {
     left: 15px;
     right: 15px;
   }
-  .top-box-preview .right-side .right-side-top .box-item,
-  .top-box-preview .right-side-bottom .image-wrap{
+  .top-box-preview .right-side .right-side-top .box-item{
     overflow: hidden;
   }
   .top-box-preview .left-side.box-item .hover-link{
@@ -1006,9 +1026,6 @@ svg rect {
   }
   .top-box-preview .right-side-top .box-item .hover-link{
     top: 0;
-  }
-  .top-box-preview .right-side-bottom .image-wrap{
-    margin-top: 30px;
   }
   .top-box-preview .right-side-bottom .hover-link{
     top: 0;
@@ -1027,6 +1044,9 @@ svg rect {
   .main-title-wrap .text {
     font-size: 18px;
     padding-left: 25px;
+  }
+  .top-box-preview .right-side-bottom .image-wrap{
+    position: unset;
   }
 }
 @media (max-width: 575px) {
