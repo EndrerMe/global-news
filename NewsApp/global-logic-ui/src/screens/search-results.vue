@@ -89,39 +89,22 @@
       </div>
       <div class="side-wrap" v-if="!isShowErrorMessage">
         <div class="side-menu-wrap">
-          <!-- <ul class="side-menu-sort">
-            <div class="menu-title-wrap">
-              <span class="title-text">Sort all news by</span>
-            </div>
-            <li>
-              <a href="#" @click='sortByFun("publishedAt")'>Date</a>
-            </li>
-            <li>
-              <a href="#" @click='sortByFun("popularity")'>Popularity</a>
-            </li>
-            <li>
-              <a href="#" @click='sortByFun("relevancy")'>Relevancy</a>
-            </li>
-          </ul>  -->
           <ul class="side-menu-sort">
             <div class="menu-title-wrap">
               <span class="title-text">Sort all news by</span>
             </div>
             <li v-bind:class="{ active: currentSort === 'publishedAt' }">
               <a href="#" @click='sortByFun("publishedAt")'>
-                <!-- <input type="checkbox" id="checkBoxDate"/> -->
                 <label>Date</label>
               </a>
             </li>
             <li v-bind:class="{ active: currentSort === 'popularity' }">
               <a href="#" @click='sortByFun("popularity")'>
-                <!-- <input type="checkbox" id="checkBoxPopularity"/> -->
                 <label>Popularity</label>
               </a>
             </li>
             <li v-bind:class="{ active: currentSort === 'relevancy' }">
               <a href="#" @click='sortByFun("relevancy")'>
-                <!-- <input type="checkbox" id="checkBoxRelevancy"/> -->
                 <label>Relevancy</label>
               </a>
             </li>
@@ -133,30 +116,8 @@
             <div class="menu-title-wrap">
               <span class="title-text">Search across</span>
             </div>
-            <!-- <li>
-              <a href="#" @click='searchByCategoryFun("business")'>Business</a>
-            </li>
-            <li>
-              <a href="#" @click='searchByCategoryFun("entertainment")'>Entertainment</a>
-            </li>
-            <li>
-              <a href="#" @click='searchByCategoryFun("general")'>General</a>
-            </li>
-            <li>
-              <a href="#" @click='searchByCategoryFun("health")'>Health</a>
-            </li>
-            <li>
-              <a href="#" @click='searchByCategoryFun("science")'>Science</a>
-            </li>
-            <li>
-              <a href="#" @click='searchByCategoryFun("sport")'>Sport</a>
-            </li>
-            <li>
-              <a href="#" @click='searchByCategoryFun("technology")'>Technology</a>
-            </li>  -->
             <li v-for='category of categories' :key='category' v-bind:class="{ active: currentFilter === category }">
               <a href="#" @click='searchByCategoryFun(category)'>
-                <!-- <input type="checkbox" id="checkBoxBusiness"/> -->
                 <label>{{category}}</label>
               </a>
             </li>

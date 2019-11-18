@@ -18,7 +18,7 @@
             style="enable-background:new 0 0 50 50;"
             xml:space="preserve"
           >
-            <rect x="0" y="0" width="4" height="20" fill="#333">
+            <rect x="0" y="0" width="4" height="20" fill="#F8C61A">
               <animate
                 attributeName="opacity"
                 attributeType="XML"
@@ -28,7 +28,7 @@
                 repeatCount="indefinite"
               />
             </rect>
-            <rect x="7" y="0" width="4" height="20" fill="#333">
+            <rect x="7" y="0" width="4" height="20" fill="#F8C61A">
               <animate
                 attributeName="opacity"
                 attributeType="XML"
@@ -38,7 +38,7 @@
                 repeatCount="indefinite"
               />
             </rect>
-            <rect x="14" y="0" width="4" height="20" fill="#333">
+            <rect x="14" y="0" width="4" height="20" fill="#F8C61A">
               <animate
                 attributeName="opacity"
                 attributeType="XML"
@@ -49,6 +49,7 @@
               />
             </rect>
           </svg>
+
           <div slot="error">error message</div>
         </vue-load-image>
         <div class="title-wrap">
@@ -92,6 +93,12 @@ export default {
 </script>
 
 <style scoped>
+.new-card .image-wrap svg{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
 .vue-load-image{
   height: 100%;
 }
@@ -251,10 +258,5 @@ export default {
   .new-card .image-wrap{
     height: 216px;
   }
-}
-
-svg path,
-svg rect {
-  fill: #ff6700;
 }
 </style>
