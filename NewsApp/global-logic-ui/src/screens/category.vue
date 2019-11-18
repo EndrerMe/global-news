@@ -442,7 +442,7 @@
       <cardCategory v-for="news of currentNews" :key="news.title" :news="news" :category="category"></cardCategory>
       </b-card-group>
 
-      <categoryPagination :pageNumber="pageNumber" @changePage="changePage"></categoryPagination>
+      <categoryPagination :pageNumber="pageNumber" @changePage="changePage" :key="componentKey"></categoryPagination>
     </div>
   </div>
 </template>
@@ -466,6 +466,7 @@ export default {
   data() {
     return {
       currentNews: [],
+      componentKey: 0,
       category: null,
       firstBlock: {
         title: "",
@@ -518,6 +519,7 @@ export default {
   },
   watch: {
     $route(to) {
+      this.componentKey += 1;
       if (to.params.category) {
         this.currentNews = [];
         this.firstBlock = [];

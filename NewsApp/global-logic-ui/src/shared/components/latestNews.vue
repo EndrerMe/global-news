@@ -3,7 +3,7 @@
     <div class="title-wrap">
       <span class="text">Latest News</span>
     </div>
-    <div class="item-wrap" v-for="news of latestNews" :key="news.title">
+    <div class="item-wrap" v-for="news of latestNews" :key="news.title" @click='changeCurrentNews(news)'>
       <div class="image-wrap">
         <vue-load-image>
           <img slot=image :src="news.urlToImage" />
@@ -72,6 +72,12 @@ export default {
   components: {
     'vue-load-image': VueLoadImage,
   },
+  methods: {
+    changeCurrentNews(news) {
+      const category = this.category;
+      this.$emit('changeCurrentNews', {news, category})
+    }
+  }
 };
 </script>
 

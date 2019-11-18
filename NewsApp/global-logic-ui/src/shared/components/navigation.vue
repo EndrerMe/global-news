@@ -6,39 +6,49 @@
           <b-nav-item>
             <router-link
               class="link"
+              v-bind:class="{ active: currentCutegory === 'business' }" 
               :to="{ name: `category`, params: {category: 'business'} }"
             >Business</router-link>
           </b-nav-item>
           <b-nav-item>
             <router-link
               class="link"
+              v-bind:class="{ active: currentCutegory === 'entertainment' }" 
               :to="{ name: `category`, params: {category: 'entertainment'} }"
             >Entertainment</router-link>
           </b-nav-item>
           <b-nav-item>
             <router-link
               class="link"
+              v-bind:class="{ active: currentCutegory === 'general' }" 
               :to="{ name: `category`, params: {category: 'general'} }"
             >General</router-link>
           </b-nav-item>
           <b-nav-item>
             <router-link
               class="link"
+              v-bind:class="{ active: currentCutegory === 'health' }" 
               :to="{ name: `category`, params: {category: 'health'} }"
             >Health</router-link>
           </b-nav-item>
           <b-nav-item>
             <router-link
               class="link"
+              v-bind:class="{ active: currentCutegory === 'science' }" 
               :to="{ name: `category`, params: {category: 'science'} }"
             >Science</router-link>
           </b-nav-item>
           <b-nav-item>
-            <router-link class="link" :to="{ name: `category`, params: {category: 'sport'} }">Sport</router-link>
+            <router-link 
+              class="link" 
+              v-bind:class="{ active: currentCutegory === 'sport' }" 
+              :to="{ name: `category`,params: {category: 'sport'} }"
+            >Sport</router-link>
           </b-nav-item>
           <b-nav-item>
             <router-link
               class="link"
+              v-bind:class="{ active: currentCutegory === 'technology' }" 
               :to="{ name: `category`, params: {category: 'technology'} }"
             >Technology</router-link>
           </b-nav-item>
@@ -49,8 +59,28 @@
 </template>
 
 <script>
+import EventBus from "@/eventBus";
+
 export default {
-  name: "navigationDesctop"
+  name: "navigationDesctop",
+  data() {
+    return {
+      currentCutegory: '',
+    }
+  },
+  methods: {
+    changePaginationToFirstPage() {
+      EventBus.$emit("toFirstPage");
+    }
+  },
+  created() {
+    this.currentCutegory = this.$route.params.category;
+  },
+  watch: {
+    $route(to) {
+      this.currentCutegory = to.params.category;
+    }
+  }
 };
 </script>
 

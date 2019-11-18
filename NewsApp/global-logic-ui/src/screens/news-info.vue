@@ -166,7 +166,7 @@
           </b-card>
 
           <!-- Latest News -->
-          <latestNews class="col-sm-12" :latestNews="getNews" :category='category'></latestNews>
+          <latestNews class="col-sm-12" :latestNews="getNews" :category='category' @changeCurrentNews='changeCurrentNews($event)'></latestNews>
         </b-card-group>
       </div>
     </div>
@@ -196,7 +196,14 @@ export default {
   name: "newsInfo",
   computed: mapGetters(["getNews"]),
   methods: {
-    ...mapActions(["getNewsData"])
+    ...mapActions(["getNewsData"]),
+
+    changeCurrentNews(e) {
+      this.currentNews = e.news;
+      this.category = e.category;
+      const category = e.category;
+      this.getNewsData({ category: category, limit: 3, page: 1 });
+    }
   },
   async mounted() {
     this.news = this.$route.params.news;
@@ -212,7 +219,7 @@ export default {
     }
     const category = this.currentCategory;
     this.getNewsData({ category: category, limit: 3, page: 1 });
-  }
+  },
 };
 </script>
 

@@ -13,7 +13,7 @@
           </span>
 
           <ul class="currency-dropdown-from" v-if="isShowRatesFrom">
-            <template v-for="value of ratesName">
+            <template v-for="value of getRatesName">
               <li
                 class="hidden-elem"
                 :key="value"
@@ -28,17 +28,18 @@
       </div>
       <div class="value-wrap">
         <input
+          @focus='inputInFocus()'
           class="value"
           value="100"
           v-on:input="changeAmount($event)"
-          type="number"
+          type="text"
           placeholder="Amount"
         />
       </div>
     </div>
 
     <div class="convert-icon">
-      <img src="@/assets/images/header/change-arrows.svg" alt="logo" />
+      <img src="@/assets/images/header/change-arrows.svg" alt="logo" @click='swapRates()'/>
     </div>
     <div class="to">
       <div class="dropdown-wrap" selected>
@@ -84,7 +85,7 @@
 <script>
 // Vendors
 import _ from "lodash";
-import {mapGetters} from 'vuex'
+import {mapGetters} from 'vuex';
 // Services
 import ratesService from "@/shared/services/rates.service";
 // Events
@@ -105,6 +106,7 @@ export default {
       exchangeTo: "",
       exchangeName: "EUR",
       rateAmount: 100,
+      amountValue: 100,
       retesCouples: {
         first: {
           eur: this.rateAmount,
@@ -127,6 +129,7 @@ export default {
     ratesService.getRates(this.currentRate).then(res => {
       for (let i in res.data.rates) {
         this.ratesName.push(i);
+        this.ratesName.sort();
       }
       this.ratesValue = res.data.rates;
       this.exchangeTo = this.ratesValue[this.exchangeName] * this.rateAmount;
@@ -225,6 +228,43 @@ export default {
     toggleCurrentRates() {
       this.isShowRatesTo = false;
       this.isShowRatesFrom = !this.isShowRatesFrom;
+    },
+
+    inputInFocus() {
+      this.isShowRatesTo = false;
+      this.isShowRatesFrom = false;
+    },
+
+    swapRates() {
+      const currentRate = this.currentRate;
+      const ratesTo = this.exchangeName;
+
+      this.currentRate = ratesTo;
+      this.exchangeName = currentRate;
+
+      ratesService.getRates(ratesTo).then(res => {
+        this.rates = res.data.rates;
+        this.exchangeTo = this.rates[this.exchangeName] * this.rateAmount;
+        this.exchangeTo = this.exchangeTo + "";
+        this.exchangeTo = this.exchangeTo.split(".");
+        let array = this.exchangeTo[0].split("");
+        this.exchangeTo[0] = "";
+        for (let i = 0; i < array.length; i++) {
+          if (array.length > 3) {
+            if (i % 3 == 0) {
+              if (i < array.length - 1) {
+                array[i] = array[i] + ",";
+              } else {
+                continue;
+              }
+            }
+          }
+        }
+        this.exchangeTo[0] = array.join("");
+        this.exchangeTo[1] = this.exchangeTo[1].slice(0, 4);
+
+        this.isLoaderShow = false;
+      });
     },
 
     toggleExchangeRates() {

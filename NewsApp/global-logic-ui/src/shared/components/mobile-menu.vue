@@ -33,7 +33,7 @@
                 <span>Tuesday</span>
                 </div>
                 <div class="sub-item">
-                <button @click="showSubscribeFullFun()">Subscribe Us</button>
+                <button @click="showSubscribeMobileFun()">Subscribe Us</button>
                 </div>
             </div>
             </b-nav-item>
@@ -42,6 +42,9 @@
 </template>
 
 <script>
+// Events
+import EventBus from '@/eventBus';
+
 export default {
     name: 'mobileMenu',
     props: ['isShowSideMenu'],
@@ -58,6 +61,10 @@ export default {
         goToConverter() {
           this.$router.push({name: "converter-mobile"});
           this.$emit('toggleMobileSideMenu', {state: false});
+        },
+
+        showSubscribeMobileFun() {
+          EventBus.$emit("toggleMobileSubscrive");
         }
     }
 }
