@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="notify-prompt-wrap" v-if="isShowSubscribeMobile">
+    <div class="mobile-notify-prompt-wrap" v-if="isShowSubscribeMobile">
       <div class="close-wrap" @click="closeSubscribeFull()">
         <a class="close-button" href="#"></a>
       </div>
@@ -91,72 +91,72 @@ export default {
 </script>
 
 <style scoped>
-.notify-prompt-wrap .currency-dropdown {
+.mobile-notify-prompt-wrap .currency-dropdown {
   position: absolute;
   list-style: none;
   padding-left: 0;
   z-index: 99999;
   top: 50px;
 }
-.notify-prompt-wrap .dropdown-wrap {
+.mobile-notify-prompt-wrap .dropdown-wrap {
   position: relative;
   display: flex;
   justify-content: center;
   font-family: "Amiri-Bold";
 }
-.notify-prompt-wrap .dropdown-wrap .icon-wrap {
+.mobile-notify-prompt-wrap .dropdown-wrap .icon-wrap {
   margin-left: 4px;
   display: flex;
   align-items: center;
 }
-.notify-prompt-wrap .dropdown-wrap .first-elem {
+.mobile-notify-prompt-wrap .dropdown-wrap .first-elem {
   font-size: 40px;
   display: flex;
 }
-.notify-prompt-wrap .dropdown-wrap .first-elem:hover{
+.mobile-notify-prompt-wrap .dropdown-wrap .first-elem:hover{
   cursor:pointer;
 
 }
-.notify-prompt-wrap .dropdown-wrap svg {
+.mobile-notify-prompt-wrap .dropdown-wrap svg {
   font-size: 14px;
   color: #f8c61a;
 }
-.notify-prompt-wrap .dropdown-wrap li {
+.mobile-notify-prompt-wrap .dropdown-wrap li {
   display: flex;
   width: 100%;
   background: white;
   padding: 0 5px;
 }
-.notify-prompt-wrap .dropdown-wrap li:hover {
+.mobile-notify-prompt-wrap .dropdown-wrap li:hover {
   background: #f8c61a;
   cursor: pointer;
 }
-.notify-prompt-wrap .dropdown-wrap li span {
+.mobile-notify-prompt-wrap .dropdown-wrap li span {
   color: #3f3f3f;
   font-size: 16px;
   padding: 2px 0;
 }
 
-.notify-prompt-wrap .text-wrap p {
+.mobile-notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
 }
-.notify-prompt-wrap .news-dropdown {
+.mobile-notify-prompt-wrap .news-dropdown {
   background: transparent;
   color: white;
   border: none;
 }
-.notify-prompt-wrap .news-dropdown option {
+.mobile-notify-prompt-wrap .news-dropdown option {
   color: black;
 }
-.notify-prompt-wrap .send-email-wrap {
+.mobile-notify-prompt-wrap .send-email-wrap {
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
 }
-.notify-prompt-wrap .button-wrap {
+.mobile-notify-prompt-wrap .button-wrap {
   margin-top: 23px;
 }
-.notify-prompt-wrap .email-wrap input {
+.mobile-notify-prompt-wrap .email-wrap input {
   color: #eaeaea;
   display: block;
   width: 100%;
@@ -167,7 +167,7 @@ export default {
   font-family: 'Poppins-Regular';
   font-size: 22px;
 }
-.notify-prompt-wrap .button-wrap button {
+.mobile-notify-prompt-wrap .button-wrap button {
   width: 100%;
   height: 40px;
   background-color: #f8c61a;
@@ -179,10 +179,10 @@ export default {
   font-family: "Poppins-SemiBold";
   color: #052962;
 }
-.notify-prompt-wrap .button-wrap button:hover {
+.mobile-notify-prompt-wrap .button-wrap button:hover {
   background-color: #ffe076;
 }
-.notify-prompt-wrap {
+.mobile-notify-prompt-wrap {
   width: 100%;
   padding: 55px 16px;
   border: 1px solid;
@@ -190,10 +190,10 @@ export default {
   top: 50%;
   transform: translate(0,-50%);
   background-color: #052962;
-  z-index: 999999;
+  z-index: 9999999;
   text-align: center;
 }
-.notify-prompt-wrap .close-wrap a {
+.mobile-notify-prompt-wrap .close-wrap a {
   width: 18px;
   height: 18px;
   display: inline-block;
@@ -201,7 +201,7 @@ export default {
   top: 24px;
   right: 23px;
 }
-.notify-prompt-wrap .close-wrap a::before {
+.mobile-notify-prompt-wrap .close-wrap a::before {
   position: absolute;
   content: "";
   width: 27px;
@@ -211,7 +211,7 @@ export default {
   right: 0px;
   transform: rotate(45deg);
 }
-.notify-prompt-wrap .close-wrap a::after {
+.mobile-notify-prompt-wrap .close-wrap a::after {
   position: absolute;
   content: "";
   width: 27px;
@@ -221,34 +221,34 @@ export default {
   right: 0px;
   transform: rotate(-45deg);
 }
-.notify-prompt-wrap .text-wrap {
+.mobile-notify-prompt-wrap .text-wrap {
   margin-top: 35px;
   color: white;
 }
 
-.notify-prompt-wrap .text-wrap .dropdown{
+.mobile-notify-prompt-wrap .text-wrap .dropdown{
   margin-bottom: 0;
 }
-.notify-prompt-wrap .wropdown-arrow {
+.mobile-notify-prompt-wrap .wropdown-arrow {
   margin-left: 10px;
   font-size: 20px;
   font-size: 14px;
 }
-.notify-prompt-wrap .text-wrap p {
+.mobile-notify-prompt-wrap .text-wrap p {
   color: #eaeaea;
   font-family: 'Poppins-Regular';
   font-size: 18px;
 }
-.notify-prompt-wrap .send-email-wrap {
+.mobile-notify-prompt-wrap .send-email-wrap {
   width:100%;
   display: inline-flex;
   flex-direction: column;
   margin-top: 10px;
 }
-.notify-prompt-wrap .button-wrap {
+.mobile-notify-prompt-wrap .button-wrap {
   margin-top: 23px;
 }
-.notify-prompt-wrap .email-wrap span {
+.mobile-notify-prompt-wrap .email-wrap span {
   color: #eaeaea;
   display: block;
   width: 100%;
