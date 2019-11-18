@@ -3,7 +3,58 @@
     <b-card class="mb-2 new-card">
       <div class="image-wrap">
         <div class="gradient"></div>
+
+        <vue-load-image>
         <b-card-img slot="image" :src="news.urlToImage"></b-card-img>
+
+          <svg slot='preloader'
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="54px"
+            height="80px"
+            viewBox="0 0 24 30"
+            style="enable-background:new 0 0 50 50;"
+            xml:space="preserve"
+          >
+            <rect x="0" y="0" width="4" height="20" fill="#F8C61A">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+            <rect x="7" y="0" width="4" height="20" fill="#F8C61A">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0.2s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+            <rect x="14" y="0" width="4" height="20" fill="#F8C61A">
+              <animate
+                attributeName="opacity"
+                attributeType="XML"
+                values="1; .2; 1"
+                begin="0.4s"
+                dur="1s"
+                repeatCount="indefinite"
+              />
+            </rect>
+          </svg>
+
+          <div slot="error">error message</div>
+        </vue-load-image>
+
         <div class="gradient"></div>
         <div class="title-wrap">
           <span class="title">
@@ -23,13 +74,24 @@
 </template>
 
 <script>
+import VueLoadImage from 'vue-load-image';
+
 export default {
   props: ["news"],
-  name: "cardSearchResult"
+  name: "cardSearchResult",
+  components: {
+    'vue-load-image': VueLoadImage,
+  }
 };
 </script>
 
 <style scoped>
+.new-card .image-wrap svg{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
 .new-card {
   border: none !important;
   margin-bottom: 50px !important;
