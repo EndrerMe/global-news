@@ -41,7 +41,7 @@
                     begin="0.2s"
                     dur="1s"
                     repeatCount="indefinite"
-                  />
+                  /> 
                 </rect>
                 <rect x="14" y="0" width="4" height="20" fill="#F8C61A">
                   <animate
