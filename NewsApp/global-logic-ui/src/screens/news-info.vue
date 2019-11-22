@@ -59,11 +59,11 @@
             <span class="category-wrap">CATEGORY TEST</span>
             </div>
 
-            <!-- <template v-slot:footer>
-              <small class="text-muted">{{ currentNews.publishedAt | moment("from", "now") }}</small>
-              <small class="text-muted">{{ currentNews.source.name }}</small>
-            </template>
- -->
+            <div class="published-box" v-if='showTopPublishedBox'>
+              <span>{{ currentNews.publishedAt | moment("from", "now") }}</span>
+              <span>test</span>
+            </div>
+
             <div class="description-wrap">
               <p>{{ currentNews.content }}</p>
             </div>
@@ -190,7 +190,8 @@ export default {
       news: [],
       category: "",
       currentNews: [],
-      currentCategory: ""
+      currentCategory: "",
+      showTopPublishedBox:false
     };
   },
   name: "newsInfo",
@@ -203,6 +204,14 @@ export default {
       this.category = e.category;
       const category = e.category;
       this.getNewsData({ category: category, limit: 3, page: 1 });
+    },
+    getWindowWidth() {
+      const windowWidth = document.documentElement.clientWidth;
+      if (windowWidth < 768) {
+        this.showTopPublishedBox = true;
+      } else {
+        this.showTopPublishedBox = false;
+      }
     }
   },
   async mounted() {
@@ -219,6 +228,10 @@ export default {
     }
     const category = this.currentCategory;
     this.getNewsData({ category: category, limit: 3, page: 1 });
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.getWindowWidth);
+      this.getWindowWidth()
+    })
   },
 };
 </script>
@@ -296,6 +309,16 @@ export default {
   position: absolute;
   left: 22px;
 }
+.card-wrap .new-info .published-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0 20px 0;
+}
+.card-wrap .new-info .published-box span{
+  color:#C3C3C3;
+  font-family: 'Poppins-Regular';
+  font-size: 12px;
+}
 .card-wrap .new-info .title-wrap {
   text-align: start;
   padding: 30px 0;
@@ -307,7 +330,6 @@ export default {
   text-transform: uppercase;
   font-family: 'Amiri-Bold';
 }
-
 .card-wrap .new-info .news-published {
   display: inline-block;
   color: #c3c3c3;
@@ -315,7 +337,6 @@ export default {
   border: none;
   font-family: "Poppins-Regular";
 }
-
 .card-wrap .new-info .description-wrap {
   text-align: start;
   max-width: 1082px;
@@ -339,6 +360,7 @@ export default {
   }
   .card-wrap .new-info .description-wrap {
     font-size: 14px !important;
+    padding-top: 25px;
   }
   .card-wrap .new-info .card-text {
     font-size: 12px !important;
@@ -348,6 +370,9 @@ export default {
   }
   .card-wrap .new-info .image-wrap{
     height: 264px;
+  }
+  .card-wrap .new-info .news-published{
+    font-size: 12px;
   }
 }
 @media (max-width: 767px) {
@@ -375,8 +400,9 @@ export default {
   .card-wrap .new-info .title-wrap .text{
     font-size: 18px !important;
   }
-    .card-wrap .new-info .description-wrap {
+  .card-wrap .new-info .description-wrap {
     font-size: 16px !important;
+    padding-top:0;
   }
   .card-wrap .new-info .image-wrap{
     height: unset;
