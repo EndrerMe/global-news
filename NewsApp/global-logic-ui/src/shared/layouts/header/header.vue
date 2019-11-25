@@ -91,7 +91,7 @@
                         v-model="searchValue"
                       />
                     </div>
-                    <div class="bell active" @click="showSubscribeFullFun()">
+                    <div class="bell" @click="showSubscribeFullFun()" v-bind:class="{ active: isBellActive}">
                       <a href="#">
                         <font-awesome-icon icon="bell" class="fa-lg" />
                       </a>
@@ -142,6 +142,7 @@ export default {
   computed: mapGetters(["getWeatherData", "getSearchRes"]),
   data() {
     return {
+      isBellActive:true,
       isShowLogo: true,
       isShowNavigation: true,
       isCelsius: true,
@@ -192,10 +193,18 @@ export default {
       isPageWithoutNav: false,
     };
   },
-  methods: {
+      methods: {
     ...mapActions(["search"]),
 
-    getWindowWidth() {
+  anableBell: function () {
+    this.isBellActive=true;
+  },
+
+  disableBell: function () {
+    this.isBellActive=false;
+  },
+
+getWindowWidth() {
       this.windowWidth = document.documentElement.clientWidth;
       if (this.windowWidth <= 767) {
         if (this.isSearchRes) {
@@ -288,6 +297,9 @@ export default {
     }
   },
   mounted() {
+    setInterval(() => this.disableBell(), 14000);
+    setInterval(() => setTimeout(() => this.anableBell(), 1000), 14000);
+
     this.$nextTick(function() {
       window.addEventListener('resize', this.getWindowWidth);
       window.addEventListener('resize', this.getWindowHeight);
