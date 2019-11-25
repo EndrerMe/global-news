@@ -1,8 +1,7 @@
 <template>
   <div>
     <div
-      class="subscribe-prompt-wrap"
-      v-wow="{ 'animation-name': 'bounceInRight','animation-duration': '1s' }"
+      class="subscribe-prompt-wrap" 
       v-if="isShowSubscribe"
     >
       <div class="close-wrap" @click="closeSubSubscribe()">
@@ -313,12 +312,31 @@ export default {
   padding-bottom: 40px;
   border: 1px solid;
   position: absolute;
-  right: 0px;
+  right: -3600px;
   top: 101px;
   background-color: #052962;
   z-index: 9999;
   text-align: center;
+  animation: moveTestSubscribe 1s 10ds;
+  -webkit-animation: moveTestSubscribe 1s 10s;
+  animation-fill-mode: forwards;
 }
+
+@keyframes moveTestSubscribe{
+  0%{
+    right: -3600px;
+  }
+    70%{
+    right: 10px;
+  }
+      80%{
+    right: -10px;
+  }
+      100%{
+    right: 0px;
+  }
+}
+
 .subscribe-prompt-wrap .close-wrap a {
   width: 18px;
   height: 18px;
